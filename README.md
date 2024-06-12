@@ -1,8 +1,8 @@
-# Prompt Foundry Sdk Python API library
+# Prompt Foundry Python API library
 
 [![PyPI version](https://img.shields.io/pypi/v/prompt-foundry-sdk.svg)](https://pypi.org/project/prompt-foundry-sdk/)
 
-The Prompt Foundry Sdk Python library provides convenient access to the Prompt Foundry Sdk REST API from any Python 3.7+
+The Prompt Foundry Python library provides convenient access to the Prompt Foundry REST API from any Python 3.7+
 application. The library includes type definitions for all request params and response fields,
 and offers both synchronous and asynchronous clients powered by [httpx](https://github.com/encode/httpx).
 
@@ -10,7 +10,7 @@ It is generated with [Stainless](https://www.stainlessapi.com/).
 
 ## Documentation
 
-The REST API documentation can be found [on docs.prompt-foundry-sdk.com](https://docs.prompt-foundry-sdk.com). The full API of this library can be found in [api.md](api.md).
+The REST API documentation can be found [on docs.promptfoundry.ai](https://docs.promptfoundry.ai). The full API of this library can be found in [api.md](api.md).
 
 ## Installation
 
@@ -27,9 +27,9 @@ pip install git+ssh://git@github.com/stainless-sdks/prompt-foundry-sdk-python.gi
 The full API of this library can be found in [api.md](api.md).
 
 ```python
-from prompt-foundry-sdk import PromptFoundrySdk
+from prompt-foundry-sdk import PromptFoundry
 
-client = PromptFoundrySdk()
+client = PromptFoundry()
 
 prompt_configuration = client.prompts.create(
     messages=[{
@@ -141,13 +141,13 @@ so that your API Key is not stored in source control.
 
 ## Async usage
 
-Simply import `AsyncPromptFoundrySdk` instead of `PromptFoundrySdk` and use `await` with each API call:
+Simply import `AsyncPromptFoundry` instead of `PromptFoundry` and use `await` with each API call:
 
 ```python
 import asyncio
-from prompt-foundry-sdk import AsyncPromptFoundrySdk
+from prompt-foundry-sdk import AsyncPromptFoundry
 
-client = AsyncPromptFoundrySdk()
+client = AsyncPromptFoundry()
 
 async def main() -> None:
   prompt_configuration = await client.prompts.create(
@@ -277,9 +277,9 @@ All errors inherit from `prompt-foundry-sdk.APIError`.
 
 ```python
 import prompt-foundry-sdk
-from prompt-foundry-sdk import PromptFoundrySdk
+from prompt-foundry-sdk import PromptFoundry
 
-client = PromptFoundrySdk()
+client = PromptFoundry()
 
 try:
     client.prompts.create(
@@ -415,10 +415,10 @@ Connection errors (for example, due to a network connectivity problem), 408 Requ
 You can use the `max_retries` option to configure or disable retry settings:
 
 ```python
-from prompt-foundry-sdk import PromptFoundrySdk
+from prompt-foundry-sdk import PromptFoundry
 
 # Configure the default for all requests:
-client = PromptFoundrySdk(
+client = PromptFoundry(
     # default is 2
     max_retries=0,
 )
@@ -532,16 +532,16 @@ By default requests time out after 1 minute. You can configure this with a `time
 which accepts a float or an [`httpx.Timeout`](https://www.python-httpx.org/advanced/#fine-tuning-the-configuration) object:
 
 ```python
-from prompt-foundry-sdk import PromptFoundrySdk
+from prompt-foundry-sdk import PromptFoundry
 
 # Configure the default for all requests:
-client = PromptFoundrySdk(
+client = PromptFoundry(
     # 20 seconds (default is 1 minute)
     timeout=20.0,
 )
 
 # More granular control:
-client = PromptFoundrySdk(
+client = PromptFoundry(
     timeout=httpx.Timeout(60.0, read=5.0, write=10.0, connect=2.0),
 )
 
@@ -658,10 +658,10 @@ Note that requests that time out are [retried twice by default](#retries).
 
 We use the standard library [`logging`](https://docs.python.org/3/library/logging.html) module.
 
-You can enable logging by setting the environment variable `PROMPT_FOUNDRY_SDK_LOG` to `debug`.
+You can enable logging by setting the environment variable `PROMPT_FOUNDRY_LOG` to `debug`.
 
 ```shell
-$ export PROMPT_FOUNDRY_SDK_LOG=debug
+$ export PROMPT_FOUNDRY_LOG=debug
 ```
 
 ### How to tell whether `None` means `null` or missing
@@ -681,9 +681,9 @@ if response.my_field is None:
 The "raw" Response object can be accessed by prefixing `.with_raw_response.` to any HTTP method call, e.g.,
 
 ```py
-from prompt-foundry-sdk import PromptFoundrySdk
+from prompt-foundry-sdk import PromptFoundry
 
-client = PromptFoundrySdk()
+client = PromptFoundry()
 response = client.prompts.with_raw_response.create(
     messages=[{
         "content": "string",
@@ -953,10 +953,10 @@ You can directly override the [httpx client](https://www.python-httpx.org/api/#c
 - Additional [advanced](https://www.python-httpx.org/advanced/#client-instances) functionality
 
 ```python
-from prompt-foundry-sdk import PromptFoundrySdk, DefaultHttpxClient
+from prompt-foundry-sdk import PromptFoundry, DefaultHttpxClient
 
-client = PromptFoundrySdk(
-    # Or use the `PROMPT_FOUNDRY_SDK_BASE_URL` env var
+client = PromptFoundry(
+    # Or use the `PROMPT_FOUNDRY_BASE_URL` env var
     base_url="http://my.test.server.example.com:8083",
     http_client=DefaultHttpxClient(proxies="http://my.test.proxy.example.com", transport=httpx.HTTPTransport(local_address="0.0.0.0")),
 )

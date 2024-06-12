@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import httpx
 
-from prompt-foundry-sdk import PromptFoundrySdk, AsyncPromptFoundrySdk
+from prompt-foundry-sdk import PromptFoundry, AsyncPromptFoundry
 
 from prompt-foundry-sdk._exceptions import APITimeoutError, APIStatusError, APIResponseValidationError
 
@@ -25,7 +25,7 @@ import httpx
 import pytest
 from respx import MockRouter
 
-from prompt-foundry-sdk import PromptFoundrySdk, AsyncPromptFoundrySdk, APIResponseValidationError
+from prompt-foundry-sdk import PromptFoundry, AsyncPromptFoundry, APIResponseValidationError
 from prompt-foundry-sdk._models import FinalRequestOptions, BaseModel
 from prompt-foundry-sdk._types import NOT_GIVEN, Headers, NotGiven, Query, Body, Timeout, Omit
 from prompt-foundry-sdk._base_client import DEFAULT_TIMEOUT, HTTPX_DEFAULT_TIMEOUT, BaseClient, RequestOptions, make_request_options
@@ -47,15 +47,15 @@ def _get_params(client: BaseClient[Any, Any]) -> dict[str, str]:
 def _low_retry_timeout(*_args: Any, **_kwargs: Any) -> float:
     return 0.1
 
-def _get_open_connections(client: PromptFoundrySdk | AsyncPromptFoundrySdk) -> int:
+def _get_open_connections(client: PromptFoundry | AsyncPromptFoundry) -> int:
     transport = client._client._transport
     assert isinstance(transport, httpx.HTTPTransport) or isinstance(transport, httpx.AsyncHTTPTransport)
 
     pool = transport._pool
     return len(pool._requests)
 
-class TestPromptFoundrySdk:
-    client = PromptFoundrySdk(base_url=base_url, api_key=api_key, _strict_response_validation=True)
+class TestPromptFoundry:
+    client = PromptFoundry(base_url=base_url, api_key=api_key, _strict_response_validation=True)
 
     @pytest.mark.respx(base_url=base_url)
     def test_raw_response(self, respx_mock: MockRouter) -> None:
@@ -100,7 +100,7 @@ class TestPromptFoundrySdk:
         assert isinstance(self.client.timeout, httpx.Timeout)
 
     def test_copy_default_headers(self) -> None:
-        client = PromptFoundrySdk(base_url=base_url, api_key=api_key, _strict_response_validation=True, default_headers={
+        client = PromptFoundry(base_url=base_url, api_key=api_key, _strict_response_validation=True, default_headers={
             "X-Foo": "bar"
         })
         assert client.default_headers['X-Foo'] == 'bar'
@@ -134,7 +134,7 @@ class TestPromptFoundrySdk:
           client.copy(set_default_headers={}, default_headers={'X-Foo': 'Bar'})
 
     def test_copy_default_query(self) -> None:
-        client = PromptFoundrySdk(base_url=base_url, api_key=api_key, _strict_response_validation=True, default_query={
+        client = PromptFoundry(base_url=base_url, api_key=api_key, _strict_response_validation=True, default_query={
             "foo": "bar"
         })
         assert _get_params(client)['foo'] == 'bar'
@@ -259,7 +259,7 @@ class TestPromptFoundrySdk:
         assert timeout == httpx.Timeout(100.0)
 
     def test_client_timeout_option(self) -> None:
-        client = PromptFoundrySdk(base_url=base_url, api_key=api_key, _strict_response_validation=True, timeout=httpx.Timeout(0))
+        client = PromptFoundry(base_url=base_url, api_key=api_key, _strict_response_validation=True, timeout=httpx.Timeout(0))
 
         request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
         timeout = httpx.Timeout(**request.extensions["timeout"])  # type: ignore
@@ -268,7 +268,7 @@ class TestPromptFoundrySdk:
     def test_http_client_timeout_option(self) -> None:
         # custom timeout given to the httpx client should be used
         with httpx.Client(timeout=None) as http_client:
-          client = PromptFoundrySdk(base_url=base_url, api_key=api_key, _strict_response_validation=True, http_client=http_client)
+          client = PromptFoundry(base_url=base_url, api_key=api_key, _strict_response_validation=True, http_client=http_client)
 
           request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
           timeout = httpx.Timeout(**request.extensions["timeout"])  # type: ignore
@@ -276,7 +276,7 @@ class TestPromptFoundrySdk:
 
         # no timeout given to the httpx client should not use the httpx default
         with httpx.Client() as http_client:
-          client = PromptFoundrySdk(base_url=base_url, api_key=api_key, _strict_response_validation=True, http_client=http_client)
+          client = PromptFoundry(base_url=base_url, api_key=api_key, _strict_response_validation=True, http_client=http_client)
 
           request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
           timeout = httpx.Timeout(**request.extensions["timeout"])  # type: ignore
@@ -284,7 +284,7 @@ class TestPromptFoundrySdk:
 
         # explicitly passing the default timeout currently results in it being ignored
         with httpx.Client(timeout=HTTPX_DEFAULT_TIMEOUT) as http_client:
-          client = PromptFoundrySdk(base_url=base_url, api_key=api_key, _strict_response_validation=True, http_client=http_client)
+          client = PromptFoundry(base_url=base_url, api_key=api_key, _strict_response_validation=True, http_client=http_client)
 
           request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
           timeout = httpx.Timeout(**request.extensions["timeout"])  # type: ignore
@@ -293,17 +293,17 @@ class TestPromptFoundrySdk:
     async def test_invalid_http_client(self) -> None:
         with pytest.raises(TypeError, match='Invalid `http_client` arg') :
             async with httpx.AsyncClient() as http_client :
-                PromptFoundrySdk(base_url=base_url, api_key=api_key, _strict_response_validation=True, http_client=cast(Any, http_client))
+                PromptFoundry(base_url=base_url, api_key=api_key, _strict_response_validation=True, http_client=cast(Any, http_client))
 
     def test_default_headers_option(self) -> None:
-        client = PromptFoundrySdk(base_url=base_url, api_key=api_key, _strict_response_validation=True, default_headers={
+        client = PromptFoundry(base_url=base_url, api_key=api_key, _strict_response_validation=True, default_headers={
             "X-Foo": "bar"
         })
         request = client._build_request(FinalRequestOptions(method="get", url='/foo'))
         assert request.headers.get('x-foo') == 'bar'
         assert request.headers.get('x-stainless-lang') == 'python'
 
-        client2 = PromptFoundrySdk(base_url=base_url, api_key=api_key, _strict_response_validation=True, default_headers={
+        client2 = PromptFoundry(base_url=base_url, api_key=api_key, _strict_response_validation=True, default_headers={
             "X-Foo": "stainless",
             "X-Stainless-Lang": "my-overriding-header",
         })
@@ -312,7 +312,7 @@ class TestPromptFoundrySdk:
         assert request.headers.get('x-stainless-lang') == 'my-overriding-header'
 
     def test_default_query_option(self) -> None:
-        client = PromptFoundrySdk(base_url=base_url, api_key=api_key, _strict_response_validation=True, default_query={
+        client = PromptFoundry(base_url=base_url, api_key=api_key, _strict_response_validation=True, default_query={
             "query_param": "bar"
         })
         request = client._build_request(FinalRequestOptions(method="get", url='/foo'))
@@ -426,7 +426,7 @@ class TestPromptFoundrySdk:
         params = dict(request.url.params)
         assert params == {'foo': '2'}
 
-    def test_multipart_repeating_array(self, client: PromptFoundrySdk) -> None:
+    def test_multipart_repeating_array(self, client: PromptFoundry) -> None:
         request = client._build_request(
             FinalRequestOptions.construct(
                 method="get",
@@ -510,7 +510,7 @@ class TestPromptFoundrySdk:
         assert response.foo == 2
 
     def test_base_url_setter(self) -> None:
-        client = PromptFoundrySdk(base_url="https://example.com/from_init", api_key=api_key, _strict_response_validation=True)
+        client = PromptFoundry(base_url="https://example.com/from_init", api_key=api_key, _strict_response_validation=True)
         assert client.base_url == "https://example.com/from_init/"
 
         client.base_url = "https://example.com/from_setter"  # type: ignore[assignment]
@@ -518,12 +518,12 @@ class TestPromptFoundrySdk:
         assert client.base_url == "https://example.com/from_setter/"
 
     def test_base_url_env(self) -> None:
-        with update_env(PROMPT_FOUNDRY_SDK_BASE_URL='http://localhost:5000/from/env'):
-          client = PromptFoundrySdk(api_key=api_key, _strict_response_validation=True)
+        with update_env(PROMPT_FOUNDRY_BASE_URL='http://localhost:5000/from/env'):
+          client = PromptFoundry(api_key=api_key, _strict_response_validation=True)
           assert client.base_url == 'http://localhost:5000/from/env/'
 
-    @pytest.mark.parametrize("client", [PromptFoundrySdk(base_url="http://localhost:5000/custom/path/", api_key=api_key, _strict_response_validation=True), PromptFoundrySdk(base_url="http://localhost:5000/custom/path/", api_key=api_key, _strict_response_validation=True, http_client=httpx.Client())], ids = ["standard", "custom http client"])
-    def test_base_url_trailing_slash(self, client: PromptFoundrySdk) -> None:
+    @pytest.mark.parametrize("client", [PromptFoundry(base_url="http://localhost:5000/custom/path/", api_key=api_key, _strict_response_validation=True), PromptFoundry(base_url="http://localhost:5000/custom/path/", api_key=api_key, _strict_response_validation=True, http_client=httpx.Client())], ids = ["standard", "custom http client"])
+    def test_base_url_trailing_slash(self, client: PromptFoundry) -> None:
         request = client._build_request(
             FinalRequestOptions(
                 method="post",
@@ -533,8 +533,8 @@ class TestPromptFoundrySdk:
         )
         assert request.url == "http://localhost:5000/custom/path/foo"
 
-    @pytest.mark.parametrize("client", [PromptFoundrySdk(base_url="http://localhost:5000/custom/path/", api_key=api_key, _strict_response_validation=True), PromptFoundrySdk(base_url="http://localhost:5000/custom/path/", api_key=api_key, _strict_response_validation=True, http_client=httpx.Client())], ids = ["standard", "custom http client"])
-    def test_base_url_no_trailing_slash(self, client: PromptFoundrySdk) -> None:
+    @pytest.mark.parametrize("client", [PromptFoundry(base_url="http://localhost:5000/custom/path/", api_key=api_key, _strict_response_validation=True), PromptFoundry(base_url="http://localhost:5000/custom/path/", api_key=api_key, _strict_response_validation=True, http_client=httpx.Client())], ids = ["standard", "custom http client"])
+    def test_base_url_no_trailing_slash(self, client: PromptFoundry) -> None:
         request = client._build_request(
             FinalRequestOptions(
                 method="post",
@@ -544,8 +544,8 @@ class TestPromptFoundrySdk:
         )
         assert request.url == "http://localhost:5000/custom/path/foo"
 
-    @pytest.mark.parametrize("client", [PromptFoundrySdk(base_url="http://localhost:5000/custom/path/", api_key=api_key, _strict_response_validation=True), PromptFoundrySdk(base_url="http://localhost:5000/custom/path/", api_key=api_key, _strict_response_validation=True, http_client=httpx.Client())], ids = ["standard", "custom http client"])
-    def test_absolute_request_url(self, client: PromptFoundrySdk) -> None:
+    @pytest.mark.parametrize("client", [PromptFoundry(base_url="http://localhost:5000/custom/path/", api_key=api_key, _strict_response_validation=True), PromptFoundry(base_url="http://localhost:5000/custom/path/", api_key=api_key, _strict_response_validation=True, http_client=httpx.Client())], ids = ["standard", "custom http client"])
+    def test_absolute_request_url(self, client: PromptFoundry) -> None:
         request = client._build_request(
             FinalRequestOptions(
                 method="post",
@@ -556,7 +556,7 @@ class TestPromptFoundrySdk:
         assert request.url == "https://myapi.com/foo"
 
     def test_copied_client_does_not_close_http(self) -> None:
-        client = PromptFoundrySdk(base_url=base_url, api_key=api_key, _strict_response_validation=True)
+        client = PromptFoundry(base_url=base_url, api_key=api_key, _strict_response_validation=True)
         assert not client.is_closed()
 
         copied = client.copy()
@@ -567,7 +567,7 @@ class TestPromptFoundrySdk:
         assert not client.is_closed()
 
     def test_client_context_manager(self) -> None:
-        client = PromptFoundrySdk(base_url=base_url, api_key=api_key, _strict_response_validation=True)
+        client = PromptFoundry(base_url=base_url, api_key=api_key, _strict_response_validation=True)
         with client as c2:
           assert c2 is client
           assert not c2.is_closed()
@@ -588,7 +588,7 @@ class TestPromptFoundrySdk:
 
     def test_client_max_retries_validation(self) -> None:
         with pytest.raises(TypeError, match=r"max_retries cannot be None"):
-          PromptFoundrySdk(base_url=base_url, api_key=api_key, _strict_response_validation=True, max_retries=cast(Any, None))
+          PromptFoundry(base_url=base_url, api_key=api_key, _strict_response_validation=True, max_retries=cast(Any, None))
 
     @pytest.mark.respx(base_url=base_url)
     def test_received_text_for_expected_json(self, respx_mock: MockRouter) -> None:
@@ -597,12 +597,12 @@ class TestPromptFoundrySdk:
 
         respx_mock.get("/foo").mock(return_value=httpx.Response(200, text="my-custom-format"))
 
-        strict_client = PromptFoundrySdk(base_url=base_url, api_key=api_key, _strict_response_validation=True)
+        strict_client = PromptFoundry(base_url=base_url, api_key=api_key, _strict_response_validation=True)
 
         with pytest.raises(APIResponseValidationError):
           strict_client.get("/foo", cast_to=Model)
 
-        client = PromptFoundrySdk(base_url=base_url, api_key=api_key, _strict_response_validation=False)
+        client = PromptFoundry(base_url=base_url, api_key=api_key, _strict_response_validation=False)
 
         response = client.get("/foo", cast_to=Model)
         assert isinstance(response, str)  # type: ignore[unreachable]
@@ -629,7 +629,7 @@ class TestPromptFoundrySdk:
         )
     @mock.patch("time.time", mock.MagicMock(return_value=1696004797))
     def test_parse_retry_after_header(self, remaining_retries: int, retry_after: str, timeout: float) -> None:
-        client = PromptFoundrySdk(base_url=base_url, api_key=api_key, _strict_response_validation=True)
+        client = PromptFoundry(base_url=base_url, api_key=api_key, _strict_response_validation=True)
 
         headers = httpx.Headers({"retry-after": retry_after})
         options = FinalRequestOptions(method="get", url="/foo", max_retries=3)
@@ -843,8 +843,8 @@ class TestPromptFoundrySdk:
             }])), cast_to=httpx.Response, options={"headers": {RAW_RESPONSE_HEADER: "stream"}})
 
         assert _get_open_connections(self.client) == 0
-class TestAsyncPromptFoundrySdk:
-    client = AsyncPromptFoundrySdk(base_url=base_url, api_key=api_key, _strict_response_validation=True)
+class TestAsyncPromptFoundry:
+    client = AsyncPromptFoundry(base_url=base_url, api_key=api_key, _strict_response_validation=True)
 
     @pytest.mark.respx(base_url=base_url)
     @pytest.mark.asyncio
@@ -891,7 +891,7 @@ class TestAsyncPromptFoundrySdk:
         assert isinstance(self.client.timeout, httpx.Timeout)
 
     def test_copy_default_headers(self) -> None:
-        client = AsyncPromptFoundrySdk(base_url=base_url, api_key=api_key, _strict_response_validation=True, default_headers={
+        client = AsyncPromptFoundry(base_url=base_url, api_key=api_key, _strict_response_validation=True, default_headers={
             "X-Foo": "bar"
         })
         assert client.default_headers['X-Foo'] == 'bar'
@@ -925,7 +925,7 @@ class TestAsyncPromptFoundrySdk:
           client.copy(set_default_headers={}, default_headers={'X-Foo': 'Bar'})
 
     def test_copy_default_query(self) -> None:
-        client = AsyncPromptFoundrySdk(base_url=base_url, api_key=api_key, _strict_response_validation=True, default_query={
+        client = AsyncPromptFoundry(base_url=base_url, api_key=api_key, _strict_response_validation=True, default_query={
             "foo": "bar"
         })
         assert _get_params(client)['foo'] == 'bar'
@@ -1050,7 +1050,7 @@ class TestAsyncPromptFoundrySdk:
         assert timeout == httpx.Timeout(100.0)
 
     async def test_client_timeout_option(self) -> None:
-        client = AsyncPromptFoundrySdk(base_url=base_url, api_key=api_key, _strict_response_validation=True, timeout=httpx.Timeout(0))
+        client = AsyncPromptFoundry(base_url=base_url, api_key=api_key, _strict_response_validation=True, timeout=httpx.Timeout(0))
 
         request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
         timeout = httpx.Timeout(**request.extensions["timeout"])  # type: ignore
@@ -1059,7 +1059,7 @@ class TestAsyncPromptFoundrySdk:
     async def test_http_client_timeout_option(self) -> None:
         # custom timeout given to the httpx client should be used
         async with httpx.AsyncClient(timeout=None) as http_client:
-          client = AsyncPromptFoundrySdk(base_url=base_url, api_key=api_key, _strict_response_validation=True, http_client=http_client)
+          client = AsyncPromptFoundry(base_url=base_url, api_key=api_key, _strict_response_validation=True, http_client=http_client)
 
           request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
           timeout = httpx.Timeout(**request.extensions["timeout"])  # type: ignore
@@ -1067,7 +1067,7 @@ class TestAsyncPromptFoundrySdk:
 
         # no timeout given to the httpx client should not use the httpx default
         async with httpx.AsyncClient() as http_client:
-          client = AsyncPromptFoundrySdk(base_url=base_url, api_key=api_key, _strict_response_validation=True, http_client=http_client)
+          client = AsyncPromptFoundry(base_url=base_url, api_key=api_key, _strict_response_validation=True, http_client=http_client)
 
           request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
           timeout = httpx.Timeout(**request.extensions["timeout"])  # type: ignore
@@ -1075,7 +1075,7 @@ class TestAsyncPromptFoundrySdk:
 
         # explicitly passing the default timeout currently results in it being ignored
         async with httpx.AsyncClient(timeout=HTTPX_DEFAULT_TIMEOUT) as http_client:
-          client = AsyncPromptFoundrySdk(base_url=base_url, api_key=api_key, _strict_response_validation=True, http_client=http_client)
+          client = AsyncPromptFoundry(base_url=base_url, api_key=api_key, _strict_response_validation=True, http_client=http_client)
 
           request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
           timeout = httpx.Timeout(**request.extensions["timeout"])  # type: ignore
@@ -1084,17 +1084,17 @@ class TestAsyncPromptFoundrySdk:
     def test_invalid_http_client(self) -> None:
         with pytest.raises(TypeError, match='Invalid `http_client` arg') :
             with httpx.Client() as http_client :
-                AsyncPromptFoundrySdk(base_url=base_url, api_key=api_key, _strict_response_validation=True, http_client=cast(Any, http_client))
+                AsyncPromptFoundry(base_url=base_url, api_key=api_key, _strict_response_validation=True, http_client=cast(Any, http_client))
 
     def test_default_headers_option(self) -> None:
-        client = AsyncPromptFoundrySdk(base_url=base_url, api_key=api_key, _strict_response_validation=True, default_headers={
+        client = AsyncPromptFoundry(base_url=base_url, api_key=api_key, _strict_response_validation=True, default_headers={
             "X-Foo": "bar"
         })
         request = client._build_request(FinalRequestOptions(method="get", url='/foo'))
         assert request.headers.get('x-foo') == 'bar'
         assert request.headers.get('x-stainless-lang') == 'python'
 
-        client2 = AsyncPromptFoundrySdk(base_url=base_url, api_key=api_key, _strict_response_validation=True, default_headers={
+        client2 = AsyncPromptFoundry(base_url=base_url, api_key=api_key, _strict_response_validation=True, default_headers={
             "X-Foo": "stainless",
             "X-Stainless-Lang": "my-overriding-header",
         })
@@ -1103,7 +1103,7 @@ class TestAsyncPromptFoundrySdk:
         assert request.headers.get('x-stainless-lang') == 'my-overriding-header'
 
     def test_default_query_option(self) -> None:
-        client = AsyncPromptFoundrySdk(base_url=base_url, api_key=api_key, _strict_response_validation=True, default_query={
+        client = AsyncPromptFoundry(base_url=base_url, api_key=api_key, _strict_response_validation=True, default_query={
             "query_param": "bar"
         })
         request = client._build_request(FinalRequestOptions(method="get", url='/foo'))
@@ -1217,7 +1217,7 @@ class TestAsyncPromptFoundrySdk:
         params = dict(request.url.params)
         assert params == {'foo': '2'}
 
-    def test_multipart_repeating_array(self, async_client: AsyncPromptFoundrySdk) -> None:
+    def test_multipart_repeating_array(self, async_client: AsyncPromptFoundry) -> None:
         request = async_client._build_request(
             FinalRequestOptions.construct(
                 method="get",
@@ -1301,7 +1301,7 @@ class TestAsyncPromptFoundrySdk:
         assert response.foo == 2
 
     def test_base_url_setter(self) -> None:
-        client = AsyncPromptFoundrySdk(base_url="https://example.com/from_init", api_key=api_key, _strict_response_validation=True)
+        client = AsyncPromptFoundry(base_url="https://example.com/from_init", api_key=api_key, _strict_response_validation=True)
         assert client.base_url == "https://example.com/from_init/"
 
         client.base_url = "https://example.com/from_setter"  # type: ignore[assignment]
@@ -1309,12 +1309,12 @@ class TestAsyncPromptFoundrySdk:
         assert client.base_url == "https://example.com/from_setter/"
 
     def test_base_url_env(self) -> None:
-        with update_env(PROMPT_FOUNDRY_SDK_BASE_URL='http://localhost:5000/from/env'):
-          client = AsyncPromptFoundrySdk(api_key=api_key, _strict_response_validation=True)
+        with update_env(PROMPT_FOUNDRY_BASE_URL='http://localhost:5000/from/env'):
+          client = AsyncPromptFoundry(api_key=api_key, _strict_response_validation=True)
           assert client.base_url == 'http://localhost:5000/from/env/'
 
-    @pytest.mark.parametrize("client", [AsyncPromptFoundrySdk(base_url="http://localhost:5000/custom/path/", api_key=api_key, _strict_response_validation=True), AsyncPromptFoundrySdk(base_url="http://localhost:5000/custom/path/", api_key=api_key, _strict_response_validation=True, http_client=httpx.AsyncClient())], ids = ["standard", "custom http client"])
-    def test_base_url_trailing_slash(self, client: AsyncPromptFoundrySdk) -> None:
+    @pytest.mark.parametrize("client", [AsyncPromptFoundry(base_url="http://localhost:5000/custom/path/", api_key=api_key, _strict_response_validation=True), AsyncPromptFoundry(base_url="http://localhost:5000/custom/path/", api_key=api_key, _strict_response_validation=True, http_client=httpx.AsyncClient())], ids = ["standard", "custom http client"])
+    def test_base_url_trailing_slash(self, client: AsyncPromptFoundry) -> None:
         request = client._build_request(
             FinalRequestOptions(
                 method="post",
@@ -1324,8 +1324,8 @@ class TestAsyncPromptFoundrySdk:
         )
         assert request.url == "http://localhost:5000/custom/path/foo"
 
-    @pytest.mark.parametrize("client", [AsyncPromptFoundrySdk(base_url="http://localhost:5000/custom/path/", api_key=api_key, _strict_response_validation=True), AsyncPromptFoundrySdk(base_url="http://localhost:5000/custom/path/", api_key=api_key, _strict_response_validation=True, http_client=httpx.AsyncClient())], ids = ["standard", "custom http client"])
-    def test_base_url_no_trailing_slash(self, client: AsyncPromptFoundrySdk) -> None:
+    @pytest.mark.parametrize("client", [AsyncPromptFoundry(base_url="http://localhost:5000/custom/path/", api_key=api_key, _strict_response_validation=True), AsyncPromptFoundry(base_url="http://localhost:5000/custom/path/", api_key=api_key, _strict_response_validation=True, http_client=httpx.AsyncClient())], ids = ["standard", "custom http client"])
+    def test_base_url_no_trailing_slash(self, client: AsyncPromptFoundry) -> None:
         request = client._build_request(
             FinalRequestOptions(
                 method="post",
@@ -1335,8 +1335,8 @@ class TestAsyncPromptFoundrySdk:
         )
         assert request.url == "http://localhost:5000/custom/path/foo"
 
-    @pytest.mark.parametrize("client", [AsyncPromptFoundrySdk(base_url="http://localhost:5000/custom/path/", api_key=api_key, _strict_response_validation=True), AsyncPromptFoundrySdk(base_url="http://localhost:5000/custom/path/", api_key=api_key, _strict_response_validation=True, http_client=httpx.AsyncClient())], ids = ["standard", "custom http client"])
-    def test_absolute_request_url(self, client: AsyncPromptFoundrySdk) -> None:
+    @pytest.mark.parametrize("client", [AsyncPromptFoundry(base_url="http://localhost:5000/custom/path/", api_key=api_key, _strict_response_validation=True), AsyncPromptFoundry(base_url="http://localhost:5000/custom/path/", api_key=api_key, _strict_response_validation=True, http_client=httpx.AsyncClient())], ids = ["standard", "custom http client"])
+    def test_absolute_request_url(self, client: AsyncPromptFoundry) -> None:
         request = client._build_request(
             FinalRequestOptions(
                 method="post",
@@ -1347,7 +1347,7 @@ class TestAsyncPromptFoundrySdk:
         assert request.url == "https://myapi.com/foo"
 
     async def test_copied_client_does_not_close_http(self) -> None:
-        client = AsyncPromptFoundrySdk(base_url=base_url, api_key=api_key, _strict_response_validation=True)
+        client = AsyncPromptFoundry(base_url=base_url, api_key=api_key, _strict_response_validation=True)
         assert not client.is_closed()
 
         copied = client.copy()
@@ -1359,7 +1359,7 @@ class TestAsyncPromptFoundrySdk:
         assert not client.is_closed()
 
     async def test_client_context_manager(self) -> None:
-        client = AsyncPromptFoundrySdk(base_url=base_url, api_key=api_key, _strict_response_validation=True)
+        client = AsyncPromptFoundry(base_url=base_url, api_key=api_key, _strict_response_validation=True)
         async with client as c2:
           assert c2 is client
           assert not c2.is_closed()
@@ -1381,7 +1381,7 @@ class TestAsyncPromptFoundrySdk:
 
     async def test_client_max_retries_validation(self) -> None:
         with pytest.raises(TypeError, match=r"max_retries cannot be None"):
-          AsyncPromptFoundrySdk(base_url=base_url, api_key=api_key, _strict_response_validation=True, max_retries=cast(Any, None))
+          AsyncPromptFoundry(base_url=base_url, api_key=api_key, _strict_response_validation=True, max_retries=cast(Any, None))
 
     @pytest.mark.respx(base_url=base_url)
     @pytest.mark.asyncio
@@ -1391,12 +1391,12 @@ class TestAsyncPromptFoundrySdk:
 
         respx_mock.get("/foo").mock(return_value=httpx.Response(200, text="my-custom-format"))
 
-        strict_client = AsyncPromptFoundrySdk(base_url=base_url, api_key=api_key, _strict_response_validation=True)
+        strict_client = AsyncPromptFoundry(base_url=base_url, api_key=api_key, _strict_response_validation=True)
 
         with pytest.raises(APIResponseValidationError):
           await strict_client.get("/foo", cast_to=Model)
 
-        client = AsyncPromptFoundrySdk(base_url=base_url, api_key=api_key, _strict_response_validation=False)
+        client = AsyncPromptFoundry(base_url=base_url, api_key=api_key, _strict_response_validation=False)
 
         response = await client.get("/foo", cast_to=Model)
         assert isinstance(response, str)  # type: ignore[unreachable]
@@ -1424,7 +1424,7 @@ class TestAsyncPromptFoundrySdk:
     @mock.patch("time.time", mock.MagicMock(return_value=1696004797))
     @pytest.mark.asyncio
     async def test_parse_retry_after_header(self, remaining_retries: int, retry_after: str, timeout: float) -> None:
-        client = AsyncPromptFoundrySdk(base_url=base_url, api_key=api_key, _strict_response_validation=True)
+        client = AsyncPromptFoundry(base_url=base_url, api_key=api_key, _strict_response_validation=True)
 
         headers = httpx.Headers({"retry-after": retry_after})
         options = FinalRequestOptions(method="get", url="/foo", max_retries=3)

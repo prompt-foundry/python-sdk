@@ -8,7 +8,7 @@ import os
 
 from ._streaming import AsyncStream as AsyncStream, Stream as Stream
 
-from ._exceptions import PromptFoundrySdkError, APIStatusError
+from ._exceptions import PromptFoundryError, APIStatusError
 
 from typing_extensions import override, Self
 
@@ -71,20 +71,20 @@ __all__ = [
     "ProxiesTypes",
     "RequestOptions",
     "resources",
-    "PromptFoundrySdk",
-    "AsyncPromptFoundrySdk",
+    "PromptFoundry",
+    "AsyncPromptFoundry",
     "Client",
     "AsyncClient",
 ]
 
 
-class PromptFoundrySdk(SyncAPIClient):
+class PromptFoundry(SyncAPIClient):
     prompts: resources.PromptsResource
     tools: resources.ToolsResource
     evaluation_assertions: resources.EvaluationAssertionsResource
     evaluations: resources.EvaluationsResource
-    with_raw_response: PromptFoundrySdkWithRawResponse
-    with_streaming_response: PromptFoundrySdkWithStreamedResponse
+    with_raw_response: PromptFoundryWithRawResponse
+    with_streaming_response: PromptFoundryWithStreamedResponse
 
     # client options
     api_key: str
@@ -112,20 +112,20 @@ class PromptFoundrySdk(SyncAPIClient):
         # part of our public interface in the future.
         _strict_response_validation: bool = False,
     ) -> None:
-        """Construct a new synchronous prompt-foundry-sdk client instance.
+        """Construct a new synchronous prompt-foundry client instance.
 
         This automatically infers the `api_key` argument from the `PROMPT_FOUNDRY_SDK_API_KEY` environment variable if it is not provided.
         """
         if api_key is None:
             api_key = os.environ.get("PROMPT_FOUNDRY_SDK_API_KEY")
         if api_key is None:
-            raise PromptFoundrySdkError(
+            raise PromptFoundryError(
                 "The api_key client option must be set either by passing api_key to the client or by setting the PROMPT_FOUNDRY_SDK_API_KEY environment variable"
             )
         self.api_key = api_key
 
         if base_url is None:
-            base_url = os.environ.get("PROMPT_FOUNDRY_SDK_BASE_URL")
+            base_url = os.environ.get("PROMPT_FOUNDRY_BASE_URL")
         if base_url is None:
             base_url = f"https://api.promptfoundry.ai/sdk/v1"
 
@@ -144,8 +144,8 @@ class PromptFoundrySdk(SyncAPIClient):
         self.tools = resources.ToolsResource(self)
         self.evaluation_assertions = resources.EvaluationAssertionsResource(self)
         self.evaluations = resources.EvaluationsResource(self)
-        self.with_raw_response = PromptFoundrySdkWithRawResponse(self)
-        self.with_streaming_response = PromptFoundrySdkWithStreamedResponse(self)
+        self.with_raw_response = PromptFoundryWithRawResponse(self)
+        self.with_streaming_response = PromptFoundryWithStreamedResponse(self)
 
     @property
     @override
@@ -252,13 +252,13 @@ class PromptFoundrySdk(SyncAPIClient):
         return APIStatusError(err_msg, response=response, body=body)
 
 
-class AsyncPromptFoundrySdk(AsyncAPIClient):
+class AsyncPromptFoundry(AsyncAPIClient):
     prompts: resources.AsyncPromptsResource
     tools: resources.AsyncToolsResource
     evaluation_assertions: resources.AsyncEvaluationAssertionsResource
     evaluations: resources.AsyncEvaluationsResource
-    with_raw_response: AsyncPromptFoundrySdkWithRawResponse
-    with_streaming_response: AsyncPromptFoundrySdkWithStreamedResponse
+    with_raw_response: AsyncPromptFoundryWithRawResponse
+    with_streaming_response: AsyncPromptFoundryWithStreamedResponse
 
     # client options
     api_key: str
@@ -286,20 +286,20 @@ class AsyncPromptFoundrySdk(AsyncAPIClient):
         # part of our public interface in the future.
         _strict_response_validation: bool = False,
     ) -> None:
-        """Construct a new async prompt-foundry-sdk client instance.
+        """Construct a new async prompt-foundry client instance.
 
         This automatically infers the `api_key` argument from the `PROMPT_FOUNDRY_SDK_API_KEY` environment variable if it is not provided.
         """
         if api_key is None:
             api_key = os.environ.get("PROMPT_FOUNDRY_SDK_API_KEY")
         if api_key is None:
-            raise PromptFoundrySdkError(
+            raise PromptFoundryError(
                 "The api_key client option must be set either by passing api_key to the client or by setting the PROMPT_FOUNDRY_SDK_API_KEY environment variable"
             )
         self.api_key = api_key
 
         if base_url is None:
-            base_url = os.environ.get("PROMPT_FOUNDRY_SDK_BASE_URL")
+            base_url = os.environ.get("PROMPT_FOUNDRY_BASE_URL")
         if base_url is None:
             base_url = f"https://api.promptfoundry.ai/sdk/v1"
 
@@ -318,8 +318,8 @@ class AsyncPromptFoundrySdk(AsyncAPIClient):
         self.tools = resources.AsyncToolsResource(self)
         self.evaluation_assertions = resources.AsyncEvaluationAssertionsResource(self)
         self.evaluations = resources.AsyncEvaluationsResource(self)
-        self.with_raw_response = AsyncPromptFoundrySdkWithRawResponse(self)
-        self.with_streaming_response = AsyncPromptFoundrySdkWithStreamedResponse(self)
+        self.with_raw_response = AsyncPromptFoundryWithRawResponse(self)
+        self.with_streaming_response = AsyncPromptFoundryWithStreamedResponse(self)
 
     @property
     @override
@@ -426,16 +426,16 @@ class AsyncPromptFoundrySdk(AsyncAPIClient):
         return APIStatusError(err_msg, response=response, body=body)
 
 
-class PromptFoundrySdkWithRawResponse:
-    def __init__(self, client: PromptFoundrySdk) -> None:
+class PromptFoundryWithRawResponse:
+    def __init__(self, client: PromptFoundry) -> None:
         self.prompts = resources.PromptsResourceWithRawResponse(client.prompts)
         self.tools = resources.ToolsResourceWithRawResponse(client.tools)
         self.evaluation_assertions = resources.EvaluationAssertionsResourceWithRawResponse(client.evaluation_assertions)
         self.evaluations = resources.EvaluationsResourceWithRawResponse(client.evaluations)
 
 
-class AsyncPromptFoundrySdkWithRawResponse:
-    def __init__(self, client: AsyncPromptFoundrySdk) -> None:
+class AsyncPromptFoundryWithRawResponse:
+    def __init__(self, client: AsyncPromptFoundry) -> None:
         self.prompts = resources.AsyncPromptsResourceWithRawResponse(client.prompts)
         self.tools = resources.AsyncToolsResourceWithRawResponse(client.tools)
         self.evaluation_assertions = resources.AsyncEvaluationAssertionsResourceWithRawResponse(
@@ -444,8 +444,8 @@ class AsyncPromptFoundrySdkWithRawResponse:
         self.evaluations = resources.AsyncEvaluationsResourceWithRawResponse(client.evaluations)
 
 
-class PromptFoundrySdkWithStreamedResponse:
-    def __init__(self, client: PromptFoundrySdk) -> None:
+class PromptFoundryWithStreamedResponse:
+    def __init__(self, client: PromptFoundry) -> None:
         self.prompts = resources.PromptsResourceWithStreamingResponse(client.prompts)
         self.tools = resources.ToolsResourceWithStreamingResponse(client.tools)
         self.evaluation_assertions = resources.EvaluationAssertionsResourceWithStreamingResponse(
@@ -454,8 +454,8 @@ class PromptFoundrySdkWithStreamedResponse:
         self.evaluations = resources.EvaluationsResourceWithStreamingResponse(client.evaluations)
 
 
-class AsyncPromptFoundrySdkWithStreamedResponse:
-    def __init__(self, client: AsyncPromptFoundrySdk) -> None:
+class AsyncPromptFoundryWithStreamedResponse:
+    def __init__(self, client: AsyncPromptFoundry) -> None:
         self.prompts = resources.AsyncPromptsResourceWithStreamingResponse(client.prompts)
         self.tools = resources.AsyncToolsResourceWithStreamingResponse(client.tools)
         self.evaluation_assertions = resources.AsyncEvaluationAssertionsResourceWithStreamingResponse(
@@ -464,6 +464,6 @@ class AsyncPromptFoundrySdkWithStreamedResponse:
         self.evaluations = resources.AsyncEvaluationsResourceWithStreamingResponse(client.evaluations)
 
 
-Client = PromptFoundrySdk
+Client = PromptFoundry
 
-AsyncClient = AsyncPromptFoundrySdk
+AsyncClient = AsyncPromptFoundry

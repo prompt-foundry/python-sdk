@@ -7,13 +7,13 @@ import anyio
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from ._client import PromptFoundrySdk, AsyncPromptFoundrySdk
+    from ._client import PromptFoundry, AsyncPromptFoundry
 
 
 class SyncAPIResource:
-    _client: PromptFoundrySdk
+    _client: PromptFoundry
 
-    def __init__(self, client: PromptFoundrySdk) -> None:
+    def __init__(self, client: PromptFoundry) -> None:
         self._client = client
         self._get = client.get
         self._post = client.post
@@ -27,9 +27,9 @@ class SyncAPIResource:
 
 
 class AsyncAPIResource:
-    _client: AsyncPromptFoundrySdk
+    _client: AsyncPromptFoundry
 
-    def __init__(self, client: AsyncPromptFoundrySdk) -> None:
+    def __init__(self, client: AsyncPromptFoundry) -> None:
         self._client = client
         self._get = client.get
         self._post = client.post

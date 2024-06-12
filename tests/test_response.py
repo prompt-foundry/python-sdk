@@ -6,7 +6,7 @@ import httpx
 import pytest
 import pydantic
 
-from prompt-foundry-sdk import BaseModel, PromptFoundrySdk, AsyncPromptFoundrySdk
+from prompt-foundry-sdk import BaseModel, PromptFoundry, AsyncPromptFoundry
 from prompt-foundry-sdk._response import (
     APIResponse,
     BaseAPIResponse,
@@ -60,7 +60,7 @@ class PydanticModel(pydantic.BaseModel):
     ...
 
 
-def test_response_parse_mismatched_basemodel(client: PromptFoundrySdk) -> None:
+def test_response_parse_mismatched_basemodel(client: PromptFoundry) -> None:
     response = APIResponse(
         raw=httpx.Response(200, content=b"foo"),
         client=client,
@@ -78,7 +78,7 @@ def test_response_parse_mismatched_basemodel(client: PromptFoundrySdk) -> None:
 
 
 @pytest.mark.asyncio
-async def test_async_response_parse_mismatched_basemodel(async_client: AsyncPromptFoundrySdk) -> None:
+async def test_async_response_parse_mismatched_basemodel(async_client: AsyncPromptFoundry) -> None:
     response = AsyncAPIResponse(
         raw=httpx.Response(200, content=b"foo"),
         client=async_client,
@@ -95,7 +95,7 @@ async def test_async_response_parse_mismatched_basemodel(async_client: AsyncProm
         await response.parse(to=PydanticModel)
 
 
-def test_response_parse_custom_stream(client: PromptFoundrySdk) -> None:
+def test_response_parse_custom_stream(client: PromptFoundry) -> None:
     response = APIResponse(
         raw=httpx.Response(200, content=b"foo"),
         client=client,
@@ -110,7 +110,7 @@ def test_response_parse_custom_stream(client: PromptFoundrySdk) -> None:
 
 
 @pytest.mark.asyncio
-async def test_async_response_parse_custom_stream(async_client: AsyncPromptFoundrySdk) -> None:
+async def test_async_response_parse_custom_stream(async_client: AsyncPromptFoundry) -> None:
     response = AsyncAPIResponse(
         raw=httpx.Response(200, content=b"foo"),
         client=async_client,
@@ -129,7 +129,7 @@ class CustomModel(BaseModel):
     bar: int
 
 
-def test_response_parse_custom_model(client: PromptFoundrySdk) -> None:
+def test_response_parse_custom_model(client: PromptFoundry) -> None:
     response = APIResponse(
         raw=httpx.Response(200, content=json.dumps({"foo": "hello!", "bar": 2})),
         client=client,
@@ -145,7 +145,7 @@ def test_response_parse_custom_model(client: PromptFoundrySdk) -> None:
 
 
 @pytest.mark.asyncio
-async def test_async_response_parse_custom_model(async_client: AsyncPromptFoundrySdk) -> None:
+async def test_async_response_parse_custom_model(async_client: AsyncPromptFoundry) -> None:
     response = AsyncAPIResponse(
         raw=httpx.Response(200, content=json.dumps({"foo": "hello!", "bar": 2})),
         client=async_client,
@@ -160,7 +160,7 @@ async def test_async_response_parse_custom_model(async_client: AsyncPromptFoundr
     assert obj.bar == 2
 
 
-def test_response_parse_annotated_type(client: PromptFoundrySdk) -> None:
+def test_response_parse_annotated_type(client: PromptFoundry) -> None:
     response = APIResponse(
         raw=httpx.Response(200, content=json.dumps({"foo": "hello!", "bar": 2})),
         client=client,
@@ -177,7 +177,7 @@ def test_response_parse_annotated_type(client: PromptFoundrySdk) -> None:
     assert obj.bar == 2
 
 
-async def test_async_response_parse_annotated_type(async_client: AsyncPromptFoundrySdk) -> None:
+async def test_async_response_parse_annotated_type(async_client: AsyncPromptFoundry) -> None:
     response = AsyncAPIResponse(
         raw=httpx.Response(200, content=json.dumps({"foo": "hello!", "bar": 2})),
         client=async_client,

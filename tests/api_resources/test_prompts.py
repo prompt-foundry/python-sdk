@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from prompt-foundry-sdk import PromptFoundrySdk, AsyncPromptFoundrySdk
+from prompt-foundry-sdk import PromptFoundry, AsyncPromptFoundry
 
 from prompt-foundry-sdk.types import PromptConfiguration, PromptDeleteResponse
 
@@ -14,7 +14,7 @@ import httpx
 from typing_extensions import get_args
 from typing import Optional
 from respx import MockRouter
-from prompt-foundry-sdk import PromptFoundrySdk, AsyncPromptFoundrySdk
+from prompt-foundry-sdk import PromptFoundry, AsyncPromptFoundry
 from tests.utils import assert_matches_type
 from prompt-foundry-sdk.types import prompt_create_params
 from prompt-foundry-sdk.types import prompt_update_params
@@ -26,7 +26,7 @@ class TestPrompts:
 
 
     @parametrize
-    def test_method_create(self, client: PromptFoundrySdk) -> None:
+    def test_method_create(self, client: PromptFoundry) -> None:
         prompt = client.prompts.create(
             messages=[{
                 "content": "string",
@@ -130,7 +130,7 @@ class TestPrompts:
         assert_matches_type(PromptConfiguration, prompt, path=['response'])
 
     @parametrize
-    def test_raw_response_create(self, client: PromptFoundrySdk) -> None:
+    def test_raw_response_create(self, client: PromptFoundry) -> None:
 
         response = client.prompts.with_raw_response.create(
             messages=[{
@@ -239,7 +239,7 @@ class TestPrompts:
         assert_matches_type(PromptConfiguration, prompt, path=['response'])
 
     @parametrize
-    def test_streaming_response_create(self, client: PromptFoundrySdk) -> None:
+    def test_streaming_response_create(self, client: PromptFoundry) -> None:
         with client.prompts.with_streaming_response.create(
             messages=[{
                 "content": "string",
@@ -349,14 +349,14 @@ class TestPrompts:
         assert cast(Any, response.is_closed) is True
 
     @parametrize
-    def test_method_retrieve(self, client: PromptFoundrySdk) -> None:
+    def test_method_retrieve(self, client: PromptFoundry) -> None:
         prompt = client.prompts.retrieve(
             "string",
         )
         assert_matches_type(PromptConfiguration, prompt, path=['response'])
 
     @parametrize
-    def test_raw_response_retrieve(self, client: PromptFoundrySdk) -> None:
+    def test_raw_response_retrieve(self, client: PromptFoundry) -> None:
 
         response = client.prompts.with_raw_response.retrieve(
             "string",
@@ -368,7 +368,7 @@ class TestPrompts:
         assert_matches_type(PromptConfiguration, prompt, path=['response'])
 
     @parametrize
-    def test_streaming_response_retrieve(self, client: PromptFoundrySdk) -> None:
+    def test_streaming_response_retrieve(self, client: PromptFoundry) -> None:
         with client.prompts.with_streaming_response.retrieve(
             "string",
         ) as response :
@@ -381,14 +381,14 @@ class TestPrompts:
         assert cast(Any, response.is_closed) is True
 
     @parametrize
-    def test_path_params_retrieve(self, client: PromptFoundrySdk) -> None:
+    def test_path_params_retrieve(self, client: PromptFoundry) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `prompt_id` but received ''"):
           client.prompts.with_raw_response.retrieve(
               "",
           )
 
     @parametrize
-    def test_method_update(self, client: PromptFoundrySdk) -> None:
+    def test_method_update(self, client: PromptFoundry) -> None:
         prompt = client.prompts.update(
             "string",
             messages=[{
@@ -493,7 +493,7 @@ class TestPrompts:
         assert_matches_type(PromptConfiguration, prompt, path=['response'])
 
     @parametrize
-    def test_raw_response_update(self, client: PromptFoundrySdk) -> None:
+    def test_raw_response_update(self, client: PromptFoundry) -> None:
 
         response = client.prompts.with_raw_response.update(
             "string",
@@ -603,7 +603,7 @@ class TestPrompts:
         assert_matches_type(PromptConfiguration, prompt, path=['response'])
 
     @parametrize
-    def test_streaming_response_update(self, client: PromptFoundrySdk) -> None:
+    def test_streaming_response_update(self, client: PromptFoundry) -> None:
         with client.prompts.with_streaming_response.update(
             "string",
             messages=[{
@@ -714,7 +714,7 @@ class TestPrompts:
         assert cast(Any, response.is_closed) is True
 
     @parametrize
-    def test_path_params_update(self, client: PromptFoundrySdk) -> None:
+    def test_path_params_update(self, client: PromptFoundry) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `prompt_id` but received ''"):
           client.prompts.with_raw_response.update(
               "",
@@ -819,14 +819,14 @@ class TestPrompts:
           )
 
     @parametrize
-    def test_method_delete(self, client: PromptFoundrySdk) -> None:
+    def test_method_delete(self, client: PromptFoundry) -> None:
         prompt = client.prompts.delete(
             "1212121",
         )
         assert_matches_type(PromptDeleteResponse, prompt, path=['response'])
 
     @parametrize
-    def test_raw_response_delete(self, client: PromptFoundrySdk) -> None:
+    def test_raw_response_delete(self, client: PromptFoundry) -> None:
 
         response = client.prompts.with_raw_response.delete(
             "1212121",
@@ -838,7 +838,7 @@ class TestPrompts:
         assert_matches_type(PromptDeleteResponse, prompt, path=['response'])
 
     @parametrize
-    def test_streaming_response_delete(self, client: PromptFoundrySdk) -> None:
+    def test_streaming_response_delete(self, client: PromptFoundry) -> None:
         with client.prompts.with_streaming_response.delete(
             "1212121",
         ) as response :
@@ -851,7 +851,7 @@ class TestPrompts:
         assert cast(Any, response.is_closed) is True
 
     @parametrize
-    def test_path_params_delete(self, client: PromptFoundrySdk) -> None:
+    def test_path_params_delete(self, client: PromptFoundry) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
           client.prompts.with_raw_response.delete(
               "",
@@ -861,7 +861,7 @@ class TestAsyncPrompts:
 
 
     @parametrize
-    async def test_method_create(self, async_client: AsyncPromptFoundrySdk) -> None:
+    async def test_method_create(self, async_client: AsyncPromptFoundry) -> None:
         prompt = await async_client.prompts.create(
             messages=[{
                 "content": "string",
@@ -965,7 +965,7 @@ class TestAsyncPrompts:
         assert_matches_type(PromptConfiguration, prompt, path=['response'])
 
     @parametrize
-    async def test_raw_response_create(self, async_client: AsyncPromptFoundrySdk) -> None:
+    async def test_raw_response_create(self, async_client: AsyncPromptFoundry) -> None:
 
         response = await async_client.prompts.with_raw_response.create(
             messages=[{
@@ -1074,7 +1074,7 @@ class TestAsyncPrompts:
         assert_matches_type(PromptConfiguration, prompt, path=['response'])
 
     @parametrize
-    async def test_streaming_response_create(self, async_client: AsyncPromptFoundrySdk) -> None:
+    async def test_streaming_response_create(self, async_client: AsyncPromptFoundry) -> None:
         async with async_client.prompts.with_streaming_response.create(
             messages=[{
                 "content": "string",
@@ -1184,14 +1184,14 @@ class TestAsyncPrompts:
         assert cast(Any, response.is_closed) is True
 
     @parametrize
-    async def test_method_retrieve(self, async_client: AsyncPromptFoundrySdk) -> None:
+    async def test_method_retrieve(self, async_client: AsyncPromptFoundry) -> None:
         prompt = await async_client.prompts.retrieve(
             "string",
         )
         assert_matches_type(PromptConfiguration, prompt, path=['response'])
 
     @parametrize
-    async def test_raw_response_retrieve(self, async_client: AsyncPromptFoundrySdk) -> None:
+    async def test_raw_response_retrieve(self, async_client: AsyncPromptFoundry) -> None:
 
         response = await async_client.prompts.with_raw_response.retrieve(
             "string",
@@ -1203,7 +1203,7 @@ class TestAsyncPrompts:
         assert_matches_type(PromptConfiguration, prompt, path=['response'])
 
     @parametrize
-    async def test_streaming_response_retrieve(self, async_client: AsyncPromptFoundrySdk) -> None:
+    async def test_streaming_response_retrieve(self, async_client: AsyncPromptFoundry) -> None:
         async with async_client.prompts.with_streaming_response.retrieve(
             "string",
         ) as response :
@@ -1216,14 +1216,14 @@ class TestAsyncPrompts:
         assert cast(Any, response.is_closed) is True
 
     @parametrize
-    async def test_path_params_retrieve(self, async_client: AsyncPromptFoundrySdk) -> None:
+    async def test_path_params_retrieve(self, async_client: AsyncPromptFoundry) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `prompt_id` but received ''"):
           await async_client.prompts.with_raw_response.retrieve(
               "",
           )
 
     @parametrize
-    async def test_method_update(self, async_client: AsyncPromptFoundrySdk) -> None:
+    async def test_method_update(self, async_client: AsyncPromptFoundry) -> None:
         prompt = await async_client.prompts.update(
             "string",
             messages=[{
@@ -1328,7 +1328,7 @@ class TestAsyncPrompts:
         assert_matches_type(PromptConfiguration, prompt, path=['response'])
 
     @parametrize
-    async def test_raw_response_update(self, async_client: AsyncPromptFoundrySdk) -> None:
+    async def test_raw_response_update(self, async_client: AsyncPromptFoundry) -> None:
 
         response = await async_client.prompts.with_raw_response.update(
             "string",
@@ -1438,7 +1438,7 @@ class TestAsyncPrompts:
         assert_matches_type(PromptConfiguration, prompt, path=['response'])
 
     @parametrize
-    async def test_streaming_response_update(self, async_client: AsyncPromptFoundrySdk) -> None:
+    async def test_streaming_response_update(self, async_client: AsyncPromptFoundry) -> None:
         async with async_client.prompts.with_streaming_response.update(
             "string",
             messages=[{
@@ -1549,7 +1549,7 @@ class TestAsyncPrompts:
         assert cast(Any, response.is_closed) is True
 
     @parametrize
-    async def test_path_params_update(self, async_client: AsyncPromptFoundrySdk) -> None:
+    async def test_path_params_update(self, async_client: AsyncPromptFoundry) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `prompt_id` but received ''"):
           await async_client.prompts.with_raw_response.update(
               "",
@@ -1654,14 +1654,14 @@ class TestAsyncPrompts:
           )
 
     @parametrize
-    async def test_method_delete(self, async_client: AsyncPromptFoundrySdk) -> None:
+    async def test_method_delete(self, async_client: AsyncPromptFoundry) -> None:
         prompt = await async_client.prompts.delete(
             "1212121",
         )
         assert_matches_type(PromptDeleteResponse, prompt, path=['response'])
 
     @parametrize
-    async def test_raw_response_delete(self, async_client: AsyncPromptFoundrySdk) -> None:
+    async def test_raw_response_delete(self, async_client: AsyncPromptFoundry) -> None:
 
         response = await async_client.prompts.with_raw_response.delete(
             "1212121",
@@ -1673,7 +1673,7 @@ class TestAsyncPrompts:
         assert_matches_type(PromptDeleteResponse, prompt, path=['response'])
 
     @parametrize
-    async def test_streaming_response_delete(self, async_client: AsyncPromptFoundrySdk) -> None:
+    async def test_streaming_response_delete(self, async_client: AsyncPromptFoundry) -> None:
         async with async_client.prompts.with_streaming_response.delete(
             "1212121",
         ) as response :
@@ -1686,7 +1686,7 @@ class TestAsyncPrompts:
         assert cast(Any, response.is_closed) is True
 
     @parametrize
-    async def test_path_params_delete(self, async_client: AsyncPromptFoundrySdk) -> None:
+    async def test_path_params_delete(self, async_client: AsyncPromptFoundry) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
           await async_client.prompts.with_raw_response.delete(
               "",
