@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from prompt-foundry-sdk import PromptFoundrySdk, AsyncPromptFoundrySdk
+from prompt-foundry-sdk import PromptFoundry, AsyncPromptFoundry
 
 from prompt-foundry-sdk.types import EvaluationAssertion, EvaluationAssertionListResponse, EvaluationAssertionDeleteResponse
 
@@ -14,7 +14,7 @@ import httpx
 from typing_extensions import get_args
 from typing import Optional
 from respx import MockRouter
-from prompt-foundry-sdk import PromptFoundrySdk, AsyncPromptFoundrySdk
+from prompt-foundry-sdk import PromptFoundry, AsyncPromptFoundry
 from tests.utils import assert_matches_type
 from prompt-foundry-sdk.types import evaluation_assertion_create_params
 from prompt-foundry-sdk.types import evaluation_assertion_update_params
@@ -27,7 +27,7 @@ class TestEvaluationAssertions:
 
 
     @parametrize
-    def test_method_create(self, client: PromptFoundrySdk) -> None:
+    def test_method_create(self, client: PromptFoundry) -> None:
         evaluation_assertion = client.evaluation_assertions.create(
             evaluation_id="string",
             matcher={
@@ -39,7 +39,7 @@ class TestEvaluationAssertions:
         assert_matches_type(EvaluationAssertion, evaluation_assertion, path=['response'])
 
     @parametrize
-    def test_raw_response_create(self, client: PromptFoundrySdk) -> None:
+    def test_raw_response_create(self, client: PromptFoundry) -> None:
 
         response = client.evaluation_assertions.with_raw_response.create(
             evaluation_id="string",
@@ -56,7 +56,7 @@ class TestEvaluationAssertions:
         assert_matches_type(EvaluationAssertion, evaluation_assertion, path=['response'])
 
     @parametrize
-    def test_streaming_response_create(self, client: PromptFoundrySdk) -> None:
+    def test_streaming_response_create(self, client: PromptFoundry) -> None:
         with client.evaluation_assertions.with_streaming_response.create(
             evaluation_id="string",
             matcher={
@@ -74,14 +74,14 @@ class TestEvaluationAssertions:
         assert cast(Any, response.is_closed) is True
 
     @parametrize
-    def test_method_retrieve(self, client: PromptFoundrySdk) -> None:
+    def test_method_retrieve(self, client: PromptFoundry) -> None:
         evaluation_assertion = client.evaluation_assertions.retrieve(
             "1212121",
         )
         assert_matches_type(EvaluationAssertion, evaluation_assertion, path=['response'])
 
     @parametrize
-    def test_raw_response_retrieve(self, client: PromptFoundrySdk) -> None:
+    def test_raw_response_retrieve(self, client: PromptFoundry) -> None:
 
         response = client.evaluation_assertions.with_raw_response.retrieve(
             "1212121",
@@ -93,7 +93,7 @@ class TestEvaluationAssertions:
         assert_matches_type(EvaluationAssertion, evaluation_assertion, path=['response'])
 
     @parametrize
-    def test_streaming_response_retrieve(self, client: PromptFoundrySdk) -> None:
+    def test_streaming_response_retrieve(self, client: PromptFoundry) -> None:
         with client.evaluation_assertions.with_streaming_response.retrieve(
             "1212121",
         ) as response :
@@ -106,14 +106,14 @@ class TestEvaluationAssertions:
         assert cast(Any, response.is_closed) is True
 
     @parametrize
-    def test_path_params_retrieve(self, client: PromptFoundrySdk) -> None:
+    def test_path_params_retrieve(self, client: PromptFoundry) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
           client.evaluation_assertions.with_raw_response.retrieve(
               "",
           )
 
     @parametrize
-    def test_method_update(self, client: PromptFoundrySdk) -> None:
+    def test_method_update(self, client: PromptFoundry) -> None:
         evaluation_assertion = client.evaluation_assertions.update(
             "1212121",
             evaluation_id="string",
@@ -126,7 +126,7 @@ class TestEvaluationAssertions:
         assert_matches_type(EvaluationAssertion, evaluation_assertion, path=['response'])
 
     @parametrize
-    def test_raw_response_update(self, client: PromptFoundrySdk) -> None:
+    def test_raw_response_update(self, client: PromptFoundry) -> None:
 
         response = client.evaluation_assertions.with_raw_response.update(
             "1212121",
@@ -144,7 +144,7 @@ class TestEvaluationAssertions:
         assert_matches_type(EvaluationAssertion, evaluation_assertion, path=['response'])
 
     @parametrize
-    def test_streaming_response_update(self, client: PromptFoundrySdk) -> None:
+    def test_streaming_response_update(self, client: PromptFoundry) -> None:
         with client.evaluation_assertions.with_streaming_response.update(
             "1212121",
             evaluation_id="string",
@@ -163,7 +163,7 @@ class TestEvaluationAssertions:
         assert cast(Any, response.is_closed) is True
 
     @parametrize
-    def test_path_params_update(self, client: PromptFoundrySdk) -> None:
+    def test_path_params_update(self, client: PromptFoundry) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
           client.evaluation_assertions.with_raw_response.update(
               "",
@@ -176,19 +176,19 @@ class TestEvaluationAssertions:
           )
 
     @parametrize
-    def test_method_list(self, client: PromptFoundrySdk) -> None:
+    def test_method_list(self, client: PromptFoundry) -> None:
         evaluation_assertion = client.evaluation_assertions.list()
         assert_matches_type(EvaluationAssertionListResponse, evaluation_assertion, path=['response'])
 
     @parametrize
-    def test_method_list_with_all_params(self, client: PromptFoundrySdk) -> None:
+    def test_method_list_with_all_params(self, client: PromptFoundry) -> None:
         evaluation_assertion = client.evaluation_assertions.list(
             evaluation_id="eval-1234",
         )
         assert_matches_type(EvaluationAssertionListResponse, evaluation_assertion, path=['response'])
 
     @parametrize
-    def test_raw_response_list(self, client: PromptFoundrySdk) -> None:
+    def test_raw_response_list(self, client: PromptFoundry) -> None:
 
         response = client.evaluation_assertions.with_raw_response.list()
 
@@ -198,7 +198,7 @@ class TestEvaluationAssertions:
         assert_matches_type(EvaluationAssertionListResponse, evaluation_assertion, path=['response'])
 
     @parametrize
-    def test_streaming_response_list(self, client: PromptFoundrySdk) -> None:
+    def test_streaming_response_list(self, client: PromptFoundry) -> None:
         with client.evaluation_assertions.with_streaming_response.list() as response :
             assert not response.is_closed
             assert response.http_request.headers.get('X-Stainless-Lang') == 'python'
@@ -209,14 +209,14 @@ class TestEvaluationAssertions:
         assert cast(Any, response.is_closed) is True
 
     @parametrize
-    def test_method_delete(self, client: PromptFoundrySdk) -> None:
+    def test_method_delete(self, client: PromptFoundry) -> None:
         evaluation_assertion = client.evaluation_assertions.delete(
             "1212121",
         )
         assert_matches_type(EvaluationAssertionDeleteResponse, evaluation_assertion, path=['response'])
 
     @parametrize
-    def test_raw_response_delete(self, client: PromptFoundrySdk) -> None:
+    def test_raw_response_delete(self, client: PromptFoundry) -> None:
 
         response = client.evaluation_assertions.with_raw_response.delete(
             "1212121",
@@ -228,7 +228,7 @@ class TestEvaluationAssertions:
         assert_matches_type(EvaluationAssertionDeleteResponse, evaluation_assertion, path=['response'])
 
     @parametrize
-    def test_streaming_response_delete(self, client: PromptFoundrySdk) -> None:
+    def test_streaming_response_delete(self, client: PromptFoundry) -> None:
         with client.evaluation_assertions.with_streaming_response.delete(
             "1212121",
         ) as response :
@@ -241,7 +241,7 @@ class TestEvaluationAssertions:
         assert cast(Any, response.is_closed) is True
 
     @parametrize
-    def test_path_params_delete(self, client: PromptFoundrySdk) -> None:
+    def test_path_params_delete(self, client: PromptFoundry) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
           client.evaluation_assertions.with_raw_response.delete(
               "",
@@ -251,7 +251,7 @@ class TestAsyncEvaluationAssertions:
 
 
     @parametrize
-    async def test_method_create(self, async_client: AsyncPromptFoundrySdk) -> None:
+    async def test_method_create(self, async_client: AsyncPromptFoundry) -> None:
         evaluation_assertion = await async_client.evaluation_assertions.create(
             evaluation_id="string",
             matcher={
@@ -263,7 +263,7 @@ class TestAsyncEvaluationAssertions:
         assert_matches_type(EvaluationAssertion, evaluation_assertion, path=['response'])
 
     @parametrize
-    async def test_raw_response_create(self, async_client: AsyncPromptFoundrySdk) -> None:
+    async def test_raw_response_create(self, async_client: AsyncPromptFoundry) -> None:
 
         response = await async_client.evaluation_assertions.with_raw_response.create(
             evaluation_id="string",
@@ -280,7 +280,7 @@ class TestAsyncEvaluationAssertions:
         assert_matches_type(EvaluationAssertion, evaluation_assertion, path=['response'])
 
     @parametrize
-    async def test_streaming_response_create(self, async_client: AsyncPromptFoundrySdk) -> None:
+    async def test_streaming_response_create(self, async_client: AsyncPromptFoundry) -> None:
         async with async_client.evaluation_assertions.with_streaming_response.create(
             evaluation_id="string",
             matcher={
@@ -298,14 +298,14 @@ class TestAsyncEvaluationAssertions:
         assert cast(Any, response.is_closed) is True
 
     @parametrize
-    async def test_method_retrieve(self, async_client: AsyncPromptFoundrySdk) -> None:
+    async def test_method_retrieve(self, async_client: AsyncPromptFoundry) -> None:
         evaluation_assertion = await async_client.evaluation_assertions.retrieve(
             "1212121",
         )
         assert_matches_type(EvaluationAssertion, evaluation_assertion, path=['response'])
 
     @parametrize
-    async def test_raw_response_retrieve(self, async_client: AsyncPromptFoundrySdk) -> None:
+    async def test_raw_response_retrieve(self, async_client: AsyncPromptFoundry) -> None:
 
         response = await async_client.evaluation_assertions.with_raw_response.retrieve(
             "1212121",
@@ -317,7 +317,7 @@ class TestAsyncEvaluationAssertions:
         assert_matches_type(EvaluationAssertion, evaluation_assertion, path=['response'])
 
     @parametrize
-    async def test_streaming_response_retrieve(self, async_client: AsyncPromptFoundrySdk) -> None:
+    async def test_streaming_response_retrieve(self, async_client: AsyncPromptFoundry) -> None:
         async with async_client.evaluation_assertions.with_streaming_response.retrieve(
             "1212121",
         ) as response :
@@ -330,14 +330,14 @@ class TestAsyncEvaluationAssertions:
         assert cast(Any, response.is_closed) is True
 
     @parametrize
-    async def test_path_params_retrieve(self, async_client: AsyncPromptFoundrySdk) -> None:
+    async def test_path_params_retrieve(self, async_client: AsyncPromptFoundry) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
           await async_client.evaluation_assertions.with_raw_response.retrieve(
               "",
           )
 
     @parametrize
-    async def test_method_update(self, async_client: AsyncPromptFoundrySdk) -> None:
+    async def test_method_update(self, async_client: AsyncPromptFoundry) -> None:
         evaluation_assertion = await async_client.evaluation_assertions.update(
             "1212121",
             evaluation_id="string",
@@ -350,7 +350,7 @@ class TestAsyncEvaluationAssertions:
         assert_matches_type(EvaluationAssertion, evaluation_assertion, path=['response'])
 
     @parametrize
-    async def test_raw_response_update(self, async_client: AsyncPromptFoundrySdk) -> None:
+    async def test_raw_response_update(self, async_client: AsyncPromptFoundry) -> None:
 
         response = await async_client.evaluation_assertions.with_raw_response.update(
             "1212121",
@@ -368,7 +368,7 @@ class TestAsyncEvaluationAssertions:
         assert_matches_type(EvaluationAssertion, evaluation_assertion, path=['response'])
 
     @parametrize
-    async def test_streaming_response_update(self, async_client: AsyncPromptFoundrySdk) -> None:
+    async def test_streaming_response_update(self, async_client: AsyncPromptFoundry) -> None:
         async with async_client.evaluation_assertions.with_streaming_response.update(
             "1212121",
             evaluation_id="string",
@@ -387,7 +387,7 @@ class TestAsyncEvaluationAssertions:
         assert cast(Any, response.is_closed) is True
 
     @parametrize
-    async def test_path_params_update(self, async_client: AsyncPromptFoundrySdk) -> None:
+    async def test_path_params_update(self, async_client: AsyncPromptFoundry) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
           await async_client.evaluation_assertions.with_raw_response.update(
               "",
@@ -400,19 +400,19 @@ class TestAsyncEvaluationAssertions:
           )
 
     @parametrize
-    async def test_method_list(self, async_client: AsyncPromptFoundrySdk) -> None:
+    async def test_method_list(self, async_client: AsyncPromptFoundry) -> None:
         evaluation_assertion = await async_client.evaluation_assertions.list()
         assert_matches_type(EvaluationAssertionListResponse, evaluation_assertion, path=['response'])
 
     @parametrize
-    async def test_method_list_with_all_params(self, async_client: AsyncPromptFoundrySdk) -> None:
+    async def test_method_list_with_all_params(self, async_client: AsyncPromptFoundry) -> None:
         evaluation_assertion = await async_client.evaluation_assertions.list(
             evaluation_id="eval-1234",
         )
         assert_matches_type(EvaluationAssertionListResponse, evaluation_assertion, path=['response'])
 
     @parametrize
-    async def test_raw_response_list(self, async_client: AsyncPromptFoundrySdk) -> None:
+    async def test_raw_response_list(self, async_client: AsyncPromptFoundry) -> None:
 
         response = await async_client.evaluation_assertions.with_raw_response.list()
 
@@ -422,7 +422,7 @@ class TestAsyncEvaluationAssertions:
         assert_matches_type(EvaluationAssertionListResponse, evaluation_assertion, path=['response'])
 
     @parametrize
-    async def test_streaming_response_list(self, async_client: AsyncPromptFoundrySdk) -> None:
+    async def test_streaming_response_list(self, async_client: AsyncPromptFoundry) -> None:
         async with async_client.evaluation_assertions.with_streaming_response.list() as response :
             assert not response.is_closed
             assert response.http_request.headers.get('X-Stainless-Lang') == 'python'
@@ -433,14 +433,14 @@ class TestAsyncEvaluationAssertions:
         assert cast(Any, response.is_closed) is True
 
     @parametrize
-    async def test_method_delete(self, async_client: AsyncPromptFoundrySdk) -> None:
+    async def test_method_delete(self, async_client: AsyncPromptFoundry) -> None:
         evaluation_assertion = await async_client.evaluation_assertions.delete(
             "1212121",
         )
         assert_matches_type(EvaluationAssertionDeleteResponse, evaluation_assertion, path=['response'])
 
     @parametrize
-    async def test_raw_response_delete(self, async_client: AsyncPromptFoundrySdk) -> None:
+    async def test_raw_response_delete(self, async_client: AsyncPromptFoundry) -> None:
 
         response = await async_client.evaluation_assertions.with_raw_response.delete(
             "1212121",
@@ -452,7 +452,7 @@ class TestAsyncEvaluationAssertions:
         assert_matches_type(EvaluationAssertionDeleteResponse, evaluation_assertion, path=['response'])
 
     @parametrize
-    async def test_streaming_response_delete(self, async_client: AsyncPromptFoundrySdk) -> None:
+    async def test_streaming_response_delete(self, async_client: AsyncPromptFoundry) -> None:
         async with async_client.evaluation_assertions.with_streaming_response.delete(
             "1212121",
         ) as response :
@@ -465,7 +465,7 @@ class TestAsyncEvaluationAssertions:
         assert cast(Any, response.is_closed) is True
 
     @parametrize
-    async def test_path_params_delete(self, async_client: AsyncPromptFoundrySdk) -> None:
+    async def test_path_params_delete(self, async_client: AsyncPromptFoundry) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
           await async_client.evaluation_assertions.with_raw_response.delete(
               "",

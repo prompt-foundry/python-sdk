@@ -18,11 +18,11 @@ __all__ = [
 ]
 
 
-class PromptFoundrySdkError(Exception):
+class PromptFoundryError(Exception):
     pass
 
 
-class APIError(PromptFoundrySdkError):
+class APIError(PromptFoundryError):
     message: str
     request: httpx.Request
 

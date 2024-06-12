@@ -14,7 +14,7 @@ from ._exceptions import APIError
 from ._response import APIResponse, AsyncAPIResponse
 
 if TYPE_CHECKING:
-    from ._client import PromptFoundrySdk, AsyncPromptFoundrySdk
+    from ._client import PromptFoundry, AsyncPromptFoundry
 
 
 _T = TypeVar("_T")
@@ -32,7 +32,7 @@ class Stream(Generic[_T]):
         *,
         cast_to: type[_T],
         response: httpx.Response,
-        client: PromptFoundrySdk,
+        client: PromptFoundry,
     ) -> None:
         self.response = response
         self._cast_to = cast_to
@@ -95,7 +95,7 @@ class AsyncStream(Generic[_T]):
         *,
         cast_to: type[_T],
         response: httpx.Response,
-        client: AsyncPromptFoundrySdk,
+        client: AsyncPromptFoundry,
     ) -> None:
         self.response = response
         self._cast_to = cast_to
