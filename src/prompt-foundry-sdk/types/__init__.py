@@ -5,7 +5,6 @@ from __future__ import annotations
 from .prompt_configuration import PromptConfiguration as PromptConfiguration
 from .prompt_delete_response import PromptDeleteResponse as PromptDeleteResponse
 from .prompt_create_params import PromptCreateParams as PromptCreateParams
-from .prompt_update_params import PromptUpdateParams as PromptUpdateParams
 from .tool import Tool as Tool
 from .tool_list_response import ToolListResponse as ToolListResponse
 from .tool_delete_response import ToolDeleteResponse as ToolDeleteResponse
