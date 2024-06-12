@@ -1,6 +1,6 @@
 # Prompt Foundry Python API library
 
-[![PyPI version](https://img.shields.io/pypi/v/prompt-foundry-sdk.svg)](https://pypi.org/project/prompt-foundry-sdk/)
+[![PyPI version](https://img.shields.io/pypi/v/prompt-foundry-python-sdk.svg)](https://pypi.org/project/prompt-foundry-python-sdk/)
 
 The Prompt Foundry Python library provides convenient access to the Prompt Foundry REST API from any Python 3.7+
 application. The library includes type definitions for all request params and response fields,
@@ -15,128 +15,32 @@ The REST API documentation can be found [on docs.promptfoundry.ai](https://docs.
 ## Installation
 
 ```sh
-# install from this staging repo
-pip install git+ssh://git@github.com/stainless-sdks/prompt-foundry-sdk-python.git
+# install from PyPI
+pip install --pre prompt-foundry-python-sdk
 ```
-
-> [!NOTE]
-> Once this package is [published to PyPI](https://app.stainlessapi.com/docs/guides/publish), this will become: `pip install --pre prompt-foundry-sdk`
 
 ## Usage
 
 The full API of this library can be found in [api.md](api.md).
 
 ```python
-from prompt-foundry-sdk import PromptFoundry
+import os
+from prompt-foundry-python-sdk import PromptFoundry
 
-client = PromptFoundry()
+client = PromptFoundry(
+    # This is the default and can be omitted
+    api_key=os.environ.get("PROMPT_FOUNDRY_API_KEY"),
+)
 
-prompt_configuration = client.prompts.create(
-    messages=[{
-        "content": "string",
-        "role": "USER",
-        "tool_call_id": "string",
-        "tool_calls": [{
-            "tool_call_id": "string",
-            "type": "function",
-            "function": {
-                "arguments": "string",
-                "name": "string",
-            },
-        }, {
-            "tool_call_id": "string",
-            "type": "function",
-            "function": {
-                "arguments": "string",
-                "name": "string",
-            },
-        }, {
-            "tool_call_id": "string",
-            "type": "function",
-            "function": {
-                "arguments": "string",
-                "name": "string",
-            },
-        }],
-    }, {
-        "content": "string",
-        "role": "USER",
-        "tool_call_id": "string",
-        "tool_calls": [{
-            "tool_call_id": "string",
-            "type": "function",
-            "function": {
-                "arguments": "string",
-                "name": "string",
-            },
-        }, {
-            "tool_call_id": "string",
-            "type": "function",
-            "function": {
-                "arguments": "string",
-                "name": "string",
-            },
-        }, {
-            "tool_call_id": "string",
-            "type": "function",
-            "function": {
-                "arguments": "string",
-                "name": "string",
-            },
-        }],
-    }, {
-        "content": "string",
-        "role": "USER",
-        "tool_call_id": "string",
-        "tool_calls": [{
-            "tool_call_id": "string",
-            "type": "function",
-            "function": {
-                "arguments": "string",
-                "name": "string",
-            },
-        }, {
-            "tool_call_id": "string",
-            "type": "function",
-            "function": {
-                "arguments": "string",
-                "name": "string",
-            },
-        }, {
-            "tool_call_id": "string",
-            "type": "function",
-            "function": {
-                "arguments": "string",
-                "name": "string",
-            },
-        }],
-    }],
-    name="string",
-    parameters={
-        "model_name": "string",
-        "response_format": "TEXT",
-        "temperature": 0,
-        "top_p": 0,
-        "frequency_penalty": 0,
-        "presence_penalty": 0,
-        "max_tokens": 0,
-        "seed": 0,
-        "tool_choice": "string",
-    },
-    tools=[{
-        "tool_id": "string"
-    }, {
-        "tool_id": "string"
-    }, {
-        "tool_id": "string"
-    }],
+prompt_configuration = client.prompts.get(
+    "1212121",
 )
 print(prompt_configuration.id)
 ```
 
-While you can provide an `api_key` keyword argument,
+While you can provide a `api_key` keyword argument,
 we recommend using [python-dotenv](https://pypi.org/project/python-dotenv/)
-to add `PROMPT_FOUNDRY_SDK_API_KEY="My API Key"` to your `.env` file
+to add `PROMPT_FOUNDRY_API_KEY="My API Key"` to your `.env` file
 so that your API Key is not stored in source control.
 
 ## Async usage
@@ -144,111 +48,18 @@ so that your API Key is not stored in source control.
 Simply import `AsyncPromptFoundry` instead of `PromptFoundry` and use `await` with each API call:
 
 ```python
+import os
 import asyncio
-from prompt-foundry-sdk import AsyncPromptFoundry
+from prompt-foundry-python-sdk import AsyncPromptFoundry
 
-client = AsyncPromptFoundry()
+client = AsyncPromptFoundry(
+    # This is the default and can be omitted
+    api_key=os.environ.get("PROMPT_FOUNDRY_API_KEY"),
+)
 
 async def main() -> None:
-  prompt_configuration = await client.prompts.create(
-      messages=[{
-          "content": "string",
-          "role": "USER",
-          "tool_call_id": "string",
-          "tool_calls": [{
-              "tool_call_id": "string",
-              "type": "function",
-              "function": {
-                  "arguments": "string",
-                  "name": "string",
-              },
-          }, {
-              "tool_call_id": "string",
-              "type": "function",
-              "function": {
-                  "arguments": "string",
-                  "name": "string",
-              },
-          }, {
-              "tool_call_id": "string",
-              "type": "function",
-              "function": {
-                  "arguments": "string",
-                  "name": "string",
-              },
-          }],
-      }, {
-          "content": "string",
-          "role": "USER",
-          "tool_call_id": "string",
-          "tool_calls": [{
-              "tool_call_id": "string",
-              "type": "function",
-              "function": {
-                  "arguments": "string",
-                  "name": "string",
-              },
-          }, {
-              "tool_call_id": "string",
-              "type": "function",
-              "function": {
-                  "arguments": "string",
-                  "name": "string",
-              },
-          }, {
-              "tool_call_id": "string",
-              "type": "function",
-              "function": {
-                  "arguments": "string",
-                  "name": "string",
-              },
-          }],
-      }, {
-          "content": "string",
-          "role": "USER",
-          "tool_call_id": "string",
-          "tool_calls": [{
-              "tool_call_id": "string",
-              "type": "function",
-              "function": {
-                  "arguments": "string",
-                  "name": "string",
-              },
-          }, {
-              "tool_call_id": "string",
-              "type": "function",
-              "function": {
-                  "arguments": "string",
-                  "name": "string",
-              },
-          }, {
-              "tool_call_id": "string",
-              "type": "function",
-              "function": {
-                  "arguments": "string",
-                  "name": "string",
-              },
-          }],
-      }],
-      name="string",
-      parameters={
-          "model_name": "string",
-          "response_format": "TEXT",
-          "temperature": 0,
-          "top_p": 0,
-          "frequency_penalty": 0,
-          "presence_penalty": 0,
-          "max_tokens": 0,
-          "seed": 0,
-          "tool_choice": "string",
-      },
-      tools=[{
-          "tool_id": "string"
-      }, {
-          "tool_id": "string"
-      }, {
-          "tool_id": "string"
-      }],
+  prompt_configuration = await client.prompts.get(
+      "1212121",
   )
   print(prompt_configuration.id)
 
@@ -268,126 +79,29 @@ Typed requests and responses provide autocomplete and documentation within your 
 
 ## Handling errors
 
-When the library is unable to connect to the API (for example, due to network connection problems or a timeout), a subclass of `prompt-foundry-sdk.APIConnectionError` is raised.
+When the library is unable to connect to the API (for example, due to network connection problems or a timeout), a subclass of `prompt-foundry-python-sdk.APIConnectionError` is raised.
 
 When the API returns a non-success status code (that is, 4xx or 5xx
-response), a subclass of `prompt-foundry-sdk.APIStatusError` is raised, containing `status_code` and `response` properties.
+response), a subclass of `prompt-foundry-python-sdk.APIStatusError` is raised, containing `status_code` and `response` properties.
 
-All errors inherit from `prompt-foundry-sdk.APIError`.
+All errors inherit from `prompt-foundry-python-sdk.APIError`.
 
 ```python
-import prompt-foundry-sdk
-from prompt-foundry-sdk import PromptFoundry
+import prompt-foundry-python-sdk
+from prompt-foundry-python-sdk import PromptFoundry
 
 client = PromptFoundry()
 
 try:
-    client.prompts.create(
-        messages=[{
-            "content": "string",
-            "role": "USER",
-            "tool_call_id": "string",
-            "tool_calls": [{
-                "tool_call_id": "string",
-                "type": "function",
-                "function": {
-                    "arguments": "string",
-                    "name": "string",
-                },
-            }, {
-                "tool_call_id": "string",
-                "type": "function",
-                "function": {
-                    "arguments": "string",
-                    "name": "string",
-                },
-            }, {
-                "tool_call_id": "string",
-                "type": "function",
-                "function": {
-                    "arguments": "string",
-                    "name": "string",
-                },
-            }],
-        }, {
-            "content": "string",
-            "role": "USER",
-            "tool_call_id": "string",
-            "tool_calls": [{
-                "tool_call_id": "string",
-                "type": "function",
-                "function": {
-                    "arguments": "string",
-                    "name": "string",
-                },
-            }, {
-                "tool_call_id": "string",
-                "type": "function",
-                "function": {
-                    "arguments": "string",
-                    "name": "string",
-                },
-            }, {
-                "tool_call_id": "string",
-                "type": "function",
-                "function": {
-                    "arguments": "string",
-                    "name": "string",
-                },
-            }],
-        }, {
-            "content": "string",
-            "role": "USER",
-            "tool_call_id": "string",
-            "tool_calls": [{
-                "tool_call_id": "string",
-                "type": "function",
-                "function": {
-                    "arguments": "string",
-                    "name": "string",
-                },
-            }, {
-                "tool_call_id": "string",
-                "type": "function",
-                "function": {
-                    "arguments": "string",
-                    "name": "string",
-                },
-            }, {
-                "tool_call_id": "string",
-                "type": "function",
-                "function": {
-                    "arguments": "string",
-                    "name": "string",
-                },
-            }],
-        }],
-        name="string",
-        parameters={
-            "model_name": "string",
-            "response_format": "TEXT",
-            "temperature": 0,
-            "top_p": 0,
-            "frequency_penalty": 0,
-            "presence_penalty": 0,
-            "max_tokens": 0,
-            "seed": 0,
-            "tool_choice": "string",
-        },
-        tools=[{
-            "tool_id": "string"
-        }, {
-            "tool_id": "string"
-        }, {
-            "tool_id": "string"
-        }],
+    client.prompts.get(
+        "1212121",
     )
-except prompt-foundry-sdk.APIConnectionError as e:
+except prompt-foundry-python-sdk.APIConnectionError as e:
     print("The server could not be reached")
     print(e.__cause__) # an underlying Exception, likely raised within httpx.
-except prompt-foundry-sdk.RateLimitError as e:
+except prompt-foundry-python-sdk.RateLimitError as e:
     print("A 429 status code was received; we should back off a bit.")
-except prompt-foundry-sdk.APIStatusError as e:
+except prompt-foundry-python-sdk.APIStatusError as e:
     print("Another non-200-range status code was received")
     print(e.status_code)
     print(e.response)
@@ -415,7 +129,7 @@ Connection errors (for example, due to a network connectivity problem), 408 Requ
 You can use the `max_retries` option to configure or disable retry settings:
 
 ```python
-from prompt-foundry-sdk import PromptFoundry
+from prompt-foundry-python-sdk import PromptFoundry
 
 # Configure the default for all requests:
 client = PromptFoundry(
@@ -424,105 +138,8 @@ client = PromptFoundry(
 )
 
 # Or, configure per-request:
-client.with_options(max_retries = 5).prompts.create(
-    messages=[{
-        "content": "string",
-        "role": "USER",
-        "tool_call_id": "string",
-        "tool_calls": [{
-            "tool_call_id": "string",
-            "type": "function",
-            "function": {
-                "arguments": "string",
-                "name": "string",
-            },
-        }, {
-            "tool_call_id": "string",
-            "type": "function",
-            "function": {
-                "arguments": "string",
-                "name": "string",
-            },
-        }, {
-            "tool_call_id": "string",
-            "type": "function",
-            "function": {
-                "arguments": "string",
-                "name": "string",
-            },
-        }],
-    }, {
-        "content": "string",
-        "role": "USER",
-        "tool_call_id": "string",
-        "tool_calls": [{
-            "tool_call_id": "string",
-            "type": "function",
-            "function": {
-                "arguments": "string",
-                "name": "string",
-            },
-        }, {
-            "tool_call_id": "string",
-            "type": "function",
-            "function": {
-                "arguments": "string",
-                "name": "string",
-            },
-        }, {
-            "tool_call_id": "string",
-            "type": "function",
-            "function": {
-                "arguments": "string",
-                "name": "string",
-            },
-        }],
-    }, {
-        "content": "string",
-        "role": "USER",
-        "tool_call_id": "string",
-        "tool_calls": [{
-            "tool_call_id": "string",
-            "type": "function",
-            "function": {
-                "arguments": "string",
-                "name": "string",
-            },
-        }, {
-            "tool_call_id": "string",
-            "type": "function",
-            "function": {
-                "arguments": "string",
-                "name": "string",
-            },
-        }, {
-            "tool_call_id": "string",
-            "type": "function",
-            "function": {
-                "arguments": "string",
-                "name": "string",
-            },
-        }],
-    }],
-    name="string",
-    parameters={
-        "model_name": "string",
-        "response_format": "TEXT",
-        "temperature": 0,
-        "top_p": 0,
-        "frequency_penalty": 0,
-        "presence_penalty": 0,
-        "max_tokens": 0,
-        "seed": 0,
-        "tool_choice": "string",
-    },
-    tools=[{
-        "tool_id": "string"
-    }, {
-        "tool_id": "string"
-    }, {
-        "tool_id": "string"
-    }],
+client.with_options(max_retries = 5).prompts.get(
+    "1212121",
 )
 ```
 
@@ -532,7 +149,7 @@ By default requests time out after 1 minute. You can configure this with a `time
 which accepts a float or an [`httpx.Timeout`](https://www.python-httpx.org/advanced/#fine-tuning-the-configuration) object:
 
 ```python
-from prompt-foundry-sdk import PromptFoundry
+from prompt-foundry-python-sdk import PromptFoundry
 
 # Configure the default for all requests:
 client = PromptFoundry(
@@ -546,105 +163,8 @@ client = PromptFoundry(
 )
 
 # Override per-request:
-client.with_options(timeout = 5.0).prompts.create(
-    messages=[{
-        "content": "string",
-        "role": "USER",
-        "tool_call_id": "string",
-        "tool_calls": [{
-            "tool_call_id": "string",
-            "type": "function",
-            "function": {
-                "arguments": "string",
-                "name": "string",
-            },
-        }, {
-            "tool_call_id": "string",
-            "type": "function",
-            "function": {
-                "arguments": "string",
-                "name": "string",
-            },
-        }, {
-            "tool_call_id": "string",
-            "type": "function",
-            "function": {
-                "arguments": "string",
-                "name": "string",
-            },
-        }],
-    }, {
-        "content": "string",
-        "role": "USER",
-        "tool_call_id": "string",
-        "tool_calls": [{
-            "tool_call_id": "string",
-            "type": "function",
-            "function": {
-                "arguments": "string",
-                "name": "string",
-            },
-        }, {
-            "tool_call_id": "string",
-            "type": "function",
-            "function": {
-                "arguments": "string",
-                "name": "string",
-            },
-        }, {
-            "tool_call_id": "string",
-            "type": "function",
-            "function": {
-                "arguments": "string",
-                "name": "string",
-            },
-        }],
-    }, {
-        "content": "string",
-        "role": "USER",
-        "tool_call_id": "string",
-        "tool_calls": [{
-            "tool_call_id": "string",
-            "type": "function",
-            "function": {
-                "arguments": "string",
-                "name": "string",
-            },
-        }, {
-            "tool_call_id": "string",
-            "type": "function",
-            "function": {
-                "arguments": "string",
-                "name": "string",
-            },
-        }, {
-            "tool_call_id": "string",
-            "type": "function",
-            "function": {
-                "arguments": "string",
-                "name": "string",
-            },
-        }],
-    }],
-    name="string",
-    parameters={
-        "model_name": "string",
-        "response_format": "TEXT",
-        "temperature": 0,
-        "top_p": 0,
-        "frequency_penalty": 0,
-        "presence_penalty": 0,
-        "max_tokens": 0,
-        "seed": 0,
-        "tool_choice": "string",
-    },
-    tools=[{
-        "tool_id": "string"
-    }, {
-        "tool_id": "string"
-    }, {
-        "tool_id": "string"
-    }],
+client.with_options(timeout = 5.0).prompts.get(
+    "1212121",
 )
 ```
 
@@ -681,118 +201,21 @@ if response.my_field is None:
 The "raw" Response object can be accessed by prefixing `.with_raw_response.` to any HTTP method call, e.g.,
 
 ```py
-from prompt-foundry-sdk import PromptFoundry
+from prompt-foundry-python-sdk import PromptFoundry
 
 client = PromptFoundry()
-response = client.prompts.with_raw_response.create(
-    messages=[{
-        "content": "string",
-        "role": "USER",
-        "tool_call_id": "string",
-        "tool_calls": [{
-            "tool_call_id": "string",
-            "type": "function",
-            "function": {
-                "arguments": "string",
-                "name": "string",
-            },
-        }, {
-            "tool_call_id": "string",
-            "type": "function",
-            "function": {
-                "arguments": "string",
-                "name": "string",
-            },
-        }, {
-            "tool_call_id": "string",
-            "type": "function",
-            "function": {
-                "arguments": "string",
-                "name": "string",
-            },
-        }],
-    }, {
-        "content": "string",
-        "role": "USER",
-        "tool_call_id": "string",
-        "tool_calls": [{
-            "tool_call_id": "string",
-            "type": "function",
-            "function": {
-                "arguments": "string",
-                "name": "string",
-            },
-        }, {
-            "tool_call_id": "string",
-            "type": "function",
-            "function": {
-                "arguments": "string",
-                "name": "string",
-            },
-        }, {
-            "tool_call_id": "string",
-            "type": "function",
-            "function": {
-                "arguments": "string",
-                "name": "string",
-            },
-        }],
-    }, {
-        "content": "string",
-        "role": "USER",
-        "tool_call_id": "string",
-        "tool_calls": [{
-            "tool_call_id": "string",
-            "type": "function",
-            "function": {
-                "arguments": "string",
-                "name": "string",
-            },
-        }, {
-            "tool_call_id": "string",
-            "type": "function",
-            "function": {
-                "arguments": "string",
-                "name": "string",
-            },
-        }, {
-            "tool_call_id": "string",
-            "type": "function",
-            "function": {
-                "arguments": "string",
-                "name": "string",
-            },
-        }],
-    }],
-    name="string",
-    parameters={
-        "model_name": "string",
-        "response_format": "TEXT",
-        "temperature": 0,
-        "top_p": 0,
-        "frequency_penalty": 0,
-        "presence_penalty": 0,
-        "max_tokens": 0,
-        "seed": 0,
-        "tool_choice": "string",
-    },
-    tools=[{
-        "tool_id": "string"
-    }, {
-        "tool_id": "string"
-    }, {
-        "tool_id": "string"
-    }],
+response = client.prompts.with_raw_response.get(
+    "1212121",
 )
 print(response.headers.get('X-My-Header'))
 
-prompt = response.parse()  # get the object that `prompts.create()` would have returned
+prompt = response.parse()  # get the object that `prompts.get()` would have returned
 print(prompt.id)
 ```
 
-These methods return an [`APIResponse`](https://github.com/stainless-sdks/prompt-foundry-sdk-python/tree/main/src/prompt-foundry-sdk/_response.py) object.
+These methods return an [`APIResponse`](https://github.com/prompt-foundry/python-sdk/tree/main/src/prompt-foundry-python-sdk/_response.py) object.
 
-The async client returns an [`AsyncAPIResponse`](https://github.com/stainless-sdks/prompt-foundry-sdk-python/tree/main/src/prompt-foundry-sdk/_response.py) with the same structure, the only difference being `await`able methods for reading the response content.
+The async client returns an [`AsyncAPIResponse`](https://github.com/prompt-foundry/python-sdk/tree/main/src/prompt-foundry-python-sdk/_response.py) with the same structure, the only difference being `await`able methods for reading the response content.
 
 #### `.with_streaming_response`
 
@@ -801,105 +224,8 @@ The above interface eagerly reads the full response body when you make the reque
 To stream the response body, use `.with_streaming_response` instead, which requires a context manager and only reads the response body once you call `.read()`, `.text()`, `.json()`, `.iter_bytes()`, `.iter_text()`, `.iter_lines()` or `.parse()`. In the async client, these are async methods.
 
 ```python
-with client.prompts.with_streaming_response.create(
-    messages=[{
-        "content": "string",
-        "role": "USER",
-        "tool_call_id": "string",
-        "tool_calls": [{
-            "tool_call_id": "string",
-            "type": "function",
-            "function": {
-                "arguments": "string",
-                "name": "string",
-            },
-        }, {
-            "tool_call_id": "string",
-            "type": "function",
-            "function": {
-                "arguments": "string",
-                "name": "string",
-            },
-        }, {
-            "tool_call_id": "string",
-            "type": "function",
-            "function": {
-                "arguments": "string",
-                "name": "string",
-            },
-        }],
-    }, {
-        "content": "string",
-        "role": "USER",
-        "tool_call_id": "string",
-        "tool_calls": [{
-            "tool_call_id": "string",
-            "type": "function",
-            "function": {
-                "arguments": "string",
-                "name": "string",
-            },
-        }, {
-            "tool_call_id": "string",
-            "type": "function",
-            "function": {
-                "arguments": "string",
-                "name": "string",
-            },
-        }, {
-            "tool_call_id": "string",
-            "type": "function",
-            "function": {
-                "arguments": "string",
-                "name": "string",
-            },
-        }],
-    }, {
-        "content": "string",
-        "role": "USER",
-        "tool_call_id": "string",
-        "tool_calls": [{
-            "tool_call_id": "string",
-            "type": "function",
-            "function": {
-                "arguments": "string",
-                "name": "string",
-            },
-        }, {
-            "tool_call_id": "string",
-            "type": "function",
-            "function": {
-                "arguments": "string",
-                "name": "string",
-            },
-        }, {
-            "tool_call_id": "string",
-            "type": "function",
-            "function": {
-                "arguments": "string",
-                "name": "string",
-            },
-        }],
-    }],
-    name="string",
-    parameters={
-        "model_name": "string",
-        "response_format": "TEXT",
-        "temperature": 0,
-        "top_p": 0,
-        "frequency_penalty": 0,
-        "presence_penalty": 0,
-        "max_tokens": 0,
-        "seed": 0,
-        "tool_choice": "string",
-    },
-    tools=[{
-        "tool_id": "string"
-    }, {
-        "tool_id": "string"
-    }, {
-        "tool_id": "string"
-    }],
+with client.prompts.with_streaming_response.get(
+    "1212121",
 ) as response :
     print(response.headers.get('X-My-Header'))
 
@@ -953,7 +279,7 @@ You can directly override the [httpx client](https://www.python-httpx.org/api/#c
 - Additional [advanced](https://www.python-httpx.org/advanced/#client-instances) functionality
 
 ```python
-from prompt-foundry-sdk import PromptFoundry, DefaultHttpxClient
+from prompt-foundry-python-sdk import PromptFoundry, DefaultHttpxClient
 
 client = PromptFoundry(
     # Or use the `PROMPT_FOUNDRY_BASE_URL` env var
@@ -976,7 +302,7 @@ This package generally follows [SemVer](https://semver.org/spec/v2.0.0.html) con
 
 We take backwards-compatibility seriously and work hard to ensure you can rely on a smooth upgrade experience.
 
-We are keen for your feedback; please open an [issue](https://www.github.com/stainless-sdks/prompt-foundry-sdk-python/issues) with questions, bugs, or suggestions.
+We are keen for your feedback; please open an [issue](https://www.github.com/prompt-foundry/python-sdk/issues) with questions, bugs, or suggestions.
 
 ## Requirements
 

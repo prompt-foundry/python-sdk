@@ -4,9 +4,9 @@ from __future__ import annotations
 
 import httpx
 
-from prompt-foundry-sdk import PromptFoundry, AsyncPromptFoundry
+from prompt-foundry-python-sdk import PromptFoundry, AsyncPromptFoundry
 
-from prompt-foundry-sdk._exceptions import APITimeoutError, APIStatusError, APIResponseValidationError
+from prompt-foundry-python-sdk._exceptions import APITimeoutError, APIStatusError, PromptFoundryError, APIResponseValidationError
 
 from typing import Any, cast
 
@@ -25,13 +25,13 @@ import httpx
 import pytest
 from respx import MockRouter
 
-from prompt-foundry-sdk import PromptFoundry, AsyncPromptFoundry, APIResponseValidationError
-from prompt-foundry-sdk._models import FinalRequestOptions, BaseModel
-from prompt-foundry-sdk._types import NOT_GIVEN, Headers, NotGiven, Query, Body, Timeout, Omit
-from prompt-foundry-sdk._base_client import DEFAULT_TIMEOUT, HTTPX_DEFAULT_TIMEOUT, BaseClient, RequestOptions, make_request_options
-from prompt-foundry-sdk._streaming import Stream, AsyncStream
-from prompt-foundry-sdk._constants import RAW_RESPONSE_HEADER
-from prompt-foundry-sdk._response import APIResponse, AsyncAPIResponse
+from prompt-foundry-python-sdk import PromptFoundry, AsyncPromptFoundry, APIResponseValidationError
+from prompt-foundry-python-sdk._models import FinalRequestOptions, BaseModel
+from prompt-foundry-python-sdk._types import NOT_GIVEN, Headers, NotGiven, Query, Body, Timeout, Omit
+from prompt-foundry-python-sdk._base_client import DEFAULT_TIMEOUT, HTTPX_DEFAULT_TIMEOUT, BaseClient, RequestOptions, make_request_options
+from prompt-foundry-python-sdk._streaming import Stream, AsyncStream
+from prompt-foundry-python-sdk._constants import RAW_RESPONSE_HEADER
+from prompt-foundry-python-sdk._response import APIResponse, AsyncAPIResponse
 from .utils import update_env
 from typing import cast
 from typing import cast
@@ -225,10 +225,10 @@ class TestPromptFoundry:
                         # to_raw_response_wrapper leaks through the @functools.wraps() decorator.
                         #
                         # removing the decorator fixes the leak for reasons we don't understand.
-                        "prompt-foundry-sdk/_legacy_response.py",
-                        "prompt-foundry-sdk/_response.py",
+                        "prompt-foundry-python-sdk/_legacy_response.py",
+                        "prompt-foundry-python-sdk/_response.py",
                         # pydantic.BaseModel.model_dump || pydantic.BaseModel.dict leak memory for some reason.
-                        "prompt-foundry-sdk/_compat.py",
+                        "prompt-foundry-python-sdk/_compat.py",
                         # Standard library leaks we don't care about.
                         "/logging/__init__.py",
                     ]
@@ -310,6 +310,15 @@ class TestPromptFoundry:
         request = client2._build_request(FinalRequestOptions(method="get", url='/foo'))
         assert request.headers.get('x-foo') == 'stainless'
         assert request.headers.get('x-stainless-lang') == 'my-overriding-header'
+
+    def test_validate_headers(self) -> None:
+        client = PromptFoundry(base_url=base_url, api_key=api_key, _strict_response_validation=True)
+        request = client._build_request(FinalRequestOptions(method="get", url='/foo'))
+        assert request.headers.get("X-API-KEY") == api_key
+
+        with pytest.raises(PromptFoundryError):
+            client2 = PromptFoundry(base_url=base_url, api_key=None, _strict_response_validation=True)
+            _ = client2
 
     def test_default_query_option(self) -> None:
         client = PromptFoundry(base_url=base_url, api_key=api_key, _strict_response_validation=True, default_query={
@@ -636,211 +645,23 @@ class TestPromptFoundry:
         calculated = client._calculate_retry_timeout(remaining_retries, options, headers)
         assert calculated == pytest.approx(timeout, 0.5 * 0.875) # pyright: ignore[reportUnknownMemberType]
 
-    @mock.patch("prompt-foundry-sdk._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
+    @mock.patch("prompt-foundry-python-sdk._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
     @pytest.mark.respx(base_url=base_url)
     def test_retrying_timeout_errors_doesnt_leak(self, respx_mock: MockRouter) -> None:
-        respx_mock.post("/sdk/v1/prompts").mock(side_effect=httpx.TimeoutException("Test timeout error"))
+        respx_mock.get("/sdk/v1/prompts/1212121").mock(side_effect=httpx.TimeoutException("Test timeout error"))
 
         with pytest.raises(APITimeoutError):
-            self.client.post("/sdk/v1/prompts", body=cast(object, dict(messages=[{
-                "content": "string",
-                "role": "USER",
-                "tool_call_id": "string",
-                "tool_calls": [{
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }],
-            }, {
-                "content": "string",
-                "role": "USER",
-                "tool_call_id": "string",
-                "tool_calls": [{
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }],
-            }, {
-                "content": "string",
-                "role": "USER",
-                "tool_call_id": "string",
-                "tool_calls": [{
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }],
-            }], name="string", parameters={
-                "model_name": "string",
-                "response_format": "TEXT",
-                "temperature": 0,
-                "top_p": 0,
-                "frequency_penalty": 0,
-                "presence_penalty": 0,
-                "max_tokens": 0,
-                "seed": 0,
-                "tool_choice": "string",
-            }, tools=[{
-                "tool_id": "string"
-            }, {
-                "tool_id": "string"
-            }, {
-                "tool_id": "string"
-            }])), cast_to=httpx.Response, options={"headers": {RAW_RESPONSE_HEADER: "stream"}})
+            self.client.get("/sdk/v1/prompts/1212121", cast_to=httpx.Response, options={"headers": {RAW_RESPONSE_HEADER: "stream"}})
 
         assert _get_open_connections(self.client) == 0
 
-    @mock.patch("prompt-foundry-sdk._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
+    @mock.patch("prompt-foundry-python-sdk._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
     @pytest.mark.respx(base_url=base_url)
     def test_retrying_status_errors_doesnt_leak(self, respx_mock: MockRouter) -> None:
-        respx_mock.post("/sdk/v1/prompts").mock(return_value=httpx.Response(500))
+        respx_mock.get("/sdk/v1/prompts/1212121").mock(return_value=httpx.Response(500))
 
         with pytest.raises(APIStatusError):
-            self.client.post("/sdk/v1/prompts", body=cast(object, dict(messages=[{
-                "content": "string",
-                "role": "USER",
-                "tool_call_id": "string",
-                "tool_calls": [{
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }],
-            }, {
-                "content": "string",
-                "role": "USER",
-                "tool_call_id": "string",
-                "tool_calls": [{
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }],
-            }, {
-                "content": "string",
-                "role": "USER",
-                "tool_call_id": "string",
-                "tool_calls": [{
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }],
-            }], name="string", parameters={
-                "model_name": "string",
-                "response_format": "TEXT",
-                "temperature": 0,
-                "top_p": 0,
-                "frequency_penalty": 0,
-                "presence_penalty": 0,
-                "max_tokens": 0,
-                "seed": 0,
-                "tool_choice": "string",
-            }, tools=[{
-                "tool_id": "string"
-            }, {
-                "tool_id": "string"
-            }, {
-                "tool_id": "string"
-            }])), cast_to=httpx.Response, options={"headers": {RAW_RESPONSE_HEADER: "stream"}})
+            self.client.get("/sdk/v1/prompts/1212121", cast_to=httpx.Response, options={"headers": {RAW_RESPONSE_HEADER: "stream"}})
 
         assert _get_open_connections(self.client) == 0
 class TestAsyncPromptFoundry:
@@ -1016,10 +837,10 @@ class TestAsyncPromptFoundry:
                         # to_raw_response_wrapper leaks through the @functools.wraps() decorator.
                         #
                         # removing the decorator fixes the leak for reasons we don't understand.
-                        "prompt-foundry-sdk/_legacy_response.py",
-                        "prompt-foundry-sdk/_response.py",
+                        "prompt-foundry-python-sdk/_legacy_response.py",
+                        "prompt-foundry-python-sdk/_response.py",
                         # pydantic.BaseModel.model_dump || pydantic.BaseModel.dict leak memory for some reason.
-                        "prompt-foundry-sdk/_compat.py",
+                        "prompt-foundry-python-sdk/_compat.py",
                         # Standard library leaks we don't care about.
                         "/logging/__init__.py",
                     ]
@@ -1101,6 +922,15 @@ class TestAsyncPromptFoundry:
         request = client2._build_request(FinalRequestOptions(method="get", url='/foo'))
         assert request.headers.get('x-foo') == 'stainless'
         assert request.headers.get('x-stainless-lang') == 'my-overriding-header'
+
+    def test_validate_headers(self) -> None:
+        client = AsyncPromptFoundry(base_url=base_url, api_key=api_key, _strict_response_validation=True)
+        request = client._build_request(FinalRequestOptions(method="get", url='/foo'))
+        assert request.headers.get("X-API-KEY") == api_key
+
+        with pytest.raises(PromptFoundryError):
+            client2 = AsyncPromptFoundry(base_url=base_url, api_key=None, _strict_response_validation=True)
+            _ = client2
 
     def test_default_query_option(self) -> None:
         client = AsyncPromptFoundry(base_url=base_url, api_key=api_key, _strict_response_validation=True, default_query={
@@ -1431,210 +1261,22 @@ class TestAsyncPromptFoundry:
         calculated = client._calculate_retry_timeout(remaining_retries, options, headers)
         assert calculated == pytest.approx(timeout, 0.5 * 0.875) # pyright: ignore[reportUnknownMemberType]
 
-    @mock.patch("prompt-foundry-sdk._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
+    @mock.patch("prompt-foundry-python-sdk._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
     @pytest.mark.respx(base_url=base_url)
     async def test_retrying_timeout_errors_doesnt_leak(self, respx_mock: MockRouter) -> None:
-        respx_mock.post("/sdk/v1/prompts").mock(side_effect=httpx.TimeoutException("Test timeout error"))
+        respx_mock.get("/sdk/v1/prompts/1212121").mock(side_effect=httpx.TimeoutException("Test timeout error"))
 
         with pytest.raises(APITimeoutError):
-            await self.client.post("/sdk/v1/prompts", body=cast(object, dict(messages=[{
-                "content": "string",
-                "role": "USER",
-                "tool_call_id": "string",
-                "tool_calls": [{
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }],
-            }, {
-                "content": "string",
-                "role": "USER",
-                "tool_call_id": "string",
-                "tool_calls": [{
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }],
-            }, {
-                "content": "string",
-                "role": "USER",
-                "tool_call_id": "string",
-                "tool_calls": [{
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }],
-            }], name="string", parameters={
-                "model_name": "string",
-                "response_format": "TEXT",
-                "temperature": 0,
-                "top_p": 0,
-                "frequency_penalty": 0,
-                "presence_penalty": 0,
-                "max_tokens": 0,
-                "seed": 0,
-                "tool_choice": "string",
-            }, tools=[{
-                "tool_id": "string"
-            }, {
-                "tool_id": "string"
-            }, {
-                "tool_id": "string"
-            }])), cast_to=httpx.Response, options={"headers": {RAW_RESPONSE_HEADER: "stream"}})
+            await self.client.get("/sdk/v1/prompts/1212121", cast_to=httpx.Response, options={"headers": {RAW_RESPONSE_HEADER: "stream"}})
 
         assert _get_open_connections(self.client) == 0
 
-    @mock.patch("prompt-foundry-sdk._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
+    @mock.patch("prompt-foundry-python-sdk._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
     @pytest.mark.respx(base_url=base_url)
     async def test_retrying_status_errors_doesnt_leak(self, respx_mock: MockRouter) -> None:
-        respx_mock.post("/sdk/v1/prompts").mock(return_value=httpx.Response(500))
+        respx_mock.get("/sdk/v1/prompts/1212121").mock(return_value=httpx.Response(500))
 
         with pytest.raises(APIStatusError):
-            await self.client.post("/sdk/v1/prompts", body=cast(object, dict(messages=[{
-                "content": "string",
-                "role": "USER",
-                "tool_call_id": "string",
-                "tool_calls": [{
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }],
-            }, {
-                "content": "string",
-                "role": "USER",
-                "tool_call_id": "string",
-                "tool_calls": [{
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }],
-            }, {
-                "content": "string",
-                "role": "USER",
-                "tool_call_id": "string",
-                "tool_calls": [{
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }],
-            }], name="string", parameters={
-                "model_name": "string",
-                "response_format": "TEXT",
-                "temperature": 0,
-                "top_p": 0,
-                "frequency_penalty": 0,
-                "presence_penalty": 0,
-                "max_tokens": 0,
-                "seed": 0,
-                "tool_choice": "string",
-            }, tools=[{
-                "tool_id": "string"
-            }, {
-                "tool_id": "string"
-            }, {
-                "tool_id": "string"
-            }])), cast_to=httpx.Response, options={"headers": {RAW_RESPONSE_HEADER: "stream"}})
+            await self.client.get("/sdk/v1/prompts/1212121", cast_to=httpx.Response, options={"headers": {RAW_RESPONSE_HEADER: "stream"}})
 
         assert _get_open_connections(self.client) == 0

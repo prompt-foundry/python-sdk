@@ -4,7 +4,7 @@ from urllib.parse import unquote
 
 import pytest
 
-from prompt-foundry-sdk._qs import Querystring, stringify
+from prompt-foundry-python-sdk._qs import Querystring, stringify
 
 
 def test_empty() -> None:

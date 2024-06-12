@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from prompt-foundry-sdk import PromptFoundry, AsyncPromptFoundry
+from prompt-foundry-python-sdk import PromptFoundry, AsyncPromptFoundry
 
-from prompt-foundry-sdk.types import EvaluationAssertion, EvaluationAssertionListResponse, EvaluationAssertionDeleteResponse
+from prompt-foundry-python-sdk.types import EvaluationAssertion, EvaluationAssertionListResponse, EvaluationAssertionDeleteResponse
 
 from typing import Any, cast
 
@@ -14,11 +14,11 @@ import httpx
 from typing_extensions import get_args
 from typing import Optional
 from respx import MockRouter
-from prompt-foundry-sdk import PromptFoundry, AsyncPromptFoundry
+from prompt-foundry-python-sdk import PromptFoundry, AsyncPromptFoundry
 from tests.utils import assert_matches_type
-from prompt-foundry-sdk.types import evaluation_assertion_create_params
-from prompt-foundry-sdk.types import evaluation_assertion_update_params
-from prompt-foundry-sdk.types import evaluation_assertion_list_params
+from prompt-foundry-python-sdk.types import evaluation_assertion_create_params
+from prompt-foundry-python-sdk.types import evaluation_assertion_update_params
+from prompt-foundry-python-sdk.types import evaluation_assertion_list_params
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 
@@ -72,45 +72,6 @@ class TestEvaluationAssertions:
             assert_matches_type(EvaluationAssertion, evaluation_assertion, path=['response'])
 
         assert cast(Any, response.is_closed) is True
-
-    @parametrize
-    def test_method_retrieve(self, client: PromptFoundry) -> None:
-        evaluation_assertion = client.evaluation_assertions.retrieve(
-            "1212121",
-        )
-        assert_matches_type(EvaluationAssertion, evaluation_assertion, path=['response'])
-
-    @parametrize
-    def test_raw_response_retrieve(self, client: PromptFoundry) -> None:
-
-        response = client.evaluation_assertions.with_raw_response.retrieve(
-            "1212121",
-        )
-
-        assert response.is_closed is True
-        assert response.http_request.headers.get('X-Stainless-Lang') == 'python'
-        evaluation_assertion = response.parse()
-        assert_matches_type(EvaluationAssertion, evaluation_assertion, path=['response'])
-
-    @parametrize
-    def test_streaming_response_retrieve(self, client: PromptFoundry) -> None:
-        with client.evaluation_assertions.with_streaming_response.retrieve(
-            "1212121",
-        ) as response :
-            assert not response.is_closed
-            assert response.http_request.headers.get('X-Stainless-Lang') == 'python'
-
-            evaluation_assertion = response.parse()
-            assert_matches_type(EvaluationAssertion, evaluation_assertion, path=['response'])
-
-        assert cast(Any, response.is_closed) is True
-
-    @parametrize
-    def test_path_params_retrieve(self, client: PromptFoundry) -> None:
-        with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
-          client.evaluation_assertions.with_raw_response.retrieve(
-              "",
-          )
 
     @parametrize
     def test_method_update(self, client: PromptFoundry) -> None:
@@ -246,6 +207,45 @@ class TestEvaluationAssertions:
           client.evaluation_assertions.with_raw_response.delete(
               "",
           )
+
+    @parametrize
+    def test_method_get(self, client: PromptFoundry) -> None:
+        evaluation_assertion = client.evaluation_assertions.get(
+            "1212121",
+        )
+        assert_matches_type(EvaluationAssertion, evaluation_assertion, path=['response'])
+
+    @parametrize
+    def test_raw_response_get(self, client: PromptFoundry) -> None:
+
+        response = client.evaluation_assertions.with_raw_response.get(
+            "1212121",
+        )
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get('X-Stainless-Lang') == 'python'
+        evaluation_assertion = response.parse()
+        assert_matches_type(EvaluationAssertion, evaluation_assertion, path=['response'])
+
+    @parametrize
+    def test_streaming_response_get(self, client: PromptFoundry) -> None:
+        with client.evaluation_assertions.with_streaming_response.get(
+            "1212121",
+        ) as response :
+            assert not response.is_closed
+            assert response.http_request.headers.get('X-Stainless-Lang') == 'python'
+
+            evaluation_assertion = response.parse()
+            assert_matches_type(EvaluationAssertion, evaluation_assertion, path=['response'])
+
+        assert cast(Any, response.is_closed) is True
+
+    @parametrize
+    def test_path_params_get(self, client: PromptFoundry) -> None:
+        with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
+          client.evaluation_assertions.with_raw_response.get(
+              "",
+          )
 class TestAsyncEvaluationAssertions:
     parametrize = pytest.mark.parametrize("async_client", [False, True], indirect=True, ids=['loose', 'strict'])
 
@@ -296,45 +296,6 @@ class TestAsyncEvaluationAssertions:
             assert_matches_type(EvaluationAssertion, evaluation_assertion, path=['response'])
 
         assert cast(Any, response.is_closed) is True
-
-    @parametrize
-    async def test_method_retrieve(self, async_client: AsyncPromptFoundry) -> None:
-        evaluation_assertion = await async_client.evaluation_assertions.retrieve(
-            "1212121",
-        )
-        assert_matches_type(EvaluationAssertion, evaluation_assertion, path=['response'])
-
-    @parametrize
-    async def test_raw_response_retrieve(self, async_client: AsyncPromptFoundry) -> None:
-
-        response = await async_client.evaluation_assertions.with_raw_response.retrieve(
-            "1212121",
-        )
-
-        assert response.is_closed is True
-        assert response.http_request.headers.get('X-Stainless-Lang') == 'python'
-        evaluation_assertion = await response.parse()
-        assert_matches_type(EvaluationAssertion, evaluation_assertion, path=['response'])
-
-    @parametrize
-    async def test_streaming_response_retrieve(self, async_client: AsyncPromptFoundry) -> None:
-        async with async_client.evaluation_assertions.with_streaming_response.retrieve(
-            "1212121",
-        ) as response :
-            assert not response.is_closed
-            assert response.http_request.headers.get('X-Stainless-Lang') == 'python'
-
-            evaluation_assertion = await response.parse()
-            assert_matches_type(EvaluationAssertion, evaluation_assertion, path=['response'])
-
-        assert cast(Any, response.is_closed) is True
-
-    @parametrize
-    async def test_path_params_retrieve(self, async_client: AsyncPromptFoundry) -> None:
-        with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
-          await async_client.evaluation_assertions.with_raw_response.retrieve(
-              "",
-          )
 
     @parametrize
     async def test_method_update(self, async_client: AsyncPromptFoundry) -> None:
@@ -468,5 +429,44 @@ class TestAsyncEvaluationAssertions:
     async def test_path_params_delete(self, async_client: AsyncPromptFoundry) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
           await async_client.evaluation_assertions.with_raw_response.delete(
+              "",
+          )
+
+    @parametrize
+    async def test_method_get(self, async_client: AsyncPromptFoundry) -> None:
+        evaluation_assertion = await async_client.evaluation_assertions.get(
+            "1212121",
+        )
+        assert_matches_type(EvaluationAssertion, evaluation_assertion, path=['response'])
+
+    @parametrize
+    async def test_raw_response_get(self, async_client: AsyncPromptFoundry) -> None:
+
+        response = await async_client.evaluation_assertions.with_raw_response.get(
+            "1212121",
+        )
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get('X-Stainless-Lang') == 'python'
+        evaluation_assertion = await response.parse()
+        assert_matches_type(EvaluationAssertion, evaluation_assertion, path=['response'])
+
+    @parametrize
+    async def test_streaming_response_get(self, async_client: AsyncPromptFoundry) -> None:
+        async with async_client.evaluation_assertions.with_streaming_response.get(
+            "1212121",
+        ) as response :
+            assert not response.is_closed
+            assert response.http_request.headers.get('X-Stainless-Lang') == 'python'
+
+            evaluation_assertion = await response.parse()
+            assert_matches_type(EvaluationAssertion, evaluation_assertion, path=['response'])
+
+        assert cast(Any, response.is_closed) is True
+
+    @parametrize
+    async def test_path_params_get(self, async_client: AsyncPromptFoundry) -> None:
+        with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
+          await async_client.evaluation_assertions.with_raw_response.get(
               "",
           )
