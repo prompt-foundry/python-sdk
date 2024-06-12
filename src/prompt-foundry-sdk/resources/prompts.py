@@ -21,7 +21,7 @@ from .._response import (
     async_to_streamed_response_wrapper,
 )
 
-from ..types import prompt_create_params, prompt_update_params
+from ..types import prompt_create_params
 
 import warnings
 from typing import TYPE_CHECKING, Optional, Union, List, Dict, Any, Mapping, cast, overload
@@ -39,7 +39,6 @@ from .._base_client import (
 )
 from ..types import shared_params
 from ..types import prompt_create_params
-from ..types import prompt_update_params
 
 __all__ = ["PromptsResource", "AsyncPromptsResource"]
 
@@ -89,87 +88,6 @@ class PromptsResource(SyncAPIResource):
                     "tools": tools,
                 },
                 prompt_create_params.PromptCreateParams,
-            ),
-            options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
-            ),
-            cast_to=PromptConfiguration,
-        )
-
-    def retrieve(
-        self,
-        prompt_id: str,
-        *,
-        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
-        # The extra values given here take precedence over values defined on the client or passed to this method.
-        extra_headers: Headers | None = None,
-        extra_query: Query | None = None,
-        extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> PromptConfiguration:
-        """
-        Fetches detailed configuration parameters for a specified prompt, including
-        penalty settings, response format, and preset messages that use dynamic
-        variables.
-
-        Args:
-          extra_headers: Send extra headers
-
-          extra_query: Add additional query parameters to the request
-
-          extra_body: Add additional JSON properties to the request
-
-          timeout: Override the client-level default timeout for this request, in seconds
-        """
-        if not prompt_id:
-            raise ValueError(f"Expected a non-empty value for `prompt_id` but received {prompt_id!r}")
-        return self._get(
-            f"/sdk/v1/prompts/{prompt_id}",
-            options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
-            ),
-            cast_to=PromptConfiguration,
-        )
-
-    def update(
-        self,
-        prompt_id: str,
-        *,
-        messages: Iterable[prompt_update_params.Message],
-        name: str,
-        parameters: prompt_update_params.Parameters,
-        tools: Iterable[prompt_update_params.Tool],
-        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
-        # The extra values given here take precedence over values defined on the client or passed to this method.
-        extra_headers: Headers | None = None,
-        extra_query: Query | None = None,
-        extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> PromptConfiguration:
-        """
-        Update the configuration of an existing prompt and deploys it.
-
-        Args:
-          extra_headers: Send extra headers
-
-          extra_query: Add additional query parameters to the request
-
-          extra_body: Add additional JSON properties to the request
-
-          timeout: Override the client-level default timeout for this request, in seconds
-        """
-        if not prompt_id:
-            raise ValueError(f"Expected a non-empty value for `prompt_id` but received {prompt_id!r}")
-        return self._put(
-            f"/sdk/v1/prompts/{prompt_id}",
-            body=maybe_transform(
-                {
-                    "messages": messages,
-                    "name": name,
-                    "parameters": parameters,
-                    "tools": tools,
-                },
-                prompt_update_params.PromptUpdateParams,
             ),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
@@ -265,87 +183,6 @@ class AsyncPromptsResource(AsyncAPIResource):
             cast_to=PromptConfiguration,
         )
 
-    async def retrieve(
-        self,
-        prompt_id: str,
-        *,
-        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
-        # The extra values given here take precedence over values defined on the client or passed to this method.
-        extra_headers: Headers | None = None,
-        extra_query: Query | None = None,
-        extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> PromptConfiguration:
-        """
-        Fetches detailed configuration parameters for a specified prompt, including
-        penalty settings, response format, and preset messages that use dynamic
-        variables.
-
-        Args:
-          extra_headers: Send extra headers
-
-          extra_query: Add additional query parameters to the request
-
-          extra_body: Add additional JSON properties to the request
-
-          timeout: Override the client-level default timeout for this request, in seconds
-        """
-        if not prompt_id:
-            raise ValueError(f"Expected a non-empty value for `prompt_id` but received {prompt_id!r}")
-        return await self._get(
-            f"/sdk/v1/prompts/{prompt_id}",
-            options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
-            ),
-            cast_to=PromptConfiguration,
-        )
-
-    async def update(
-        self,
-        prompt_id: str,
-        *,
-        messages: Iterable[prompt_update_params.Message],
-        name: str,
-        parameters: prompt_update_params.Parameters,
-        tools: Iterable[prompt_update_params.Tool],
-        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
-        # The extra values given here take precedence over values defined on the client or passed to this method.
-        extra_headers: Headers | None = None,
-        extra_query: Query | None = None,
-        extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> PromptConfiguration:
-        """
-        Update the configuration of an existing prompt and deploys it.
-
-        Args:
-          extra_headers: Send extra headers
-
-          extra_query: Add additional query parameters to the request
-
-          extra_body: Add additional JSON properties to the request
-
-          timeout: Override the client-level default timeout for this request, in seconds
-        """
-        if not prompt_id:
-            raise ValueError(f"Expected a non-empty value for `prompt_id` but received {prompt_id!r}")
-        return await self._put(
-            f"/sdk/v1/prompts/{prompt_id}",
-            body=await async_maybe_transform(
-                {
-                    "messages": messages,
-                    "name": name,
-                    "parameters": parameters,
-                    "tools": tools,
-                },
-                prompt_update_params.PromptUpdateParams,
-            ),
-            options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
-            ),
-            cast_to=PromptConfiguration,
-        )
-
     async def delete(
         self,
         id: str,
@@ -389,12 +226,6 @@ class PromptsResourceWithRawResponse:
         self.create = to_raw_response_wrapper(
             prompts.create,
         )
-        self.retrieve = to_raw_response_wrapper(
-            prompts.retrieve,
-        )
-        self.update = to_raw_response_wrapper(
-            prompts.update,
-        )
         self.delete = to_raw_response_wrapper(
             prompts.delete,
         )
@@ -406,12 +237,6 @@ class AsyncPromptsResourceWithRawResponse:
 
         self.create = async_to_raw_response_wrapper(
             prompts.create,
-        )
-        self.retrieve = async_to_raw_response_wrapper(
-            prompts.retrieve,
-        )
-        self.update = async_to_raw_response_wrapper(
-            prompts.update,
         )
         self.delete = async_to_raw_response_wrapper(
             prompts.delete,
@@ -425,12 +250,6 @@ class PromptsResourceWithStreamingResponse:
         self.create = to_streamed_response_wrapper(
             prompts.create,
         )
-        self.retrieve = to_streamed_response_wrapper(
-            prompts.retrieve,
-        )
-        self.update = to_streamed_response_wrapper(
-            prompts.update,
-        )
         self.delete = to_streamed_response_wrapper(
             prompts.delete,
         )
@@ -442,12 +261,6 @@ class AsyncPromptsResourceWithStreamingResponse:
 
         self.create = async_to_streamed_response_wrapper(
             prompts.create,
-        )
-        self.retrieve = async_to_streamed_response_wrapper(
-            prompts.retrieve,
-        )
-        self.update = async_to_streamed_response_wrapper(
-            prompts.update,
         )
         self.delete = async_to_streamed_response_wrapper(
             prompts.delete,
