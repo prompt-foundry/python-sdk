@@ -6,15 +6,15 @@ import httpx
 
 from .._compat import cached_property
 
-from ..types.evaluation import Evaluation
+from ..types.tool import Tool
 
 from .._utils import maybe_transform, async_maybe_transform
 
-from typing import Iterable, Dict, Optional
+from typing import Dict, Optional
 
-from ..types.evaluation_list_response import EvaluationListResponse
+from ..types.tool_list_response import ToolListResponse
 
-from ..types.evaluation_delete_response import EvaluationDeleteResponse
+from ..types.tool_delete_response import ToolDeleteResponse
 
 from .._response import (
     to_raw_response_wrapper,
@@ -22,8 +22,6 @@ from .._response import (
     to_streamed_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-
-from ..types import evaluation_create_params, evaluation_update_params
 
 import warnings
 from typing import TYPE_CHECKING, Optional, Union, List, Dict, Any, Mapping, cast, overload
@@ -40,41 +38,47 @@ from .._base_client import (
     HttpxBinaryResponseContent,
 )
 from ..types import shared_params
-from ..types import evaluation_create_params
-from ..types import evaluation_update_params
+from ..types import tool_create_params
+from ..types import tool_update_params
 
-__all__ = ["EvaluationsResource", "AsyncEvaluationsResource"]
+__all__ = ["ToolsResource", "AsyncToolsResource"]
 
 
-class EvaluationsResource(SyncAPIResource):
+class ToolsResource(SyncAPIResource):
     @cached_property
-    def with_raw_response(self) -> EvaluationsResourceWithRawResponse:
-        return EvaluationsResourceWithRawResponse(self)
+    def with_raw_response(self) -> ToolsResourceWithRawResponse:
+        return ToolsResourceWithRawResponse(self)
 
     @cached_property
-    def with_streaming_response(self) -> EvaluationsResourceWithStreamingResponse:
-        return EvaluationsResourceWithStreamingResponse(self)
+    def with_streaming_response(self) -> ToolsResourceWithStreamingResponse:
+        return ToolsResourceWithStreamingResponse(self)
 
     def create(
         self,
         *,
-        appended_messages: Iterable[evaluation_create_params.AppendedMessage],
-        prompt_id: str,
-        variables: Dict[str, Optional[object]],
+        description: str,
+        name: str,
+        parameters: Dict[str, Optional[object]],
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> Evaluation:
+    ) -> Tool:
         """
-        Create a new evaluation.
+        Data needed to create a new tool
 
         Args:
-          appended_messages: The messages to append to the completion messages when running the evaluation.
+          description: A description of what the tool does, used by the model to choose when and how to
+              call the tool.
 
-          variables: The variables to in the prompt when evaluating the prompt.
+          name: The name of the tool to be called. Must be a-z, A-Z, 0-9, or contain underscores
+              and dashes, with a maximum length of 64.
+
+          parameters: The parameters the functions accepts, described as a JSON Schema object. This
+              schema is designed to match the TypeScript Record<string, unknown>, allowing for
+              any properties with values of any type.
 
           extra_headers: Send extra headers
 
@@ -85,75 +89,48 @@ class EvaluationsResource(SyncAPIResource):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         return self._post(
-            "/sdk/v1/evaluations",
+            "/sdk/v1/tools",
             body=maybe_transform(
                 {
-                    "appended_messages": appended_messages,
-                    "prompt_id": prompt_id,
-                    "variables": variables,
+                    "description": description,
+                    "name": name,
+                    "parameters": parameters,
                 },
-                evaluation_create_params.EvaluationCreateParams,
+                tool_create_params.ToolCreateParams,
             ),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=Evaluation,
-        )
-
-    def retrieve(
-        self,
-        id: str,
-        *,
-        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
-        # The extra values given here take precedence over values defined on the client or passed to this method.
-        extra_headers: Headers | None = None,
-        extra_query: Query | None = None,
-        extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> Evaluation:
-        """
-        Retrieve a evaluation by ID
-
-        Args:
-          extra_headers: Send extra headers
-
-          extra_query: Add additional query parameters to the request
-
-          extra_body: Add additional JSON properties to the request
-
-          timeout: Override the client-level default timeout for this request, in seconds
-        """
-        if not id:
-            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
-        return self._get(
-            f"/sdk/v1/evaluations/{id}",
-            options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
-            ),
-            cast_to=Evaluation,
+            cast_to=Tool,
         )
 
     def update(
         self,
         id: str,
         *,
-        appended_messages: Iterable[evaluation_update_params.AppendedMessage],
-        prompt_id: str,
-        variables: Dict[str, Optional[object]],
+        description: str,
+        name: str,
+        parameters: Dict[str, Optional[object]],
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> Evaluation:
+    ) -> Tool:
         """
-        Update a evaluation by ID.
+        Update the configuration of an existing tool by providing its ID and new data.
 
         Args:
-          appended_messages: The messages to append to the completion messages when running the evaluation.
+          description: A description of what the tool does, used by the model to choose when and how to
+              call the tool.
 
-          variables: The variables to in the prompt when evaluating the prompt.
+          name: The name of the tool to be called. Must be a-z, A-Z, 0-9, or contain underscores
+              and dashes, with a maximum length of 64.
+
+          parameters: The parameters the functions accepts, described as a JSON Schema object. This
+              schema is designed to match the TypeScript Record<string, unknown>, allowing for
+              any properties with values of any type.
 
           extra_headers: Send extra headers
 
@@ -166,19 +143,19 @@ class EvaluationsResource(SyncAPIResource):
         if not id:
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         return self._put(
-            f"/sdk/v1/evaluations/{id}",
+            f"/sdk/v1/tools/{id}",
             body=maybe_transform(
                 {
-                    "appended_messages": appended_messages,
-                    "prompt_id": prompt_id,
-                    "variables": variables,
+                    "description": description,
+                    "name": name,
+                    "parameters": parameters,
                 },
-                evaluation_update_params.EvaluationUpdateParams,
+                tool_update_params.ToolUpdateParams,
             ),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=Evaluation,
+            cast_to=Tool,
         )
 
     def list(
@@ -190,14 +167,14 @@ class EvaluationsResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> EvaluationListResponse:
-        """Retrieve all evaluations"""
+    ) -> ToolListResponse:
+        """Retrieve all tools"""
         return self._get(
-            "/sdk/v1/evaluations",
+            "/sdk/v1/tools",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=EvaluationListResponse,
+            cast_to=ToolListResponse,
         )
 
     def delete(
@@ -210,9 +187,9 @@ class EvaluationsResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> EvaluationDeleteResponse:
+    ) -> ToolDeleteResponse:
         """
-        Delete a evaluation by ID.
+        Delete a tool by ID.
 
         Args:
           extra_headers: Send extra headers
@@ -226,69 +203,14 @@ class EvaluationsResource(SyncAPIResource):
         if not id:
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         return self._delete(
-            f"/sdk/v1/evaluations/{id}",
+            f"/sdk/v1/tools/{id}",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=EvaluationDeleteResponse,
+            cast_to=ToolDeleteResponse,
         )
 
-
-class AsyncEvaluationsResource(AsyncAPIResource):
-    @cached_property
-    def with_raw_response(self) -> AsyncEvaluationsResourceWithRawResponse:
-        return AsyncEvaluationsResourceWithRawResponse(self)
-
-    @cached_property
-    def with_streaming_response(self) -> AsyncEvaluationsResourceWithStreamingResponse:
-        return AsyncEvaluationsResourceWithStreamingResponse(self)
-
-    async def create(
-        self,
-        *,
-        appended_messages: Iterable[evaluation_create_params.AppendedMessage],
-        prompt_id: str,
-        variables: Dict[str, Optional[object]],
-        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
-        # The extra values given here take precedence over values defined on the client or passed to this method.
-        extra_headers: Headers | None = None,
-        extra_query: Query | None = None,
-        extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> Evaluation:
-        """
-        Create a new evaluation.
-
-        Args:
-          appended_messages: The messages to append to the completion messages when running the evaluation.
-
-          variables: The variables to in the prompt when evaluating the prompt.
-
-          extra_headers: Send extra headers
-
-          extra_query: Add additional query parameters to the request
-
-          extra_body: Add additional JSON properties to the request
-
-          timeout: Override the client-level default timeout for this request, in seconds
-        """
-        return await self._post(
-            "/sdk/v1/evaluations",
-            body=await async_maybe_transform(
-                {
-                    "appended_messages": appended_messages,
-                    "prompt_id": prompt_id,
-                    "variables": variables,
-                },
-                evaluation_create_params.EvaluationCreateParams,
-            ),
-            options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
-            ),
-            cast_to=Evaluation,
-        )
-
-    async def retrieve(
+    def get(
         self,
         id: str,
         *,
@@ -298,9 +220,9 @@ class AsyncEvaluationsResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> Evaluation:
+    ) -> Tool:
         """
-        Retrieve a evaluation by ID
+        Fetch the details of a specific tool using its ID.
 
         Args:
           extra_headers: Send extra headers
@@ -313,35 +235,102 @@ class AsyncEvaluationsResource(AsyncAPIResource):
         """
         if not id:
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
-        return await self._get(
-            f"/sdk/v1/evaluations/{id}",
+        return self._get(
+            f"/sdk/v1/tools/{id}",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=Evaluation,
+            cast_to=Tool,
         )
 
-    async def update(
+
+class AsyncToolsResource(AsyncAPIResource):
+    @cached_property
+    def with_raw_response(self) -> AsyncToolsResourceWithRawResponse:
+        return AsyncToolsResourceWithRawResponse(self)
+
+    @cached_property
+    def with_streaming_response(self) -> AsyncToolsResourceWithStreamingResponse:
+        return AsyncToolsResourceWithStreamingResponse(self)
+
+    async def create(
         self,
-        id: str,
         *,
-        appended_messages: Iterable[evaluation_update_params.AppendedMessage],
-        prompt_id: str,
-        variables: Dict[str, Optional[object]],
+        description: str,
+        name: str,
+        parameters: Dict[str, Optional[object]],
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> Evaluation:
+    ) -> Tool:
         """
-        Update a evaluation by ID.
+        Data needed to create a new tool
 
         Args:
-          appended_messages: The messages to append to the completion messages when running the evaluation.
+          description: A description of what the tool does, used by the model to choose when and how to
+              call the tool.
 
-          variables: The variables to in the prompt when evaluating the prompt.
+          name: The name of the tool to be called. Must be a-z, A-Z, 0-9, or contain underscores
+              and dashes, with a maximum length of 64.
+
+          parameters: The parameters the functions accepts, described as a JSON Schema object. This
+              schema is designed to match the TypeScript Record<string, unknown>, allowing for
+              any properties with values of any type.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        return await self._post(
+            "/sdk/v1/tools",
+            body=await async_maybe_transform(
+                {
+                    "description": description,
+                    "name": name,
+                    "parameters": parameters,
+                },
+                tool_create_params.ToolCreateParams,
+            ),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=Tool,
+        )
+
+    async def update(
+        self,
+        id: str,
+        *,
+        description: str,
+        name: str,
+        parameters: Dict[str, Optional[object]],
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> Tool:
+        """
+        Update the configuration of an existing tool by providing its ID and new data.
+
+        Args:
+          description: A description of what the tool does, used by the model to choose when and how to
+              call the tool.
+
+          name: The name of the tool to be called. Must be a-z, A-Z, 0-9, or contain underscores
+              and dashes, with a maximum length of 64.
+
+          parameters: The parameters the functions accepts, described as a JSON Schema object. This
+              schema is designed to match the TypeScript Record<string, unknown>, allowing for
+              any properties with values of any type.
 
           extra_headers: Send extra headers
 
@@ -354,19 +343,19 @@ class AsyncEvaluationsResource(AsyncAPIResource):
         if not id:
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         return await self._put(
-            f"/sdk/v1/evaluations/{id}",
+            f"/sdk/v1/tools/{id}",
             body=await async_maybe_transform(
                 {
-                    "appended_messages": appended_messages,
-                    "prompt_id": prompt_id,
-                    "variables": variables,
+                    "description": description,
+                    "name": name,
+                    "parameters": parameters,
                 },
-                evaluation_update_params.EvaluationUpdateParams,
+                tool_update_params.ToolUpdateParams,
             ),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=Evaluation,
+            cast_to=Tool,
         )
 
     async def list(
@@ -378,14 +367,14 @@ class AsyncEvaluationsResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> EvaluationListResponse:
-        """Retrieve all evaluations"""
+    ) -> ToolListResponse:
+        """Retrieve all tools"""
         return await self._get(
-            "/sdk/v1/evaluations",
+            "/sdk/v1/tools",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=EvaluationListResponse,
+            cast_to=ToolListResponse,
         )
 
     async def delete(
@@ -398,9 +387,9 @@ class AsyncEvaluationsResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> EvaluationDeleteResponse:
+    ) -> ToolDeleteResponse:
         """
-        Delete a evaluation by ID.
+        Delete a tool by ID.
 
         Args:
           extra_headers: Send extra headers
@@ -414,93 +403,126 @@ class AsyncEvaluationsResource(AsyncAPIResource):
         if not id:
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         return await self._delete(
-            f"/sdk/v1/evaluations/{id}",
+            f"/sdk/v1/tools/{id}",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=EvaluationDeleteResponse,
+            cast_to=ToolDeleteResponse,
+        )
+
+    async def get(
+        self,
+        id: str,
+        *,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> Tool:
+        """
+        Fetch the details of a specific tool using its ID.
+
+        Args:
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        return await self._get(
+            f"/sdk/v1/tools/{id}",
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=Tool,
         )
 
 
-class EvaluationsResourceWithRawResponse:
-    def __init__(self, evaluations: EvaluationsResource) -> None:
-        self._evaluations = evaluations
+class ToolsResourceWithRawResponse:
+    def __init__(self, tools: ToolsResource) -> None:
+        self._tools = tools
 
         self.create = to_raw_response_wrapper(
-            evaluations.create,
-        )
-        self.retrieve = to_raw_response_wrapper(
-            evaluations.retrieve,
+            tools.create,
         )
         self.update = to_raw_response_wrapper(
-            evaluations.update,
+            tools.update,
         )
         self.list = to_raw_response_wrapper(
-            evaluations.list,
+            tools.list,
         )
         self.delete = to_raw_response_wrapper(
-            evaluations.delete,
+            tools.delete,
+        )
+        self.get = to_raw_response_wrapper(
+            tools.get,
         )
 
 
-class AsyncEvaluationsResourceWithRawResponse:
-    def __init__(self, evaluations: AsyncEvaluationsResource) -> None:
-        self._evaluations = evaluations
+class AsyncToolsResourceWithRawResponse:
+    def __init__(self, tools: AsyncToolsResource) -> None:
+        self._tools = tools
 
         self.create = async_to_raw_response_wrapper(
-            evaluations.create,
-        )
-        self.retrieve = async_to_raw_response_wrapper(
-            evaluations.retrieve,
+            tools.create,
         )
         self.update = async_to_raw_response_wrapper(
-            evaluations.update,
+            tools.update,
         )
         self.list = async_to_raw_response_wrapper(
-            evaluations.list,
+            tools.list,
         )
         self.delete = async_to_raw_response_wrapper(
-            evaluations.delete,
+            tools.delete,
+        )
+        self.get = async_to_raw_response_wrapper(
+            tools.get,
         )
 
 
-class EvaluationsResourceWithStreamingResponse:
-    def __init__(self, evaluations: EvaluationsResource) -> None:
-        self._evaluations = evaluations
+class ToolsResourceWithStreamingResponse:
+    def __init__(self, tools: ToolsResource) -> None:
+        self._tools = tools
 
         self.create = to_streamed_response_wrapper(
-            evaluations.create,
-        )
-        self.retrieve = to_streamed_response_wrapper(
-            evaluations.retrieve,
+            tools.create,
         )
         self.update = to_streamed_response_wrapper(
-            evaluations.update,
+            tools.update,
         )
         self.list = to_streamed_response_wrapper(
-            evaluations.list,
+            tools.list,
         )
         self.delete = to_streamed_response_wrapper(
-            evaluations.delete,
+            tools.delete,
+        )
+        self.get = to_streamed_response_wrapper(
+            tools.get,
         )
 
 
-class AsyncEvaluationsResourceWithStreamingResponse:
-    def __init__(self, evaluations: AsyncEvaluationsResource) -> None:
-        self._evaluations = evaluations
+class AsyncToolsResourceWithStreamingResponse:
+    def __init__(self, tools: AsyncToolsResource) -> None:
+        self._tools = tools
 
         self.create = async_to_streamed_response_wrapper(
-            evaluations.create,
-        )
-        self.retrieve = async_to_streamed_response_wrapper(
-            evaluations.retrieve,
+            tools.create,
         )
         self.update = async_to_streamed_response_wrapper(
-            evaluations.update,
+            tools.update,
         )
         self.list = async_to_streamed_response_wrapper(
-            evaluations.list,
+            tools.list,
         )
         self.delete = async_to_streamed_response_wrapper(
-            evaluations.delete,
+            tools.delete,
+        )
+        self.get = async_to_streamed_response_wrapper(
+            tools.get,
         )

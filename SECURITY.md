@@ -20,7 +20,7 @@ or products provided by Prompt Foundry please follow the respective company's se
 
 ### Prompt Foundry Terms and Policies
 
-Please contact dev-feedback@ppromptfoundry.ai for any questions or concerns regarding security of our services.
+Please contact dev-feedback@promptfoundry.ai for any questions or concerns regarding security of our services.
 
 ---
 

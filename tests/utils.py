@@ -8,8 +8,8 @@ from typing import Any, TypeVar, Iterator, cast
 from datetime import date, datetime
 from typing_extensions import Literal, get_args, get_origin, assert_type
 
-from prompt-foundry-sdk._types import NoneType
-from prompt-foundry-sdk._utils import (
+from prompt-foundry-python-sdk._types import NoneType
+from prompt-foundry-python-sdk._utils import (
     is_dict,
     is_list,
     is_list_type,
@@ -17,8 +17,8 @@ from prompt-foundry-sdk._utils import (
     extract_type_arg,
     is_annotated_type,
 )
-from prompt-foundry-sdk._compat import PYDANTIC_V2, field_outer_type, get_model_fields
-from prompt-foundry-sdk._models import BaseModel
+from prompt-foundry-python-sdk._compat import PYDANTIC_V2, field_outer_type, get_model_fields
+from prompt-foundry-python-sdk._models import BaseModel
 
 BaseModelT = TypeVar("BaseModelT", bound=BaseModel)
 

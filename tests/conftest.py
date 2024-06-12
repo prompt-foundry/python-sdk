@@ -9,14 +9,14 @@ import pytest
 import os
 from typing import TYPE_CHECKING, AsyncIterator
 
-from prompt-foundry-sdk import PromptFoundry, AsyncPromptFoundry
+from prompt-foundry-python-sdk import PromptFoundry, AsyncPromptFoundry
 
 if TYPE_CHECKING:
   from _pytest.fixtures import FixtureRequest
 
 pytest.register_assert_rewrite("tests.utils")
 
-logging.getLogger("prompt-foundry-sdk").setLevel(logging.DEBUG)
+logging.getLogger("prompt-foundry-python-sdk").setLevel(logging.DEBUG)
 
 
 @pytest.fixture(scope="session")

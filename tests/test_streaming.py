@@ -5,8 +5,8 @@ from typing import Iterator, AsyncIterator
 import httpx
 import pytest
 
-from prompt-foundry-sdk import PromptFoundry, AsyncPromptFoundry
-from prompt-foundry-sdk._streaming import Stream, AsyncStream, ServerSentEvent
+from prompt-foundry-python-sdk import PromptFoundry, AsyncPromptFoundry
+from prompt-foundry-python-sdk._streaming import Stream, AsyncStream, ServerSentEvent
 
 
 @pytest.mark.asyncio
