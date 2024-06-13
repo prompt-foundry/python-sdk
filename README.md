@@ -32,7 +32,7 @@ client = PromptFoundry(
     api_key=os.environ.get("PROMPT_FOUNDRY_API_KEY"),
 )
 
-model_parameters = client.prompts.get_parameters(
+model_parameters = client.prompts.parameters(
     "1212121",
 )
 print(model_parameters.parameters)
@@ -58,7 +58,7 @@ client = AsyncPromptFoundry(
 )
 
 async def main() -> None:
-  model_parameters = await client.prompts.get_parameters(
+  model_parameters = await client.prompts.parameters(
       "1212121",
   )
   print(model_parameters.parameters)
@@ -93,7 +93,7 @@ from prompt-foundry-python-sdk import PromptFoundry
 client = PromptFoundry()
 
 try:
-    client.prompts.get_parameters(
+    client.prompts.parameters(
         "1212121",
     )
 except prompt-foundry-python-sdk.APIConnectionError as e:
@@ -138,7 +138,7 @@ client = PromptFoundry(
 )
 
 # Or, configure per-request:
-client.with_options(max_retries = 5).prompts.get_parameters(
+client.with_options(max_retries = 5).prompts.parameters(
     "1212121",
 )
 ```
@@ -163,7 +163,7 @@ client = PromptFoundry(
 )
 
 # Override per-request:
-client.with_options(timeout = 5.0).prompts.get_parameters(
+client.with_options(timeout = 5.0).prompts.parameters(
     "1212121",
 )
 ```
@@ -204,12 +204,12 @@ The "raw" Response object can be accessed by prefixing `.with_raw_response.` to 
 from prompt-foundry-python-sdk import PromptFoundry
 
 client = PromptFoundry()
-response = client.prompts.with_raw_response.get_parameters(
+response = client.prompts.with_raw_response.parameters(
     "1212121",
 )
 print(response.headers.get('X-My-Header'))
 
-prompt = response.parse()  # get the object that `prompts.get_parameters()` would have returned
+prompt = response.parse()  # get the object that `prompts.parameters()` would have returned
 print(prompt.provider)
 ```
 
@@ -224,7 +224,7 @@ The above interface eagerly reads the full response body when you make the reque
 To stream the response body, use `.with_streaming_response` instead, which requires a context manager and only reads the response body once you call `.read()`, `.text()`, `.json()`, `.iter_bytes()`, `.iter_text()`, `.iter_lines()` or `.parse()`. In the async client, these are async methods.
 
 ```python
-with client.prompts.with_streaming_response.get_parameters(
+with client.prompts.with_streaming_response.parameters(
     "1212121",
 ) as response :
     print(response.headers.get('X-My-Header'))

@@ -15,7 +15,7 @@ from .._utils import PropertyInfo
 from ..types import shared_params
 
 __all__ = [
-    "PromptGetParametersParams",
+    "PromptParametersParams",
     "AppendMessage",
     "AppendMessageToolCall",
     "AppendMessageToolCallFunction",
@@ -25,7 +25,7 @@ __all__ = [
 ]
 
 
-class PromptGetParametersParams(TypedDict, total=False):
+class PromptParametersParams(TypedDict, total=False):
     append_messages: Annotated[Iterable[AppendMessage], PropertyInfo(alias="appendMessages")]
     """
     Appended the the end of the configured prompt messages before running the
