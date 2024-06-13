@@ -25,7 +25,7 @@ from .._response import (
     async_to_streamed_response_wrapper,
 )
 
-from ..types import prompt_create_params, prompt_update_params, prompt_parameters_params
+from ..types import prompt_create_params, prompt_update_params, prompt_get_parameters_params
 
 import warnings
 from typing import TYPE_CHECKING, Optional, Union, List, Dict, Any, Mapping, cast, overload
@@ -44,7 +44,7 @@ from .._base_client import (
 from ..types import shared_params
 from ..types import prompt_create_params
 from ..types import prompt_update_params
-from ..types import prompt_parameters_params
+from ..types import prompt_get_parameters_params
 
 __all__ = ["PromptsResource", "AsyncPromptsResource"]
 
@@ -234,12 +234,12 @@ class PromptsResource(SyncAPIResource):
             cast_to=PromptConfiguration,
         )
 
-    def parameters(
+    def get_parameters(
         self,
         id: str,
         *,
-        append_messages: Iterable[prompt_parameters_params.AppendMessage] | NotGiven = NOT_GIVEN,
-        override_messages: Iterable[prompt_parameters_params.OverrideMessage] | NotGiven = NOT_GIVEN,
+        append_messages: Iterable[prompt_get_parameters_params.AppendMessage] | NotGiven = NOT_GIVEN,
+        override_messages: Iterable[prompt_get_parameters_params.OverrideMessage] | NotGiven = NOT_GIVEN,
         user: str | NotGiven = NOT_GIVEN,
         variables: Dict[str, Optional[object]] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -284,7 +284,7 @@ class PromptsResource(SyncAPIResource):
                     "user": user,
                     "variables": variables,
                 },
-                prompt_parameters_params.PromptParametersParams,
+                prompt_get_parameters_params.PromptGetParametersParams,
             ),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
@@ -478,12 +478,12 @@ class AsyncPromptsResource(AsyncAPIResource):
             cast_to=PromptConfiguration,
         )
 
-    async def parameters(
+    async def get_parameters(
         self,
         id: str,
         *,
-        append_messages: Iterable[prompt_parameters_params.AppendMessage] | NotGiven = NOT_GIVEN,
-        override_messages: Iterable[prompt_parameters_params.OverrideMessage] | NotGiven = NOT_GIVEN,
+        append_messages: Iterable[prompt_get_parameters_params.AppendMessage] | NotGiven = NOT_GIVEN,
+        override_messages: Iterable[prompt_get_parameters_params.OverrideMessage] | NotGiven = NOT_GIVEN,
         user: str | NotGiven = NOT_GIVEN,
         variables: Dict[str, Optional[object]] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -528,7 +528,7 @@ class AsyncPromptsResource(AsyncAPIResource):
                     "user": user,
                     "variables": variables,
                 },
-                prompt_parameters_params.PromptParametersParams,
+                prompt_get_parameters_params.PromptGetParametersParams,
             ),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
@@ -556,8 +556,8 @@ class PromptsResourceWithRawResponse:
         self.get = to_raw_response_wrapper(
             prompts.get,
         )
-        self.parameters = to_raw_response_wrapper(
-            prompts.parameters,
+        self.get_parameters = to_raw_response_wrapper(
+            prompts.get_parameters,
         )
 
 
@@ -580,8 +580,8 @@ class AsyncPromptsResourceWithRawResponse:
         self.get = async_to_raw_response_wrapper(
             prompts.get,
         )
-        self.parameters = async_to_raw_response_wrapper(
-            prompts.parameters,
+        self.get_parameters = async_to_raw_response_wrapper(
+            prompts.get_parameters,
         )
 
 
@@ -604,8 +604,8 @@ class PromptsResourceWithStreamingResponse:
         self.get = to_streamed_response_wrapper(
             prompts.get,
         )
-        self.parameters = to_streamed_response_wrapper(
-            prompts.parameters,
+        self.get_parameters = to_streamed_response_wrapper(
+            prompts.get_parameters,
         )
 
 
@@ -628,6 +628,6 @@ class AsyncPromptsResourceWithStreamingResponse:
         self.get = async_to_streamed_response_wrapper(
             prompts.get,
         )
-        self.parameters = async_to_streamed_response_wrapper(
-            prompts.parameters,
+        self.get_parameters = async_to_streamed_response_wrapper(
+            prompts.get_parameters,
         )
