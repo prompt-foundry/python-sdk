@@ -34,6 +34,7 @@ client = PromptFoundry(
 
 model_parameters = client.prompts.get_parameters(
     "1212121",
+    variables={"hello": "world"},
 )
 print(model_parameters.parameters)
 ```
@@ -61,6 +62,7 @@ client = AsyncPromptFoundry(
 async def main() -> None:
     model_parameters = await client.prompts.get_parameters(
         "1212121",
+        variables={"hello": "world"},
     )
     print(model_parameters.parameters)
 
