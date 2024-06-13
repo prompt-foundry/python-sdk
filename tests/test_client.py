@@ -648,20 +648,20 @@ class TestPromptFoundry:
     @mock.patch("prompt-foundry-python-sdk._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
     @pytest.mark.respx(base_url=base_url)
     def test_retrying_timeout_errors_doesnt_leak(self, respx_mock: MockRouter) -> None:
-        respx_mock.get("/sdk/v1/prompts/1212121").mock(side_effect=httpx.TimeoutException("Test timeout error"))
+        respx_mock.post("/sdk/v1/prompts/1212121").mock(side_effect=httpx.TimeoutException("Test timeout error"))
 
         with pytest.raises(APITimeoutError):
-            self.client.get("/sdk/v1/prompts/1212121", cast_to=httpx.Response, options={"headers": {RAW_RESPONSE_HEADER: "stream"}})
+            self.client.post("/sdk/v1/prompts/1212121", body=cast(object, dict()), cast_to=httpx.Response, options={"headers": {RAW_RESPONSE_HEADER: "stream"}})
 
         assert _get_open_connections(self.client) == 0
 
     @mock.patch("prompt-foundry-python-sdk._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
     @pytest.mark.respx(base_url=base_url)
     def test_retrying_status_errors_doesnt_leak(self, respx_mock: MockRouter) -> None:
-        respx_mock.get("/sdk/v1/prompts/1212121").mock(return_value=httpx.Response(500))
+        respx_mock.post("/sdk/v1/prompts/1212121").mock(return_value=httpx.Response(500))
 
         with pytest.raises(APIStatusError):
-            self.client.get("/sdk/v1/prompts/1212121", cast_to=httpx.Response, options={"headers": {RAW_RESPONSE_HEADER: "stream"}})
+            self.client.post("/sdk/v1/prompts/1212121", body=cast(object, dict()), cast_to=httpx.Response, options={"headers": {RAW_RESPONSE_HEADER: "stream"}})
 
         assert _get_open_connections(self.client) == 0
 class TestAsyncPromptFoundry:
@@ -1264,19 +1264,19 @@ class TestAsyncPromptFoundry:
     @mock.patch("prompt-foundry-python-sdk._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
     @pytest.mark.respx(base_url=base_url)
     async def test_retrying_timeout_errors_doesnt_leak(self, respx_mock: MockRouter) -> None:
-        respx_mock.get("/sdk/v1/prompts/1212121").mock(side_effect=httpx.TimeoutException("Test timeout error"))
+        respx_mock.post("/sdk/v1/prompts/1212121").mock(side_effect=httpx.TimeoutException("Test timeout error"))
 
         with pytest.raises(APITimeoutError):
-            await self.client.get("/sdk/v1/prompts/1212121", cast_to=httpx.Response, options={"headers": {RAW_RESPONSE_HEADER: "stream"}})
+            await self.client.post("/sdk/v1/prompts/1212121", body=cast(object, dict()), cast_to=httpx.Response, options={"headers": {RAW_RESPONSE_HEADER: "stream"}})
 
         assert _get_open_connections(self.client) == 0
 
     @mock.patch("prompt-foundry-python-sdk._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
     @pytest.mark.respx(base_url=base_url)
     async def test_retrying_status_errors_doesnt_leak(self, respx_mock: MockRouter) -> None:
-        respx_mock.get("/sdk/v1/prompts/1212121").mock(return_value=httpx.Response(500))
+        respx_mock.post("/sdk/v1/prompts/1212121").mock(return_value=httpx.Response(500))
 
         with pytest.raises(APIStatusError):
-            await self.client.get("/sdk/v1/prompts/1212121", cast_to=httpx.Response, options={"headers": {RAW_RESPONSE_HEADER: "stream"}})
+            await self.client.post("/sdk/v1/prompts/1212121", body=cast(object, dict()), cast_to=httpx.Response, options={"headers": {RAW_RESPONSE_HEADER: "stream"}})
 
         assert _get_open_connections(self.client) == 0
