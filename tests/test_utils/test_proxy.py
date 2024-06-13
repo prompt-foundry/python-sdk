@@ -2,7 +2,7 @@ import operator
 from typing import Any
 from typing_extensions import override
 
-from prompt-foundry-python-sdk._utils import LazyProxy
+from prompt_foundry_python_sdk._utils import LazyProxy
 
 
 class RecursiveLazyProxy(LazyProxy[Any]):

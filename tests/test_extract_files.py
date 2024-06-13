@@ -4,8 +4,8 @@ from typing import Sequence
 
 import pytest
 
-from prompt-foundry-python-sdk._types import FileTypes
-from prompt-foundry-python-sdk._utils import extract_files
+from prompt_foundry_python_sdk._types import FileTypes
+from prompt_foundry_python_sdk._utils import extract_files
 
 
 def test_removes_files_from_input() -> None:

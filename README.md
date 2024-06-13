@@ -1,6 +1,6 @@
 # Prompt Foundry Python API library
 
-[![PyPI version](https://img.shields.io/pypi/v/prompt-foundry-python-sdk.svg)](https://pypi.org/project/prompt-foundry-python-sdk/)
+[![PyPI version](https://img.shields.io/pypi/v/prompt_foundry_python_sdk.svg)](https://pypi.org/project/prompt_foundry_python_sdk/)
 
 The Prompt Foundry Python library provides convenient access to the Prompt Foundry REST API from any Python 3.7+
 application. The library includes type definitions for all request params and response fields,
@@ -16,7 +16,7 @@ The REST API documentation can be found [on docs.promptfoundry.ai](https://docs.
 
 ```sh
 # install from PyPI
-pip install --pre prompt-foundry-python-sdk
+pip install --pre prompt_foundry_python_sdk
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ The full API of this library can be found in [api.md](api.md).
 
 ```python
 import os
-from prompt-foundry-python-sdk import PromptFoundry
+from prompt_foundry_python_sdk import PromptFoundry
 
 client = PromptFoundry(
     # This is the default and can be omitted
@@ -50,18 +50,20 @@ Simply import `AsyncPromptFoundry` instead of `PromptFoundry` and use `await` wi
 ```python
 import os
 import asyncio
-from prompt-foundry-python-sdk import AsyncPromptFoundry
+from prompt_foundry_python_sdk import AsyncPromptFoundry
 
 client = AsyncPromptFoundry(
     # This is the default and can be omitted
     api_key=os.environ.get("PROMPT_FOUNDRY_API_KEY"),
 )
 
+
 async def main() -> None:
-  model_parameters = await client.prompts.get_parameters(
-      "1212121",
-  )
-  print(model_parameters.parameters)
+    model_parameters = await client.prompts.get_parameters(
+        "1212121",
+    )
+    print(model_parameters.parameters)
+
 
 asyncio.run(main())
 ```
@@ -79,16 +81,16 @@ Typed requests and responses provide autocomplete and documentation within your 
 
 ## Handling errors
 
-When the library is unable to connect to the API (for example, due to network connection problems or a timeout), a subclass of `prompt-foundry-python-sdk.APIConnectionError` is raised.
+When the library is unable to connect to the API (for example, due to network connection problems or a timeout), a subclass of `prompt_foundry_python_sdk.APIConnectionError` is raised.
 
 When the API returns a non-success status code (that is, 4xx or 5xx
-response), a subclass of `prompt-foundry-python-sdk.APIStatusError` is raised, containing `status_code` and `response` properties.
+response), a subclass of `prompt_foundry_python_sdk.APIStatusError` is raised, containing `status_code` and `response` properties.
 
-All errors inherit from `prompt-foundry-python-sdk.APIError`.
+All errors inherit from `prompt_foundry_python_sdk.APIError`.
 
 ```python
-import prompt-foundry-python-sdk
-from prompt-foundry-python-sdk import PromptFoundry
+import prompt_foundry_python_sdk
+from prompt_foundry_python_sdk import PromptFoundry
 
 client = PromptFoundry()
 
@@ -96,12 +98,12 @@ try:
     client.prompts.get_parameters(
         "1212121",
     )
-except prompt-foundry-python-sdk.APIConnectionError as e:
+except prompt_foundry_python_sdk.APIConnectionError as e:
     print("The server could not be reached")
-    print(e.__cause__) # an underlying Exception, likely raised within httpx.
-except prompt-foundry-python-sdk.RateLimitError as e:
+    print(e.__cause__)  # an underlying Exception, likely raised within httpx.
+except prompt_foundry_python_sdk.RateLimitError as e:
     print("A 429 status code was received; we should back off a bit.")
-except prompt-foundry-python-sdk.APIStatusError as e:
+except prompt_foundry_python_sdk.APIStatusError as e:
     print("Another non-200-range status code was received")
     print(e.status_code)
     print(e.response)
@@ -129,7 +131,7 @@ Connection errors (for example, due to a network connectivity problem), 408 Requ
 You can use the `max_retries` option to configure or disable retry settings:
 
 ```python
-from prompt-foundry-python-sdk import PromptFoundry
+from prompt_foundry_python_sdk import PromptFoundry
 
 # Configure the default for all requests:
 client = PromptFoundry(
@@ -138,7 +140,7 @@ client = PromptFoundry(
 )
 
 # Or, configure per-request:
-client.with_options(max_retries = 5).prompts.get_parameters(
+client.with_options(max_retries=5).prompts.get_parameters(
     "1212121",
 )
 ```
@@ -149,7 +151,7 @@ By default requests time out after 1 minute. You can configure this with a `time
 which accepts a float or an [`httpx.Timeout`](https://www.python-httpx.org/advanced/#fine-tuning-the-configuration) object:
 
 ```python
-from prompt-foundry-python-sdk import PromptFoundry
+from prompt_foundry_python_sdk import PromptFoundry
 
 # Configure the default for all requests:
 client = PromptFoundry(
@@ -163,7 +165,7 @@ client = PromptFoundry(
 )
 
 # Override per-request:
-client.with_options(timeout = 5.0).prompts.get_parameters(
+client.with_options(timeout=5.0).prompts.get_parameters(
     "1212121",
 )
 ```
@@ -201,7 +203,7 @@ if response.my_field is None:
 The "raw" Response object can be accessed by prefixing `.with_raw_response.` to any HTTP method call, e.g.,
 
 ```py
-from prompt-foundry-python-sdk import PromptFoundry
+from prompt_foundry_python_sdk import PromptFoundry
 
 client = PromptFoundry()
 response = client.prompts.with_raw_response.get_parameters(
@@ -213,9 +215,9 @@ prompt = response.parse()  # get the object that `prompts.get_parameters()` woul
 print(prompt.provider)
 ```
 
-These methods return an [`APIResponse`](https://github.com/prompt-foundry/python-sdk/tree/main/src/prompt-foundry-python-sdk/_response.py) object.
+These methods return an [`APIResponse`](https://github.com/prompt-foundry/python-sdk/tree/main/src/prompt_foundry_python_sdk/_response.py) object.
 
-The async client returns an [`AsyncAPIResponse`](https://github.com/prompt-foundry/python-sdk/tree/main/src/prompt-foundry-python-sdk/_response.py) with the same structure, the only difference being `await`able methods for reading the response content.
+The async client returns an [`AsyncAPIResponse`](https://github.com/prompt-foundry/python-sdk/tree/main/src/prompt_foundry_python_sdk/_response.py) with the same structure, the only difference being `await`able methods for reading the response content.
 
 #### `.with_streaming_response`
 
@@ -226,11 +228,11 @@ To stream the response body, use `.with_streaming_response` instead, which requi
 ```python
 with client.prompts.with_streaming_response.get_parameters(
     "1212121",
-) as response :
-    print(response.headers.get('X-My-Header'))
+) as response:
+    print(response.headers.get("X-My-Header"))
 
     for line in response.iter_lines():
-      print(line)
+        print(line)
 ```
 
 The context manager is required so that the response will reliably be closed.
@@ -279,12 +281,15 @@ You can directly override the [httpx client](https://www.python-httpx.org/api/#c
 - Additional [advanced](https://www.python-httpx.org/advanced/#client-instances) functionality
 
 ```python
-from prompt-foundry-python-sdk import PromptFoundry, DefaultHttpxClient
+from prompt_foundry_python_sdk import PromptFoundry, DefaultHttpxClient
 
 client = PromptFoundry(
     # Or use the `PROMPT_FOUNDRY_BASE_URL` env var
     base_url="http://my.test.server.example.com:8083",
-    http_client=DefaultHttpxClient(proxies="http://my.test.proxy.example.com", transport=httpx.HTTPTransport(local_address="0.0.0.0")),
+    http_client=DefaultHttpxClient(
+        proxies="http://my.test.proxy.example.com",
+        transport=httpx.HTTPTransport(local_address="0.0.0.0"),
+    ),
 )
 ```
 

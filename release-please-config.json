@@ -61,6 +61,6 @@
   ],
   "release-type": "python",
   "extra-files": [
-    "src/prompt-foundry-python-sdk/_version.py"
+    "src/prompt_foundry_python_sdk/_version.py"
   ]
 }
