@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import pytest
 
-from prompt-foundry-python-sdk._utils import required_args
+from prompt_foundry_python_sdk._utils import required_args
 
 
 def test_too_many_positional_params() -> None:

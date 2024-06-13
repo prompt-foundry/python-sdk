@@ -2,304 +2,341 @@
 
 from __future__ import annotations
 
-from prompt-foundry-python-sdk import PromptFoundry, AsyncPromptFoundry
-
-from prompt-foundry-python-sdk.types import Evaluation, EvaluationListResponse, EvaluationDeleteResponse
-
+import os
 from typing import Any, cast
 
-import os
 import pytest
-import httpx
-from typing_extensions import get_args
-from typing import Optional
-from respx import MockRouter
-from prompt-foundry-python-sdk import PromptFoundry, AsyncPromptFoundry
+
 from tests.utils import assert_matches_type
-from prompt-foundry-python-sdk.types import evaluation_create_params
-from prompt-foundry-python-sdk.types import evaluation_update_params
+from prompt_foundry_python_sdk import PromptFoundry, AsyncPromptFoundry
+from prompt_foundry_python_sdk.types import (
+    Evaluation,
+    EvaluationListResponse,
+    EvaluationDeleteResponse,
+)
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 
-class TestEvaluations:
-    parametrize = pytest.mark.parametrize("client", [False, True], indirect=True, ids=['loose', 'strict'])
 
+class TestEvaluations:
+    parametrize = pytest.mark.parametrize("client", [False, True], indirect=True, ids=["loose", "strict"])
 
     @parametrize
     def test_method_create(self, client: PromptFoundry) -> None:
         evaluation = client.evaluations.create(
-            appended_messages=[{
-                "content": "string",
-                "role": "USER",
-                "tool_call_id": "string",
-                "tool_calls": [{
+            appended_messages=[
+                {
+                    "content": "string",
+                    "role": "USER",
                     "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
+                    "tool_calls": [
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                    ],
+                },
+                {
+                    "content": "string",
+                    "role": "USER",
                     "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
+                    "tool_calls": [
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                    ],
+                },
+                {
+                    "content": "string",
+                    "role": "USER",
                     "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }],
-            }, {
-                "content": "string",
-                "role": "USER",
-                "tool_call_id": "string",
-                "tool_calls": [{
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }],
-            }, {
-                "content": "string",
-                "role": "USER",
-                "tool_call_id": "string",
-                "tool_calls": [{
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }],
-            }],
+                    "tool_calls": [
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                    ],
+                },
+            ],
             prompt_id="string",
-            variables={
-                "foo": {}
-            },
+            variables={"foo": {}},
         )
-        assert_matches_type(Evaluation, evaluation, path=['response'])
+        assert_matches_type(Evaluation, evaluation, path=["response"])
 
     @parametrize
     def test_raw_response_create(self, client: PromptFoundry) -> None:
-
         response = client.evaluations.with_raw_response.create(
-            appended_messages=[{
-                "content": "string",
-                "role": "USER",
-                "tool_call_id": "string",
-                "tool_calls": [{
+            appended_messages=[
+                {
+                    "content": "string",
+                    "role": "USER",
                     "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
+                    "tool_calls": [
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                    ],
+                },
+                {
+                    "content": "string",
+                    "role": "USER",
                     "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
+                    "tool_calls": [
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                    ],
+                },
+                {
+                    "content": "string",
+                    "role": "USER",
                     "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }],
-            }, {
-                "content": "string",
-                "role": "USER",
-                "tool_call_id": "string",
-                "tool_calls": [{
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }],
-            }, {
-                "content": "string",
-                "role": "USER",
-                "tool_call_id": "string",
-                "tool_calls": [{
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }],
-            }],
+                    "tool_calls": [
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                    ],
+                },
+            ],
             prompt_id="string",
-            variables={
-                "foo": {}
-            },
+            variables={"foo": {}},
         )
 
         assert response.is_closed is True
-        assert response.http_request.headers.get('X-Stainless-Lang') == 'python'
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         evaluation = response.parse()
-        assert_matches_type(Evaluation, evaluation, path=['response'])
+        assert_matches_type(Evaluation, evaluation, path=["response"])
 
     @parametrize
     def test_streaming_response_create(self, client: PromptFoundry) -> None:
         with client.evaluations.with_streaming_response.create(
-            appended_messages=[{
-                "content": "string",
-                "role": "USER",
-                "tool_call_id": "string",
-                "tool_calls": [{
+            appended_messages=[
+                {
+                    "content": "string",
+                    "role": "USER",
                     "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
+                    "tool_calls": [
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                    ],
+                },
+                {
+                    "content": "string",
+                    "role": "USER",
                     "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
+                    "tool_calls": [
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                    ],
+                },
+                {
+                    "content": "string",
+                    "role": "USER",
                     "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }],
-            }, {
-                "content": "string",
-                "role": "USER",
-                "tool_call_id": "string",
-                "tool_calls": [{
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }],
-            }, {
-                "content": "string",
-                "role": "USER",
-                "tool_call_id": "string",
-                "tool_calls": [{
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }],
-            }],
+                    "tool_calls": [
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                    ],
+                },
+            ],
             prompt_id="string",
-            variables={
-                "foo": {}
-            },
-        ) as response :
+            variables={"foo": {}},
+        ) as response:
             assert not response.is_closed
-            assert response.http_request.headers.get('X-Stainless-Lang') == 'python'
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             evaluation = response.parse()
-            assert_matches_type(Evaluation, evaluation, path=['response'])
+            assert_matches_type(Evaluation, evaluation, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -307,396 +344,450 @@ class TestEvaluations:
     def test_method_update(self, client: PromptFoundry) -> None:
         evaluation = client.evaluations.update(
             "1212121",
-            appended_messages=[{
-                "content": "string",
-                "role": "USER",
-                "tool_call_id": "string",
-                "tool_calls": [{
+            appended_messages=[
+                {
+                    "content": "string",
+                    "role": "USER",
                     "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
+                    "tool_calls": [
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                    ],
+                },
+                {
+                    "content": "string",
+                    "role": "USER",
                     "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
+                    "tool_calls": [
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                    ],
+                },
+                {
+                    "content": "string",
+                    "role": "USER",
                     "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }],
-            }, {
-                "content": "string",
-                "role": "USER",
-                "tool_call_id": "string",
-                "tool_calls": [{
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }],
-            }, {
-                "content": "string",
-                "role": "USER",
-                "tool_call_id": "string",
-                "tool_calls": [{
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }],
-            }],
+                    "tool_calls": [
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                    ],
+                },
+            ],
             prompt_id="string",
-            variables={
-                "foo": {}
-            },
+            variables={"foo": {}},
         )
-        assert_matches_type(Evaluation, evaluation, path=['response'])
+        assert_matches_type(Evaluation, evaluation, path=["response"])
 
     @parametrize
     def test_raw_response_update(self, client: PromptFoundry) -> None:
-
         response = client.evaluations.with_raw_response.update(
             "1212121",
-            appended_messages=[{
-                "content": "string",
-                "role": "USER",
-                "tool_call_id": "string",
-                "tool_calls": [{
+            appended_messages=[
+                {
+                    "content": "string",
+                    "role": "USER",
                     "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
+                    "tool_calls": [
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                    ],
+                },
+                {
+                    "content": "string",
+                    "role": "USER",
                     "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
+                    "tool_calls": [
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                    ],
+                },
+                {
+                    "content": "string",
+                    "role": "USER",
                     "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }],
-            }, {
-                "content": "string",
-                "role": "USER",
-                "tool_call_id": "string",
-                "tool_calls": [{
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }],
-            }, {
-                "content": "string",
-                "role": "USER",
-                "tool_call_id": "string",
-                "tool_calls": [{
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }],
-            }],
+                    "tool_calls": [
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                    ],
+                },
+            ],
             prompt_id="string",
-            variables={
-                "foo": {}
-            },
+            variables={"foo": {}},
         )
 
         assert response.is_closed is True
-        assert response.http_request.headers.get('X-Stainless-Lang') == 'python'
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         evaluation = response.parse()
-        assert_matches_type(Evaluation, evaluation, path=['response'])
+        assert_matches_type(Evaluation, evaluation, path=["response"])
 
     @parametrize
     def test_streaming_response_update(self, client: PromptFoundry) -> None:
         with client.evaluations.with_streaming_response.update(
             "1212121",
-            appended_messages=[{
-                "content": "string",
-                "role": "USER",
-                "tool_call_id": "string",
-                "tool_calls": [{
+            appended_messages=[
+                {
+                    "content": "string",
+                    "role": "USER",
                     "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
+                    "tool_calls": [
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                    ],
+                },
+                {
+                    "content": "string",
+                    "role": "USER",
                     "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
+                    "tool_calls": [
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                    ],
+                },
+                {
+                    "content": "string",
+                    "role": "USER",
                     "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }],
-            }, {
-                "content": "string",
-                "role": "USER",
-                "tool_call_id": "string",
-                "tool_calls": [{
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }],
-            }, {
-                "content": "string",
-                "role": "USER",
-                "tool_call_id": "string",
-                "tool_calls": [{
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }],
-            }],
+                    "tool_calls": [
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                    ],
+                },
+            ],
             prompt_id="string",
-            variables={
-                "foo": {}
-            },
-        ) as response :
+            variables={"foo": {}},
+        ) as response:
             assert not response.is_closed
-            assert response.http_request.headers.get('X-Stainless-Lang') == 'python'
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             evaluation = response.parse()
-            assert_matches_type(Evaluation, evaluation, path=['response'])
+            assert_matches_type(Evaluation, evaluation, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
     @parametrize
     def test_path_params_update(self, client: PromptFoundry) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
-          client.evaluations.with_raw_response.update(
-              "",
-              appended_messages=[{
-                  "content": "string",
-                  "role": "USER",
-                  "tool_call_id": "string",
-                  "tool_calls": [{
-                      "tool_call_id": "string",
-                      "type": "function",
-                      "function": {
-                          "arguments": "string",
-                          "name": "string",
-                      },
-                  }, {
-                      "tool_call_id": "string",
-                      "type": "function",
-                      "function": {
-                          "arguments": "string",
-                          "name": "string",
-                      },
-                  }, {
-                      "tool_call_id": "string",
-                      "type": "function",
-                      "function": {
-                          "arguments": "string",
-                          "name": "string",
-                      },
-                  }],
-              }, {
-                  "content": "string",
-                  "role": "USER",
-                  "tool_call_id": "string",
-                  "tool_calls": [{
-                      "tool_call_id": "string",
-                      "type": "function",
-                      "function": {
-                          "arguments": "string",
-                          "name": "string",
-                      },
-                  }, {
-                      "tool_call_id": "string",
-                      "type": "function",
-                      "function": {
-                          "arguments": "string",
-                          "name": "string",
-                      },
-                  }, {
-                      "tool_call_id": "string",
-                      "type": "function",
-                      "function": {
-                          "arguments": "string",
-                          "name": "string",
-                      },
-                  }],
-              }, {
-                  "content": "string",
-                  "role": "USER",
-                  "tool_call_id": "string",
-                  "tool_calls": [{
-                      "tool_call_id": "string",
-                      "type": "function",
-                      "function": {
-                          "arguments": "string",
-                          "name": "string",
-                      },
-                  }, {
-                      "tool_call_id": "string",
-                      "type": "function",
-                      "function": {
-                          "arguments": "string",
-                          "name": "string",
-                      },
-                  }, {
-                      "tool_call_id": "string",
-                      "type": "function",
-                      "function": {
-                          "arguments": "string",
-                          "name": "string",
-                      },
-                  }],
-              }],
-              prompt_id="string",
-              variables={
-                  "foo": {}
-              },
-          )
+            client.evaluations.with_raw_response.update(
+                "",
+                appended_messages=[
+                    {
+                        "content": "string",
+                        "role": "USER",
+                        "tool_call_id": "string",
+                        "tool_calls": [
+                            {
+                                "tool_call_id": "string",
+                                "type": "function",
+                                "function": {
+                                    "arguments": "string",
+                                    "name": "string",
+                                },
+                            },
+                            {
+                                "tool_call_id": "string",
+                                "type": "function",
+                                "function": {
+                                    "arguments": "string",
+                                    "name": "string",
+                                },
+                            },
+                            {
+                                "tool_call_id": "string",
+                                "type": "function",
+                                "function": {
+                                    "arguments": "string",
+                                    "name": "string",
+                                },
+                            },
+                        ],
+                    },
+                    {
+                        "content": "string",
+                        "role": "USER",
+                        "tool_call_id": "string",
+                        "tool_calls": [
+                            {
+                                "tool_call_id": "string",
+                                "type": "function",
+                                "function": {
+                                    "arguments": "string",
+                                    "name": "string",
+                                },
+                            },
+                            {
+                                "tool_call_id": "string",
+                                "type": "function",
+                                "function": {
+                                    "arguments": "string",
+                                    "name": "string",
+                                },
+                            },
+                            {
+                                "tool_call_id": "string",
+                                "type": "function",
+                                "function": {
+                                    "arguments": "string",
+                                    "name": "string",
+                                },
+                            },
+                        ],
+                    },
+                    {
+                        "content": "string",
+                        "role": "USER",
+                        "tool_call_id": "string",
+                        "tool_calls": [
+                            {
+                                "tool_call_id": "string",
+                                "type": "function",
+                                "function": {
+                                    "arguments": "string",
+                                    "name": "string",
+                                },
+                            },
+                            {
+                                "tool_call_id": "string",
+                                "type": "function",
+                                "function": {
+                                    "arguments": "string",
+                                    "name": "string",
+                                },
+                            },
+                            {
+                                "tool_call_id": "string",
+                                "type": "function",
+                                "function": {
+                                    "arguments": "string",
+                                    "name": "string",
+                                },
+                            },
+                        ],
+                    },
+                ],
+                prompt_id="string",
+                variables={"foo": {}},
+            )
 
     @parametrize
     def test_method_list(self, client: PromptFoundry) -> None:
         evaluation = client.evaluations.list()
-        assert_matches_type(EvaluationListResponse, evaluation, path=['response'])
+        assert_matches_type(EvaluationListResponse, evaluation, path=["response"])
 
     @parametrize
     def test_raw_response_list(self, client: PromptFoundry) -> None:
-
         response = client.evaluations.with_raw_response.list()
 
         assert response.is_closed is True
-        assert response.http_request.headers.get('X-Stainless-Lang') == 'python'
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         evaluation = response.parse()
-        assert_matches_type(EvaluationListResponse, evaluation, path=['response'])
+        assert_matches_type(EvaluationListResponse, evaluation, path=["response"])
 
     @parametrize
     def test_streaming_response_list(self, client: PromptFoundry) -> None:
-        with client.evaluations.with_streaming_response.list() as response :
+        with client.evaluations.with_streaming_response.list() as response:
             assert not response.is_closed
-            assert response.http_request.headers.get('X-Stainless-Lang') == 'python'
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             evaluation = response.parse()
-            assert_matches_type(EvaluationListResponse, evaluation, path=['response'])
+            assert_matches_type(EvaluationListResponse, evaluation, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -705,357 +796,397 @@ class TestEvaluations:
         evaluation = client.evaluations.delete(
             "1212121",
         )
-        assert_matches_type(EvaluationDeleteResponse, evaluation, path=['response'])
+        assert_matches_type(EvaluationDeleteResponse, evaluation, path=["response"])
 
     @parametrize
     def test_raw_response_delete(self, client: PromptFoundry) -> None:
-
         response = client.evaluations.with_raw_response.delete(
             "1212121",
         )
 
         assert response.is_closed is True
-        assert response.http_request.headers.get('X-Stainless-Lang') == 'python'
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         evaluation = response.parse()
-        assert_matches_type(EvaluationDeleteResponse, evaluation, path=['response'])
+        assert_matches_type(EvaluationDeleteResponse, evaluation, path=["response"])
 
     @parametrize
     def test_streaming_response_delete(self, client: PromptFoundry) -> None:
         with client.evaluations.with_streaming_response.delete(
             "1212121",
-        ) as response :
+        ) as response:
             assert not response.is_closed
-            assert response.http_request.headers.get('X-Stainless-Lang') == 'python'
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             evaluation = response.parse()
-            assert_matches_type(EvaluationDeleteResponse, evaluation, path=['response'])
+            assert_matches_type(EvaluationDeleteResponse, evaluation, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
     @parametrize
     def test_path_params_delete(self, client: PromptFoundry) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
-          client.evaluations.with_raw_response.delete(
-              "",
-          )
+            client.evaluations.with_raw_response.delete(
+                "",
+            )
 
     @parametrize
     def test_method_get(self, client: PromptFoundry) -> None:
         evaluation = client.evaluations.get(
             "1212121",
         )
-        assert_matches_type(Evaluation, evaluation, path=['response'])
+        assert_matches_type(Evaluation, evaluation, path=["response"])
 
     @parametrize
     def test_raw_response_get(self, client: PromptFoundry) -> None:
-
         response = client.evaluations.with_raw_response.get(
             "1212121",
         )
 
         assert response.is_closed is True
-        assert response.http_request.headers.get('X-Stainless-Lang') == 'python'
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         evaluation = response.parse()
-        assert_matches_type(Evaluation, evaluation, path=['response'])
+        assert_matches_type(Evaluation, evaluation, path=["response"])
 
     @parametrize
     def test_streaming_response_get(self, client: PromptFoundry) -> None:
         with client.evaluations.with_streaming_response.get(
             "1212121",
-        ) as response :
+        ) as response:
             assert not response.is_closed
-            assert response.http_request.headers.get('X-Stainless-Lang') == 'python'
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             evaluation = response.parse()
-            assert_matches_type(Evaluation, evaluation, path=['response'])
+            assert_matches_type(Evaluation, evaluation, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
     @parametrize
     def test_path_params_get(self, client: PromptFoundry) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
-          client.evaluations.with_raw_response.get(
-              "",
-          )
-class TestAsyncEvaluations:
-    parametrize = pytest.mark.parametrize("async_client", [False, True], indirect=True, ids=['loose', 'strict'])
+            client.evaluations.with_raw_response.get(
+                "",
+            )
 
+
+class TestAsyncEvaluations:
+    parametrize = pytest.mark.parametrize("async_client", [False, True], indirect=True, ids=["loose", "strict"])
 
     @parametrize
     async def test_method_create(self, async_client: AsyncPromptFoundry) -> None:
         evaluation = await async_client.evaluations.create(
-            appended_messages=[{
-                "content": "string",
-                "role": "USER",
-                "tool_call_id": "string",
-                "tool_calls": [{
+            appended_messages=[
+                {
+                    "content": "string",
+                    "role": "USER",
                     "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
+                    "tool_calls": [
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                    ],
+                },
+                {
+                    "content": "string",
+                    "role": "USER",
                     "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
+                    "tool_calls": [
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                    ],
+                },
+                {
+                    "content": "string",
+                    "role": "USER",
                     "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }],
-            }, {
-                "content": "string",
-                "role": "USER",
-                "tool_call_id": "string",
-                "tool_calls": [{
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }],
-            }, {
-                "content": "string",
-                "role": "USER",
-                "tool_call_id": "string",
-                "tool_calls": [{
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }],
-            }],
+                    "tool_calls": [
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                    ],
+                },
+            ],
             prompt_id="string",
-            variables={
-                "foo": {}
-            },
+            variables={"foo": {}},
         )
-        assert_matches_type(Evaluation, evaluation, path=['response'])
+        assert_matches_type(Evaluation, evaluation, path=["response"])
 
     @parametrize
     async def test_raw_response_create(self, async_client: AsyncPromptFoundry) -> None:
-
         response = await async_client.evaluations.with_raw_response.create(
-            appended_messages=[{
-                "content": "string",
-                "role": "USER",
-                "tool_call_id": "string",
-                "tool_calls": [{
+            appended_messages=[
+                {
+                    "content": "string",
+                    "role": "USER",
                     "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
+                    "tool_calls": [
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                    ],
+                },
+                {
+                    "content": "string",
+                    "role": "USER",
                     "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
+                    "tool_calls": [
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                    ],
+                },
+                {
+                    "content": "string",
+                    "role": "USER",
                     "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }],
-            }, {
-                "content": "string",
-                "role": "USER",
-                "tool_call_id": "string",
-                "tool_calls": [{
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }],
-            }, {
-                "content": "string",
-                "role": "USER",
-                "tool_call_id": "string",
-                "tool_calls": [{
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }],
-            }],
+                    "tool_calls": [
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                    ],
+                },
+            ],
             prompt_id="string",
-            variables={
-                "foo": {}
-            },
+            variables={"foo": {}},
         )
 
         assert response.is_closed is True
-        assert response.http_request.headers.get('X-Stainless-Lang') == 'python'
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         evaluation = await response.parse()
-        assert_matches_type(Evaluation, evaluation, path=['response'])
+        assert_matches_type(Evaluation, evaluation, path=["response"])
 
     @parametrize
     async def test_streaming_response_create(self, async_client: AsyncPromptFoundry) -> None:
         async with async_client.evaluations.with_streaming_response.create(
-            appended_messages=[{
-                "content": "string",
-                "role": "USER",
-                "tool_call_id": "string",
-                "tool_calls": [{
+            appended_messages=[
+                {
+                    "content": "string",
+                    "role": "USER",
                     "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
+                    "tool_calls": [
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                    ],
+                },
+                {
+                    "content": "string",
+                    "role": "USER",
                     "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
+                    "tool_calls": [
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                    ],
+                },
+                {
+                    "content": "string",
+                    "role": "USER",
                     "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }],
-            }, {
-                "content": "string",
-                "role": "USER",
-                "tool_call_id": "string",
-                "tool_calls": [{
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }],
-            }, {
-                "content": "string",
-                "role": "USER",
-                "tool_call_id": "string",
-                "tool_calls": [{
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }],
-            }],
+                    "tool_calls": [
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                    ],
+                },
+            ],
             prompt_id="string",
-            variables={
-                "foo": {}
-            },
-        ) as response :
+            variables={"foo": {}},
+        ) as response:
             assert not response.is_closed
-            assert response.http_request.headers.get('X-Stainless-Lang') == 'python'
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             evaluation = await response.parse()
-            assert_matches_type(Evaluation, evaluation, path=['response'])
+            assert_matches_type(Evaluation, evaluation, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -1063,396 +1194,450 @@ class TestAsyncEvaluations:
     async def test_method_update(self, async_client: AsyncPromptFoundry) -> None:
         evaluation = await async_client.evaluations.update(
             "1212121",
-            appended_messages=[{
-                "content": "string",
-                "role": "USER",
-                "tool_call_id": "string",
-                "tool_calls": [{
+            appended_messages=[
+                {
+                    "content": "string",
+                    "role": "USER",
                     "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
+                    "tool_calls": [
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                    ],
+                },
+                {
+                    "content": "string",
+                    "role": "USER",
                     "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
+                    "tool_calls": [
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                    ],
+                },
+                {
+                    "content": "string",
+                    "role": "USER",
                     "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }],
-            }, {
-                "content": "string",
-                "role": "USER",
-                "tool_call_id": "string",
-                "tool_calls": [{
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }],
-            }, {
-                "content": "string",
-                "role": "USER",
-                "tool_call_id": "string",
-                "tool_calls": [{
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }],
-            }],
+                    "tool_calls": [
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                    ],
+                },
+            ],
             prompt_id="string",
-            variables={
-                "foo": {}
-            },
+            variables={"foo": {}},
         )
-        assert_matches_type(Evaluation, evaluation, path=['response'])
+        assert_matches_type(Evaluation, evaluation, path=["response"])
 
     @parametrize
     async def test_raw_response_update(self, async_client: AsyncPromptFoundry) -> None:
-
         response = await async_client.evaluations.with_raw_response.update(
             "1212121",
-            appended_messages=[{
-                "content": "string",
-                "role": "USER",
-                "tool_call_id": "string",
-                "tool_calls": [{
+            appended_messages=[
+                {
+                    "content": "string",
+                    "role": "USER",
                     "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
+                    "tool_calls": [
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                    ],
+                },
+                {
+                    "content": "string",
+                    "role": "USER",
                     "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
+                    "tool_calls": [
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                    ],
+                },
+                {
+                    "content": "string",
+                    "role": "USER",
                     "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }],
-            }, {
-                "content": "string",
-                "role": "USER",
-                "tool_call_id": "string",
-                "tool_calls": [{
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }],
-            }, {
-                "content": "string",
-                "role": "USER",
-                "tool_call_id": "string",
-                "tool_calls": [{
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }],
-            }],
+                    "tool_calls": [
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                    ],
+                },
+            ],
             prompt_id="string",
-            variables={
-                "foo": {}
-            },
+            variables={"foo": {}},
         )
 
         assert response.is_closed is True
-        assert response.http_request.headers.get('X-Stainless-Lang') == 'python'
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         evaluation = await response.parse()
-        assert_matches_type(Evaluation, evaluation, path=['response'])
+        assert_matches_type(Evaluation, evaluation, path=["response"])
 
     @parametrize
     async def test_streaming_response_update(self, async_client: AsyncPromptFoundry) -> None:
         async with async_client.evaluations.with_streaming_response.update(
             "1212121",
-            appended_messages=[{
-                "content": "string",
-                "role": "USER",
-                "tool_call_id": "string",
-                "tool_calls": [{
+            appended_messages=[
+                {
+                    "content": "string",
+                    "role": "USER",
                     "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
+                    "tool_calls": [
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                    ],
+                },
+                {
+                    "content": "string",
+                    "role": "USER",
                     "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
+                    "tool_calls": [
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                    ],
+                },
+                {
+                    "content": "string",
+                    "role": "USER",
                     "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }],
-            }, {
-                "content": "string",
-                "role": "USER",
-                "tool_call_id": "string",
-                "tool_calls": [{
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }],
-            }, {
-                "content": "string",
-                "role": "USER",
-                "tool_call_id": "string",
-                "tool_calls": [{
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }, {
-                    "tool_call_id": "string",
-                    "type": "function",
-                    "function": {
-                        "arguments": "string",
-                        "name": "string",
-                    },
-                }],
-            }],
+                    "tool_calls": [
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                        {
+                            "tool_call_id": "string",
+                            "type": "function",
+                            "function": {
+                                "arguments": "string",
+                                "name": "string",
+                            },
+                        },
+                    ],
+                },
+            ],
             prompt_id="string",
-            variables={
-                "foo": {}
-            },
-        ) as response :
+            variables={"foo": {}},
+        ) as response:
             assert not response.is_closed
-            assert response.http_request.headers.get('X-Stainless-Lang') == 'python'
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             evaluation = await response.parse()
-            assert_matches_type(Evaluation, evaluation, path=['response'])
+            assert_matches_type(Evaluation, evaluation, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
     @parametrize
     async def test_path_params_update(self, async_client: AsyncPromptFoundry) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
-          await async_client.evaluations.with_raw_response.update(
-              "",
-              appended_messages=[{
-                  "content": "string",
-                  "role": "USER",
-                  "tool_call_id": "string",
-                  "tool_calls": [{
-                      "tool_call_id": "string",
-                      "type": "function",
-                      "function": {
-                          "arguments": "string",
-                          "name": "string",
-                      },
-                  }, {
-                      "tool_call_id": "string",
-                      "type": "function",
-                      "function": {
-                          "arguments": "string",
-                          "name": "string",
-                      },
-                  }, {
-                      "tool_call_id": "string",
-                      "type": "function",
-                      "function": {
-                          "arguments": "string",
-                          "name": "string",
-                      },
-                  }],
-              }, {
-                  "content": "string",
-                  "role": "USER",
-                  "tool_call_id": "string",
-                  "tool_calls": [{
-                      "tool_call_id": "string",
-                      "type": "function",
-                      "function": {
-                          "arguments": "string",
-                          "name": "string",
-                      },
-                  }, {
-                      "tool_call_id": "string",
-                      "type": "function",
-                      "function": {
-                          "arguments": "string",
-                          "name": "string",
-                      },
-                  }, {
-                      "tool_call_id": "string",
-                      "type": "function",
-                      "function": {
-                          "arguments": "string",
-                          "name": "string",
-                      },
-                  }],
-              }, {
-                  "content": "string",
-                  "role": "USER",
-                  "tool_call_id": "string",
-                  "tool_calls": [{
-                      "tool_call_id": "string",
-                      "type": "function",
-                      "function": {
-                          "arguments": "string",
-                          "name": "string",
-                      },
-                  }, {
-                      "tool_call_id": "string",
-                      "type": "function",
-                      "function": {
-                          "arguments": "string",
-                          "name": "string",
-                      },
-                  }, {
-                      "tool_call_id": "string",
-                      "type": "function",
-                      "function": {
-                          "arguments": "string",
-                          "name": "string",
-                      },
-                  }],
-              }],
-              prompt_id="string",
-              variables={
-                  "foo": {}
-              },
-          )
+            await async_client.evaluations.with_raw_response.update(
+                "",
+                appended_messages=[
+                    {
+                        "content": "string",
+                        "role": "USER",
+                        "tool_call_id": "string",
+                        "tool_calls": [
+                            {
+                                "tool_call_id": "string",
+                                "type": "function",
+                                "function": {
+                                    "arguments": "string",
+                                    "name": "string",
+                                },
+                            },
+                            {
+                                "tool_call_id": "string",
+                                "type": "function",
+                                "function": {
+                                    "arguments": "string",
+                                    "name": "string",
+                                },
+                            },
+                            {
+                                "tool_call_id": "string",
+                                "type": "function",
+                                "function": {
+                                    "arguments": "string",
+                                    "name": "string",
+                                },
+                            },
+                        ],
+                    },
+                    {
+                        "content": "string",
+                        "role": "USER",
+                        "tool_call_id": "string",
+                        "tool_calls": [
+                            {
+                                "tool_call_id": "string",
+                                "type": "function",
+                                "function": {
+                                    "arguments": "string",
+                                    "name": "string",
+                                },
+                            },
+                            {
+                                "tool_call_id": "string",
+                                "type": "function",
+                                "function": {
+                                    "arguments": "string",
+                                    "name": "string",
+                                },
+                            },
+                            {
+                                "tool_call_id": "string",
+                                "type": "function",
+                                "function": {
+                                    "arguments": "string",
+                                    "name": "string",
+                                },
+                            },
+                        ],
+                    },
+                    {
+                        "content": "string",
+                        "role": "USER",
+                        "tool_call_id": "string",
+                        "tool_calls": [
+                            {
+                                "tool_call_id": "string",
+                                "type": "function",
+                                "function": {
+                                    "arguments": "string",
+                                    "name": "string",
+                                },
+                            },
+                            {
+                                "tool_call_id": "string",
+                                "type": "function",
+                                "function": {
+                                    "arguments": "string",
+                                    "name": "string",
+                                },
+                            },
+                            {
+                                "tool_call_id": "string",
+                                "type": "function",
+                                "function": {
+                                    "arguments": "string",
+                                    "name": "string",
+                                },
+                            },
+                        ],
+                    },
+                ],
+                prompt_id="string",
+                variables={"foo": {}},
+            )
 
     @parametrize
     async def test_method_list(self, async_client: AsyncPromptFoundry) -> None:
         evaluation = await async_client.evaluations.list()
-        assert_matches_type(EvaluationListResponse, evaluation, path=['response'])
+        assert_matches_type(EvaluationListResponse, evaluation, path=["response"])
 
     @parametrize
     async def test_raw_response_list(self, async_client: AsyncPromptFoundry) -> None:
-
         response = await async_client.evaluations.with_raw_response.list()
 
         assert response.is_closed is True
-        assert response.http_request.headers.get('X-Stainless-Lang') == 'python'
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         evaluation = await response.parse()
-        assert_matches_type(EvaluationListResponse, evaluation, path=['response'])
+        assert_matches_type(EvaluationListResponse, evaluation, path=["response"])
 
     @parametrize
     async def test_streaming_response_list(self, async_client: AsyncPromptFoundry) -> None:
-        async with async_client.evaluations.with_streaming_response.list() as response :
+        async with async_client.evaluations.with_streaming_response.list() as response:
             assert not response.is_closed
-            assert response.http_request.headers.get('X-Stainless-Lang') == 'python'
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             evaluation = await response.parse()
-            assert_matches_type(EvaluationListResponse, evaluation, path=['response'])
+            assert_matches_type(EvaluationListResponse, evaluation, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -1461,75 +1646,73 @@ class TestAsyncEvaluations:
         evaluation = await async_client.evaluations.delete(
             "1212121",
         )
-        assert_matches_type(EvaluationDeleteResponse, evaluation, path=['response'])
+        assert_matches_type(EvaluationDeleteResponse, evaluation, path=["response"])
 
     @parametrize
     async def test_raw_response_delete(self, async_client: AsyncPromptFoundry) -> None:
-
         response = await async_client.evaluations.with_raw_response.delete(
             "1212121",
         )
 
         assert response.is_closed is True
-        assert response.http_request.headers.get('X-Stainless-Lang') == 'python'
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         evaluation = await response.parse()
-        assert_matches_type(EvaluationDeleteResponse, evaluation, path=['response'])
+        assert_matches_type(EvaluationDeleteResponse, evaluation, path=["response"])
 
     @parametrize
     async def test_streaming_response_delete(self, async_client: AsyncPromptFoundry) -> None:
         async with async_client.evaluations.with_streaming_response.delete(
             "1212121",
-        ) as response :
+        ) as response:
             assert not response.is_closed
-            assert response.http_request.headers.get('X-Stainless-Lang') == 'python'
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             evaluation = await response.parse()
-            assert_matches_type(EvaluationDeleteResponse, evaluation, path=['response'])
+            assert_matches_type(EvaluationDeleteResponse, evaluation, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
     @parametrize
     async def test_path_params_delete(self, async_client: AsyncPromptFoundry) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
-          await async_client.evaluations.with_raw_response.delete(
-              "",
-          )
+            await async_client.evaluations.with_raw_response.delete(
+                "",
+            )
 
     @parametrize
     async def test_method_get(self, async_client: AsyncPromptFoundry) -> None:
         evaluation = await async_client.evaluations.get(
             "1212121",
         )
-        assert_matches_type(Evaluation, evaluation, path=['response'])
+        assert_matches_type(Evaluation, evaluation, path=["response"])
 
     @parametrize
     async def test_raw_response_get(self, async_client: AsyncPromptFoundry) -> None:
-
         response = await async_client.evaluations.with_raw_response.get(
             "1212121",
         )
 
         assert response.is_closed is True
-        assert response.http_request.headers.get('X-Stainless-Lang') == 'python'
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         evaluation = await response.parse()
-        assert_matches_type(Evaluation, evaluation, path=['response'])
+        assert_matches_type(Evaluation, evaluation, path=["response"])
 
     @parametrize
     async def test_streaming_response_get(self, async_client: AsyncPromptFoundry) -> None:
         async with async_client.evaluations.with_streaming_response.get(
             "1212121",
-        ) as response :
+        ) as response:
             assert not response.is_closed
-            assert response.http_request.headers.get('X-Stainless-Lang') == 'python'
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             evaluation = await response.parse()
-            assert_matches_type(Evaluation, evaluation, path=['response'])
+            assert_matches_type(Evaluation, evaluation, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
     @parametrize
     async def test_path_params_get(self, async_client: AsyncPromptFoundry) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
-          await async_client.evaluations.with_raw_response.get(
-              "",
-          )
+            await async_client.evaluations.with_raw_response.get(
+                "",
+            )

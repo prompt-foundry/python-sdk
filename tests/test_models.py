@@ -7,9 +7,9 @@ import pytest
 import pydantic
 from pydantic import Field
 
-from prompt-foundry-python-sdk._utils import PropertyInfo
-from prompt-foundry-python-sdk._compat import PYDANTIC_V2, parse_obj, model_dump, model_json
-from prompt-foundry-python-sdk._models import BaseModel, construct_type
+from prompt_foundry_python_sdk._utils import PropertyInfo
+from prompt_foundry_python_sdk._compat import PYDANTIC_V2, parse_obj, model_dump, model_json
+from prompt_foundry_python_sdk._models import BaseModel, construct_type
 
 
 class BasicModel(BaseModel):

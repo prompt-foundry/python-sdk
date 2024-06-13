@@ -8,15 +8,15 @@ from typing_extensions import Required, Annotated, TypedDict
 
 import pytest
 
-from prompt-foundry-python-sdk._types import Base64FileInput
-from prompt-foundry-python-sdk._utils import (
+from prompt_foundry_python_sdk._types import Base64FileInput
+from prompt_foundry_python_sdk._utils import (
     PropertyInfo,
     transform as _transform,
     parse_datetime,
     async_transform as _async_transform,
 )
-from prompt-foundry-python-sdk._compat import PYDANTIC_V2
-from prompt-foundry-python-sdk._models import BaseModel
+from prompt_foundry_python_sdk._compat import PYDANTIC_V2
+from prompt_foundry_python_sdk._models import BaseModel
 
 _T = TypeVar("_T")
 
