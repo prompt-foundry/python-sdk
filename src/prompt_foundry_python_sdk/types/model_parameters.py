@@ -23,7 +23,6 @@ __all__ = [
     "ParametersOpenAICreateCompletionNonStreamingRequestMessageOpenAIChatCompletionRequestToolMessage",
     "ParametersOpenAICreateCompletionNonStreamingRequestMessageOpenAIChatCompletionRequestFunctionMessage",
     "ParametersOpenAICreateCompletionNonStreamingRequestResponseFormat",
-    "ParametersOpenAICreateCompletionNonStreamingRequestStreamOptions",
     "ParametersOpenAICreateCompletionNonStreamingRequestToolChoice",
     "ParametersOpenAICreateCompletionNonStreamingRequestToolChoiceOpenAIChatCompletionNamedToolChoice",
     "ParametersOpenAICreateCompletionNonStreamingRequestToolChoiceOpenAIChatCompletionNamedToolChoiceFunction",
@@ -177,10 +176,6 @@ class ParametersOpenAICreateCompletionNonStreamingRequestResponseFormat(BaseMode
     type: Optional[Literal["text", "json_object"]] = None
 
 
-class ParametersOpenAICreateCompletionNonStreamingRequestStreamOptions(BaseModel):
-    include_usage: bool
-
-
 class ParametersOpenAICreateCompletionNonStreamingRequestToolChoiceOpenAIChatCompletionNamedToolChoiceFunction(
     BaseModel
 ):
@@ -240,7 +235,7 @@ class ParametersOpenAICreateCompletionNonStreamingRequest(BaseModel):
 
     stream: Optional[Literal[False]] = None
 
-    stream_options: Optional[ParametersOpenAICreateCompletionNonStreamingRequestStreamOptions] = None
+    stream_options: Optional[object] = None
 
     temperature: Optional[float] = None
 
