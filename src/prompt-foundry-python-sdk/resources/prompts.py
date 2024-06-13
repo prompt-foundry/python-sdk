@@ -177,41 +177,6 @@ class PromptsResource(SyncAPIResource):
             cast_to=PromptDeleteResponse,
         )
 
-    def get(
-        self,
-        id: str,
-        *,
-        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
-        # The extra values given here take precedence over values defined on the client or passed to this method.
-        extra_headers: Headers | None = None,
-        extra_query: Query | None = None,
-        extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> PromptConfiguration:
-        """
-        Fetches detailed configuration parameters for a specified prompt, including
-        penalty settings, response format, and preset messages that use dynamic
-        variables.
-
-        Args:
-          extra_headers: Send extra headers
-
-          extra_query: Add additional query parameters to the request
-
-          extra_body: Add additional JSON properties to the request
-
-          timeout: Override the client-level default timeout for this request, in seconds
-        """
-        if not id:
-            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
-        return self._get(
-            f"/sdk/v1/prompts/{id}",
-            options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
-            ),
-            cast_to=PromptConfiguration,
-        )
-
 
 class AsyncPromptsResource(AsyncAPIResource):
     @cached_property
@@ -346,41 +311,6 @@ class AsyncPromptsResource(AsyncAPIResource):
             cast_to=PromptDeleteResponse,
         )
 
-    async def get(
-        self,
-        id: str,
-        *,
-        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
-        # The extra values given here take precedence over values defined on the client or passed to this method.
-        extra_headers: Headers | None = None,
-        extra_query: Query | None = None,
-        extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> PromptConfiguration:
-        """
-        Fetches detailed configuration parameters for a specified prompt, including
-        penalty settings, response format, and preset messages that use dynamic
-        variables.
-
-        Args:
-          extra_headers: Send extra headers
-
-          extra_query: Add additional query parameters to the request
-
-          extra_body: Add additional JSON properties to the request
-
-          timeout: Override the client-level default timeout for this request, in seconds
-        """
-        if not id:
-            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
-        return await self._get(
-            f"/sdk/v1/prompts/{id}",
-            options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
-            ),
-            cast_to=PromptConfiguration,
-        )
-
 
 class PromptsResourceWithRawResponse:
     def __init__(self, prompts: PromptsResource) -> None:
@@ -394,9 +324,6 @@ class PromptsResourceWithRawResponse:
         )
         self.delete = to_raw_response_wrapper(
             prompts.delete,
-        )
-        self.get = to_raw_response_wrapper(
-            prompts.get,
         )
 
 
@@ -413,9 +340,6 @@ class AsyncPromptsResourceWithRawResponse:
         self.delete = async_to_raw_response_wrapper(
             prompts.delete,
         )
-        self.get = async_to_raw_response_wrapper(
-            prompts.get,
-        )
 
 
 class PromptsResourceWithStreamingResponse:
@@ -431,9 +355,6 @@ class PromptsResourceWithStreamingResponse:
         self.delete = to_streamed_response_wrapper(
             prompts.delete,
         )
-        self.get = to_streamed_response_wrapper(
-            prompts.get,
-        )
 
 
 class AsyncPromptsResourceWithStreamingResponse:
@@ -448,7 +369,4 @@ class AsyncPromptsResourceWithStreamingResponse:
         )
         self.delete = async_to_streamed_response_wrapper(
             prompts.delete,
-        )
-        self.get = async_to_streamed_response_wrapper(
-            prompts.get,
         )
