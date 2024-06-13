@@ -817,6 +817,45 @@ class TestPrompts:
           client.prompts.with_raw_response.delete(
               "",
           )
+
+    @parametrize
+    def test_method_get(self, client: PromptFoundry) -> None:
+        prompt = client.prompts.get(
+            "1212121",
+        )
+        assert_matches_type(PromptConfiguration, prompt, path=['response'])
+
+    @parametrize
+    def test_raw_response_get(self, client: PromptFoundry) -> None:
+
+        response = client.prompts.with_raw_response.get(
+            "1212121",
+        )
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get('X-Stainless-Lang') == 'python'
+        prompt = response.parse()
+        assert_matches_type(PromptConfiguration, prompt, path=['response'])
+
+    @parametrize
+    def test_streaming_response_get(self, client: PromptFoundry) -> None:
+        with client.prompts.with_streaming_response.get(
+            "1212121",
+        ) as response :
+            assert not response.is_closed
+            assert response.http_request.headers.get('X-Stainless-Lang') == 'python'
+
+            prompt = response.parse()
+            assert_matches_type(PromptConfiguration, prompt, path=['response'])
+
+        assert cast(Any, response.is_closed) is True
+
+    @parametrize
+    def test_path_params_get(self, client: PromptFoundry) -> None:
+        with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
+          client.prompts.with_raw_response.get(
+              "",
+          )
 class TestAsyncPrompts:
     parametrize = pytest.mark.parametrize("async_client", [False, True], indirect=True, ids=['loose', 'strict'])
 
@@ -1611,5 +1650,44 @@ class TestAsyncPrompts:
     async def test_path_params_delete(self, async_client: AsyncPromptFoundry) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
           await async_client.prompts.with_raw_response.delete(
+              "",
+          )
+
+    @parametrize
+    async def test_method_get(self, async_client: AsyncPromptFoundry) -> None:
+        prompt = await async_client.prompts.get(
+            "1212121",
+        )
+        assert_matches_type(PromptConfiguration, prompt, path=['response'])
+
+    @parametrize
+    async def test_raw_response_get(self, async_client: AsyncPromptFoundry) -> None:
+
+        response = await async_client.prompts.with_raw_response.get(
+            "1212121",
+        )
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get('X-Stainless-Lang') == 'python'
+        prompt = await response.parse()
+        assert_matches_type(PromptConfiguration, prompt, path=['response'])
+
+    @parametrize
+    async def test_streaming_response_get(self, async_client: AsyncPromptFoundry) -> None:
+        async with async_client.prompts.with_streaming_response.get(
+            "1212121",
+        ) as response :
+            assert not response.is_closed
+            assert response.http_request.headers.get('X-Stainless-Lang') == 'python'
+
+            prompt = await response.parse()
+            assert_matches_type(PromptConfiguration, prompt, path=['response'])
+
+        assert cast(Any, response.is_closed) is True
+
+    @parametrize
+    async def test_path_params_get(self, async_client: AsyncPromptFoundry) -> None:
+        with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
+          await async_client.prompts.with_raw_response.get(
               "",
           )
