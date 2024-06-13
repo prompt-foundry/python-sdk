@@ -94,7 +94,7 @@ class PromptFoundry(SyncAPIClient):
         if base_url is None:
             base_url = os.environ.get("PROMPT_FOUNDRY_BASE_URL")
         if base_url is None:
-            base_url = f"https://api.promptfoundry.ai/sdk/v1"
+            base_url = f"https://api.promptfoundry.ai"
 
         super().__init__(
             version=__version__,
@@ -268,7 +268,7 @@ class AsyncPromptFoundry(AsyncAPIClient):
         if base_url is None:
             base_url = os.environ.get("PROMPT_FOUNDRY_BASE_URL")
         if base_url is None:
-            base_url = f"https://api.promptfoundry.ai/sdk/v1"
+            base_url = f"https://api.promptfoundry.ai"
 
         super().__init__(
             version=__version__,
