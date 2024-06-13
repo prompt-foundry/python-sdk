@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from prompt-foundry-python-sdk import PromptFoundry, AsyncPromptFoundry
 
-from prompt-foundry-python-sdk.types import PromptConfiguration, PromptDeleteResponse
+from prompt-foundry-python-sdk.types import PromptConfiguration, PromptListResponse, PromptDeleteResponse, ModelParameters
 
 from typing import Any, cast
 
@@ -18,6 +18,7 @@ from prompt-foundry-python-sdk import PromptFoundry, AsyncPromptFoundry
 from tests.utils import assert_matches_type
 from prompt-foundry-python-sdk.types import prompt_create_params
 from prompt-foundry-python-sdk.types import prompt_update_params
+from prompt-foundry-python-sdk.types import prompt_get_parameters_params
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 
@@ -780,6 +781,32 @@ class TestPrompts:
           )
 
     @parametrize
+    def test_method_list(self, client: PromptFoundry) -> None:
+        prompt = client.prompts.list()
+        assert_matches_type(PromptListResponse, prompt, path=['response'])
+
+    @parametrize
+    def test_raw_response_list(self, client: PromptFoundry) -> None:
+
+        response = client.prompts.with_raw_response.list()
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get('X-Stainless-Lang') == 'python'
+        prompt = response.parse()
+        assert_matches_type(PromptListResponse, prompt, path=['response'])
+
+    @parametrize
+    def test_streaming_response_list(self, client: PromptFoundry) -> None:
+        with client.prompts.with_streaming_response.list() as response :
+            assert not response.is_closed
+            assert response.http_request.headers.get('X-Stainless-Lang') == 'python'
+
+            prompt = response.parse()
+            assert_matches_type(PromptListResponse, prompt, path=['response'])
+
+        assert cast(Any, response.is_closed) is True
+
+    @parametrize
     def test_method_delete(self, client: PromptFoundry) -> None:
         prompt = client.prompts.delete(
             "1212121",
@@ -854,6 +881,214 @@ class TestPrompts:
     def test_path_params_get(self, client: PromptFoundry) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
           client.prompts.with_raw_response.get(
+              "",
+          )
+
+    @parametrize
+    def test_method_get_parameters(self, client: PromptFoundry) -> None:
+        prompt = client.prompts.get_parameters(
+            "1212121",
+        )
+        assert_matches_type(ModelParameters, prompt, path=['response'])
+
+    @parametrize
+    def test_method_get_parameters_with_all_params(self, client: PromptFoundry) -> None:
+        prompt = client.prompts.get_parameters(
+            "1212121",
+            append_messages=[{
+                "content": "string",
+                "role": "USER",
+                "tool_call_id": "string",
+                "tool_calls": [{
+                    "tool_call_id": "string",
+                    "type": "function",
+                    "function": {
+                        "arguments": "string",
+                        "name": "string",
+                    },
+                }, {
+                    "tool_call_id": "string",
+                    "type": "function",
+                    "function": {
+                        "arguments": "string",
+                        "name": "string",
+                    },
+                }, {
+                    "tool_call_id": "string",
+                    "type": "function",
+                    "function": {
+                        "arguments": "string",
+                        "name": "string",
+                    },
+                }],
+            }, {
+                "content": "string",
+                "role": "USER",
+                "tool_call_id": "string",
+                "tool_calls": [{
+                    "tool_call_id": "string",
+                    "type": "function",
+                    "function": {
+                        "arguments": "string",
+                        "name": "string",
+                    },
+                }, {
+                    "tool_call_id": "string",
+                    "type": "function",
+                    "function": {
+                        "arguments": "string",
+                        "name": "string",
+                    },
+                }, {
+                    "tool_call_id": "string",
+                    "type": "function",
+                    "function": {
+                        "arguments": "string",
+                        "name": "string",
+                    },
+                }],
+            }, {
+                "content": "string",
+                "role": "USER",
+                "tool_call_id": "string",
+                "tool_calls": [{
+                    "tool_call_id": "string",
+                    "type": "function",
+                    "function": {
+                        "arguments": "string",
+                        "name": "string",
+                    },
+                }, {
+                    "tool_call_id": "string",
+                    "type": "function",
+                    "function": {
+                        "arguments": "string",
+                        "name": "string",
+                    },
+                }, {
+                    "tool_call_id": "string",
+                    "type": "function",
+                    "function": {
+                        "arguments": "string",
+                        "name": "string",
+                    },
+                }],
+            }],
+            override_messages=[{
+                "content": "string",
+                "role": "USER",
+                "tool_call_id": "string",
+                "tool_calls": [{
+                    "tool_call_id": "string",
+                    "type": "function",
+                    "function": {
+                        "arguments": "string",
+                        "name": "string",
+                    },
+                }, {
+                    "tool_call_id": "string",
+                    "type": "function",
+                    "function": {
+                        "arguments": "string",
+                        "name": "string",
+                    },
+                }, {
+                    "tool_call_id": "string",
+                    "type": "function",
+                    "function": {
+                        "arguments": "string",
+                        "name": "string",
+                    },
+                }],
+            }, {
+                "content": "string",
+                "role": "USER",
+                "tool_call_id": "string",
+                "tool_calls": [{
+                    "tool_call_id": "string",
+                    "type": "function",
+                    "function": {
+                        "arguments": "string",
+                        "name": "string",
+                    },
+                }, {
+                    "tool_call_id": "string",
+                    "type": "function",
+                    "function": {
+                        "arguments": "string",
+                        "name": "string",
+                    },
+                }, {
+                    "tool_call_id": "string",
+                    "type": "function",
+                    "function": {
+                        "arguments": "string",
+                        "name": "string",
+                    },
+                }],
+            }, {
+                "content": "string",
+                "role": "USER",
+                "tool_call_id": "string",
+                "tool_calls": [{
+                    "tool_call_id": "string",
+                    "type": "function",
+                    "function": {
+                        "arguments": "string",
+                        "name": "string",
+                    },
+                }, {
+                    "tool_call_id": "string",
+                    "type": "function",
+                    "function": {
+                        "arguments": "string",
+                        "name": "string",
+                    },
+                }, {
+                    "tool_call_id": "string",
+                    "type": "function",
+                    "function": {
+                        "arguments": "string",
+                        "name": "string",
+                    },
+                }],
+            }],
+            user="string",
+            variables={
+                "foo": {}
+            },
+        )
+        assert_matches_type(ModelParameters, prompt, path=['response'])
+
+    @parametrize
+    def test_raw_response_get_parameters(self, client: PromptFoundry) -> None:
+
+        response = client.prompts.with_raw_response.get_parameters(
+            "1212121",
+        )
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get('X-Stainless-Lang') == 'python'
+        prompt = response.parse()
+        assert_matches_type(ModelParameters, prompt, path=['response'])
+
+    @parametrize
+    def test_streaming_response_get_parameters(self, client: PromptFoundry) -> None:
+        with client.prompts.with_streaming_response.get_parameters(
+            "1212121",
+        ) as response :
+            assert not response.is_closed
+            assert response.http_request.headers.get('X-Stainless-Lang') == 'python'
+
+            prompt = response.parse()
+            assert_matches_type(ModelParameters, prompt, path=['response'])
+
+        assert cast(Any, response.is_closed) is True
+
+    @parametrize
+    def test_path_params_get_parameters(self, client: PromptFoundry) -> None:
+        with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
+          client.prompts.with_raw_response.get_parameters(
               "",
           )
 class TestAsyncPrompts:
@@ -1615,6 +1850,32 @@ class TestAsyncPrompts:
           )
 
     @parametrize
+    async def test_method_list(self, async_client: AsyncPromptFoundry) -> None:
+        prompt = await async_client.prompts.list()
+        assert_matches_type(PromptListResponse, prompt, path=['response'])
+
+    @parametrize
+    async def test_raw_response_list(self, async_client: AsyncPromptFoundry) -> None:
+
+        response = await async_client.prompts.with_raw_response.list()
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get('X-Stainless-Lang') == 'python'
+        prompt = await response.parse()
+        assert_matches_type(PromptListResponse, prompt, path=['response'])
+
+    @parametrize
+    async def test_streaming_response_list(self, async_client: AsyncPromptFoundry) -> None:
+        async with async_client.prompts.with_streaming_response.list() as response :
+            assert not response.is_closed
+            assert response.http_request.headers.get('X-Stainless-Lang') == 'python'
+
+            prompt = await response.parse()
+            assert_matches_type(PromptListResponse, prompt, path=['response'])
+
+        assert cast(Any, response.is_closed) is True
+
+    @parametrize
     async def test_method_delete(self, async_client: AsyncPromptFoundry) -> None:
         prompt = await async_client.prompts.delete(
             "1212121",
@@ -1689,5 +1950,213 @@ class TestAsyncPrompts:
     async def test_path_params_get(self, async_client: AsyncPromptFoundry) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
           await async_client.prompts.with_raw_response.get(
+              "",
+          )
+
+    @parametrize
+    async def test_method_get_parameters(self, async_client: AsyncPromptFoundry) -> None:
+        prompt = await async_client.prompts.get_parameters(
+            "1212121",
+        )
+        assert_matches_type(ModelParameters, prompt, path=['response'])
+
+    @parametrize
+    async def test_method_get_parameters_with_all_params(self, async_client: AsyncPromptFoundry) -> None:
+        prompt = await async_client.prompts.get_parameters(
+            "1212121",
+            append_messages=[{
+                "content": "string",
+                "role": "USER",
+                "tool_call_id": "string",
+                "tool_calls": [{
+                    "tool_call_id": "string",
+                    "type": "function",
+                    "function": {
+                        "arguments": "string",
+                        "name": "string",
+                    },
+                }, {
+                    "tool_call_id": "string",
+                    "type": "function",
+                    "function": {
+                        "arguments": "string",
+                        "name": "string",
+                    },
+                }, {
+                    "tool_call_id": "string",
+                    "type": "function",
+                    "function": {
+                        "arguments": "string",
+                        "name": "string",
+                    },
+                }],
+            }, {
+                "content": "string",
+                "role": "USER",
+                "tool_call_id": "string",
+                "tool_calls": [{
+                    "tool_call_id": "string",
+                    "type": "function",
+                    "function": {
+                        "arguments": "string",
+                        "name": "string",
+                    },
+                }, {
+                    "tool_call_id": "string",
+                    "type": "function",
+                    "function": {
+                        "arguments": "string",
+                        "name": "string",
+                    },
+                }, {
+                    "tool_call_id": "string",
+                    "type": "function",
+                    "function": {
+                        "arguments": "string",
+                        "name": "string",
+                    },
+                }],
+            }, {
+                "content": "string",
+                "role": "USER",
+                "tool_call_id": "string",
+                "tool_calls": [{
+                    "tool_call_id": "string",
+                    "type": "function",
+                    "function": {
+                        "arguments": "string",
+                        "name": "string",
+                    },
+                }, {
+                    "tool_call_id": "string",
+                    "type": "function",
+                    "function": {
+                        "arguments": "string",
+                        "name": "string",
+                    },
+                }, {
+                    "tool_call_id": "string",
+                    "type": "function",
+                    "function": {
+                        "arguments": "string",
+                        "name": "string",
+                    },
+                }],
+            }],
+            override_messages=[{
+                "content": "string",
+                "role": "USER",
+                "tool_call_id": "string",
+                "tool_calls": [{
+                    "tool_call_id": "string",
+                    "type": "function",
+                    "function": {
+                        "arguments": "string",
+                        "name": "string",
+                    },
+                }, {
+                    "tool_call_id": "string",
+                    "type": "function",
+                    "function": {
+                        "arguments": "string",
+                        "name": "string",
+                    },
+                }, {
+                    "tool_call_id": "string",
+                    "type": "function",
+                    "function": {
+                        "arguments": "string",
+                        "name": "string",
+                    },
+                }],
+            }, {
+                "content": "string",
+                "role": "USER",
+                "tool_call_id": "string",
+                "tool_calls": [{
+                    "tool_call_id": "string",
+                    "type": "function",
+                    "function": {
+                        "arguments": "string",
+                        "name": "string",
+                    },
+                }, {
+                    "tool_call_id": "string",
+                    "type": "function",
+                    "function": {
+                        "arguments": "string",
+                        "name": "string",
+                    },
+                }, {
+                    "tool_call_id": "string",
+                    "type": "function",
+                    "function": {
+                        "arguments": "string",
+                        "name": "string",
+                    },
+                }],
+            }, {
+                "content": "string",
+                "role": "USER",
+                "tool_call_id": "string",
+                "tool_calls": [{
+                    "tool_call_id": "string",
+                    "type": "function",
+                    "function": {
+                        "arguments": "string",
+                        "name": "string",
+                    },
+                }, {
+                    "tool_call_id": "string",
+                    "type": "function",
+                    "function": {
+                        "arguments": "string",
+                        "name": "string",
+                    },
+                }, {
+                    "tool_call_id": "string",
+                    "type": "function",
+                    "function": {
+                        "arguments": "string",
+                        "name": "string",
+                    },
+                }],
+            }],
+            user="string",
+            variables={
+                "foo": {}
+            },
+        )
+        assert_matches_type(ModelParameters, prompt, path=['response'])
+
+    @parametrize
+    async def test_raw_response_get_parameters(self, async_client: AsyncPromptFoundry) -> None:
+
+        response = await async_client.prompts.with_raw_response.get_parameters(
+            "1212121",
+        )
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get('X-Stainless-Lang') == 'python'
+        prompt = await response.parse()
+        assert_matches_type(ModelParameters, prompt, path=['response'])
+
+    @parametrize
+    async def test_streaming_response_get_parameters(self, async_client: AsyncPromptFoundry) -> None:
+        async with async_client.prompts.with_streaming_response.get_parameters(
+            "1212121",
+        ) as response :
+            assert not response.is_closed
+            assert response.http_request.headers.get('X-Stainless-Lang') == 'python'
+
+            prompt = await response.parse()
+            assert_matches_type(ModelParameters, prompt, path=['response'])
+
+        assert cast(Any, response.is_closed) is True
+
+    @parametrize
+    async def test_path_params_get_parameters(self, async_client: AsyncPromptFoundry) -> None:
+        with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
+          await async_client.prompts.with_raw_response.get_parameters(
               "",
           )
