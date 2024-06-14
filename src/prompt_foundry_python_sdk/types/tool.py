@@ -1,6 +1,6 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from typing import Dict, Optional
+from typing import Dict
 
 from .._models import BaseModel
 
@@ -24,7 +24,7 @@ class Tool(BaseModel):
     of 64.
     """
 
-    parameters: Dict[str, Optional[object]]
+    parameters: Dict[str, object]
     """The parameters the functions accepts, described as a JSON Schema object.
 
     This schema is designed to match the TypeScript Record<string, unknown>,

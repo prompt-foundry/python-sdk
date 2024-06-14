@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Dict, Optional
+from typing import Dict
 from typing_extensions import Required, TypedDict
 
 __all__ = ["ToolUpdateParams"]
@@ -22,7 +22,7 @@ class ToolUpdateParams(TypedDict, total=False):
     of 64.
     """
 
-    parameters: Required[Dict[str, Optional[object]]]
+    parameters: Required[Dict[str, object]]
     """The parameters the functions accepts, described as a JSON Schema object.
 
     This schema is designed to match the TypeScript Record<string, unknown>,
