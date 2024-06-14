@@ -34,7 +34,7 @@ class PromptGetParametersParams(TypedDict, total=False):
     detect abuse.
     """
 
-    variables: Dict[str, object]
+    variables: Dict[str, Optional[object]]
     """The template variables added to the prompt when running the prompt."""
 
 
