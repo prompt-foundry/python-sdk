@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Dict, Iterable
+from typing import Dict, Iterable, Optional
 
 import httpx
 
@@ -44,7 +44,7 @@ class EvaluationsResource(SyncAPIResource):
         *,
         appended_messages: Iterable[evaluation_create_params.AppendedMessage],
         prompt_id: str,
-        variables: Dict[str, object],
+        variables: Dict[str, Optional[object]],
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -90,7 +90,7 @@ class EvaluationsResource(SyncAPIResource):
         *,
         appended_messages: Iterable[evaluation_update_params.AppendedMessage],
         prompt_id: str,
-        variables: Dict[str, object],
+        variables: Dict[str, Optional[object]],
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -232,7 +232,7 @@ class AsyncEvaluationsResource(AsyncAPIResource):
         *,
         appended_messages: Iterable[evaluation_create_params.AppendedMessage],
         prompt_id: str,
-        variables: Dict[str, object],
+        variables: Dict[str, Optional[object]],
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -278,7 +278,7 @@ class AsyncEvaluationsResource(AsyncAPIResource):
         *,
         appended_messages: Iterable[evaluation_update_params.AppendedMessage],
         prompt_id: str,
-        variables: Dict[str, object],
+        variables: Dict[str, Optional[object]],
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
