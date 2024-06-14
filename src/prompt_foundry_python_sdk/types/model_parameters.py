@@ -8,51 +8,30 @@ from .._models import BaseModel
 __all__ = [
     "ModelParameters",
     "Parameters",
-    "ParametersOpenAICreateCompletionNonStreamingRequest",
-    "ParametersOpenAICreateCompletionNonStreamingRequestMessage",
-    "ParametersOpenAICreateCompletionNonStreamingRequestMessageOpenAIChatCompletionRequestSystemMessage",
-    "ParametersOpenAICreateCompletionNonStreamingRequestMessageOpenAIChatCompletionRequestUserMessage",
-    "ParametersOpenAICreateCompletionNonStreamingRequestMessageOpenAIChatCompletionRequestUserMessageContentUnionMember1",
-    "ParametersOpenAICreateCompletionNonStreamingRequestMessageOpenAIChatCompletionRequestUserMessageContentUnionMember1OpenAIChatCompletionRequestMessageContentPartText",
-    "ParametersOpenAICreateCompletionNonStreamingRequestMessageOpenAIChatCompletionRequestUserMessageContentUnionMember1OpenAIChatCompletionRequestMessageContentPartImage",
-    "ParametersOpenAICreateCompletionNonStreamingRequestMessageOpenAIChatCompletionRequestUserMessageContentUnionMember1OpenAIChatCompletionRequestMessageContentPartImageImageURL",
-    "ParametersOpenAICreateCompletionNonStreamingRequestMessageOpenAIChatCompletionRequestAssistantMessage",
-    "ParametersOpenAICreateCompletionNonStreamingRequestMessageOpenAIChatCompletionRequestAssistantMessageFunctionCall",
-    "ParametersOpenAICreateCompletionNonStreamingRequestMessageOpenAIChatCompletionRequestAssistantMessageToolCall",
-    "ParametersOpenAICreateCompletionNonStreamingRequestMessageOpenAIChatCompletionRequestAssistantMessageToolCallFunction",
-    "ParametersOpenAICreateCompletionNonStreamingRequestMessageOpenAIChatCompletionRequestToolMessage",
-    "ParametersOpenAICreateCompletionNonStreamingRequestMessageOpenAIChatCompletionRequestFunctionMessage",
-    "ParametersOpenAICreateCompletionNonStreamingRequestResponseFormat",
-    "ParametersOpenAICreateCompletionNonStreamingRequestToolChoice",
-    "ParametersOpenAICreateCompletionNonStreamingRequestToolChoiceOpenAIChatCompletionNamedToolChoice",
-    "ParametersOpenAICreateCompletionNonStreamingRequestToolChoiceOpenAIChatCompletionNamedToolChoiceFunction",
-    "ParametersOpenAICreateCompletionNonStreamingRequestTool",
-    "ParametersOpenAICreateCompletionNonStreamingRequestToolFunction",
-    "ParametersOpenAICreateCompletionStreamingRequest",
-    "ParametersOpenAICreateCompletionStreamingRequestMessage",
-    "ParametersOpenAICreateCompletionStreamingRequestMessageOpenAIChatCompletionRequestSystemMessage",
-    "ParametersOpenAICreateCompletionStreamingRequestMessageOpenAIChatCompletionRequestUserMessage",
-    "ParametersOpenAICreateCompletionStreamingRequestMessageOpenAIChatCompletionRequestUserMessageContentUnionMember1",
-    "ParametersOpenAICreateCompletionStreamingRequestMessageOpenAIChatCompletionRequestUserMessageContentUnionMember1OpenAIChatCompletionRequestMessageContentPartText",
-    "ParametersOpenAICreateCompletionStreamingRequestMessageOpenAIChatCompletionRequestUserMessageContentUnionMember1OpenAIChatCompletionRequestMessageContentPartImage",
-    "ParametersOpenAICreateCompletionStreamingRequestMessageOpenAIChatCompletionRequestUserMessageContentUnionMember1OpenAIChatCompletionRequestMessageContentPartImageImageURL",
-    "ParametersOpenAICreateCompletionStreamingRequestMessageOpenAIChatCompletionRequestAssistantMessage",
-    "ParametersOpenAICreateCompletionStreamingRequestMessageOpenAIChatCompletionRequestAssistantMessageFunctionCall",
-    "ParametersOpenAICreateCompletionStreamingRequestMessageOpenAIChatCompletionRequestAssistantMessageToolCall",
-    "ParametersOpenAICreateCompletionStreamingRequestMessageOpenAIChatCompletionRequestAssistantMessageToolCallFunction",
-    "ParametersOpenAICreateCompletionStreamingRequestMessageOpenAIChatCompletionRequestToolMessage",
-    "ParametersOpenAICreateCompletionStreamingRequestMessageOpenAIChatCompletionRequestFunctionMessage",
-    "ParametersOpenAICreateCompletionStreamingRequestResponseFormat",
-    "ParametersOpenAICreateCompletionStreamingRequestStreamOptions",
-    "ParametersOpenAICreateCompletionStreamingRequestToolChoice",
-    "ParametersOpenAICreateCompletionStreamingRequestToolChoiceOpenAIChatCompletionNamedToolChoice",
-    "ParametersOpenAICreateCompletionStreamingRequestToolChoiceOpenAIChatCompletionNamedToolChoiceFunction",
-    "ParametersOpenAICreateCompletionStreamingRequestTool",
-    "ParametersOpenAICreateCompletionStreamingRequestToolFunction",
+    "ParametersMessage",
+    "ParametersMessageOpenAIChatCompletionRequestSystemMessage",
+    "ParametersMessageOpenAIChatCompletionRequestUserMessage",
+    "ParametersMessageOpenAIChatCompletionRequestUserMessageContentUnionMember1",
+    "ParametersMessageOpenAIChatCompletionRequestUserMessageContentUnionMember1OpenAIChatCompletionRequestMessageContentPartText",
+    "ParametersMessageOpenAIChatCompletionRequestUserMessageContentUnionMember1OpenAIChatCompletionRequestMessageContentPartImage",
+    "ParametersMessageOpenAIChatCompletionRequestUserMessageContentUnionMember1OpenAIChatCompletionRequestMessageContentPartImageImageURL",
+    "ParametersMessageOpenAIChatCompletionRequestAssistantMessage",
+    "ParametersMessageOpenAIChatCompletionRequestAssistantMessageFunctionCall",
+    "ParametersMessageOpenAIChatCompletionRequestAssistantMessageToolCall",
+    "ParametersMessageOpenAIChatCompletionRequestAssistantMessageToolCallFunction",
+    "ParametersMessageOpenAIChatCompletionRequestToolMessage",
+    "ParametersMessageOpenAIChatCompletionRequestFunctionMessage",
+    "ParametersResponseFormat",
+    "ParametersStreamOptions",
+    "ParametersToolChoice",
+    "ParametersToolChoiceOpenAIChatCompletionNamedToolChoice",
+    "ParametersToolChoiceOpenAIChatCompletionNamedToolChoiceFunction",
+    "ParametersTool",
+    "ParametersToolFunction",
 ]
 
 
-class ParametersOpenAICreateCompletionNonStreamingRequestMessageOpenAIChatCompletionRequestSystemMessage(BaseModel):
+class ParametersMessageOpenAIChatCompletionRequestSystemMessage(BaseModel):
     content: str
 
     role: Literal["system"]
@@ -60,7 +39,7 @@ class ParametersOpenAICreateCompletionNonStreamingRequestMessageOpenAIChatComple
     name: Optional[str] = None
 
 
-class ParametersOpenAICreateCompletionNonStreamingRequestMessageOpenAIChatCompletionRequestUserMessageContentUnionMember1OpenAIChatCompletionRequestMessageContentPartText(
+class ParametersMessageOpenAIChatCompletionRequestUserMessageContentUnionMember1OpenAIChatCompletionRequestMessageContentPartText(
     BaseModel
 ):
     text: str
@@ -68,7 +47,7 @@ class ParametersOpenAICreateCompletionNonStreamingRequestMessageOpenAIChatComple
     type: Literal["text"]
 
 
-class ParametersOpenAICreateCompletionNonStreamingRequestMessageOpenAIChatCompletionRequestUserMessageContentUnionMember1OpenAIChatCompletionRequestMessageContentPartImageImageURL(
+class ParametersMessageOpenAIChatCompletionRequestUserMessageContentUnionMember1OpenAIChatCompletionRequestMessageContentPartImageImageURL(
     BaseModel
 ):
     url: str
@@ -76,78 +55,61 @@ class ParametersOpenAICreateCompletionNonStreamingRequestMessageOpenAIChatComple
     detail: Optional[Literal["auto", "low", "high"]] = None
 
 
-class ParametersOpenAICreateCompletionNonStreamingRequestMessageOpenAIChatCompletionRequestUserMessageContentUnionMember1OpenAIChatCompletionRequestMessageContentPartImage(
+class ParametersMessageOpenAIChatCompletionRequestUserMessageContentUnionMember1OpenAIChatCompletionRequestMessageContentPartImage(
     BaseModel
 ):
-    image_url: ParametersOpenAICreateCompletionNonStreamingRequestMessageOpenAIChatCompletionRequestUserMessageContentUnionMember1OpenAIChatCompletionRequestMessageContentPartImageImageURL
+    image_url: ParametersMessageOpenAIChatCompletionRequestUserMessageContentUnionMember1OpenAIChatCompletionRequestMessageContentPartImageImageURL
 
     type: Literal["image_url"]
 
 
-ParametersOpenAICreateCompletionNonStreamingRequestMessageOpenAIChatCompletionRequestUserMessageContentUnionMember1 = Union[
-    ParametersOpenAICreateCompletionNonStreamingRequestMessageOpenAIChatCompletionRequestUserMessageContentUnionMember1OpenAIChatCompletionRequestMessageContentPartText,
-    ParametersOpenAICreateCompletionNonStreamingRequestMessageOpenAIChatCompletionRequestUserMessageContentUnionMember1OpenAIChatCompletionRequestMessageContentPartImage,
+ParametersMessageOpenAIChatCompletionRequestUserMessageContentUnionMember1 = Union[
+    ParametersMessageOpenAIChatCompletionRequestUserMessageContentUnionMember1OpenAIChatCompletionRequestMessageContentPartText,
+    ParametersMessageOpenAIChatCompletionRequestUserMessageContentUnionMember1OpenAIChatCompletionRequestMessageContentPartImage,
 ]
 
 
-class ParametersOpenAICreateCompletionNonStreamingRequestMessageOpenAIChatCompletionRequestUserMessage(BaseModel):
-    content: Union[
-        str,
-        List[
-            ParametersOpenAICreateCompletionNonStreamingRequestMessageOpenAIChatCompletionRequestUserMessageContentUnionMember1
-        ],
-    ]
+class ParametersMessageOpenAIChatCompletionRequestUserMessage(BaseModel):
+    content: Union[str, List[ParametersMessageOpenAIChatCompletionRequestUserMessageContentUnionMember1]]
 
     role: Literal["user"]
 
     name: Optional[str] = None
 
 
-class ParametersOpenAICreateCompletionNonStreamingRequestMessageOpenAIChatCompletionRequestAssistantMessageFunctionCall(
-    BaseModel
-):
+class ParametersMessageOpenAIChatCompletionRequestAssistantMessageFunctionCall(BaseModel):
     arguments: str
 
     name: str
 
 
-class ParametersOpenAICreateCompletionNonStreamingRequestMessageOpenAIChatCompletionRequestAssistantMessageToolCallFunction(
-    BaseModel
-):
+class ParametersMessageOpenAIChatCompletionRequestAssistantMessageToolCallFunction(BaseModel):
     arguments: str
 
     name: str
 
 
-class ParametersOpenAICreateCompletionNonStreamingRequestMessageOpenAIChatCompletionRequestAssistantMessageToolCall(
-    BaseModel
-):
+class ParametersMessageOpenAIChatCompletionRequestAssistantMessageToolCall(BaseModel):
     id: str
 
-    function: ParametersOpenAICreateCompletionNonStreamingRequestMessageOpenAIChatCompletionRequestAssistantMessageToolCallFunction
+    function: ParametersMessageOpenAIChatCompletionRequestAssistantMessageToolCallFunction
 
     type: Literal["function"]
 
 
-class ParametersOpenAICreateCompletionNonStreamingRequestMessageOpenAIChatCompletionRequestAssistantMessage(BaseModel):
+class ParametersMessageOpenAIChatCompletionRequestAssistantMessage(BaseModel):
     role: Literal["assistant"]
 
     content: Optional[str] = None
 
-    function_call: Optional[
-        ParametersOpenAICreateCompletionNonStreamingRequestMessageOpenAIChatCompletionRequestAssistantMessageFunctionCall
-    ] = None
+    function_call: Optional[ParametersMessageOpenAIChatCompletionRequestAssistantMessageFunctionCall] = None
 
     name: Optional[str] = None
 
-    tool_calls: Optional[
-        List[
-            ParametersOpenAICreateCompletionNonStreamingRequestMessageOpenAIChatCompletionRequestAssistantMessageToolCall
-        ]
-    ] = None
+    tool_calls: Optional[List[ParametersMessageOpenAIChatCompletionRequestAssistantMessageToolCall]] = None
 
 
-class ParametersOpenAICreateCompletionNonStreamingRequestMessageOpenAIChatCompletionRequestToolMessage(BaseModel):
+class ParametersMessageOpenAIChatCompletionRequestToolMessage(BaseModel):
     content: str
 
     role: Literal["tool"]
@@ -155,7 +117,7 @@ class ParametersOpenAICreateCompletionNonStreamingRequestMessageOpenAIChatComple
     tool_call_id: str
 
 
-class ParametersOpenAICreateCompletionNonStreamingRequestMessageOpenAIChatCompletionRequestFunctionMessage(BaseModel):
+class ParametersMessageOpenAIChatCompletionRequestFunctionMessage(BaseModel):
     content: Optional[str] = None
 
     name: str
@@ -163,236 +125,39 @@ class ParametersOpenAICreateCompletionNonStreamingRequestMessageOpenAIChatComple
     role: Literal["function"]
 
 
-ParametersOpenAICreateCompletionNonStreamingRequestMessage = Union[
-    ParametersOpenAICreateCompletionNonStreamingRequestMessageOpenAIChatCompletionRequestSystemMessage,
-    ParametersOpenAICreateCompletionNonStreamingRequestMessageOpenAIChatCompletionRequestUserMessage,
-    ParametersOpenAICreateCompletionNonStreamingRequestMessageOpenAIChatCompletionRequestAssistantMessage,
-    ParametersOpenAICreateCompletionNonStreamingRequestMessageOpenAIChatCompletionRequestToolMessage,
-    ParametersOpenAICreateCompletionNonStreamingRequestMessageOpenAIChatCompletionRequestFunctionMessage,
+ParametersMessage = Union[
+    ParametersMessageOpenAIChatCompletionRequestSystemMessage,
+    ParametersMessageOpenAIChatCompletionRequestUserMessage,
+    ParametersMessageOpenAIChatCompletionRequestAssistantMessage,
+    ParametersMessageOpenAIChatCompletionRequestToolMessage,
+    ParametersMessageOpenAIChatCompletionRequestFunctionMessage,
 ]
 
 
-class ParametersOpenAICreateCompletionNonStreamingRequestResponseFormat(BaseModel):
+class ParametersResponseFormat(BaseModel):
     type: Optional[Literal["text", "json_object"]] = None
 
 
-class ParametersOpenAICreateCompletionNonStreamingRequestToolChoiceOpenAIChatCompletionNamedToolChoiceFunction(
-    BaseModel
-):
-    name: str
-
-
-class ParametersOpenAICreateCompletionNonStreamingRequestToolChoiceOpenAIChatCompletionNamedToolChoice(BaseModel):
-    function: ParametersOpenAICreateCompletionNonStreamingRequestToolChoiceOpenAIChatCompletionNamedToolChoiceFunction
-
-    type: Literal["function"]
-
-
-ParametersOpenAICreateCompletionNonStreamingRequestToolChoice = Union[
-    Literal["none", "auto", "required"],
-    ParametersOpenAICreateCompletionNonStreamingRequestToolChoiceOpenAIChatCompletionNamedToolChoice,
-]
-
-
-class ParametersOpenAICreateCompletionNonStreamingRequestToolFunction(BaseModel):
-    name: str
-
-    description: Optional[str] = None
-
-    parameters: Optional[Dict[str, Optional[object]]] = None
-
-
-class ParametersOpenAICreateCompletionNonStreamingRequestTool(BaseModel):
-    function: ParametersOpenAICreateCompletionNonStreamingRequestToolFunction
-
-    type: Literal["function"]
-
-
-class ParametersOpenAICreateCompletionNonStreamingRequest(BaseModel):
-    messages: List[ParametersOpenAICreateCompletionNonStreamingRequestMessage]
-
-    model: str
-
-    frequency_penalty: Optional[float] = None
-
-    logit_bias: Optional[Dict[str, int]] = None
-
-    logprobs: Optional[bool] = None
-
-    max_tokens: Optional[int] = None
-
-    n: Optional[int] = None
-
-    parallel_tool_calls: Optional[bool] = None
-
-    presence_penalty: Optional[float] = None
-
-    response_format: Optional[ParametersOpenAICreateCompletionNonStreamingRequestResponseFormat] = None
-
-    seed: Optional[int] = None
-
-    stop: Union[str, List[str], None] = None
-
-    stream: Optional[Literal[False]] = None
-
-    stream_options: Optional[object] = None
-
-    temperature: Optional[float] = None
-
-    tool_choice: Optional[ParametersOpenAICreateCompletionNonStreamingRequestToolChoice] = None
-
-    tools: Optional[List[ParametersOpenAICreateCompletionNonStreamingRequestTool]] = None
-
-    top_logprobs: Optional[int] = None
-
-    top_p: Optional[float] = None
-
-    user: Optional[str] = None
-
-
-class ParametersOpenAICreateCompletionStreamingRequestMessageOpenAIChatCompletionRequestSystemMessage(BaseModel):
-    content: str
-
-    role: Literal["system"]
-
-    name: Optional[str] = None
-
-
-class ParametersOpenAICreateCompletionStreamingRequestMessageOpenAIChatCompletionRequestUserMessageContentUnionMember1OpenAIChatCompletionRequestMessageContentPartText(
-    BaseModel
-):
-    text: str
-
-    type: Literal["text"]
-
-
-class ParametersOpenAICreateCompletionStreamingRequestMessageOpenAIChatCompletionRequestUserMessageContentUnionMember1OpenAIChatCompletionRequestMessageContentPartImageImageURL(
-    BaseModel
-):
-    url: str
-
-    detail: Optional[Literal["auto", "low", "high"]] = None
-
-
-class ParametersOpenAICreateCompletionStreamingRequestMessageOpenAIChatCompletionRequestUserMessageContentUnionMember1OpenAIChatCompletionRequestMessageContentPartImage(
-    BaseModel
-):
-    image_url: ParametersOpenAICreateCompletionStreamingRequestMessageOpenAIChatCompletionRequestUserMessageContentUnionMember1OpenAIChatCompletionRequestMessageContentPartImageImageURL
-
-    type: Literal["image_url"]
-
-
-ParametersOpenAICreateCompletionStreamingRequestMessageOpenAIChatCompletionRequestUserMessageContentUnionMember1 = Union[
-    ParametersOpenAICreateCompletionStreamingRequestMessageOpenAIChatCompletionRequestUserMessageContentUnionMember1OpenAIChatCompletionRequestMessageContentPartText,
-    ParametersOpenAICreateCompletionStreamingRequestMessageOpenAIChatCompletionRequestUserMessageContentUnionMember1OpenAIChatCompletionRequestMessageContentPartImage,
-]
-
-
-class ParametersOpenAICreateCompletionStreamingRequestMessageOpenAIChatCompletionRequestUserMessage(BaseModel):
-    content: Union[
-        str,
-        List[
-            ParametersOpenAICreateCompletionStreamingRequestMessageOpenAIChatCompletionRequestUserMessageContentUnionMember1
-        ],
-    ]
-
-    role: Literal["user"]
-
-    name: Optional[str] = None
-
-
-class ParametersOpenAICreateCompletionStreamingRequestMessageOpenAIChatCompletionRequestAssistantMessageFunctionCall(
-    BaseModel
-):
-    arguments: str
-
-    name: str
-
-
-class ParametersOpenAICreateCompletionStreamingRequestMessageOpenAIChatCompletionRequestAssistantMessageToolCallFunction(
-    BaseModel
-):
-    arguments: str
-
-    name: str
-
-
-class ParametersOpenAICreateCompletionStreamingRequestMessageOpenAIChatCompletionRequestAssistantMessageToolCall(
-    BaseModel
-):
-    id: str
-
-    function: ParametersOpenAICreateCompletionStreamingRequestMessageOpenAIChatCompletionRequestAssistantMessageToolCallFunction
-
-    type: Literal["function"]
-
-
-class ParametersOpenAICreateCompletionStreamingRequestMessageOpenAIChatCompletionRequestAssistantMessage(BaseModel):
-    role: Literal["assistant"]
-
-    content: Optional[str] = None
-
-    function_call: Optional[
-        ParametersOpenAICreateCompletionStreamingRequestMessageOpenAIChatCompletionRequestAssistantMessageFunctionCall
-    ] = None
-
-    name: Optional[str] = None
-
-    tool_calls: Optional[
-        List[ParametersOpenAICreateCompletionStreamingRequestMessageOpenAIChatCompletionRequestAssistantMessageToolCall]
-    ] = None
-
-
-class ParametersOpenAICreateCompletionStreamingRequestMessageOpenAIChatCompletionRequestToolMessage(BaseModel):
-    content: str
-
-    role: Literal["tool"]
-
-    tool_call_id: str
-
-
-class ParametersOpenAICreateCompletionStreamingRequestMessageOpenAIChatCompletionRequestFunctionMessage(BaseModel):
-    content: Optional[str] = None
-
-    name: str
-
-    role: Literal["function"]
-
-
-ParametersOpenAICreateCompletionStreamingRequestMessage = Union[
-    ParametersOpenAICreateCompletionStreamingRequestMessageOpenAIChatCompletionRequestSystemMessage,
-    ParametersOpenAICreateCompletionStreamingRequestMessageOpenAIChatCompletionRequestUserMessage,
-    ParametersOpenAICreateCompletionStreamingRequestMessageOpenAIChatCompletionRequestAssistantMessage,
-    ParametersOpenAICreateCompletionStreamingRequestMessageOpenAIChatCompletionRequestToolMessage,
-    ParametersOpenAICreateCompletionStreamingRequestMessageOpenAIChatCompletionRequestFunctionMessage,
-]
-
-
-class ParametersOpenAICreateCompletionStreamingRequestResponseFormat(BaseModel):
-    type: Optional[Literal["text", "json_object"]] = None
-
-
-class ParametersOpenAICreateCompletionStreamingRequestStreamOptions(BaseModel):
+class ParametersStreamOptions(BaseModel):
     include_usage: bool
 
 
-class ParametersOpenAICreateCompletionStreamingRequestToolChoiceOpenAIChatCompletionNamedToolChoiceFunction(BaseModel):
+class ParametersToolChoiceOpenAIChatCompletionNamedToolChoiceFunction(BaseModel):
     name: str
 
 
-class ParametersOpenAICreateCompletionStreamingRequestToolChoiceOpenAIChatCompletionNamedToolChoice(BaseModel):
-    function: ParametersOpenAICreateCompletionStreamingRequestToolChoiceOpenAIChatCompletionNamedToolChoiceFunction
+class ParametersToolChoiceOpenAIChatCompletionNamedToolChoice(BaseModel):
+    function: ParametersToolChoiceOpenAIChatCompletionNamedToolChoiceFunction
 
     type: Literal["function"]
 
 
-ParametersOpenAICreateCompletionStreamingRequestToolChoice = Union[
-    Literal["none", "auto", "required"],
-    ParametersOpenAICreateCompletionStreamingRequestToolChoiceOpenAIChatCompletionNamedToolChoice,
+ParametersToolChoice = Union[
+    Literal["none", "auto", "required"], ParametersToolChoiceOpenAIChatCompletionNamedToolChoice
 ]
 
 
-class ParametersOpenAICreateCompletionStreamingRequestToolFunction(BaseModel):
+class ParametersToolFunction(BaseModel):
     name: str
 
     description: Optional[str] = None
@@ -400,18 +165,16 @@ class ParametersOpenAICreateCompletionStreamingRequestToolFunction(BaseModel):
     parameters: Optional[Dict[str, Optional[object]]] = None
 
 
-class ParametersOpenAICreateCompletionStreamingRequestTool(BaseModel):
-    function: ParametersOpenAICreateCompletionStreamingRequestToolFunction
+class ParametersTool(BaseModel):
+    function: ParametersToolFunction
 
     type: Literal["function"]
 
 
-class ParametersOpenAICreateCompletionStreamingRequest(BaseModel):
-    messages: List[ParametersOpenAICreateCompletionStreamingRequestMessage]
+class Parameters(BaseModel):
+    messages: List[ParametersMessage]
 
     model: str
-
-    stream: Literal[True]
 
     frequency_penalty: Optional[float] = None
 
@@ -427,30 +190,27 @@ class ParametersOpenAICreateCompletionStreamingRequest(BaseModel):
 
     presence_penalty: Optional[float] = None
 
-    response_format: Optional[ParametersOpenAICreateCompletionStreamingRequestResponseFormat] = None
+    response_format: Optional[ParametersResponseFormat] = None
 
     seed: Optional[int] = None
 
     stop: Union[str, List[str], None] = None
 
-    stream_options: Optional[ParametersOpenAICreateCompletionStreamingRequestStreamOptions] = None
+    stream: Optional[bool] = None
+
+    stream_options: Optional[ParametersStreamOptions] = None
 
     temperature: Optional[float] = None
 
-    tool_choice: Optional[ParametersOpenAICreateCompletionStreamingRequestToolChoice] = None
+    tool_choice: Optional[ParametersToolChoice] = None
 
-    tools: Optional[List[ParametersOpenAICreateCompletionStreamingRequestTool]] = None
+    tools: Optional[List[ParametersTool]] = None
 
     top_logprobs: Optional[int] = None
 
     top_p: Optional[float] = None
 
     user: Optional[str] = None
-
-
-Parameters = Union[
-    ParametersOpenAICreateCompletionNonStreamingRequest, ParametersOpenAICreateCompletionStreamingRequest
-]
 
 
 class ModelParameters(BaseModel):
