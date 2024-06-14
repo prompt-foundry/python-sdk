@@ -162,7 +162,7 @@ class ParametersToolFunction(BaseModel):
 
     description: Optional[str] = None
 
-    parameters: Optional[Dict[str, object]] = None
+    parameters: Optional[Dict[str, Optional[object]]] = None
 
 
 class ParametersTool(BaseModel):
