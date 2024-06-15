@@ -37,7 +37,7 @@ class Message(BaseModel):
     content: Optional[str] = None
     """Example: "Hello, {{city}}!" """
 
-    role: Literal["user", "assistant", "system", "tool"]
+    role: Literal["USER", "ASSISTANT", "SYSTEM", "TOOL"]
 
     tool_call_id: Optional[str] = FieldInfo(alias="toolCallId", default=None)
 

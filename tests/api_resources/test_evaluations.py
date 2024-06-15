@@ -27,7 +27,7 @@ class TestEvaluations:
             appended_messages=[
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "USER",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -58,7 +58,7 @@ class TestEvaluations:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "USER",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -89,7 +89,7 @@ class TestEvaluations:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "USER",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -130,7 +130,7 @@ class TestEvaluations:
             appended_messages=[
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "USER",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -161,7 +161,7 @@ class TestEvaluations:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "USER",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -192,7 +192,7 @@ class TestEvaluations:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "USER",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -237,7 +237,7 @@ class TestEvaluations:
             appended_messages=[
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "USER",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -268,7 +268,7 @@ class TestEvaluations:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "USER",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -299,7 +299,7 @@ class TestEvaluations:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "USER",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -347,7 +347,7 @@ class TestEvaluations:
             appended_messages=[
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "USER",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -378,7 +378,7 @@ class TestEvaluations:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "USER",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -409,7 +409,7 @@ class TestEvaluations:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "USER",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -451,7 +451,7 @@ class TestEvaluations:
             appended_messages=[
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "USER",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -482,7 +482,7 @@ class TestEvaluations:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "USER",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -513,7 +513,7 @@ class TestEvaluations:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "USER",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -559,7 +559,7 @@ class TestEvaluations:
             appended_messages=[
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "USER",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -590,7 +590,7 @@ class TestEvaluations:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "USER",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -621,7 +621,7 @@ class TestEvaluations:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "USER",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -670,7 +670,7 @@ class TestEvaluations:
                 appended_messages=[
                     {
                         "content": "string",
-                        "role": "user",
+                        "role": "USER",
                         "tool_call_id": "string",
                         "tool_calls": [
                             {
@@ -701,7 +701,7 @@ class TestEvaluations:
                     },
                     {
                         "content": "string",
-                        "role": "user",
+                        "role": "USER",
                         "tool_call_id": "string",
                         "tool_calls": [
                             {
@@ -732,7 +732,7 @@ class TestEvaluations:
                     },
                     {
                         "content": "string",
-                        "role": "user",
+                        "role": "USER",
                         "tool_call_id": "string",
                         "tool_calls": [
                             {
@@ -877,7 +877,7 @@ class TestAsyncEvaluations:
             appended_messages=[
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "USER",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -908,7 +908,7 @@ class TestAsyncEvaluations:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "USER",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -939,7 +939,7 @@ class TestAsyncEvaluations:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "USER",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -980,7 +980,7 @@ class TestAsyncEvaluations:
             appended_messages=[
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "USER",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1011,7 +1011,7 @@ class TestAsyncEvaluations:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "USER",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1042,7 +1042,7 @@ class TestAsyncEvaluations:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "USER",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1087,7 +1087,7 @@ class TestAsyncEvaluations:
             appended_messages=[
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "USER",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1118,7 +1118,7 @@ class TestAsyncEvaluations:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "USER",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1149,7 +1149,7 @@ class TestAsyncEvaluations:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "USER",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1197,7 +1197,7 @@ class TestAsyncEvaluations:
             appended_messages=[
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "USER",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1228,7 +1228,7 @@ class TestAsyncEvaluations:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "USER",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1259,7 +1259,7 @@ class TestAsyncEvaluations:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "USER",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1301,7 +1301,7 @@ class TestAsyncEvaluations:
             appended_messages=[
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "USER",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1332,7 +1332,7 @@ class TestAsyncEvaluations:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "USER",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1363,7 +1363,7 @@ class TestAsyncEvaluations:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "USER",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1409,7 +1409,7 @@ class TestAsyncEvaluations:
             appended_messages=[
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "USER",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1440,7 +1440,7 @@ class TestAsyncEvaluations:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "USER",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1471,7 +1471,7 @@ class TestAsyncEvaluations:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "USER",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1520,7 +1520,7 @@ class TestAsyncEvaluations:
                 appended_messages=[
                     {
                         "content": "string",
-                        "role": "user",
+                        "role": "USER",
                         "tool_call_id": "string",
                         "tool_calls": [
                             {
@@ -1551,7 +1551,7 @@ class TestAsyncEvaluations:
                     },
                     {
                         "content": "string",
-                        "role": "user",
+                        "role": "USER",
                         "tool_call_id": "string",
                         "tool_calls": [
                             {
@@ -1582,7 +1582,7 @@ class TestAsyncEvaluations:
                     },
                     {
                         "content": "string",
-                        "role": "user",
+                        "role": "USER",
                         "tool_call_id": "string",
                         "tool_calls": [
                             {
