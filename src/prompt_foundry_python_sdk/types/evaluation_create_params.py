@@ -47,7 +47,7 @@ class AppendedMessage(TypedDict, total=False):
     content: Required[Optional[str]]
     """Example: "Hello, {{city}}!" """
 
-    role: Required[Literal["USER", "ASSISTANT", "SYSTEM", "TOOL"]]
+    role: Required[Literal["user", "assistant", "system", "tool"]]
 
     tool_call_id: Required[Annotated[Optional[str], PropertyInfo(alias="toolCallId")]]
 

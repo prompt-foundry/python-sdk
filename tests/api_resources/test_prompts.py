@@ -28,7 +28,7 @@ class TestPrompts:
             messages=[
                 {
                     "content": "string",
-                    "role": "USER",
+                    "role": "user",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -59,7 +59,7 @@ class TestPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "USER",
+                    "role": "user",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -90,7 +90,7 @@ class TestPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "USER",
+                    "role": "user",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -142,7 +142,7 @@ class TestPrompts:
             messages=[
                 {
                     "content": "string",
-                    "role": "USER",
+                    "role": "user",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -173,7 +173,7 @@ class TestPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "USER",
+                    "role": "user",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -204,7 +204,7 @@ class TestPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "USER",
+                    "role": "user",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -260,7 +260,7 @@ class TestPrompts:
             messages=[
                 {
                     "content": "string",
-                    "role": "USER",
+                    "role": "user",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -291,7 +291,7 @@ class TestPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "USER",
+                    "role": "user",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -322,7 +322,7 @@ class TestPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "USER",
+                    "role": "user",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -381,7 +381,7 @@ class TestPrompts:
             messages=[
                 {
                     "content": "string",
-                    "role": "USER",
+                    "role": "user",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -412,7 +412,7 @@ class TestPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "USER",
+                    "role": "user",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -443,7 +443,7 @@ class TestPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "USER",
+                    "role": "user",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -496,7 +496,7 @@ class TestPrompts:
             messages=[
                 {
                     "content": "string",
-                    "role": "USER",
+                    "role": "user",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -527,7 +527,7 @@ class TestPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "USER",
+                    "role": "user",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -558,7 +558,7 @@ class TestPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "USER",
+                    "role": "user",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -615,7 +615,7 @@ class TestPrompts:
             messages=[
                 {
                     "content": "string",
-                    "role": "USER",
+                    "role": "user",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -646,7 +646,7 @@ class TestPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "USER",
+                    "role": "user",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -677,7 +677,7 @@ class TestPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "USER",
+                    "role": "user",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -737,7 +737,7 @@ class TestPrompts:
                 messages=[
                     {
                         "content": "string",
-                        "role": "USER",
+                        "role": "user",
                         "tool_call_id": "string",
                         "tool_calls": [
                             {
@@ -768,7 +768,7 @@ class TestPrompts:
                     },
                     {
                         "content": "string",
-                        "role": "USER",
+                        "role": "user",
                         "tool_call_id": "string",
                         "tool_calls": [
                             {
@@ -799,7 +799,7 @@ class TestPrompts:
                     },
                     {
                         "content": "string",
-                        "role": "USER",
+                        "role": "user",
                         "tool_call_id": "string",
                         "tool_calls": [
                             {
@@ -959,7 +959,7 @@ class TestPrompts:
             append_messages=[
                 {
                     "content": "string",
-                    "role": "USER",
+                    "role": "user",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -990,7 +990,7 @@ class TestPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "USER",
+                    "role": "user",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1021,7 +1021,7 @@ class TestPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "USER",
+                    "role": "user",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1054,7 +1054,7 @@ class TestPrompts:
             override_messages=[
                 {
                     "content": "string",
-                    "role": "USER",
+                    "role": "user",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1085,7 +1085,7 @@ class TestPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "USER",
+                    "role": "user",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1116,7 +1116,7 @@ class TestPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "USER",
+                    "role": "user",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1192,7 +1192,7 @@ class TestAsyncPrompts:
             messages=[
                 {
                     "content": "string",
-                    "role": "USER",
+                    "role": "user",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1223,7 +1223,7 @@ class TestAsyncPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "USER",
+                    "role": "user",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1254,7 +1254,7 @@ class TestAsyncPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "USER",
+                    "role": "user",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1306,7 +1306,7 @@ class TestAsyncPrompts:
             messages=[
                 {
                     "content": "string",
-                    "role": "USER",
+                    "role": "user",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1337,7 +1337,7 @@ class TestAsyncPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "USER",
+                    "role": "user",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1368,7 +1368,7 @@ class TestAsyncPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "USER",
+                    "role": "user",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1424,7 +1424,7 @@ class TestAsyncPrompts:
             messages=[
                 {
                     "content": "string",
-                    "role": "USER",
+                    "role": "user",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1455,7 +1455,7 @@ class TestAsyncPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "USER",
+                    "role": "user",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1486,7 +1486,7 @@ class TestAsyncPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "USER",
+                    "role": "user",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1545,7 +1545,7 @@ class TestAsyncPrompts:
             messages=[
                 {
                     "content": "string",
-                    "role": "USER",
+                    "role": "user",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1576,7 +1576,7 @@ class TestAsyncPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "USER",
+                    "role": "user",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1607,7 +1607,7 @@ class TestAsyncPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "USER",
+                    "role": "user",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1660,7 +1660,7 @@ class TestAsyncPrompts:
             messages=[
                 {
                     "content": "string",
-                    "role": "USER",
+                    "role": "user",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1691,7 +1691,7 @@ class TestAsyncPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "USER",
+                    "role": "user",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1722,7 +1722,7 @@ class TestAsyncPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "USER",
+                    "role": "user",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1779,7 +1779,7 @@ class TestAsyncPrompts:
             messages=[
                 {
                     "content": "string",
-                    "role": "USER",
+                    "role": "user",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1810,7 +1810,7 @@ class TestAsyncPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "USER",
+                    "role": "user",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1841,7 +1841,7 @@ class TestAsyncPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "USER",
+                    "role": "user",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1901,7 +1901,7 @@ class TestAsyncPrompts:
                 messages=[
                     {
                         "content": "string",
-                        "role": "USER",
+                        "role": "user",
                         "tool_call_id": "string",
                         "tool_calls": [
                             {
@@ -1932,7 +1932,7 @@ class TestAsyncPrompts:
                     },
                     {
                         "content": "string",
-                        "role": "USER",
+                        "role": "user",
                         "tool_call_id": "string",
                         "tool_calls": [
                             {
@@ -1963,7 +1963,7 @@ class TestAsyncPrompts:
                     },
                     {
                         "content": "string",
-                        "role": "USER",
+                        "role": "user",
                         "tool_call_id": "string",
                         "tool_calls": [
                             {
@@ -2123,7 +2123,7 @@ class TestAsyncPrompts:
             append_messages=[
                 {
                     "content": "string",
-                    "role": "USER",
+                    "role": "user",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -2154,7 +2154,7 @@ class TestAsyncPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "USER",
+                    "role": "user",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -2185,7 +2185,7 @@ class TestAsyncPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "USER",
+                    "role": "user",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -2218,7 +2218,7 @@ class TestAsyncPrompts:
             override_messages=[
                 {
                     "content": "string",
-                    "role": "USER",
+                    "role": "user",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -2249,7 +2249,7 @@ class TestAsyncPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "USER",
+                    "role": "user",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -2280,7 +2280,7 @@ class TestAsyncPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "USER",
+                    "role": "user",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
