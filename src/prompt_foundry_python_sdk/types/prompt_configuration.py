@@ -63,11 +63,12 @@ class Parameters(BaseModel):
     seed: Optional[float] = None
     """Example: 97946543"""
 
+    stream: bool
+
     temperature: float
     """Example: 1"""
 
     tool_choice: Optional[str] = FieldInfo(alias="toolChoice", default=None)
-    """Example: "checkWeather" """
 
     top_p: float = FieldInfo(alias="topP")
     """Example: 1"""

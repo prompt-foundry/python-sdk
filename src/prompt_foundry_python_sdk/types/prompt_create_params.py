@@ -73,11 +73,12 @@ class Parameters(TypedDict, total=False):
     seed: Required[Optional[float]]
     """Example: 97946543"""
 
+    stream: Required[bool]
+
     temperature: Required[float]
     """Example: 1"""
 
     tool_choice: Required[Annotated[Optional[str], PropertyInfo(alias="toolChoice")]]
-    """Example: "checkWeather" """
 
     top_p: Required[Annotated[float, PropertyInfo(alias="topP")]]
     """Example: 1"""
