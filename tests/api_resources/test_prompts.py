@@ -131,6 +131,7 @@ class TestPrompts:
                 "max_tokens": 0,
                 "seed": 0,
                 "tool_choice": "string",
+                "stream": True,
             },
             tools=[{"tool_id": "string"}, {"tool_id": "string"}, {"tool_id": "string"}],
         )
@@ -245,6 +246,7 @@ class TestPrompts:
                 "max_tokens": 0,
                 "seed": 0,
                 "tool_choice": "string",
+                "stream": True,
             },
             tools=[{"tool_id": "string"}, {"tool_id": "string"}, {"tool_id": "string"}],
         )
@@ -363,6 +365,7 @@ class TestPrompts:
                 "max_tokens": 0,
                 "seed": 0,
                 "tool_choice": "string",
+                "stream": True,
             },
             tools=[{"tool_id": "string"}, {"tool_id": "string"}, {"tool_id": "string"}],
         ) as response:
@@ -484,6 +487,7 @@ class TestPrompts:
                 "max_tokens": 0,
                 "seed": 0,
                 "tool_choice": "string",
+                "stream": True,
             },
             tools=[{"tool_id": "string"}, {"tool_id": "string"}, {"tool_id": "string"}],
         )
@@ -599,6 +603,7 @@ class TestPrompts:
                 "max_tokens": 0,
                 "seed": 0,
                 "tool_choice": "string",
+                "stream": True,
             },
             tools=[{"tool_id": "string"}, {"tool_id": "string"}, {"tool_id": "string"}],
         )
@@ -718,6 +723,7 @@ class TestPrompts:
                 "max_tokens": 0,
                 "seed": 0,
                 "tool_choice": "string",
+                "stream": True,
             },
             tools=[{"tool_id": "string"}, {"tool_id": "string"}, {"tool_id": "string"}],
         ) as response:
@@ -840,6 +846,7 @@ class TestPrompts:
                     "max_tokens": 0,
                     "seed": 0,
                     "tool_choice": "string",
+                    "stream": True,
                 },
                 tools=[{"tool_id": "string"}, {"tool_id": "string"}, {"tool_id": "string"}],
             )
@@ -1295,6 +1302,7 @@ class TestAsyncPrompts:
                 "max_tokens": 0,
                 "seed": 0,
                 "tool_choice": "string",
+                "stream": True,
             },
             tools=[{"tool_id": "string"}, {"tool_id": "string"}, {"tool_id": "string"}],
         )
@@ -1409,6 +1417,7 @@ class TestAsyncPrompts:
                 "max_tokens": 0,
                 "seed": 0,
                 "tool_choice": "string",
+                "stream": True,
             },
             tools=[{"tool_id": "string"}, {"tool_id": "string"}, {"tool_id": "string"}],
         )
@@ -1527,6 +1536,7 @@ class TestAsyncPrompts:
                 "max_tokens": 0,
                 "seed": 0,
                 "tool_choice": "string",
+                "stream": True,
             },
             tools=[{"tool_id": "string"}, {"tool_id": "string"}, {"tool_id": "string"}],
         ) as response:
@@ -1648,6 +1658,7 @@ class TestAsyncPrompts:
                 "max_tokens": 0,
                 "seed": 0,
                 "tool_choice": "string",
+                "stream": True,
             },
             tools=[{"tool_id": "string"}, {"tool_id": "string"}, {"tool_id": "string"}],
         )
@@ -1763,6 +1774,7 @@ class TestAsyncPrompts:
                 "max_tokens": 0,
                 "seed": 0,
                 "tool_choice": "string",
+                "stream": True,
             },
             tools=[{"tool_id": "string"}, {"tool_id": "string"}, {"tool_id": "string"}],
         )
@@ -1882,6 +1894,7 @@ class TestAsyncPrompts:
                 "max_tokens": 0,
                 "seed": 0,
                 "tool_choice": "string",
+                "stream": True,
             },
             tools=[{"tool_id": "string"}, {"tool_id": "string"}, {"tool_id": "string"}],
         ) as response:
@@ -2004,6 +2017,7 @@ class TestAsyncPrompts:
                     "max_tokens": 0,
                     "seed": 0,
                     "tool_choice": "string",
+                    "stream": True,
                 },
                 tools=[{"tool_id": "string"}, {"tool_id": "string"}, {"tool_id": "string"}],
             )
