@@ -1,5 +1,7 @@
 # Prompt Foundry Python API library
 
+The prompt engineering, prompt management, and prompt evaluation tool for Python.
+
 [![PyPI version](https://img.shields.io/pypi/v/prompt_foundry_python_sdk.svg)](https://pypi.org/project/prompt_foundry_python_sdk/)
 
 The Prompt Foundry Python library provides convenient access to the Prompt Foundry REST API from any Python 3.7+
