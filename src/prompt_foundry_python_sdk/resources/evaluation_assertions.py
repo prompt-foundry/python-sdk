@@ -2,6 +2,9 @@
 
 from __future__ import annotations
 
+from typing import Optional
+from typing_extensions import Literal
+
 import httpx
 
 from ..types import (
@@ -45,8 +48,12 @@ class EvaluationAssertionsResource(SyncAPIResource):
         self,
         *,
         evaluation_id: str,
-        matcher: evaluation_assertion_create_params.Matcher,
-        target: str,
+        json_path: Optional[str],
+        target_value: str,
+        tool_name: Optional[str],
+        type: Literal[
+            "EXACT_MATCH", "CONTAINS", "JSON_EXACT_MATCH", "JSON_CONTAINS", "TOOL_CALLED", "TOOL_CALLED_WITH"
+        ],
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -58,6 +65,14 @@ class EvaluationAssertionsResource(SyncAPIResource):
         Creates a new evaluation assertion
 
         Args:
+          json_path: A JSON path to use when matching the response. Only required when type is
+              `JSON_EXACT_MATCH` or `JSON_CONTAINS`.
+
+          tool_name: The name of the tool to match. Only required when type is `TOOL_CALLED` or
+              `TOOL_CALLED_WITH`.
+
+          type: The type of evaluation matcher to use.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -71,8 +86,10 @@ class EvaluationAssertionsResource(SyncAPIResource):
             body=maybe_transform(
                 {
                     "evaluation_id": evaluation_id,
-                    "matcher": matcher,
-                    "target": target,
+                    "json_path": json_path,
+                    "target_value": target_value,
+                    "tool_name": tool_name,
+                    "type": type,
                 },
                 evaluation_assertion_create_params.EvaluationAssertionCreateParams,
             ),
@@ -87,8 +104,12 @@ class EvaluationAssertionsResource(SyncAPIResource):
         id: str,
         *,
         evaluation_id: str,
-        matcher: evaluation_assertion_update_params.Matcher,
-        target: str,
+        json_path: Optional[str],
+        target_value: str,
+        tool_name: Optional[str],
+        type: Literal[
+            "EXACT_MATCH", "CONTAINS", "JSON_EXACT_MATCH", "JSON_CONTAINS", "TOOL_CALLED", "TOOL_CALLED_WITH"
+        ],
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -100,6 +121,14 @@ class EvaluationAssertionsResource(SyncAPIResource):
         Update an existing evaluation assertion by providing its ID and new data.
 
         Args:
+          json_path: A JSON path to use when matching the response. Only required when type is
+              `JSON_EXACT_MATCH` or `JSON_CONTAINS`.
+
+          tool_name: The name of the tool to match. Only required when type is `TOOL_CALLED` or
+              `TOOL_CALLED_WITH`.
+
+          type: The type of evaluation matcher to use.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -115,8 +144,10 @@ class EvaluationAssertionsResource(SyncAPIResource):
             body=maybe_transform(
                 {
                     "evaluation_id": evaluation_id,
-                    "matcher": matcher,
-                    "target": target,
+                    "json_path": json_path,
+                    "target_value": target_value,
+                    "tool_name": tool_name,
+                    "type": type,
                 },
                 evaluation_assertion_update_params.EvaluationAssertionUpdateParams,
             ),
@@ -245,8 +276,12 @@ class AsyncEvaluationAssertionsResource(AsyncAPIResource):
         self,
         *,
         evaluation_id: str,
-        matcher: evaluation_assertion_create_params.Matcher,
-        target: str,
+        json_path: Optional[str],
+        target_value: str,
+        tool_name: Optional[str],
+        type: Literal[
+            "EXACT_MATCH", "CONTAINS", "JSON_EXACT_MATCH", "JSON_CONTAINS", "TOOL_CALLED", "TOOL_CALLED_WITH"
+        ],
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -258,6 +293,14 @@ class AsyncEvaluationAssertionsResource(AsyncAPIResource):
         Creates a new evaluation assertion
 
         Args:
+          json_path: A JSON path to use when matching the response. Only required when type is
+              `JSON_EXACT_MATCH` or `JSON_CONTAINS`.
+
+          tool_name: The name of the tool to match. Only required when type is `TOOL_CALLED` or
+              `TOOL_CALLED_WITH`.
+
+          type: The type of evaluation matcher to use.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -271,8 +314,10 @@ class AsyncEvaluationAssertionsResource(AsyncAPIResource):
             body=await async_maybe_transform(
                 {
                     "evaluation_id": evaluation_id,
-                    "matcher": matcher,
-                    "target": target,
+                    "json_path": json_path,
+                    "target_value": target_value,
+                    "tool_name": tool_name,
+                    "type": type,
                 },
                 evaluation_assertion_create_params.EvaluationAssertionCreateParams,
             ),
@@ -287,8 +332,12 @@ class AsyncEvaluationAssertionsResource(AsyncAPIResource):
         id: str,
         *,
         evaluation_id: str,
-        matcher: evaluation_assertion_update_params.Matcher,
-        target: str,
+        json_path: Optional[str],
+        target_value: str,
+        tool_name: Optional[str],
+        type: Literal[
+            "EXACT_MATCH", "CONTAINS", "JSON_EXACT_MATCH", "JSON_CONTAINS", "TOOL_CALLED", "TOOL_CALLED_WITH"
+        ],
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -300,6 +349,14 @@ class AsyncEvaluationAssertionsResource(AsyncAPIResource):
         Update an existing evaluation assertion by providing its ID and new data.
 
         Args:
+          json_path: A JSON path to use when matching the response. Only required when type is
+              `JSON_EXACT_MATCH` or `JSON_CONTAINS`.
+
+          tool_name: The name of the tool to match. Only required when type is `TOOL_CALLED` or
+              `TOOL_CALLED_WITH`.
+
+          type: The type of evaluation matcher to use.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -315,8 +372,10 @@ class AsyncEvaluationAssertionsResource(AsyncAPIResource):
             body=await async_maybe_transform(
                 {
                     "evaluation_id": evaluation_id,
-                    "matcher": matcher,
-                    "target": target,
+                    "json_path": json_path,
+                    "target_value": target_value,
+                    "tool_name": tool_name,
+                    "type": type,
                 },
                 evaluation_assertion_update_params.EvaluationAssertionUpdateParams,
             ),
