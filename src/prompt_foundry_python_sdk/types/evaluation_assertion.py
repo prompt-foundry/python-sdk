@@ -7,18 +7,7 @@ from pydantic import Field as FieldInfo
 
 from .._models import BaseModel
 
-__all__ = ["EvaluationAssertion", "Matcher"]
-
-
-class Matcher(BaseModel):
-    json_path: Optional[str] = FieldInfo(alias="jsonPath", default=None)
-    """A JSON path to use when matching the response.
-
-    Only required when type is `jsonPath`.
-    """
-
-    type: Literal["CONTAINS", "EQUALS", "JSON"]
-    """The type of evaluation matcher to use."""
+__all__ = ["EvaluationAssertion"]
 
 
 class EvaluationAssertion(BaseModel):
@@ -26,6 +15,19 @@ class EvaluationAssertion(BaseModel):
 
     evaluation_id: str = FieldInfo(alias="evaluationId")
 
-    matcher: Matcher
+    json_path: Optional[str] = FieldInfo(alias="jsonPath", default=None)
+    """A JSON path to use when matching the response.
 
-    target: str
+    Only required when type is `JSON_EXACT_MATCH` or `JSON_CONTAINS`.
+    """
+
+    target_value: str = FieldInfo(alias="targetValue")
+
+    tool_name: Optional[str] = FieldInfo(alias="toolName", default=None)
+    """The name of the tool to match.
+
+    Only required when type is `TOOL_CALLED` or `TOOL_CALLED_WITH`.
+    """
+
+    type: Literal["EXACT_MATCH", "CONTAINS", "JSON_EXACT_MATCH", "JSON_CONTAINS", "TOOL_CALLED", "TOOL_CALLED_WITH"]
+    """The type of evaluation matcher to use."""
