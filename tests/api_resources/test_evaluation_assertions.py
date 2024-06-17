@@ -25,11 +25,10 @@ class TestEvaluationAssertions:
     def test_method_create(self, client: PromptFoundry) -> None:
         evaluation_assertion = client.evaluation_assertions.create(
             evaluation_id="string",
-            matcher={
-                "type": "CONTAINS",
-                "json_path": "string",
-            },
-            target="string",
+            json_path="string",
+            target_value="string",
+            tool_name="string",
+            type="EXACT_MATCH",
         )
         assert_matches_type(EvaluationAssertion, evaluation_assertion, path=["response"])
 
@@ -37,11 +36,10 @@ class TestEvaluationAssertions:
     def test_raw_response_create(self, client: PromptFoundry) -> None:
         response = client.evaluation_assertions.with_raw_response.create(
             evaluation_id="string",
-            matcher={
-                "type": "CONTAINS",
-                "json_path": "string",
-            },
-            target="string",
+            json_path="string",
+            target_value="string",
+            tool_name="string",
+            type="EXACT_MATCH",
         )
 
         assert response.is_closed is True
@@ -53,11 +51,10 @@ class TestEvaluationAssertions:
     def test_streaming_response_create(self, client: PromptFoundry) -> None:
         with client.evaluation_assertions.with_streaming_response.create(
             evaluation_id="string",
-            matcher={
-                "type": "CONTAINS",
-                "json_path": "string",
-            },
-            target="string",
+            json_path="string",
+            target_value="string",
+            tool_name="string",
+            type="EXACT_MATCH",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -72,11 +69,10 @@ class TestEvaluationAssertions:
         evaluation_assertion = client.evaluation_assertions.update(
             "1212121",
             evaluation_id="string",
-            matcher={
-                "type": "CONTAINS",
-                "json_path": "string",
-            },
-            target="string",
+            json_path="string",
+            target_value="string",
+            tool_name="string",
+            type="EXACT_MATCH",
         )
         assert_matches_type(EvaluationAssertion, evaluation_assertion, path=["response"])
 
@@ -85,11 +81,10 @@ class TestEvaluationAssertions:
         response = client.evaluation_assertions.with_raw_response.update(
             "1212121",
             evaluation_id="string",
-            matcher={
-                "type": "CONTAINS",
-                "json_path": "string",
-            },
-            target="string",
+            json_path="string",
+            target_value="string",
+            tool_name="string",
+            type="EXACT_MATCH",
         )
 
         assert response.is_closed is True
@@ -102,11 +97,10 @@ class TestEvaluationAssertions:
         with client.evaluation_assertions.with_streaming_response.update(
             "1212121",
             evaluation_id="string",
-            matcher={
-                "type": "CONTAINS",
-                "json_path": "string",
-            },
-            target="string",
+            json_path="string",
+            target_value="string",
+            tool_name="string",
+            type="EXACT_MATCH",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -122,11 +116,10 @@ class TestEvaluationAssertions:
             client.evaluation_assertions.with_raw_response.update(
                 "",
                 evaluation_id="string",
-                matcher={
-                    "type": "CONTAINS",
-                    "json_path": "string",
-                },
-                target="string",
+                json_path="string",
+                target_value="string",
+                tool_name="string",
+                type="EXACT_MATCH",
             )
 
     @parametrize
@@ -245,11 +238,10 @@ class TestAsyncEvaluationAssertions:
     async def test_method_create(self, async_client: AsyncPromptFoundry) -> None:
         evaluation_assertion = await async_client.evaluation_assertions.create(
             evaluation_id="string",
-            matcher={
-                "type": "CONTAINS",
-                "json_path": "string",
-            },
-            target="string",
+            json_path="string",
+            target_value="string",
+            tool_name="string",
+            type="EXACT_MATCH",
         )
         assert_matches_type(EvaluationAssertion, evaluation_assertion, path=["response"])
 
@@ -257,11 +249,10 @@ class TestAsyncEvaluationAssertions:
     async def test_raw_response_create(self, async_client: AsyncPromptFoundry) -> None:
         response = await async_client.evaluation_assertions.with_raw_response.create(
             evaluation_id="string",
-            matcher={
-                "type": "CONTAINS",
-                "json_path": "string",
-            },
-            target="string",
+            json_path="string",
+            target_value="string",
+            tool_name="string",
+            type="EXACT_MATCH",
         )
 
         assert response.is_closed is True
@@ -273,11 +264,10 @@ class TestAsyncEvaluationAssertions:
     async def test_streaming_response_create(self, async_client: AsyncPromptFoundry) -> None:
         async with async_client.evaluation_assertions.with_streaming_response.create(
             evaluation_id="string",
-            matcher={
-                "type": "CONTAINS",
-                "json_path": "string",
-            },
-            target="string",
+            json_path="string",
+            target_value="string",
+            tool_name="string",
+            type="EXACT_MATCH",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -292,11 +282,10 @@ class TestAsyncEvaluationAssertions:
         evaluation_assertion = await async_client.evaluation_assertions.update(
             "1212121",
             evaluation_id="string",
-            matcher={
-                "type": "CONTAINS",
-                "json_path": "string",
-            },
-            target="string",
+            json_path="string",
+            target_value="string",
+            tool_name="string",
+            type="EXACT_MATCH",
         )
         assert_matches_type(EvaluationAssertion, evaluation_assertion, path=["response"])
 
@@ -305,11 +294,10 @@ class TestAsyncEvaluationAssertions:
         response = await async_client.evaluation_assertions.with_raw_response.update(
             "1212121",
             evaluation_id="string",
-            matcher={
-                "type": "CONTAINS",
-                "json_path": "string",
-            },
-            target="string",
+            json_path="string",
+            target_value="string",
+            tool_name="string",
+            type="EXACT_MATCH",
         )
 
         assert response.is_closed is True
@@ -322,11 +310,10 @@ class TestAsyncEvaluationAssertions:
         async with async_client.evaluation_assertions.with_streaming_response.update(
             "1212121",
             evaluation_id="string",
-            matcher={
-                "type": "CONTAINS",
-                "json_path": "string",
-            },
-            target="string",
+            json_path="string",
+            target_value="string",
+            tool_name="string",
+            type="EXACT_MATCH",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -342,11 +329,10 @@ class TestAsyncEvaluationAssertions:
             await async_client.evaluation_assertions.with_raw_response.update(
                 "",
                 evaluation_id="string",
-                matcher={
-                    "type": "CONTAINS",
-                    "json_path": "string",
-                },
-                target="string",
+                json_path="string",
+                target_value="string",
+                tool_name="string",
+                type="EXACT_MATCH",
             )
 
     @parametrize
