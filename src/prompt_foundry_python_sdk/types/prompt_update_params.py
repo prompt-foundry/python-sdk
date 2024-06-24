@@ -64,6 +64,8 @@ class Parameters(TypedDict, total=False):
     model_name: Required[Annotated[str, PropertyInfo(alias="modelName")]]
     """Example: "gpt-3.5-turbo" """
 
+    parallel_tool_calls: Required[Annotated[bool, PropertyInfo(alias="parallelToolCalls")]]
+
     presence_penalty: Required[Annotated[float, PropertyInfo(alias="presencePenalty")]]
     """Example: 0"""
 
