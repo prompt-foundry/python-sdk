@@ -54,6 +54,8 @@ class Parameters(BaseModel):
     api_model_name: str = FieldInfo(alias="modelName")
     """Example: "gpt-3.5-turbo" """
 
+    parallel_tool_calls: bool = FieldInfo(alias="parallelToolCalls")
+
     presence_penalty: float = FieldInfo(alias="presencePenalty")
     """Example: 0"""
 
