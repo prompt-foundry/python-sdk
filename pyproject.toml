@@ -1,7 +1,8 @@
 [project]
 name = "prompt_foundry_python_sdk"
 version = "0.1.0-alpha.2"
-description = "The official Python library for the prompt-foundry API"
+description = "The prompt engineering, prompt management, and prompt evaluation tool for Python "
+keywords = ["llm evaluation", "prompt management", "prompt testing", "prompt engineering"]
 dynamic = ["readme"]
 license = "Apache-2.0"
 authors = [
@@ -39,8 +40,9 @@ classifiers = [
 
 
 [project.urls]
-Homepage = "https://github.com/prompt-foundry/python-sdk"
+Homepage = "https://https://www.promptfoundry.ai"
 Repository = "https://github.com/prompt-foundry/python-sdk"
+Documentation = "https://docs.promptfoundry.ai/libraries/python"
 
 
 
