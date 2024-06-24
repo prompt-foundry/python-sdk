@@ -163,7 +163,7 @@ class EvaluationsResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> EvaluationDeleteResponse:
         """
-        Delete a evaluation by ID.
+        Delete an evaluation by ID.
 
         Args:
           extra_headers: Send extra headers
@@ -351,7 +351,7 @@ class AsyncEvaluationsResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> EvaluationDeleteResponse:
         """
-        Delete a evaluation by ID.
+        Delete an evaluation by ID.
 
         Args:
           extra_headers: Send extra headers
