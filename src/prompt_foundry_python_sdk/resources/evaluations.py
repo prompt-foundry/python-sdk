@@ -99,7 +99,7 @@ class EvaluationsResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> Evaluation:
         """
-        Update a evaluation by ID.
+        Update an evaluation by ID.
 
         Args:
           appended_messages: The messages to append to the completion messages when running the evaluation.
@@ -163,7 +163,7 @@ class EvaluationsResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> EvaluationDeleteResponse:
         """
-        Delete a evaluation by ID.
+        Delete an evaluation by ID.
 
         Args:
           extra_headers: Send extra headers
@@ -196,7 +196,7 @@ class EvaluationsResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> Evaluation:
         """
-        Retrieve a evaluation by ID
+        Retrieve an evaluation by ID
 
         Args:
           extra_headers: Send extra headers
@@ -287,7 +287,7 @@ class AsyncEvaluationsResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> Evaluation:
         """
-        Update a evaluation by ID.
+        Update an evaluation by ID.
 
         Args:
           appended_messages: The messages to append to the completion messages when running the evaluation.
@@ -351,7 +351,7 @@ class AsyncEvaluationsResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> EvaluationDeleteResponse:
         """
-        Delete a evaluation by ID.
+        Delete an evaluation by ID.
 
         Args:
           extra_headers: Send extra headers
@@ -384,7 +384,7 @@ class AsyncEvaluationsResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> Evaluation:
         """
-        Retrieve a evaluation by ID
+        Retrieve an evaluation by ID
 
         Args:
           extra_headers: Send extra headers
