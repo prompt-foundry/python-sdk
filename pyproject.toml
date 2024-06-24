@@ -1,7 +1,7 @@
 [project]
 name = "prompt_foundry_python_sdk"
 version = "0.1.0-alpha.2"
-description = "The official Python library for the prompt-foundry API"
+description = "The prompt engineering, prompt management, and prompt evaluation tool for Python "
 dynamic = ["readme"]
 license = "Apache-2.0"
 authors = [
