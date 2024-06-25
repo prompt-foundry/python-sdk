@@ -53,4 +53,4 @@ class Evaluation(BaseModel):
     prompt_id: str = FieldInfo(alias="promptId")
 
     variables: Dict[str, Optional[str]]
-    """The variables to in the prompt when evaluating the prompt."""
+    """The template variables added to the prompt when executing the prompt."""

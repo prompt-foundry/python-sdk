@@ -17,7 +17,7 @@ class EvaluationCreateParams(TypedDict, total=False):
     prompt_id: Required[Annotated[str, PropertyInfo(alias="promptId")]]
 
     variables: Required[Dict[str, Optional[str]]]
-    """The variables to in the prompt when evaluating the prompt."""
+    """The template variables added to the prompt when executing the prompt."""
 
 
 class AppendedMessageToolCallFunction(TypedDict, total=False):
