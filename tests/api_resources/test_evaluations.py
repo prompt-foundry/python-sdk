@@ -120,7 +120,7 @@ class TestEvaluations:
                 },
             ],
             prompt_id="string",
-            variables={"foo": {}},
+            variables={"foo": "string"},
         )
         assert_matches_type(Evaluation, evaluation, path=["response"])
 
@@ -223,7 +223,7 @@ class TestEvaluations:
                 },
             ],
             prompt_id="string",
-            variables={"foo": {}},
+            variables={"foo": "string"},
         )
 
         assert response.is_closed is True
@@ -330,7 +330,7 @@ class TestEvaluations:
                 },
             ],
             prompt_id="string",
-            variables={"foo": {}},
+            variables={"foo": "string"},
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -440,7 +440,7 @@ class TestEvaluations:
                 },
             ],
             prompt_id="string",
-            variables={"foo": {}},
+            variables={"foo": "string"},
         )
         assert_matches_type(Evaluation, evaluation, path=["response"])
 
@@ -544,7 +544,7 @@ class TestEvaluations:
                 },
             ],
             prompt_id="string",
-            variables={"foo": {}},
+            variables={"foo": "string"},
         )
 
         assert response.is_closed is True
@@ -652,7 +652,7 @@ class TestEvaluations:
                 },
             ],
             prompt_id="string",
-            variables={"foo": {}},
+            variables={"foo": "string"},
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -763,7 +763,7 @@ class TestEvaluations:
                     },
                 ],
                 prompt_id="string",
-                variables={"foo": {}},
+                variables={"foo": "string"},
             )
 
     @parametrize
@@ -970,7 +970,7 @@ class TestAsyncEvaluations:
                 },
             ],
             prompt_id="string",
-            variables={"foo": {}},
+            variables={"foo": "string"},
         )
         assert_matches_type(Evaluation, evaluation, path=["response"])
 
@@ -1073,7 +1073,7 @@ class TestAsyncEvaluations:
                 },
             ],
             prompt_id="string",
-            variables={"foo": {}},
+            variables={"foo": "string"},
         )
 
         assert response.is_closed is True
@@ -1180,7 +1180,7 @@ class TestAsyncEvaluations:
                 },
             ],
             prompt_id="string",
-            variables={"foo": {}},
+            variables={"foo": "string"},
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -1290,7 +1290,7 @@ class TestAsyncEvaluations:
                 },
             ],
             prompt_id="string",
-            variables={"foo": {}},
+            variables={"foo": "string"},
         )
         assert_matches_type(Evaluation, evaluation, path=["response"])
 
@@ -1394,7 +1394,7 @@ class TestAsyncEvaluations:
                 },
             ],
             prompt_id="string",
-            variables={"foo": {}},
+            variables={"foo": "string"},
         )
 
         assert response.is_closed is True
@@ -1502,7 +1502,7 @@ class TestAsyncEvaluations:
                 },
             ],
             prompt_id="string",
-            variables={"foo": {}},
+            variables={"foo": "string"},
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -1613,7 +1613,7 @@ class TestAsyncEvaluations:
                     },
                 ],
                 prompt_id="string",
-                variables={"foo": {}},
+                variables={"foo": "string"},
             )
 
     @parametrize

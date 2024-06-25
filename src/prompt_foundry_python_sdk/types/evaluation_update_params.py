@@ -16,7 +16,7 @@ class EvaluationUpdateParams(TypedDict, total=False):
 
     prompt_id: Required[Annotated[str, PropertyInfo(alias="promptId")]]
 
-    variables: Required[Dict[str, Optional[object]]]
+    variables: Required[Dict[str, Optional[str]]]
     """The variables to in the prompt when evaluating the prompt."""
 
 
