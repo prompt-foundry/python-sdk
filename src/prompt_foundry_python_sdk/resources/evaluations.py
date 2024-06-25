@@ -58,7 +58,7 @@ class EvaluationsResource(SyncAPIResource):
         Args:
           appended_messages: The messages to append to the completion messages when running the evaluation.
 
-          variables: The variables to in the prompt when evaluating the prompt.
+          variables: The template variables added to the prompt when executing the prompt.
 
           extra_headers: Send extra headers
 
@@ -104,7 +104,7 @@ class EvaluationsResource(SyncAPIResource):
         Args:
           appended_messages: The messages to append to the completion messages when running the evaluation.
 
-          variables: The variables to in the prompt when evaluating the prompt.
+          variables: The template variables added to the prompt when executing the prompt.
 
           extra_headers: Send extra headers
 
@@ -246,7 +246,7 @@ class AsyncEvaluationsResource(AsyncAPIResource):
         Args:
           appended_messages: The messages to append to the completion messages when running the evaluation.
 
-          variables: The variables to in the prompt when evaluating the prompt.
+          variables: The template variables added to the prompt when executing the prompt.
 
           extra_headers: Send extra headers
 
@@ -292,7 +292,7 @@ class AsyncEvaluationsResource(AsyncAPIResource):
         Args:
           appended_messages: The messages to append to the completion messages when running the evaluation.
 
-          variables: The variables to in the prompt when evaluating the prompt.
+          variables: The template variables added to the prompt when executing the prompt.
 
           extra_headers: Send extra headers
 
