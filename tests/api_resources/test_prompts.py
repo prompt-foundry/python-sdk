@@ -1161,7 +1161,7 @@ class TestPrompts:
                 },
             ],
             user="string",
-            variables={"foo": {}},
+            variables={"foo": "string"},
         )
         assert_matches_type(ModelParameters, prompt, path=["response"])
 
@@ -2339,7 +2339,7 @@ class TestAsyncPrompts:
                 },
             ],
             user="string",
-            variables={"foo": {}},
+            variables={"foo": "string"},
         )
         assert_matches_type(ModelParameters, prompt, path=["response"])
 

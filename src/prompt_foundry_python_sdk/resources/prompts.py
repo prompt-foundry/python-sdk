@@ -223,7 +223,7 @@ class PromptsResource(SyncAPIResource):
         append_messages: Iterable[prompt_get_parameters_params.AppendMessage] | NotGiven = NOT_GIVEN,
         override_messages: Iterable[prompt_get_parameters_params.OverrideMessage] | NotGiven = NOT_GIVEN,
         user: str | NotGiven = NOT_GIVEN,
-        variables: Dict[str, Optional[object]] | NotGiven = NOT_GIVEN,
+        variables: Dict[str, Optional[str]] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -245,7 +245,7 @@ class PromptsResource(SyncAPIResource):
           user: A unique identifier representing your end-user, which can help monitor and
               detect abuse.
 
-          variables: The template variables added to the prompt when running the prompt.
+          variables: The template variables added to the prompt when executing the prompt.
 
           extra_headers: Send extra headers
 
@@ -467,7 +467,7 @@ class AsyncPromptsResource(AsyncAPIResource):
         append_messages: Iterable[prompt_get_parameters_params.AppendMessage] | NotGiven = NOT_GIVEN,
         override_messages: Iterable[prompt_get_parameters_params.OverrideMessage] | NotGiven = NOT_GIVEN,
         user: str | NotGiven = NOT_GIVEN,
-        variables: Dict[str, Optional[object]] | NotGiven = NOT_GIVEN,
+        variables: Dict[str, Optional[str]] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -489,7 +489,7 @@ class AsyncPromptsResource(AsyncAPIResource):
           user: A unique identifier representing your end-user, which can help monitor and
               detect abuse.
 
-          variables: The template variables added to the prompt when running the prompt.
+          variables: The template variables added to the prompt when executing the prompt.
 
           extra_headers: Send extra headers
 
