@@ -1,5 +1,25 @@
 # Changelog
 
+## 0.1.0-alpha.4 (2024-06-25)
+
+Full Changelog: [v0.1.0-alpha.3...v0.1.0-alpha.4](https://github.com/prompt-foundry/python-sdk/compare/v0.1.0-alpha.3...v0.1.0-alpha.4)
+
+### Features
+
+* **api:** OpenAPI spec update via Stainless API ([#56](https://github.com/prompt-foundry/python-sdk/issues/56)) ([0ed089b](https://github.com/prompt-foundry/python-sdk/commit/0ed089ba5a1b1ea3cf445ddb0e49bd5340b9bafd))
+* **api:** OpenAPI spec update via Stainless API ([#57](https://github.com/prompt-foundry/python-sdk/issues/57)) ([7180cd5](https://github.com/prompt-foundry/python-sdk/commit/7180cd5ea9335d1abc41329a26d0fe9a0cfd863f))
+* **api:** OpenAPI spec update via Stainless API ([#58](https://github.com/prompt-foundry/python-sdk/issues/58)) ([9f8a390](https://github.com/prompt-foundry/python-sdk/commit/9f8a3905eadb6876edc735b7af7f9d9f479e1ed9))
+* **api:** OpenAPI spec update via Stainless API ([#59](https://github.com/prompt-foundry/python-sdk/issues/59)) ([0eb8082](https://github.com/prompt-foundry/python-sdk/commit/0eb80823ac2357d035514caf0801cc39b415c36d))
+* **api:** OpenAPI spec update via Stainless API ([#60](https://github.com/prompt-foundry/python-sdk/issues/60)) ([16d556e](https://github.com/prompt-foundry/python-sdk/commit/16d556eb15620f760d9a26a789eca3180019289d))
+* **api:** OpenAPI spec update via Stainless API ([#61](https://github.com/prompt-foundry/python-sdk/issues/61)) ([054bfe4](https://github.com/prompt-foundry/python-sdk/commit/054bfe4b8ec078735f8a912264bf80ccaa94edab))
+* **api:** OpenAPI spec update via Stainless API ([#62](https://github.com/prompt-foundry/python-sdk/issues/62)) ([9e7efc7](https://github.com/prompt-foundry/python-sdk/commit/9e7efc7cdf6fdecfcdb3f7e5212010b2816e6abc))
+* **api:** OpenAPI spec update via Stainless API ([#63](https://github.com/prompt-foundry/python-sdk/issues/63)) ([8d222e1](https://github.com/prompt-foundry/python-sdk/commit/8d222e1223d4d5c9116588fbdd9119b3221b39b4))
+* **api:** OpenAPI spec update via Stainless API ([#64](https://github.com/prompt-foundry/python-sdk/issues/64)) ([c179b76](https://github.com/prompt-foundry/python-sdk/commit/c179b767eed6fe320eb8b3424154e8e41a768388))
+* **api:** OpenAPI spec update via Stainless API ([#67](https://github.com/prompt-foundry/python-sdk/issues/67)) ([7bfbc54](https://github.com/prompt-foundry/python-sdk/commit/7bfbc54632cec1db3dd990b4b10b930533902496))
+* **api:** OpenAPI spec update via Stainless API ([#68](https://github.com/prompt-foundry/python-sdk/issues/68)) ([e582b76](https://github.com/prompt-foundry/python-sdk/commit/e582b76d645268288d5f2aa5bcca143f8daa7cf3))
+* **api:** update via SDK Studio ([#65](https://github.com/prompt-foundry/python-sdk/issues/65)) ([b147b0a](https://github.com/prompt-foundry/python-sdk/commit/b147b0a4e626adf77413b33cecd5e180f1131e06))
+* **api:** update via SDK Studio ([#66](https://github.com/prompt-foundry/python-sdk/issues/66)) ([9214424](https://github.com/prompt-foundry/python-sdk/commit/92144245e6bcb91ed2b08859195150c40a389a4d))
+
 ## 0.1.0-alpha.3 (2024-06-24)
 
 Full Changelog: [v0.1.0-alpha.2...v0.1.0-alpha.3](https://github.com/prompt-foundry/python-sdk/compare/v0.1.0-alpha.2...v0.1.0-alpha.3)
