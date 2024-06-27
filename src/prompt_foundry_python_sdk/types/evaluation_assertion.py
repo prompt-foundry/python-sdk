@@ -21,7 +21,7 @@ class EvaluationAssertion(BaseModel):
     Only required when type is `JSON_EXACT_MATCH` or `JSON_CONTAINS`.
     """
 
-    target_value: str = FieldInfo(alias="targetValue")
+    target_value: Optional[str] = FieldInfo(alias="targetValue", default=None)
 
     tool_name: Optional[str] = FieldInfo(alias="toolName", default=None)
     """The name of the tool to match.

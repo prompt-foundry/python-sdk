@@ -19,7 +19,7 @@ class EvaluationAssertionCreateParams(TypedDict, total=False):
     Only required when type is `JSON_EXACT_MATCH` or `JSON_CONTAINS`.
     """
 
-    target_value: Required[Annotated[str, PropertyInfo(alias="targetValue")]]
+    target_value: Required[Annotated[Optional[str], PropertyInfo(alias="targetValue")]]
 
     tool_name: Required[Annotated[Optional[str], PropertyInfo(alias="toolName")]]
     """The name of the tool to match.
