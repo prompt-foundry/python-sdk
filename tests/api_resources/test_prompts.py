@@ -122,6 +122,7 @@ class TestPrompts:
             ],
             name="string",
             parameters={
+                "model_provider": "OPENAI",
                 "model_name": "string",
                 "response_format": "JSON",
                 "temperature": 0,
@@ -238,6 +239,7 @@ class TestPrompts:
             ],
             name="string",
             parameters={
+                "model_provider": "OPENAI",
                 "model_name": "string",
                 "response_format": "JSON",
                 "temperature": 0,
@@ -358,6 +360,7 @@ class TestPrompts:
             ],
             name="string",
             parameters={
+                "model_provider": "OPENAI",
                 "model_name": "string",
                 "response_format": "JSON",
                 "temperature": 0,
@@ -481,6 +484,7 @@ class TestPrompts:
             ],
             name="string",
             parameters={
+                "model_provider": "OPENAI",
                 "model_name": "string",
                 "response_format": "JSON",
                 "temperature": 0,
@@ -598,6 +602,7 @@ class TestPrompts:
             ],
             name="string",
             parameters={
+                "model_provider": "OPENAI",
                 "model_name": "string",
                 "response_format": "JSON",
                 "temperature": 0,
@@ -719,6 +724,7 @@ class TestPrompts:
             ],
             name="string",
             parameters={
+                "model_provider": "OPENAI",
                 "model_name": "string",
                 "response_format": "JSON",
                 "temperature": 0,
@@ -843,6 +849,7 @@ class TestPrompts:
                 ],
                 name="string",
                 parameters={
+                    "model_provider": "OPENAI",
                     "model_name": "string",
                     "response_format": "JSON",
                     "temperature": 0,
@@ -1300,6 +1307,7 @@ class TestAsyncPrompts:
             ],
             name="string",
             parameters={
+                "model_provider": "OPENAI",
                 "model_name": "string",
                 "response_format": "JSON",
                 "temperature": 0,
@@ -1416,6 +1424,7 @@ class TestAsyncPrompts:
             ],
             name="string",
             parameters={
+                "model_provider": "OPENAI",
                 "model_name": "string",
                 "response_format": "JSON",
                 "temperature": 0,
@@ -1536,6 +1545,7 @@ class TestAsyncPrompts:
             ],
             name="string",
             parameters={
+                "model_provider": "OPENAI",
                 "model_name": "string",
                 "response_format": "JSON",
                 "temperature": 0,
@@ -1659,6 +1669,7 @@ class TestAsyncPrompts:
             ],
             name="string",
             parameters={
+                "model_provider": "OPENAI",
                 "model_name": "string",
                 "response_format": "JSON",
                 "temperature": 0,
@@ -1776,6 +1787,7 @@ class TestAsyncPrompts:
             ],
             name="string",
             parameters={
+                "model_provider": "OPENAI",
                 "model_name": "string",
                 "response_format": "JSON",
                 "temperature": 0,
@@ -1897,6 +1909,7 @@ class TestAsyncPrompts:
             ],
             name="string",
             parameters={
+                "model_provider": "OPENAI",
                 "model_name": "string",
                 "response_format": "JSON",
                 "temperature": 0,
@@ -2021,6 +2034,7 @@ class TestAsyncPrompts:
                 ],
                 name="string",
                 parameters={
+                    "model_provider": "OPENAI",
                     "model_name": "string",
                     "response_format": "JSON",
                     "temperature": 0,
