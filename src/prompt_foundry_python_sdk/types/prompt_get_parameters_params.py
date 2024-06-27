@@ -65,7 +65,7 @@ class AppendMessage(TypedDict, total=False):
     content: Required[Optional[str]]
     """Example: "Hello, {{city}}!" """
 
-    role: Required[Literal["user", "assistant", "system", "tool"]]
+    role: Required[Literal["assistant", "system", "tool", "user"]]
 
     tool_call_id: Required[Annotated[Optional[str], PropertyInfo(alias="toolCallId")]]
 
@@ -99,7 +99,7 @@ class OverrideMessage(TypedDict, total=False):
     content: Required[Optional[str]]
     """Example: "Hello, {{city}}!" """
 
-    role: Required[Literal["user", "assistant", "system", "tool"]]
+    role: Required[Literal["assistant", "system", "tool", "user"]]
 
     tool_call_id: Required[Annotated[Optional[str], PropertyInfo(alias="toolCallId")]]
 

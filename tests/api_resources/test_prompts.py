@@ -28,7 +28,7 @@ class TestPrompts:
             messages=[
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "assistant",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -59,7 +59,7 @@ class TestPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "assistant",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -90,7 +90,7 @@ class TestPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "assistant",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -123,7 +123,7 @@ class TestPrompts:
             name="string",
             parameters={
                 "model_name": "string",
-                "response_format": "TEXT",
+                "response_format": "JSON",
                 "temperature": 0,
                 "top_p": 0,
                 "frequency_penalty": 0,
@@ -144,7 +144,7 @@ class TestPrompts:
             messages=[
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "assistant",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -175,7 +175,7 @@ class TestPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "assistant",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -206,7 +206,7 @@ class TestPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "assistant",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -239,7 +239,7 @@ class TestPrompts:
             name="string",
             parameters={
                 "model_name": "string",
-                "response_format": "TEXT",
+                "response_format": "JSON",
                 "temperature": 0,
                 "top_p": 0,
                 "frequency_penalty": 0,
@@ -264,7 +264,7 @@ class TestPrompts:
             messages=[
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "assistant",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -295,7 +295,7 @@ class TestPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "assistant",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -326,7 +326,7 @@ class TestPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "assistant",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -359,7 +359,7 @@ class TestPrompts:
             name="string",
             parameters={
                 "model_name": "string",
-                "response_format": "TEXT",
+                "response_format": "JSON",
                 "temperature": 0,
                 "top_p": 0,
                 "frequency_penalty": 0,
@@ -387,7 +387,7 @@ class TestPrompts:
             messages=[
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "assistant",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -418,7 +418,7 @@ class TestPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "assistant",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -449,7 +449,7 @@ class TestPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "assistant",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -482,7 +482,7 @@ class TestPrompts:
             name="string",
             parameters={
                 "model_name": "string",
-                "response_format": "TEXT",
+                "response_format": "JSON",
                 "temperature": 0,
                 "top_p": 0,
                 "frequency_penalty": 0,
@@ -504,7 +504,7 @@ class TestPrompts:
             messages=[
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "assistant",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -535,7 +535,7 @@ class TestPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "assistant",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -566,7 +566,7 @@ class TestPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "assistant",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -599,7 +599,7 @@ class TestPrompts:
             name="string",
             parameters={
                 "model_name": "string",
-                "response_format": "TEXT",
+                "response_format": "JSON",
                 "temperature": 0,
                 "top_p": 0,
                 "frequency_penalty": 0,
@@ -625,7 +625,7 @@ class TestPrompts:
             messages=[
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "assistant",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -656,7 +656,7 @@ class TestPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "assistant",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -687,7 +687,7 @@ class TestPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "assistant",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -720,7 +720,7 @@ class TestPrompts:
             name="string",
             parameters={
                 "model_name": "string",
-                "response_format": "TEXT",
+                "response_format": "JSON",
                 "temperature": 0,
                 "top_p": 0,
                 "frequency_penalty": 0,
@@ -749,7 +749,7 @@ class TestPrompts:
                 messages=[
                     {
                         "content": "string",
-                        "role": "user",
+                        "role": "assistant",
                         "tool_call_id": "string",
                         "tool_calls": [
                             {
@@ -780,7 +780,7 @@ class TestPrompts:
                     },
                     {
                         "content": "string",
-                        "role": "user",
+                        "role": "assistant",
                         "tool_call_id": "string",
                         "tool_calls": [
                             {
@@ -811,7 +811,7 @@ class TestPrompts:
                     },
                     {
                         "content": "string",
-                        "role": "user",
+                        "role": "assistant",
                         "tool_call_id": "string",
                         "tool_calls": [
                             {
@@ -844,7 +844,7 @@ class TestPrompts:
                 name="string",
                 parameters={
                     "model_name": "string",
-                    "response_format": "TEXT",
+                    "response_format": "JSON",
                     "temperature": 0,
                     "top_p": 0,
                     "frequency_penalty": 0,
@@ -973,7 +973,7 @@ class TestPrompts:
             append_messages=[
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "assistant",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1004,7 +1004,7 @@ class TestPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "assistant",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1035,7 +1035,7 @@ class TestPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "assistant",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1068,7 +1068,7 @@ class TestPrompts:
             override_messages=[
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "assistant",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1099,7 +1099,7 @@ class TestPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "assistant",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1130,7 +1130,7 @@ class TestPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "assistant",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1206,7 +1206,7 @@ class TestAsyncPrompts:
             messages=[
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "assistant",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1237,7 +1237,7 @@ class TestAsyncPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "assistant",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1268,7 +1268,7 @@ class TestAsyncPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "assistant",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1301,7 +1301,7 @@ class TestAsyncPrompts:
             name="string",
             parameters={
                 "model_name": "string",
-                "response_format": "TEXT",
+                "response_format": "JSON",
                 "temperature": 0,
                 "top_p": 0,
                 "frequency_penalty": 0,
@@ -1322,7 +1322,7 @@ class TestAsyncPrompts:
             messages=[
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "assistant",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1353,7 +1353,7 @@ class TestAsyncPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "assistant",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1384,7 +1384,7 @@ class TestAsyncPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "assistant",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1417,7 +1417,7 @@ class TestAsyncPrompts:
             name="string",
             parameters={
                 "model_name": "string",
-                "response_format": "TEXT",
+                "response_format": "JSON",
                 "temperature": 0,
                 "top_p": 0,
                 "frequency_penalty": 0,
@@ -1442,7 +1442,7 @@ class TestAsyncPrompts:
             messages=[
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "assistant",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1473,7 +1473,7 @@ class TestAsyncPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "assistant",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1504,7 +1504,7 @@ class TestAsyncPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "assistant",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1537,7 +1537,7 @@ class TestAsyncPrompts:
             name="string",
             parameters={
                 "model_name": "string",
-                "response_format": "TEXT",
+                "response_format": "JSON",
                 "temperature": 0,
                 "top_p": 0,
                 "frequency_penalty": 0,
@@ -1565,7 +1565,7 @@ class TestAsyncPrompts:
             messages=[
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "assistant",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1596,7 +1596,7 @@ class TestAsyncPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "assistant",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1627,7 +1627,7 @@ class TestAsyncPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "assistant",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1660,7 +1660,7 @@ class TestAsyncPrompts:
             name="string",
             parameters={
                 "model_name": "string",
-                "response_format": "TEXT",
+                "response_format": "JSON",
                 "temperature": 0,
                 "top_p": 0,
                 "frequency_penalty": 0,
@@ -1682,7 +1682,7 @@ class TestAsyncPrompts:
             messages=[
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "assistant",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1713,7 +1713,7 @@ class TestAsyncPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "assistant",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1744,7 +1744,7 @@ class TestAsyncPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "assistant",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1777,7 +1777,7 @@ class TestAsyncPrompts:
             name="string",
             parameters={
                 "model_name": "string",
-                "response_format": "TEXT",
+                "response_format": "JSON",
                 "temperature": 0,
                 "top_p": 0,
                 "frequency_penalty": 0,
@@ -1803,7 +1803,7 @@ class TestAsyncPrompts:
             messages=[
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "assistant",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1834,7 +1834,7 @@ class TestAsyncPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "assistant",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1865,7 +1865,7 @@ class TestAsyncPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "assistant",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -1898,7 +1898,7 @@ class TestAsyncPrompts:
             name="string",
             parameters={
                 "model_name": "string",
-                "response_format": "TEXT",
+                "response_format": "JSON",
                 "temperature": 0,
                 "top_p": 0,
                 "frequency_penalty": 0,
@@ -1927,7 +1927,7 @@ class TestAsyncPrompts:
                 messages=[
                     {
                         "content": "string",
-                        "role": "user",
+                        "role": "assistant",
                         "tool_call_id": "string",
                         "tool_calls": [
                             {
@@ -1958,7 +1958,7 @@ class TestAsyncPrompts:
                     },
                     {
                         "content": "string",
-                        "role": "user",
+                        "role": "assistant",
                         "tool_call_id": "string",
                         "tool_calls": [
                             {
@@ -1989,7 +1989,7 @@ class TestAsyncPrompts:
                     },
                     {
                         "content": "string",
-                        "role": "user",
+                        "role": "assistant",
                         "tool_call_id": "string",
                         "tool_calls": [
                             {
@@ -2022,7 +2022,7 @@ class TestAsyncPrompts:
                 name="string",
                 parameters={
                     "model_name": "string",
-                    "response_format": "TEXT",
+                    "response_format": "JSON",
                     "temperature": 0,
                     "top_p": 0,
                     "frequency_penalty": 0,
@@ -2151,7 +2151,7 @@ class TestAsyncPrompts:
             append_messages=[
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "assistant",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -2182,7 +2182,7 @@ class TestAsyncPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "assistant",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -2213,7 +2213,7 @@ class TestAsyncPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "assistant",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -2246,7 +2246,7 @@ class TestAsyncPrompts:
             override_messages=[
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "assistant",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -2277,7 +2277,7 @@ class TestAsyncPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "assistant",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {
@@ -2308,7 +2308,7 @@ class TestAsyncPrompts:
                 },
                 {
                     "content": "string",
-                    "role": "user",
+                    "role": "assistant",
                     "tool_call_id": "string",
                     "tool_calls": [
                         {

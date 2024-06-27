@@ -37,7 +37,7 @@ class AppendedMessage(BaseModel):
     content: Optional[str] = None
     """Example: "Hello, {{city}}!" """
 
-    role: Literal["user", "assistant", "system", "tool"]
+    role: Literal["assistant", "system", "tool", "user"]
 
     tool_call_id: Optional[str] = FieldInfo(alias="toolCallId", default=None)
 
