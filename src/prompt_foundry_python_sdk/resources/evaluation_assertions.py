@@ -49,7 +49,7 @@ class EvaluationAssertionsResource(SyncAPIResource):
         *,
         evaluation_id: str,
         json_path: Optional[str],
-        target_value: str,
+        target_value: Optional[str],
         tool_name: Optional[str],
         type: Literal[
             "CONTAINS", "EXACT_MATCH", "JSON_CONTAINS", "JSON_EXACT_MATCH", "TOOL_CALLED", "TOOL_CALLED_WITH"
@@ -105,7 +105,7 @@ class EvaluationAssertionsResource(SyncAPIResource):
         *,
         evaluation_id: str,
         json_path: Optional[str],
-        target_value: str,
+        target_value: Optional[str],
         tool_name: Optional[str],
         type: Literal[
             "CONTAINS", "EXACT_MATCH", "JSON_CONTAINS", "JSON_EXACT_MATCH", "TOOL_CALLED", "TOOL_CALLED_WITH"
@@ -277,7 +277,7 @@ class AsyncEvaluationAssertionsResource(AsyncAPIResource):
         *,
         evaluation_id: str,
         json_path: Optional[str],
-        target_value: str,
+        target_value: Optional[str],
         tool_name: Optional[str],
         type: Literal[
             "CONTAINS", "EXACT_MATCH", "JSON_CONTAINS", "JSON_EXACT_MATCH", "TOOL_CALLED", "TOOL_CALLED_WITH"
@@ -333,7 +333,7 @@ class AsyncEvaluationAssertionsResource(AsyncAPIResource):
         *,
         evaluation_id: str,
         json_path: Optional[str],
-        target_value: str,
+        target_value: Optional[str],
         tool_name: Optional[str],
         type: Literal[
             "CONTAINS", "EXACT_MATCH", "JSON_CONTAINS", "JSON_EXACT_MATCH", "TOOL_CALLED", "TOOL_CALLED_WITH"
