@@ -47,7 +47,7 @@ class Message(TypedDict, total=False):
     content: Required[Optional[str]]
     """Example: "Hello, {{city}}!" """
 
-    role: Required[Literal["user", "assistant", "system", "tool"]]
+    role: Required[Literal["assistant", "system", "tool", "user"]]
 
     tool_call_id: Required[Annotated[Optional[str], PropertyInfo(alias="toolCallId")]]
 
@@ -69,7 +69,7 @@ class Parameters(TypedDict, total=False):
     presence_penalty: Required[Annotated[float, PropertyInfo(alias="presencePenalty")]]
     """Example: 0"""
 
-    response_format: Required[Annotated[Literal["TEXT", "JSON"], PropertyInfo(alias="responseFormat")]]
+    response_format: Required[Annotated[Literal["JSON", "TEXT"], PropertyInfo(alias="responseFormat")]]
     """Example: PromptResponseFormat.TEXT"""
 
     seed: Required[Optional[float]]

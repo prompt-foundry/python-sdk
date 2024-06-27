@@ -29,5 +29,5 @@ class EvaluationAssertion(BaseModel):
     Only required when type is `TOOL_CALLED` or `TOOL_CALLED_WITH`.
     """
 
-    type: Literal["EXACT_MATCH", "CONTAINS", "JSON_EXACT_MATCH", "JSON_CONTAINS", "TOOL_CALLED", "TOOL_CALLED_WITH"]
+    type: Literal["CONTAINS", "EXACT_MATCH", "JSON_CONTAINS", "JSON_EXACT_MATCH", "TOOL_CALLED", "TOOL_CALLED_WITH"]
     """The type of evaluation matcher to use."""

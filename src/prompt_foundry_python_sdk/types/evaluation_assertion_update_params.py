@@ -28,6 +28,6 @@ class EvaluationAssertionUpdateParams(TypedDict, total=False):
     """
 
     type: Required[
-        Literal["EXACT_MATCH", "CONTAINS", "JSON_EXACT_MATCH", "JSON_CONTAINS", "TOOL_CALLED", "TOOL_CALLED_WITH"]
+        Literal["CONTAINS", "EXACT_MATCH", "JSON_CONTAINS", "JSON_EXACT_MATCH", "TOOL_CALLED", "TOOL_CALLED_WITH"]
     ]
     """The type of evaluation matcher to use."""
