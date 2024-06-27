@@ -37,7 +37,7 @@ class Message(BaseModel):
     content: Optional[str] = None
     """Example: "Hello, {{city}}!" """
 
-    role: Literal["user", "assistant", "system", "tool"]
+    role: Literal["assistant", "system", "tool", "user"]
 
     tool_call_id: Optional[str] = FieldInfo(alias="toolCallId", default=None)
 
@@ -59,7 +59,7 @@ class Parameters(BaseModel):
     presence_penalty: float = FieldInfo(alias="presencePenalty")
     """Example: 0"""
 
-    response_format: Literal["TEXT", "JSON"] = FieldInfo(alias="responseFormat")
+    response_format: Literal["JSON", "TEXT"] = FieldInfo(alias="responseFormat")
     """Example: PromptResponseFormat.TEXT"""
 
     seed: Optional[float] = None

@@ -28,7 +28,7 @@ class TestEvaluationAssertions:
             json_path="string",
             target_value="string",
             tool_name="string",
-            type="EXACT_MATCH",
+            type="CONTAINS",
         )
         assert_matches_type(EvaluationAssertion, evaluation_assertion, path=["response"])
 
@@ -39,7 +39,7 @@ class TestEvaluationAssertions:
             json_path="string",
             target_value="string",
             tool_name="string",
-            type="EXACT_MATCH",
+            type="CONTAINS",
         )
 
         assert response.is_closed is True
@@ -54,7 +54,7 @@ class TestEvaluationAssertions:
             json_path="string",
             target_value="string",
             tool_name="string",
-            type="EXACT_MATCH",
+            type="CONTAINS",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -72,7 +72,7 @@ class TestEvaluationAssertions:
             json_path="string",
             target_value="string",
             tool_name="string",
-            type="EXACT_MATCH",
+            type="CONTAINS",
         )
         assert_matches_type(EvaluationAssertion, evaluation_assertion, path=["response"])
 
@@ -84,7 +84,7 @@ class TestEvaluationAssertions:
             json_path="string",
             target_value="string",
             tool_name="string",
-            type="EXACT_MATCH",
+            type="CONTAINS",
         )
 
         assert response.is_closed is True
@@ -100,7 +100,7 @@ class TestEvaluationAssertions:
             json_path="string",
             target_value="string",
             tool_name="string",
-            type="EXACT_MATCH",
+            type="CONTAINS",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -119,7 +119,7 @@ class TestEvaluationAssertions:
                 json_path="string",
                 target_value="string",
                 tool_name="string",
-                type="EXACT_MATCH",
+                type="CONTAINS",
             )
 
     @parametrize
@@ -241,7 +241,7 @@ class TestAsyncEvaluationAssertions:
             json_path="string",
             target_value="string",
             tool_name="string",
-            type="EXACT_MATCH",
+            type="CONTAINS",
         )
         assert_matches_type(EvaluationAssertion, evaluation_assertion, path=["response"])
 
@@ -252,7 +252,7 @@ class TestAsyncEvaluationAssertions:
             json_path="string",
             target_value="string",
             tool_name="string",
-            type="EXACT_MATCH",
+            type="CONTAINS",
         )
 
         assert response.is_closed is True
@@ -267,7 +267,7 @@ class TestAsyncEvaluationAssertions:
             json_path="string",
             target_value="string",
             tool_name="string",
-            type="EXACT_MATCH",
+            type="CONTAINS",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -285,7 +285,7 @@ class TestAsyncEvaluationAssertions:
             json_path="string",
             target_value="string",
             tool_name="string",
-            type="EXACT_MATCH",
+            type="CONTAINS",
         )
         assert_matches_type(EvaluationAssertion, evaluation_assertion, path=["response"])
 
@@ -297,7 +297,7 @@ class TestAsyncEvaluationAssertions:
             json_path="string",
             target_value="string",
             tool_name="string",
-            type="EXACT_MATCH",
+            type="CONTAINS",
         )
 
         assert response.is_closed is True
@@ -313,7 +313,7 @@ class TestAsyncEvaluationAssertions:
             json_path="string",
             target_value="string",
             tool_name="string",
-            type="EXACT_MATCH",
+            type="CONTAINS",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -332,7 +332,7 @@ class TestAsyncEvaluationAssertions:
                 json_path="string",
                 target_value="string",
                 tool_name="string",
-                type="EXACT_MATCH",
+                type="CONTAINS",
             )
 
     @parametrize
