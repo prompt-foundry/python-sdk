@@ -214,7 +214,7 @@ response = client.prompts.with_raw_response.get_parameters(
 print(response.headers.get('X-My-Header'))
 
 prompt = response.parse()  # get the object that `prompts.get_parameters()` would have returned
-print(prompt.provider)
+print(prompt)
 ```
 
 These methods return an [`APIResponse`](https://github.com/prompt-foundry/python-sdk/tree/main/src/prompt_foundry_python_sdk/_response.py) object.

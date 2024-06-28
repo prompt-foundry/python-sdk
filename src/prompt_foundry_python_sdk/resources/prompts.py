@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Dict, Iterable, Optional
+from typing import Any, Dict, Iterable, Optional, cast
 
 import httpx
 
@@ -257,21 +257,24 @@ class PromptsResource(SyncAPIResource):
         """
         if not id:
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
-        return self._post(
-            f"/sdk/v1/prompts/{id}",
-            body=maybe_transform(
-                {
-                    "append_messages": append_messages,
-                    "override_messages": override_messages,
-                    "user": user,
-                    "variables": variables,
-                },
-                prompt_get_parameters_params.PromptGetParametersParams,
+        return cast(
+            ModelParameters,
+            self._post(
+                f"/sdk/v1/prompts/{id}",
+                body=maybe_transform(
+                    {
+                        "append_messages": append_messages,
+                        "override_messages": override_messages,
+                        "user": user,
+                        "variables": variables,
+                    },
+                    prompt_get_parameters_params.PromptGetParametersParams,
+                ),
+                options=make_request_options(
+                    extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                ),
+                cast_to=cast(Any, ModelParameters),  # Union types cannot be passed in as arguments in the type system
             ),
-            options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
-            ),
-            cast_to=ModelParameters,
         )
 
 
@@ -501,21 +504,24 @@ class AsyncPromptsResource(AsyncAPIResource):
         """
         if not id:
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
-        return await self._post(
-            f"/sdk/v1/prompts/{id}",
-            body=await async_maybe_transform(
-                {
-                    "append_messages": append_messages,
-                    "override_messages": override_messages,
-                    "user": user,
-                    "variables": variables,
-                },
-                prompt_get_parameters_params.PromptGetParametersParams,
+        return cast(
+            ModelParameters,
+            await self._post(
+                f"/sdk/v1/prompts/{id}",
+                body=await async_maybe_transform(
+                    {
+                        "append_messages": append_messages,
+                        "override_messages": override_messages,
+                        "user": user,
+                        "variables": variables,
+                    },
+                    prompt_get_parameters_params.PromptGetParametersParams,
+                ),
+                options=make_request_options(
+                    extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                ),
+                cast_to=cast(Any, ModelParameters),  # Union types cannot be passed in as arguments in the type system
             ),
-            options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
-            ),
-            cast_to=ModelParameters,
         )
 
 
