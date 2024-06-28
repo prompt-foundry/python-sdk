@@ -54,7 +54,7 @@ class Parameters(BaseModel):
     api_model_name: str = FieldInfo(alias="modelName")
     """Example: "gpt-3.5-turbo" """
 
-    api_model_provider: Literal["OPENAI"] = FieldInfo(alias="modelProvider")
+    api_model_provider: Literal["ANTHROPIC", "OPENAI"] = FieldInfo(alias="modelProvider")
     """The provider of the provided model."""
 
     parallel_tool_calls: bool = FieldInfo(alias="parallelToolCalls")

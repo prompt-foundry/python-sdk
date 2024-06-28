@@ -64,7 +64,7 @@ class Parameters(TypedDict, total=False):
     model_name: Required[Annotated[str, PropertyInfo(alias="modelName")]]
     """Example: "gpt-3.5-turbo" """
 
-    model_provider: Required[Annotated[Literal["OPENAI"], PropertyInfo(alias="modelProvider")]]
+    model_provider: Required[Annotated[Literal["ANTHROPIC", "OPENAI"], PropertyInfo(alias="modelProvider")]]
     """The provider of the provided model."""
 
     parallel_tool_calls: Required[Annotated[bool, PropertyInfo(alias="parallelToolCalls")]]
