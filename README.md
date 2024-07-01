@@ -23,20 +23,102 @@ pip install --pre prompt_foundry_python_sdk
 
 The full API of this library can be found in [api.md](api.md).
 
+### OpenAI Integration
+
+Install the OpenAI SDK
+
+```sh
+pip install openai
+```
+
+Import the OpenAI and Prompt Foundry SDKs
+
 ```python
 import os
 from prompt_foundry_python_sdk import PromptFoundry
+from openai import OpenAI
 
-client = PromptFoundry(
-    # This is the default and can be omitted
+# Initialize Prompt Foundry SDK with your API key
+pf = PromptFoundry(
     api_key=os.environ.get("PROMPT_FOUNDRY_API_KEY"),
 )
 
-model_parameters = client.prompts.get_parameters(
-    "1212121",
-    variables={"hello": "world"},
+# Initialize OpenAI SDK with your API key
+openai = OpenAI(
+    api_key=os.environ.get("OPENAI_API_KEY"),
 )
-print(model_parameters.parameters)
+
+def main():
+    try:
+        # Retrieve model parameters for the prompt
+        model_parameters = pf.prompts.get_parameters(
+            "1212121",
+            variables={"hello": "world"},
+        )
+
+        # Check if provider is OpenAI
+        if model_parameters.provider == "openai":
+            # Use the retrieved parameters to create a chat completion request
+            model_response = openai.chat.completions.create(
+                **model_parameters.parameters
+            )
+
+            # Print the response from OpenAI
+            print(model_response.data)
+
+    except Exception as e:
+        print(f"Error: {e}")
+
+if __name__ == "__main__":
+    main()
+```
+
+### Anthropic Integration
+
+Install the Anthropic SDK
+
+```sh
+pip install anthropic
+```
+
+Import the Anthropic and Prompt Foundry SDKs
+
+```python
+import os
+from prompt_foundry_python_sdk import PromptFoundry
+from anthropic import Anthropic
+
+# Initialize Prompt Foundry SDK with your API key
+pf = PromptFoundry(
+    api_key=os.environ.get("PROMPT_FOUNDRY_API_KEY"),
+)
+
+# Initialize Anthropic SDK with your API key
+anthropic = client = Anthropic(
+    api_key=os.environ.get("ANTHROPIC_API_KEY"),
+)
+
+def main():
+    try:
+        # Retrieve model parameters for the prompt
+        model_parameters = pf.prompts.get_parameters(
+            "1212121",
+            variables={"hello": "world"},
+        )
+
+        # Check if provider is Anthropic
+        if model_parameters.provider == "anthropic":
+            # Use the retrieved parameters to create a chat request
+            message = client.messages.create(
+                **model_parameters.parameters
+            )
+            print(message.content)
+
+    except Exception as e:
+        print(f"Error: {e}")
+
+if __name__ == "__main__":
+    main()
 ```
 
 While you can provide a `api_key` keyword argument,
