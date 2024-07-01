@@ -1,6 +1,6 @@
 # Prompt Foundry Python API library
 
-The prompt engineering, prompt management, and prompt evaluation tool for Python.
+The prompt engineering, prompt management, and llm evaluation tool for Python.
 
 [![PyPI version](https://img.shields.io/pypi/v/prompt_foundry_python_sdk.svg)](https://pypi.org/project/prompt_foundry_python_sdk/)
 
@@ -267,7 +267,7 @@ We use the standard library [`logging`](https://docs.python.org/3/library/loggin
 You can enable logging by setting the environment variable `PROMPT_FOUNDRY_LOG` to `debug`.
 
 ```shell
-$ export PROMPT_FOUNDRY_LOG=debug
+export PROMPT_FOUNDRY_LOG=debug
 ```
 
 ### How to tell whether `None` means `null` or missing
