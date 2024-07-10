@@ -75,6 +75,9 @@ class Parameters(BaseModel):
 
     tool_choice: Optional[str] = FieldInfo(alias="toolChoice", default=None)
 
+    top_k: Optional[float] = FieldInfo(alias="topK", default=None)
+    """Example: 50"""
+
     top_p: float = FieldInfo(alias="topP")
     """Example: 1"""
 

@@ -85,6 +85,9 @@ class Parameters(TypedDict, total=False):
 
     tool_choice: Required[Annotated[Optional[str], PropertyInfo(alias="toolChoice")]]
 
+    top_k: Required[Annotated[Optional[float], PropertyInfo(alias="topK")]]
+    """Example: 50"""
+
     top_p: Required[Annotated[float, PropertyInfo(alias="topP")]]
     """Example: 1"""
 
