@@ -27,103 +27,103 @@ class TestPrompts:
         prompt = client.prompts.create(
             messages=[
                 {
-                    "content": "string",
+                    "content": "content",
                     "role": "assistant",
-                    "tool_call_id": "string",
+                    "tool_call_id": "toolCallId",
                     "tool_calls": [
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                     ],
                 },
                 {
-                    "content": "string",
+                    "content": "content",
                     "role": "assistant",
-                    "tool_call_id": "string",
+                    "tool_call_id": "toolCallId",
                     "tool_calls": [
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                     ],
                 },
                 {
-                    "content": "string",
+                    "content": "content",
                     "role": "assistant",
-                    "tool_call_id": "string",
+                    "tool_call_id": "toolCallId",
                     "tool_calls": [
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                     ],
                 },
             ],
-            name="string",
+            name="name",
             parameters={
                 "model_provider": "ANTHROPIC",
-                "model_name": "string",
+                "model_name": "modelName",
                 "response_format": "JSON",
                 "temperature": 0,
                 "top_p": 0,
@@ -132,11 +132,11 @@ class TestPrompts:
                 "presence_penalty": 0,
                 "max_tokens": 0,
                 "seed": 0,
-                "tool_choice": "string",
+                "tool_choice": "toolChoice",
                 "stream": True,
                 "parallel_tool_calls": True,
             },
-            tools=[{"tool_id": "string"}, {"tool_id": "string"}, {"tool_id": "string"}],
+            tools=[{"tool_id": "toolId"}, {"tool_id": "toolId"}, {"tool_id": "toolId"}],
         )
         assert_matches_type(PromptConfiguration, prompt, path=["response"])
 
@@ -145,103 +145,103 @@ class TestPrompts:
         response = client.prompts.with_raw_response.create(
             messages=[
                 {
-                    "content": "string",
+                    "content": "content",
                     "role": "assistant",
-                    "tool_call_id": "string",
+                    "tool_call_id": "toolCallId",
                     "tool_calls": [
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                     ],
                 },
                 {
-                    "content": "string",
+                    "content": "content",
                     "role": "assistant",
-                    "tool_call_id": "string",
+                    "tool_call_id": "toolCallId",
                     "tool_calls": [
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                     ],
                 },
                 {
-                    "content": "string",
+                    "content": "content",
                     "role": "assistant",
-                    "tool_call_id": "string",
+                    "tool_call_id": "toolCallId",
                     "tool_calls": [
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                     ],
                 },
             ],
-            name="string",
+            name="name",
             parameters={
                 "model_provider": "ANTHROPIC",
-                "model_name": "string",
+                "model_name": "modelName",
                 "response_format": "JSON",
                 "temperature": 0,
                 "top_p": 0,
@@ -250,11 +250,11 @@ class TestPrompts:
                 "presence_penalty": 0,
                 "max_tokens": 0,
                 "seed": 0,
-                "tool_choice": "string",
+                "tool_choice": "toolChoice",
                 "stream": True,
                 "parallel_tool_calls": True,
             },
-            tools=[{"tool_id": "string"}, {"tool_id": "string"}, {"tool_id": "string"}],
+            tools=[{"tool_id": "toolId"}, {"tool_id": "toolId"}, {"tool_id": "toolId"}],
         )
 
         assert response.is_closed is True
@@ -267,103 +267,103 @@ class TestPrompts:
         with client.prompts.with_streaming_response.create(
             messages=[
                 {
-                    "content": "string",
+                    "content": "content",
                     "role": "assistant",
-                    "tool_call_id": "string",
+                    "tool_call_id": "toolCallId",
                     "tool_calls": [
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                     ],
                 },
                 {
-                    "content": "string",
+                    "content": "content",
                     "role": "assistant",
-                    "tool_call_id": "string",
+                    "tool_call_id": "toolCallId",
                     "tool_calls": [
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                     ],
                 },
                 {
-                    "content": "string",
+                    "content": "content",
                     "role": "assistant",
-                    "tool_call_id": "string",
+                    "tool_call_id": "toolCallId",
                     "tool_calls": [
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                     ],
                 },
             ],
-            name="string",
+            name="name",
             parameters={
                 "model_provider": "ANTHROPIC",
-                "model_name": "string",
+                "model_name": "modelName",
                 "response_format": "JSON",
                 "temperature": 0,
                 "top_p": 0,
@@ -372,11 +372,11 @@ class TestPrompts:
                 "presence_penalty": 0,
                 "max_tokens": 0,
                 "seed": 0,
-                "tool_choice": "string",
+                "tool_choice": "toolChoice",
                 "stream": True,
                 "parallel_tool_calls": True,
             },
-            tools=[{"tool_id": "string"}, {"tool_id": "string"}, {"tool_id": "string"}],
+            tools=[{"tool_id": "toolId"}, {"tool_id": "toolId"}, {"tool_id": "toolId"}],
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -389,106 +389,106 @@ class TestPrompts:
     @parametrize
     def test_method_update(self, client: PromptFoundry) -> None:
         prompt = client.prompts.update(
-            "1212121",
+            id="1212121",
             messages=[
                 {
-                    "content": "string",
+                    "content": "content",
                     "role": "assistant",
-                    "tool_call_id": "string",
+                    "tool_call_id": "toolCallId",
                     "tool_calls": [
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                     ],
                 },
                 {
-                    "content": "string",
+                    "content": "content",
                     "role": "assistant",
-                    "tool_call_id": "string",
+                    "tool_call_id": "toolCallId",
                     "tool_calls": [
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                     ],
                 },
                 {
-                    "content": "string",
+                    "content": "content",
                     "role": "assistant",
-                    "tool_call_id": "string",
+                    "tool_call_id": "toolCallId",
                     "tool_calls": [
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                     ],
                 },
             ],
-            name="string",
+            name="name",
             parameters={
                 "model_provider": "ANTHROPIC",
-                "model_name": "string",
+                "model_name": "modelName",
                 "response_format": "JSON",
                 "temperature": 0,
                 "top_p": 0,
@@ -497,117 +497,117 @@ class TestPrompts:
                 "presence_penalty": 0,
                 "max_tokens": 0,
                 "seed": 0,
-                "tool_choice": "string",
+                "tool_choice": "toolChoice",
                 "stream": True,
                 "parallel_tool_calls": True,
             },
-            tools=[{"tool_id": "string"}, {"tool_id": "string"}, {"tool_id": "string"}],
+            tools=[{"tool_id": "toolId"}, {"tool_id": "toolId"}, {"tool_id": "toolId"}],
         )
         assert_matches_type(PromptConfiguration, prompt, path=["response"])
 
     @parametrize
     def test_raw_response_update(self, client: PromptFoundry) -> None:
         response = client.prompts.with_raw_response.update(
-            "1212121",
+            id="1212121",
             messages=[
                 {
-                    "content": "string",
+                    "content": "content",
                     "role": "assistant",
-                    "tool_call_id": "string",
+                    "tool_call_id": "toolCallId",
                     "tool_calls": [
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                     ],
                 },
                 {
-                    "content": "string",
+                    "content": "content",
                     "role": "assistant",
-                    "tool_call_id": "string",
+                    "tool_call_id": "toolCallId",
                     "tool_calls": [
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                     ],
                 },
                 {
-                    "content": "string",
+                    "content": "content",
                     "role": "assistant",
-                    "tool_call_id": "string",
+                    "tool_call_id": "toolCallId",
                     "tool_calls": [
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                     ],
                 },
             ],
-            name="string",
+            name="name",
             parameters={
                 "model_provider": "ANTHROPIC",
-                "model_name": "string",
+                "model_name": "modelName",
                 "response_format": "JSON",
                 "temperature": 0,
                 "top_p": 0,
@@ -616,11 +616,11 @@ class TestPrompts:
                 "presence_penalty": 0,
                 "max_tokens": 0,
                 "seed": 0,
-                "tool_choice": "string",
+                "tool_choice": "toolChoice",
                 "stream": True,
                 "parallel_tool_calls": True,
             },
-            tools=[{"tool_id": "string"}, {"tool_id": "string"}, {"tool_id": "string"}],
+            tools=[{"tool_id": "toolId"}, {"tool_id": "toolId"}, {"tool_id": "toolId"}],
         )
 
         assert response.is_closed is True
@@ -631,106 +631,106 @@ class TestPrompts:
     @parametrize
     def test_streaming_response_update(self, client: PromptFoundry) -> None:
         with client.prompts.with_streaming_response.update(
-            "1212121",
+            id="1212121",
             messages=[
                 {
-                    "content": "string",
+                    "content": "content",
                     "role": "assistant",
-                    "tool_call_id": "string",
+                    "tool_call_id": "toolCallId",
                     "tool_calls": [
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                     ],
                 },
                 {
-                    "content": "string",
+                    "content": "content",
                     "role": "assistant",
-                    "tool_call_id": "string",
+                    "tool_call_id": "toolCallId",
                     "tool_calls": [
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                     ],
                 },
                 {
-                    "content": "string",
+                    "content": "content",
                     "role": "assistant",
-                    "tool_call_id": "string",
+                    "tool_call_id": "toolCallId",
                     "tool_calls": [
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                     ],
                 },
             ],
-            name="string",
+            name="name",
             parameters={
                 "model_provider": "ANTHROPIC",
-                "model_name": "string",
+                "model_name": "modelName",
                 "response_format": "JSON",
                 "temperature": 0,
                 "top_p": 0,
@@ -739,11 +739,11 @@ class TestPrompts:
                 "presence_penalty": 0,
                 "max_tokens": 0,
                 "seed": 0,
-                "tool_choice": "string",
+                "tool_choice": "toolChoice",
                 "stream": True,
                 "parallel_tool_calls": True,
             },
-            tools=[{"tool_id": "string"}, {"tool_id": "string"}, {"tool_id": "string"}],
+            tools=[{"tool_id": "toolId"}, {"tool_id": "toolId"}, {"tool_id": "toolId"}],
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -757,106 +757,106 @@ class TestPrompts:
     def test_path_params_update(self, client: PromptFoundry) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
             client.prompts.with_raw_response.update(
-                "",
+                id="",
                 messages=[
                     {
-                        "content": "string",
+                        "content": "content",
                         "role": "assistant",
-                        "tool_call_id": "string",
+                        "tool_call_id": "toolCallId",
                         "tool_calls": [
                             {
-                                "tool_call_id": "string",
+                                "tool_call_id": "toolCallId",
                                 "type": "function",
                                 "function": {
-                                    "arguments": "string",
-                                    "name": "string",
+                                    "arguments": "arguments",
+                                    "name": "name",
                                 },
                             },
                             {
-                                "tool_call_id": "string",
+                                "tool_call_id": "toolCallId",
                                 "type": "function",
                                 "function": {
-                                    "arguments": "string",
-                                    "name": "string",
+                                    "arguments": "arguments",
+                                    "name": "name",
                                 },
                             },
                             {
-                                "tool_call_id": "string",
+                                "tool_call_id": "toolCallId",
                                 "type": "function",
                                 "function": {
-                                    "arguments": "string",
-                                    "name": "string",
+                                    "arguments": "arguments",
+                                    "name": "name",
                                 },
                             },
                         ],
                     },
                     {
-                        "content": "string",
+                        "content": "content",
                         "role": "assistant",
-                        "tool_call_id": "string",
+                        "tool_call_id": "toolCallId",
                         "tool_calls": [
                             {
-                                "tool_call_id": "string",
+                                "tool_call_id": "toolCallId",
                                 "type": "function",
                                 "function": {
-                                    "arguments": "string",
-                                    "name": "string",
+                                    "arguments": "arguments",
+                                    "name": "name",
                                 },
                             },
                             {
-                                "tool_call_id": "string",
+                                "tool_call_id": "toolCallId",
                                 "type": "function",
                                 "function": {
-                                    "arguments": "string",
-                                    "name": "string",
+                                    "arguments": "arguments",
+                                    "name": "name",
                                 },
                             },
                             {
-                                "tool_call_id": "string",
+                                "tool_call_id": "toolCallId",
                                 "type": "function",
                                 "function": {
-                                    "arguments": "string",
-                                    "name": "string",
+                                    "arguments": "arguments",
+                                    "name": "name",
                                 },
                             },
                         ],
                     },
                     {
-                        "content": "string",
+                        "content": "content",
                         "role": "assistant",
-                        "tool_call_id": "string",
+                        "tool_call_id": "toolCallId",
                         "tool_calls": [
                             {
-                                "tool_call_id": "string",
+                                "tool_call_id": "toolCallId",
                                 "type": "function",
                                 "function": {
-                                    "arguments": "string",
-                                    "name": "string",
+                                    "arguments": "arguments",
+                                    "name": "name",
                                 },
                             },
                             {
-                                "tool_call_id": "string",
+                                "tool_call_id": "toolCallId",
                                 "type": "function",
                                 "function": {
-                                    "arguments": "string",
-                                    "name": "string",
+                                    "arguments": "arguments",
+                                    "name": "name",
                                 },
                             },
                             {
-                                "tool_call_id": "string",
+                                "tool_call_id": "toolCallId",
                                 "type": "function",
                                 "function": {
-                                    "arguments": "string",
-                                    "name": "string",
+                                    "arguments": "arguments",
+                                    "name": "name",
                                 },
                             },
                         ],
                     },
                 ],
-                name="string",
+                name="name",
                 parameters={
                     "model_provider": "ANTHROPIC",
-                    "model_name": "string",
+                    "model_name": "modelName",
                     "response_format": "JSON",
                     "temperature": 0,
                     "top_p": 0,
@@ -865,11 +865,11 @@ class TestPrompts:
                     "presence_penalty": 0,
                     "max_tokens": 0,
                     "seed": 0,
-                    "tool_choice": "string",
+                    "tool_choice": "toolChoice",
                     "stream": True,
                     "parallel_tool_calls": True,
                 },
-                tools=[{"tool_id": "string"}, {"tool_id": "string"}, {"tool_id": "string"}],
+                tools=[{"tool_id": "toolId"}, {"tool_id": "toolId"}, {"tool_id": "toolId"}],
             )
 
     @parametrize
@@ -976,104 +976,104 @@ class TestPrompts:
     @parametrize
     def test_method_get_parameters(self, client: PromptFoundry) -> None:
         prompt = client.prompts.get_parameters(
-            "1212121",
+            id="1212121",
         )
         assert_matches_type(ModelParameters, prompt, path=["response"])
 
     @parametrize
     def test_method_get_parameters_with_all_params(self, client: PromptFoundry) -> None:
         prompt = client.prompts.get_parameters(
-            "1212121",
+            id="1212121",
             append_messages=[
                 {
-                    "content": "string",
+                    "content": "content",
                     "role": "assistant",
-                    "tool_call_id": "string",
+                    "tool_call_id": "toolCallId",
                     "tool_calls": [
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                     ],
                 },
                 {
-                    "content": "string",
+                    "content": "content",
                     "role": "assistant",
-                    "tool_call_id": "string",
+                    "tool_call_id": "toolCallId",
                     "tool_calls": [
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                     ],
                 },
                 {
-                    "content": "string",
+                    "content": "content",
                     "role": "assistant",
-                    "tool_call_id": "string",
+                    "tool_call_id": "toolCallId",
                     "tool_calls": [
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                     ],
@@ -1081,100 +1081,100 @@ class TestPrompts:
             ],
             override_messages=[
                 {
-                    "content": "string",
+                    "content": "content",
                     "role": "assistant",
-                    "tool_call_id": "string",
+                    "tool_call_id": "toolCallId",
                     "tool_calls": [
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                     ],
                 },
                 {
-                    "content": "string",
+                    "content": "content",
                     "role": "assistant",
-                    "tool_call_id": "string",
+                    "tool_call_id": "toolCallId",
                     "tool_calls": [
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                     ],
                 },
                 {
-                    "content": "string",
+                    "content": "content",
                     "role": "assistant",
-                    "tool_call_id": "string",
+                    "tool_call_id": "toolCallId",
                     "tool_calls": [
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                     ],
                 },
             ],
-            user="string",
+            user="user",
             variables={"foo": "string"},
         )
         assert_matches_type(ModelParameters, prompt, path=["response"])
@@ -1182,7 +1182,7 @@ class TestPrompts:
     @parametrize
     def test_raw_response_get_parameters(self, client: PromptFoundry) -> None:
         response = client.prompts.with_raw_response.get_parameters(
-            "1212121",
+            id="1212121",
         )
 
         assert response.is_closed is True
@@ -1193,7 +1193,7 @@ class TestPrompts:
     @parametrize
     def test_streaming_response_get_parameters(self, client: PromptFoundry) -> None:
         with client.prompts.with_streaming_response.get_parameters(
-            "1212121",
+            id="1212121",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -1207,7 +1207,7 @@ class TestPrompts:
     def test_path_params_get_parameters(self, client: PromptFoundry) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
             client.prompts.with_raw_response.get_parameters(
-                "",
+                id="",
             )
 
 
@@ -1219,103 +1219,103 @@ class TestAsyncPrompts:
         prompt = await async_client.prompts.create(
             messages=[
                 {
-                    "content": "string",
+                    "content": "content",
                     "role": "assistant",
-                    "tool_call_id": "string",
+                    "tool_call_id": "toolCallId",
                     "tool_calls": [
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                     ],
                 },
                 {
-                    "content": "string",
+                    "content": "content",
                     "role": "assistant",
-                    "tool_call_id": "string",
+                    "tool_call_id": "toolCallId",
                     "tool_calls": [
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                     ],
                 },
                 {
-                    "content": "string",
+                    "content": "content",
                     "role": "assistant",
-                    "tool_call_id": "string",
+                    "tool_call_id": "toolCallId",
                     "tool_calls": [
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                     ],
                 },
             ],
-            name="string",
+            name="name",
             parameters={
                 "model_provider": "ANTHROPIC",
-                "model_name": "string",
+                "model_name": "modelName",
                 "response_format": "JSON",
                 "temperature": 0,
                 "top_p": 0,
@@ -1324,11 +1324,11 @@ class TestAsyncPrompts:
                 "presence_penalty": 0,
                 "max_tokens": 0,
                 "seed": 0,
-                "tool_choice": "string",
+                "tool_choice": "toolChoice",
                 "stream": True,
                 "parallel_tool_calls": True,
             },
-            tools=[{"tool_id": "string"}, {"tool_id": "string"}, {"tool_id": "string"}],
+            tools=[{"tool_id": "toolId"}, {"tool_id": "toolId"}, {"tool_id": "toolId"}],
         )
         assert_matches_type(PromptConfiguration, prompt, path=["response"])
 
@@ -1337,103 +1337,103 @@ class TestAsyncPrompts:
         response = await async_client.prompts.with_raw_response.create(
             messages=[
                 {
-                    "content": "string",
+                    "content": "content",
                     "role": "assistant",
-                    "tool_call_id": "string",
+                    "tool_call_id": "toolCallId",
                     "tool_calls": [
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                     ],
                 },
                 {
-                    "content": "string",
+                    "content": "content",
                     "role": "assistant",
-                    "tool_call_id": "string",
+                    "tool_call_id": "toolCallId",
                     "tool_calls": [
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                     ],
                 },
                 {
-                    "content": "string",
+                    "content": "content",
                     "role": "assistant",
-                    "tool_call_id": "string",
+                    "tool_call_id": "toolCallId",
                     "tool_calls": [
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                     ],
                 },
             ],
-            name="string",
+            name="name",
             parameters={
                 "model_provider": "ANTHROPIC",
-                "model_name": "string",
+                "model_name": "modelName",
                 "response_format": "JSON",
                 "temperature": 0,
                 "top_p": 0,
@@ -1442,11 +1442,11 @@ class TestAsyncPrompts:
                 "presence_penalty": 0,
                 "max_tokens": 0,
                 "seed": 0,
-                "tool_choice": "string",
+                "tool_choice": "toolChoice",
                 "stream": True,
                 "parallel_tool_calls": True,
             },
-            tools=[{"tool_id": "string"}, {"tool_id": "string"}, {"tool_id": "string"}],
+            tools=[{"tool_id": "toolId"}, {"tool_id": "toolId"}, {"tool_id": "toolId"}],
         )
 
         assert response.is_closed is True
@@ -1459,103 +1459,103 @@ class TestAsyncPrompts:
         async with async_client.prompts.with_streaming_response.create(
             messages=[
                 {
-                    "content": "string",
+                    "content": "content",
                     "role": "assistant",
-                    "tool_call_id": "string",
+                    "tool_call_id": "toolCallId",
                     "tool_calls": [
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                     ],
                 },
                 {
-                    "content": "string",
+                    "content": "content",
                     "role": "assistant",
-                    "tool_call_id": "string",
+                    "tool_call_id": "toolCallId",
                     "tool_calls": [
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                     ],
                 },
                 {
-                    "content": "string",
+                    "content": "content",
                     "role": "assistant",
-                    "tool_call_id": "string",
+                    "tool_call_id": "toolCallId",
                     "tool_calls": [
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                     ],
                 },
             ],
-            name="string",
+            name="name",
             parameters={
                 "model_provider": "ANTHROPIC",
-                "model_name": "string",
+                "model_name": "modelName",
                 "response_format": "JSON",
                 "temperature": 0,
                 "top_p": 0,
@@ -1564,11 +1564,11 @@ class TestAsyncPrompts:
                 "presence_penalty": 0,
                 "max_tokens": 0,
                 "seed": 0,
-                "tool_choice": "string",
+                "tool_choice": "toolChoice",
                 "stream": True,
                 "parallel_tool_calls": True,
             },
-            tools=[{"tool_id": "string"}, {"tool_id": "string"}, {"tool_id": "string"}],
+            tools=[{"tool_id": "toolId"}, {"tool_id": "toolId"}, {"tool_id": "toolId"}],
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -1581,106 +1581,106 @@ class TestAsyncPrompts:
     @parametrize
     async def test_method_update(self, async_client: AsyncPromptFoundry) -> None:
         prompt = await async_client.prompts.update(
-            "1212121",
+            id="1212121",
             messages=[
                 {
-                    "content": "string",
+                    "content": "content",
                     "role": "assistant",
-                    "tool_call_id": "string",
+                    "tool_call_id": "toolCallId",
                     "tool_calls": [
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                     ],
                 },
                 {
-                    "content": "string",
+                    "content": "content",
                     "role": "assistant",
-                    "tool_call_id": "string",
+                    "tool_call_id": "toolCallId",
                     "tool_calls": [
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                     ],
                 },
                 {
-                    "content": "string",
+                    "content": "content",
                     "role": "assistant",
-                    "tool_call_id": "string",
+                    "tool_call_id": "toolCallId",
                     "tool_calls": [
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                     ],
                 },
             ],
-            name="string",
+            name="name",
             parameters={
                 "model_provider": "ANTHROPIC",
-                "model_name": "string",
+                "model_name": "modelName",
                 "response_format": "JSON",
                 "temperature": 0,
                 "top_p": 0,
@@ -1689,117 +1689,117 @@ class TestAsyncPrompts:
                 "presence_penalty": 0,
                 "max_tokens": 0,
                 "seed": 0,
-                "tool_choice": "string",
+                "tool_choice": "toolChoice",
                 "stream": True,
                 "parallel_tool_calls": True,
             },
-            tools=[{"tool_id": "string"}, {"tool_id": "string"}, {"tool_id": "string"}],
+            tools=[{"tool_id": "toolId"}, {"tool_id": "toolId"}, {"tool_id": "toolId"}],
         )
         assert_matches_type(PromptConfiguration, prompt, path=["response"])
 
     @parametrize
     async def test_raw_response_update(self, async_client: AsyncPromptFoundry) -> None:
         response = await async_client.prompts.with_raw_response.update(
-            "1212121",
+            id="1212121",
             messages=[
                 {
-                    "content": "string",
+                    "content": "content",
                     "role": "assistant",
-                    "tool_call_id": "string",
+                    "tool_call_id": "toolCallId",
                     "tool_calls": [
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                     ],
                 },
                 {
-                    "content": "string",
+                    "content": "content",
                     "role": "assistant",
-                    "tool_call_id": "string",
+                    "tool_call_id": "toolCallId",
                     "tool_calls": [
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                     ],
                 },
                 {
-                    "content": "string",
+                    "content": "content",
                     "role": "assistant",
-                    "tool_call_id": "string",
+                    "tool_call_id": "toolCallId",
                     "tool_calls": [
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                     ],
                 },
             ],
-            name="string",
+            name="name",
             parameters={
                 "model_provider": "ANTHROPIC",
-                "model_name": "string",
+                "model_name": "modelName",
                 "response_format": "JSON",
                 "temperature": 0,
                 "top_p": 0,
@@ -1808,11 +1808,11 @@ class TestAsyncPrompts:
                 "presence_penalty": 0,
                 "max_tokens": 0,
                 "seed": 0,
-                "tool_choice": "string",
+                "tool_choice": "toolChoice",
                 "stream": True,
                 "parallel_tool_calls": True,
             },
-            tools=[{"tool_id": "string"}, {"tool_id": "string"}, {"tool_id": "string"}],
+            tools=[{"tool_id": "toolId"}, {"tool_id": "toolId"}, {"tool_id": "toolId"}],
         )
 
         assert response.is_closed is True
@@ -1823,106 +1823,106 @@ class TestAsyncPrompts:
     @parametrize
     async def test_streaming_response_update(self, async_client: AsyncPromptFoundry) -> None:
         async with async_client.prompts.with_streaming_response.update(
-            "1212121",
+            id="1212121",
             messages=[
                 {
-                    "content": "string",
+                    "content": "content",
                     "role": "assistant",
-                    "tool_call_id": "string",
+                    "tool_call_id": "toolCallId",
                     "tool_calls": [
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                     ],
                 },
                 {
-                    "content": "string",
+                    "content": "content",
                     "role": "assistant",
-                    "tool_call_id": "string",
+                    "tool_call_id": "toolCallId",
                     "tool_calls": [
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                     ],
                 },
                 {
-                    "content": "string",
+                    "content": "content",
                     "role": "assistant",
-                    "tool_call_id": "string",
+                    "tool_call_id": "toolCallId",
                     "tool_calls": [
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                     ],
                 },
             ],
-            name="string",
+            name="name",
             parameters={
                 "model_provider": "ANTHROPIC",
-                "model_name": "string",
+                "model_name": "modelName",
                 "response_format": "JSON",
                 "temperature": 0,
                 "top_p": 0,
@@ -1931,11 +1931,11 @@ class TestAsyncPrompts:
                 "presence_penalty": 0,
                 "max_tokens": 0,
                 "seed": 0,
-                "tool_choice": "string",
+                "tool_choice": "toolChoice",
                 "stream": True,
                 "parallel_tool_calls": True,
             },
-            tools=[{"tool_id": "string"}, {"tool_id": "string"}, {"tool_id": "string"}],
+            tools=[{"tool_id": "toolId"}, {"tool_id": "toolId"}, {"tool_id": "toolId"}],
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -1949,106 +1949,106 @@ class TestAsyncPrompts:
     async def test_path_params_update(self, async_client: AsyncPromptFoundry) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
             await async_client.prompts.with_raw_response.update(
-                "",
+                id="",
                 messages=[
                     {
-                        "content": "string",
+                        "content": "content",
                         "role": "assistant",
-                        "tool_call_id": "string",
+                        "tool_call_id": "toolCallId",
                         "tool_calls": [
                             {
-                                "tool_call_id": "string",
+                                "tool_call_id": "toolCallId",
                                 "type": "function",
                                 "function": {
-                                    "arguments": "string",
-                                    "name": "string",
+                                    "arguments": "arguments",
+                                    "name": "name",
                                 },
                             },
                             {
-                                "tool_call_id": "string",
+                                "tool_call_id": "toolCallId",
                                 "type": "function",
                                 "function": {
-                                    "arguments": "string",
-                                    "name": "string",
+                                    "arguments": "arguments",
+                                    "name": "name",
                                 },
                             },
                             {
-                                "tool_call_id": "string",
+                                "tool_call_id": "toolCallId",
                                 "type": "function",
                                 "function": {
-                                    "arguments": "string",
-                                    "name": "string",
+                                    "arguments": "arguments",
+                                    "name": "name",
                                 },
                             },
                         ],
                     },
                     {
-                        "content": "string",
+                        "content": "content",
                         "role": "assistant",
-                        "tool_call_id": "string",
+                        "tool_call_id": "toolCallId",
                         "tool_calls": [
                             {
-                                "tool_call_id": "string",
+                                "tool_call_id": "toolCallId",
                                 "type": "function",
                                 "function": {
-                                    "arguments": "string",
-                                    "name": "string",
+                                    "arguments": "arguments",
+                                    "name": "name",
                                 },
                             },
                             {
-                                "tool_call_id": "string",
+                                "tool_call_id": "toolCallId",
                                 "type": "function",
                                 "function": {
-                                    "arguments": "string",
-                                    "name": "string",
+                                    "arguments": "arguments",
+                                    "name": "name",
                                 },
                             },
                             {
-                                "tool_call_id": "string",
+                                "tool_call_id": "toolCallId",
                                 "type": "function",
                                 "function": {
-                                    "arguments": "string",
-                                    "name": "string",
+                                    "arguments": "arguments",
+                                    "name": "name",
                                 },
                             },
                         ],
                     },
                     {
-                        "content": "string",
+                        "content": "content",
                         "role": "assistant",
-                        "tool_call_id": "string",
+                        "tool_call_id": "toolCallId",
                         "tool_calls": [
                             {
-                                "tool_call_id": "string",
+                                "tool_call_id": "toolCallId",
                                 "type": "function",
                                 "function": {
-                                    "arguments": "string",
-                                    "name": "string",
+                                    "arguments": "arguments",
+                                    "name": "name",
                                 },
                             },
                             {
-                                "tool_call_id": "string",
+                                "tool_call_id": "toolCallId",
                                 "type": "function",
                                 "function": {
-                                    "arguments": "string",
-                                    "name": "string",
+                                    "arguments": "arguments",
+                                    "name": "name",
                                 },
                             },
                             {
-                                "tool_call_id": "string",
+                                "tool_call_id": "toolCallId",
                                 "type": "function",
                                 "function": {
-                                    "arguments": "string",
-                                    "name": "string",
+                                    "arguments": "arguments",
+                                    "name": "name",
                                 },
                             },
                         ],
                     },
                 ],
-                name="string",
+                name="name",
                 parameters={
                     "model_provider": "ANTHROPIC",
-                    "model_name": "string",
+                    "model_name": "modelName",
                     "response_format": "JSON",
                     "temperature": 0,
                     "top_p": 0,
@@ -2057,11 +2057,11 @@ class TestAsyncPrompts:
                     "presence_penalty": 0,
                     "max_tokens": 0,
                     "seed": 0,
-                    "tool_choice": "string",
+                    "tool_choice": "toolChoice",
                     "stream": True,
                     "parallel_tool_calls": True,
                 },
-                tools=[{"tool_id": "string"}, {"tool_id": "string"}, {"tool_id": "string"}],
+                tools=[{"tool_id": "toolId"}, {"tool_id": "toolId"}, {"tool_id": "toolId"}],
             )
 
     @parametrize
@@ -2168,104 +2168,104 @@ class TestAsyncPrompts:
     @parametrize
     async def test_method_get_parameters(self, async_client: AsyncPromptFoundry) -> None:
         prompt = await async_client.prompts.get_parameters(
-            "1212121",
+            id="1212121",
         )
         assert_matches_type(ModelParameters, prompt, path=["response"])
 
     @parametrize
     async def test_method_get_parameters_with_all_params(self, async_client: AsyncPromptFoundry) -> None:
         prompt = await async_client.prompts.get_parameters(
-            "1212121",
+            id="1212121",
             append_messages=[
                 {
-                    "content": "string",
+                    "content": "content",
                     "role": "assistant",
-                    "tool_call_id": "string",
+                    "tool_call_id": "toolCallId",
                     "tool_calls": [
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                     ],
                 },
                 {
-                    "content": "string",
+                    "content": "content",
                     "role": "assistant",
-                    "tool_call_id": "string",
+                    "tool_call_id": "toolCallId",
                     "tool_calls": [
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                     ],
                 },
                 {
-                    "content": "string",
+                    "content": "content",
                     "role": "assistant",
-                    "tool_call_id": "string",
+                    "tool_call_id": "toolCallId",
                     "tool_calls": [
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                     ],
@@ -2273,100 +2273,100 @@ class TestAsyncPrompts:
             ],
             override_messages=[
                 {
-                    "content": "string",
+                    "content": "content",
                     "role": "assistant",
-                    "tool_call_id": "string",
+                    "tool_call_id": "toolCallId",
                     "tool_calls": [
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                     ],
                 },
                 {
-                    "content": "string",
+                    "content": "content",
                     "role": "assistant",
-                    "tool_call_id": "string",
+                    "tool_call_id": "toolCallId",
                     "tool_calls": [
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                     ],
                 },
                 {
-                    "content": "string",
+                    "content": "content",
                     "role": "assistant",
-                    "tool_call_id": "string",
+                    "tool_call_id": "toolCallId",
                     "tool_calls": [
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                         {
-                            "tool_call_id": "string",
+                            "tool_call_id": "toolCallId",
                             "type": "function",
                             "function": {
-                                "arguments": "string",
-                                "name": "string",
+                                "arguments": "arguments",
+                                "name": "name",
                             },
                         },
                     ],
                 },
             ],
-            user="string",
+            user="user",
             variables={"foo": "string"},
         )
         assert_matches_type(ModelParameters, prompt, path=["response"])
@@ -2374,7 +2374,7 @@ class TestAsyncPrompts:
     @parametrize
     async def test_raw_response_get_parameters(self, async_client: AsyncPromptFoundry) -> None:
         response = await async_client.prompts.with_raw_response.get_parameters(
-            "1212121",
+            id="1212121",
         )
 
         assert response.is_closed is True
@@ -2385,7 +2385,7 @@ class TestAsyncPrompts:
     @parametrize
     async def test_streaming_response_get_parameters(self, async_client: AsyncPromptFoundry) -> None:
         async with async_client.prompts.with_streaming_response.get_parameters(
-            "1212121",
+            id="1212121",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -2399,5 +2399,5 @@ class TestAsyncPrompts:
     async def test_path_params_get_parameters(self, async_client: AsyncPromptFoundry) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
             await async_client.prompts.with_raw_response.get_parameters(
-                "",
+                id="",
             )

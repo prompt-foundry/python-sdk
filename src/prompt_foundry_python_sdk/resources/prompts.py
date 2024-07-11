@@ -20,9 +20,7 @@ from .._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from .._base_client import (
-    make_request_options,
-)
+from .._base_client import make_request_options
 from ..types.model_parameters import ModelParameters
 from ..types.prompt_configuration import PromptConfiguration
 from ..types.prompt_list_response import PromptListResponse

@@ -24,8 +24,8 @@ class TestTools:
     @parametrize
     def test_method_create(self, client: PromptFoundry) -> None:
         tool = client.tools.create(
-            description="string",
-            name="string",
+            description="description",
+            name="name",
             parameters={"foo": {}},
         )
         assert_matches_type(Tool, tool, path=["response"])
@@ -33,8 +33,8 @@ class TestTools:
     @parametrize
     def test_raw_response_create(self, client: PromptFoundry) -> None:
         response = client.tools.with_raw_response.create(
-            description="string",
-            name="string",
+            description="description",
+            name="name",
             parameters={"foo": {}},
         )
 
@@ -46,8 +46,8 @@ class TestTools:
     @parametrize
     def test_streaming_response_create(self, client: PromptFoundry) -> None:
         with client.tools.with_streaming_response.create(
-            description="string",
-            name="string",
+            description="description",
+            name="name",
             parameters={"foo": {}},
         ) as response:
             assert not response.is_closed
@@ -61,9 +61,9 @@ class TestTools:
     @parametrize
     def test_method_update(self, client: PromptFoundry) -> None:
         tool = client.tools.update(
-            "1212121",
-            description="string",
-            name="string",
+            id="1212121",
+            description="description",
+            name="name",
             parameters={"foo": {}},
         )
         assert_matches_type(Tool, tool, path=["response"])
@@ -71,9 +71,9 @@ class TestTools:
     @parametrize
     def test_raw_response_update(self, client: PromptFoundry) -> None:
         response = client.tools.with_raw_response.update(
-            "1212121",
-            description="string",
-            name="string",
+            id="1212121",
+            description="description",
+            name="name",
             parameters={"foo": {}},
         )
 
@@ -85,9 +85,9 @@ class TestTools:
     @parametrize
     def test_streaming_response_update(self, client: PromptFoundry) -> None:
         with client.tools.with_streaming_response.update(
-            "1212121",
-            description="string",
-            name="string",
+            id="1212121",
+            description="description",
+            name="name",
             parameters={"foo": {}},
         ) as response:
             assert not response.is_closed
@@ -102,9 +102,9 @@ class TestTools:
     def test_path_params_update(self, client: PromptFoundry) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
             client.tools.with_raw_response.update(
-                "",
-                description="string",
-                name="string",
+                id="",
+                description="description",
+                name="name",
                 parameters={"foo": {}},
             )
 
@@ -216,8 +216,8 @@ class TestAsyncTools:
     @parametrize
     async def test_method_create(self, async_client: AsyncPromptFoundry) -> None:
         tool = await async_client.tools.create(
-            description="string",
-            name="string",
+            description="description",
+            name="name",
             parameters={"foo": {}},
         )
         assert_matches_type(Tool, tool, path=["response"])
@@ -225,8 +225,8 @@ class TestAsyncTools:
     @parametrize
     async def test_raw_response_create(self, async_client: AsyncPromptFoundry) -> None:
         response = await async_client.tools.with_raw_response.create(
-            description="string",
-            name="string",
+            description="description",
+            name="name",
             parameters={"foo": {}},
         )
 
@@ -238,8 +238,8 @@ class TestAsyncTools:
     @parametrize
     async def test_streaming_response_create(self, async_client: AsyncPromptFoundry) -> None:
         async with async_client.tools.with_streaming_response.create(
-            description="string",
-            name="string",
+            description="description",
+            name="name",
             parameters={"foo": {}},
         ) as response:
             assert not response.is_closed
@@ -253,9 +253,9 @@ class TestAsyncTools:
     @parametrize
     async def test_method_update(self, async_client: AsyncPromptFoundry) -> None:
         tool = await async_client.tools.update(
-            "1212121",
-            description="string",
-            name="string",
+            id="1212121",
+            description="description",
+            name="name",
             parameters={"foo": {}},
         )
         assert_matches_type(Tool, tool, path=["response"])
@@ -263,9 +263,9 @@ class TestAsyncTools:
     @parametrize
     async def test_raw_response_update(self, async_client: AsyncPromptFoundry) -> None:
         response = await async_client.tools.with_raw_response.update(
-            "1212121",
-            description="string",
-            name="string",
+            id="1212121",
+            description="description",
+            name="name",
             parameters={"foo": {}},
         )
 
@@ -277,9 +277,9 @@ class TestAsyncTools:
     @parametrize
     async def test_streaming_response_update(self, async_client: AsyncPromptFoundry) -> None:
         async with async_client.tools.with_streaming_response.update(
-            "1212121",
-            description="string",
-            name="string",
+            id="1212121",
+            description="description",
+            name="name",
             parameters={"foo": {}},
         ) as response:
             assert not response.is_closed
@@ -294,9 +294,9 @@ class TestAsyncTools:
     async def test_path_params_update(self, async_client: AsyncPromptFoundry) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
             await async_client.tools.with_raw_response.update(
-                "",
-                description="string",
-                name="string",
+                id="",
+                description="description",
+                name="name",
                 parameters={"foo": {}},
             )
 
