@@ -24,10 +24,10 @@ class TestEvaluationAssertions:
     @parametrize
     def test_method_create(self, client: PromptFoundry) -> None:
         evaluation_assertion = client.evaluation_assertions.create(
-            evaluation_id="string",
-            json_path="string",
-            target_value="string",
-            tool_name="string",
+            evaluation_id="evaluationId",
+            json_path="jsonPath",
+            target_value="targetValue",
+            tool_name="toolName",
             type="CONTAINS",
         )
         assert_matches_type(EvaluationAssertion, evaluation_assertion, path=["response"])
@@ -35,10 +35,10 @@ class TestEvaluationAssertions:
     @parametrize
     def test_raw_response_create(self, client: PromptFoundry) -> None:
         response = client.evaluation_assertions.with_raw_response.create(
-            evaluation_id="string",
-            json_path="string",
-            target_value="string",
-            tool_name="string",
+            evaluation_id="evaluationId",
+            json_path="jsonPath",
+            target_value="targetValue",
+            tool_name="toolName",
             type="CONTAINS",
         )
 
@@ -50,10 +50,10 @@ class TestEvaluationAssertions:
     @parametrize
     def test_streaming_response_create(self, client: PromptFoundry) -> None:
         with client.evaluation_assertions.with_streaming_response.create(
-            evaluation_id="string",
-            json_path="string",
-            target_value="string",
-            tool_name="string",
+            evaluation_id="evaluationId",
+            json_path="jsonPath",
+            target_value="targetValue",
+            tool_name="toolName",
             type="CONTAINS",
         ) as response:
             assert not response.is_closed
@@ -67,11 +67,11 @@ class TestEvaluationAssertions:
     @parametrize
     def test_method_update(self, client: PromptFoundry) -> None:
         evaluation_assertion = client.evaluation_assertions.update(
-            "1212121",
-            evaluation_id="string",
-            json_path="string",
-            target_value="string",
-            tool_name="string",
+            id="1212121",
+            evaluation_id="evaluationId",
+            json_path="jsonPath",
+            target_value="targetValue",
+            tool_name="toolName",
             type="CONTAINS",
         )
         assert_matches_type(EvaluationAssertion, evaluation_assertion, path=["response"])
@@ -79,11 +79,11 @@ class TestEvaluationAssertions:
     @parametrize
     def test_raw_response_update(self, client: PromptFoundry) -> None:
         response = client.evaluation_assertions.with_raw_response.update(
-            "1212121",
-            evaluation_id="string",
-            json_path="string",
-            target_value="string",
-            tool_name="string",
+            id="1212121",
+            evaluation_id="evaluationId",
+            json_path="jsonPath",
+            target_value="targetValue",
+            tool_name="toolName",
             type="CONTAINS",
         )
 
@@ -95,11 +95,11 @@ class TestEvaluationAssertions:
     @parametrize
     def test_streaming_response_update(self, client: PromptFoundry) -> None:
         with client.evaluation_assertions.with_streaming_response.update(
-            "1212121",
-            evaluation_id="string",
-            json_path="string",
-            target_value="string",
-            tool_name="string",
+            id="1212121",
+            evaluation_id="evaluationId",
+            json_path="jsonPath",
+            target_value="targetValue",
+            tool_name="toolName",
             type="CONTAINS",
         ) as response:
             assert not response.is_closed
@@ -114,11 +114,11 @@ class TestEvaluationAssertions:
     def test_path_params_update(self, client: PromptFoundry) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
             client.evaluation_assertions.with_raw_response.update(
-                "",
-                evaluation_id="string",
-                json_path="string",
-                target_value="string",
-                tool_name="string",
+                id="",
+                evaluation_id="evaluationId",
+                json_path="jsonPath",
+                target_value="targetValue",
+                tool_name="toolName",
                 type="CONTAINS",
             )
 
@@ -237,10 +237,10 @@ class TestAsyncEvaluationAssertions:
     @parametrize
     async def test_method_create(self, async_client: AsyncPromptFoundry) -> None:
         evaluation_assertion = await async_client.evaluation_assertions.create(
-            evaluation_id="string",
-            json_path="string",
-            target_value="string",
-            tool_name="string",
+            evaluation_id="evaluationId",
+            json_path="jsonPath",
+            target_value="targetValue",
+            tool_name="toolName",
             type="CONTAINS",
         )
         assert_matches_type(EvaluationAssertion, evaluation_assertion, path=["response"])
@@ -248,10 +248,10 @@ class TestAsyncEvaluationAssertions:
     @parametrize
     async def test_raw_response_create(self, async_client: AsyncPromptFoundry) -> None:
         response = await async_client.evaluation_assertions.with_raw_response.create(
-            evaluation_id="string",
-            json_path="string",
-            target_value="string",
-            tool_name="string",
+            evaluation_id="evaluationId",
+            json_path="jsonPath",
+            target_value="targetValue",
+            tool_name="toolName",
             type="CONTAINS",
         )
 
@@ -263,10 +263,10 @@ class TestAsyncEvaluationAssertions:
     @parametrize
     async def test_streaming_response_create(self, async_client: AsyncPromptFoundry) -> None:
         async with async_client.evaluation_assertions.with_streaming_response.create(
-            evaluation_id="string",
-            json_path="string",
-            target_value="string",
-            tool_name="string",
+            evaluation_id="evaluationId",
+            json_path="jsonPath",
+            target_value="targetValue",
+            tool_name="toolName",
             type="CONTAINS",
         ) as response:
             assert not response.is_closed
@@ -280,11 +280,11 @@ class TestAsyncEvaluationAssertions:
     @parametrize
     async def test_method_update(self, async_client: AsyncPromptFoundry) -> None:
         evaluation_assertion = await async_client.evaluation_assertions.update(
-            "1212121",
-            evaluation_id="string",
-            json_path="string",
-            target_value="string",
-            tool_name="string",
+            id="1212121",
+            evaluation_id="evaluationId",
+            json_path="jsonPath",
+            target_value="targetValue",
+            tool_name="toolName",
             type="CONTAINS",
         )
         assert_matches_type(EvaluationAssertion, evaluation_assertion, path=["response"])
@@ -292,11 +292,11 @@ class TestAsyncEvaluationAssertions:
     @parametrize
     async def test_raw_response_update(self, async_client: AsyncPromptFoundry) -> None:
         response = await async_client.evaluation_assertions.with_raw_response.update(
-            "1212121",
-            evaluation_id="string",
-            json_path="string",
-            target_value="string",
-            tool_name="string",
+            id="1212121",
+            evaluation_id="evaluationId",
+            json_path="jsonPath",
+            target_value="targetValue",
+            tool_name="toolName",
             type="CONTAINS",
         )
 
@@ -308,11 +308,11 @@ class TestAsyncEvaluationAssertions:
     @parametrize
     async def test_streaming_response_update(self, async_client: AsyncPromptFoundry) -> None:
         async with async_client.evaluation_assertions.with_streaming_response.update(
-            "1212121",
-            evaluation_id="string",
-            json_path="string",
-            target_value="string",
-            tool_name="string",
+            id="1212121",
+            evaluation_id="evaluationId",
+            json_path="jsonPath",
+            target_value="targetValue",
+            tool_name="toolName",
             type="CONTAINS",
         ) as response:
             assert not response.is_closed
@@ -327,11 +327,11 @@ class TestAsyncEvaluationAssertions:
     async def test_path_params_update(self, async_client: AsyncPromptFoundry) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
             await async_client.evaluation_assertions.with_raw_response.update(
-                "",
-                evaluation_id="string",
-                json_path="string",
-                target_value="string",
-                tool_name="string",
+                id="",
+                evaluation_id="evaluationId",
+                json_path="jsonPath",
+                target_value="targetValue",
+                tool_name="toolName",
                 type="CONTAINS",
             )
 
