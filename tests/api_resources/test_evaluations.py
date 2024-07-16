@@ -26,97 +26,55 @@ class TestEvaluations:
         evaluation = client.evaluations.create(
             appended_messages=[
                 {
-                    "content": "content",
-                    "role": "assistant",
-                    "tool_call_id": "toolCallId",
-                    "tool_calls": [
+                    "content": [
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                     ],
+                    "role": "assistant",
                 },
                 {
-                    "content": "content",
-                    "role": "assistant",
-                    "tool_call_id": "toolCallId",
-                    "tool_calls": [
+                    "content": [
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                     ],
+                    "role": "assistant",
                 },
                 {
-                    "content": "content",
-                    "role": "assistant",
-                    "tool_call_id": "toolCallId",
-                    "tool_calls": [
+                    "content": [
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                     ],
+                    "role": "assistant",
                 },
             ],
             prompt_id="promptId",
@@ -129,97 +87,55 @@ class TestEvaluations:
         response = client.evaluations.with_raw_response.create(
             appended_messages=[
                 {
-                    "content": "content",
-                    "role": "assistant",
-                    "tool_call_id": "toolCallId",
-                    "tool_calls": [
+                    "content": [
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                     ],
+                    "role": "assistant",
                 },
                 {
-                    "content": "content",
-                    "role": "assistant",
-                    "tool_call_id": "toolCallId",
-                    "tool_calls": [
+                    "content": [
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                     ],
+                    "role": "assistant",
                 },
                 {
-                    "content": "content",
-                    "role": "assistant",
-                    "tool_call_id": "toolCallId",
-                    "tool_calls": [
+                    "content": [
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                     ],
+                    "role": "assistant",
                 },
             ],
             prompt_id="promptId",
@@ -236,97 +152,55 @@ class TestEvaluations:
         with client.evaluations.with_streaming_response.create(
             appended_messages=[
                 {
-                    "content": "content",
-                    "role": "assistant",
-                    "tool_call_id": "toolCallId",
-                    "tool_calls": [
+                    "content": [
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                     ],
+                    "role": "assistant",
                 },
                 {
-                    "content": "content",
-                    "role": "assistant",
-                    "tool_call_id": "toolCallId",
-                    "tool_calls": [
+                    "content": [
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                     ],
+                    "role": "assistant",
                 },
                 {
-                    "content": "content",
-                    "role": "assistant",
-                    "tool_call_id": "toolCallId",
-                    "tool_calls": [
+                    "content": [
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                     ],
+                    "role": "assistant",
                 },
             ],
             prompt_id="promptId",
@@ -346,97 +220,55 @@ class TestEvaluations:
             id="1212121",
             appended_messages=[
                 {
-                    "content": "content",
-                    "role": "assistant",
-                    "tool_call_id": "toolCallId",
-                    "tool_calls": [
+                    "content": [
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                     ],
+                    "role": "assistant",
                 },
                 {
-                    "content": "content",
-                    "role": "assistant",
-                    "tool_call_id": "toolCallId",
-                    "tool_calls": [
+                    "content": [
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                     ],
+                    "role": "assistant",
                 },
                 {
-                    "content": "content",
-                    "role": "assistant",
-                    "tool_call_id": "toolCallId",
-                    "tool_calls": [
+                    "content": [
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                     ],
+                    "role": "assistant",
                 },
             ],
             prompt_id="promptId",
@@ -450,97 +282,55 @@ class TestEvaluations:
             id="1212121",
             appended_messages=[
                 {
-                    "content": "content",
-                    "role": "assistant",
-                    "tool_call_id": "toolCallId",
-                    "tool_calls": [
+                    "content": [
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                     ],
+                    "role": "assistant",
                 },
                 {
-                    "content": "content",
-                    "role": "assistant",
-                    "tool_call_id": "toolCallId",
-                    "tool_calls": [
+                    "content": [
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                     ],
+                    "role": "assistant",
                 },
                 {
-                    "content": "content",
-                    "role": "assistant",
-                    "tool_call_id": "toolCallId",
-                    "tool_calls": [
+                    "content": [
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                     ],
+                    "role": "assistant",
                 },
             ],
             prompt_id="promptId",
@@ -558,97 +348,55 @@ class TestEvaluations:
             id="1212121",
             appended_messages=[
                 {
-                    "content": "content",
-                    "role": "assistant",
-                    "tool_call_id": "toolCallId",
-                    "tool_calls": [
+                    "content": [
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                     ],
+                    "role": "assistant",
                 },
                 {
-                    "content": "content",
-                    "role": "assistant",
-                    "tool_call_id": "toolCallId",
-                    "tool_calls": [
+                    "content": [
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                     ],
+                    "role": "assistant",
                 },
                 {
-                    "content": "content",
-                    "role": "assistant",
-                    "tool_call_id": "toolCallId",
-                    "tool_calls": [
+                    "content": [
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                     ],
+                    "role": "assistant",
                 },
             ],
             prompt_id="promptId",
@@ -669,97 +417,55 @@ class TestEvaluations:
                 id="",
                 appended_messages=[
                     {
-                        "content": "content",
-                        "role": "assistant",
-                        "tool_call_id": "toolCallId",
-                        "tool_calls": [
+                        "content": [
                             {
-                                "tool_call_id": "toolCallId",
-                                "type": "function",
-                                "function": {
-                                    "arguments": "arguments",
-                                    "name": "name",
-                                },
+                                "type": "TEXT",
+                                "text": "text",
                             },
                             {
-                                "tool_call_id": "toolCallId",
-                                "type": "function",
-                                "function": {
-                                    "arguments": "arguments",
-                                    "name": "name",
-                                },
+                                "type": "TEXT",
+                                "text": "text",
                             },
                             {
-                                "tool_call_id": "toolCallId",
-                                "type": "function",
-                                "function": {
-                                    "arguments": "arguments",
-                                    "name": "name",
-                                },
+                                "type": "TEXT",
+                                "text": "text",
                             },
                         ],
+                        "role": "assistant",
                     },
                     {
-                        "content": "content",
-                        "role": "assistant",
-                        "tool_call_id": "toolCallId",
-                        "tool_calls": [
+                        "content": [
                             {
-                                "tool_call_id": "toolCallId",
-                                "type": "function",
-                                "function": {
-                                    "arguments": "arguments",
-                                    "name": "name",
-                                },
+                                "type": "TEXT",
+                                "text": "text",
                             },
                             {
-                                "tool_call_id": "toolCallId",
-                                "type": "function",
-                                "function": {
-                                    "arguments": "arguments",
-                                    "name": "name",
-                                },
+                                "type": "TEXT",
+                                "text": "text",
                             },
                             {
-                                "tool_call_id": "toolCallId",
-                                "type": "function",
-                                "function": {
-                                    "arguments": "arguments",
-                                    "name": "name",
-                                },
+                                "type": "TEXT",
+                                "text": "text",
                             },
                         ],
+                        "role": "assistant",
                     },
                     {
-                        "content": "content",
-                        "role": "assistant",
-                        "tool_call_id": "toolCallId",
-                        "tool_calls": [
+                        "content": [
                             {
-                                "tool_call_id": "toolCallId",
-                                "type": "function",
-                                "function": {
-                                    "arguments": "arguments",
-                                    "name": "name",
-                                },
+                                "type": "TEXT",
+                                "text": "text",
                             },
                             {
-                                "tool_call_id": "toolCallId",
-                                "type": "function",
-                                "function": {
-                                    "arguments": "arguments",
-                                    "name": "name",
-                                },
+                                "type": "TEXT",
+                                "text": "text",
                             },
                             {
-                                "tool_call_id": "toolCallId",
-                                "type": "function",
-                                "function": {
-                                    "arguments": "arguments",
-                                    "name": "name",
-                                },
+                                "type": "TEXT",
+                                "text": "text",
                             },
                         ],
+                        "role": "assistant",
                     },
                 ],
                 prompt_id="promptId",
@@ -876,97 +582,55 @@ class TestAsyncEvaluations:
         evaluation = await async_client.evaluations.create(
             appended_messages=[
                 {
-                    "content": "content",
-                    "role": "assistant",
-                    "tool_call_id": "toolCallId",
-                    "tool_calls": [
+                    "content": [
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                     ],
+                    "role": "assistant",
                 },
                 {
-                    "content": "content",
-                    "role": "assistant",
-                    "tool_call_id": "toolCallId",
-                    "tool_calls": [
+                    "content": [
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                     ],
+                    "role": "assistant",
                 },
                 {
-                    "content": "content",
-                    "role": "assistant",
-                    "tool_call_id": "toolCallId",
-                    "tool_calls": [
+                    "content": [
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                     ],
+                    "role": "assistant",
                 },
             ],
             prompt_id="promptId",
@@ -979,97 +643,55 @@ class TestAsyncEvaluations:
         response = await async_client.evaluations.with_raw_response.create(
             appended_messages=[
                 {
-                    "content": "content",
-                    "role": "assistant",
-                    "tool_call_id": "toolCallId",
-                    "tool_calls": [
+                    "content": [
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                     ],
+                    "role": "assistant",
                 },
                 {
-                    "content": "content",
-                    "role": "assistant",
-                    "tool_call_id": "toolCallId",
-                    "tool_calls": [
+                    "content": [
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                     ],
+                    "role": "assistant",
                 },
                 {
-                    "content": "content",
-                    "role": "assistant",
-                    "tool_call_id": "toolCallId",
-                    "tool_calls": [
+                    "content": [
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                     ],
+                    "role": "assistant",
                 },
             ],
             prompt_id="promptId",
@@ -1086,97 +708,55 @@ class TestAsyncEvaluations:
         async with async_client.evaluations.with_streaming_response.create(
             appended_messages=[
                 {
-                    "content": "content",
-                    "role": "assistant",
-                    "tool_call_id": "toolCallId",
-                    "tool_calls": [
+                    "content": [
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                     ],
+                    "role": "assistant",
                 },
                 {
-                    "content": "content",
-                    "role": "assistant",
-                    "tool_call_id": "toolCallId",
-                    "tool_calls": [
+                    "content": [
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                     ],
+                    "role": "assistant",
                 },
                 {
-                    "content": "content",
-                    "role": "assistant",
-                    "tool_call_id": "toolCallId",
-                    "tool_calls": [
+                    "content": [
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                     ],
+                    "role": "assistant",
                 },
             ],
             prompt_id="promptId",
@@ -1196,97 +776,55 @@ class TestAsyncEvaluations:
             id="1212121",
             appended_messages=[
                 {
-                    "content": "content",
-                    "role": "assistant",
-                    "tool_call_id": "toolCallId",
-                    "tool_calls": [
+                    "content": [
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                     ],
+                    "role": "assistant",
                 },
                 {
-                    "content": "content",
-                    "role": "assistant",
-                    "tool_call_id": "toolCallId",
-                    "tool_calls": [
+                    "content": [
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                     ],
+                    "role": "assistant",
                 },
                 {
-                    "content": "content",
-                    "role": "assistant",
-                    "tool_call_id": "toolCallId",
-                    "tool_calls": [
+                    "content": [
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                     ],
+                    "role": "assistant",
                 },
             ],
             prompt_id="promptId",
@@ -1300,97 +838,55 @@ class TestAsyncEvaluations:
             id="1212121",
             appended_messages=[
                 {
-                    "content": "content",
-                    "role": "assistant",
-                    "tool_call_id": "toolCallId",
-                    "tool_calls": [
+                    "content": [
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                     ],
+                    "role": "assistant",
                 },
                 {
-                    "content": "content",
-                    "role": "assistant",
-                    "tool_call_id": "toolCallId",
-                    "tool_calls": [
+                    "content": [
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                     ],
+                    "role": "assistant",
                 },
                 {
-                    "content": "content",
-                    "role": "assistant",
-                    "tool_call_id": "toolCallId",
-                    "tool_calls": [
+                    "content": [
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                     ],
+                    "role": "assistant",
                 },
             ],
             prompt_id="promptId",
@@ -1408,97 +904,55 @@ class TestAsyncEvaluations:
             id="1212121",
             appended_messages=[
                 {
-                    "content": "content",
-                    "role": "assistant",
-                    "tool_call_id": "toolCallId",
-                    "tool_calls": [
+                    "content": [
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                     ],
+                    "role": "assistant",
                 },
                 {
-                    "content": "content",
-                    "role": "assistant",
-                    "tool_call_id": "toolCallId",
-                    "tool_calls": [
+                    "content": [
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                     ],
+                    "role": "assistant",
                 },
                 {
-                    "content": "content",
-                    "role": "assistant",
-                    "tool_call_id": "toolCallId",
-                    "tool_calls": [
+                    "content": [
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                         {
-                            "tool_call_id": "toolCallId",
-                            "type": "function",
-                            "function": {
-                                "arguments": "arguments",
-                                "name": "name",
-                            },
+                            "type": "TEXT",
+                            "text": "text",
                         },
                     ],
+                    "role": "assistant",
                 },
             ],
             prompt_id="promptId",
@@ -1519,97 +973,55 @@ class TestAsyncEvaluations:
                 id="",
                 appended_messages=[
                     {
-                        "content": "content",
-                        "role": "assistant",
-                        "tool_call_id": "toolCallId",
-                        "tool_calls": [
+                        "content": [
                             {
-                                "tool_call_id": "toolCallId",
-                                "type": "function",
-                                "function": {
-                                    "arguments": "arguments",
-                                    "name": "name",
-                                },
+                                "type": "TEXT",
+                                "text": "text",
                             },
                             {
-                                "tool_call_id": "toolCallId",
-                                "type": "function",
-                                "function": {
-                                    "arguments": "arguments",
-                                    "name": "name",
-                                },
+                                "type": "TEXT",
+                                "text": "text",
                             },
                             {
-                                "tool_call_id": "toolCallId",
-                                "type": "function",
-                                "function": {
-                                    "arguments": "arguments",
-                                    "name": "name",
-                                },
+                                "type": "TEXT",
+                                "text": "text",
                             },
                         ],
+                        "role": "assistant",
                     },
                     {
-                        "content": "content",
-                        "role": "assistant",
-                        "tool_call_id": "toolCallId",
-                        "tool_calls": [
+                        "content": [
                             {
-                                "tool_call_id": "toolCallId",
-                                "type": "function",
-                                "function": {
-                                    "arguments": "arguments",
-                                    "name": "name",
-                                },
+                                "type": "TEXT",
+                                "text": "text",
                             },
                             {
-                                "tool_call_id": "toolCallId",
-                                "type": "function",
-                                "function": {
-                                    "arguments": "arguments",
-                                    "name": "name",
-                                },
+                                "type": "TEXT",
+                                "text": "text",
                             },
                             {
-                                "tool_call_id": "toolCallId",
-                                "type": "function",
-                                "function": {
-                                    "arguments": "arguments",
-                                    "name": "name",
-                                },
+                                "type": "TEXT",
+                                "text": "text",
                             },
                         ],
+                        "role": "assistant",
                     },
                     {
-                        "content": "content",
-                        "role": "assistant",
-                        "tool_call_id": "toolCallId",
-                        "tool_calls": [
+                        "content": [
                             {
-                                "tool_call_id": "toolCallId",
-                                "type": "function",
-                                "function": {
-                                    "arguments": "arguments",
-                                    "name": "name",
-                                },
+                                "type": "TEXT",
+                                "text": "text",
                             },
                             {
-                                "tool_call_id": "toolCallId",
-                                "type": "function",
-                                "function": {
-                                    "arguments": "arguments",
-                                    "name": "name",
-                                },
+                                "type": "TEXT",
+                                "text": "text",
                             },
                             {
-                                "tool_call_id": "toolCallId",
-                                "type": "function",
-                                "function": {
-                                    "arguments": "arguments",
-                                    "name": "name",
-                                },
+                                "type": "TEXT",
+                                "text": "text",
                             },
                         ],
+                        "role": "assistant",
                     },
                 ],
                 prompt_id="promptId",
