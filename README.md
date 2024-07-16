@@ -143,7 +143,7 @@ client = AsyncPromptFoundry(
 
 async def main() -> None:
     model_parameters = await client.prompts.get_parameters(
-        "1212121",
+        id="1212121",
         variables={"hello": "world"},
     )
     print(model_parameters.parameters)
@@ -180,7 +180,7 @@ client = PromptFoundry()
 
 try:
     client.prompts.get_parameters(
-        "1212121",
+        id="1212121",
     )
 except prompt_foundry_python_sdk.APIConnectionError as e:
     print("The server could not be reached")
@@ -225,7 +225,7 @@ client = PromptFoundry(
 
 # Or, configure per-request:
 client.with_options(max_retries=5).prompts.get_parameters(
-    "1212121",
+    id="1212121",
 )
 ```
 
@@ -250,7 +250,7 @@ client = PromptFoundry(
 
 # Override per-request:
 client.with_options(timeout=5.0).prompts.get_parameters(
-    "1212121",
+    id="1212121",
 )
 ```
 
@@ -291,7 +291,7 @@ from prompt_foundry_python_sdk import PromptFoundry
 
 client = PromptFoundry()
 response = client.prompts.with_raw_response.get_parameters(
-    "1212121",
+    id="1212121",
 )
 print(response.headers.get('X-My-Header'))
 
@@ -311,7 +311,7 @@ To stream the response body, use `.with_streaming_response` instead, which requi
 
 ```python
 with client.prompts.with_streaming_response.get_parameters(
-    "1212121",
+    id="1212121",
 ) as response:
     print(response.headers.get("X-My-Header"))
 
