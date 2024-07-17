@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.1.0-alpha.10 (2024-07-17)
+
+Full Changelog: [v0.1.0-alpha.9...v0.1.0-alpha.10](https://github.com/prompt-foundry/python-sdk/compare/v0.1.0-alpha.9...v0.1.0-alpha.10)
+
+### Features
+
+* **api:** OpenAPI spec update via Stainless API ([#145](https://github.com/prompt-foundry/python-sdk/issues/145)) ([f033b45](https://github.com/prompt-foundry/python-sdk/commit/f033b45ee9f87511c69482e83c736afbd142f965))
+* **api:** OpenAPI spec update via Stainless API ([#147](https://github.com/prompt-foundry/python-sdk/issues/147)) ([a2d16da](https://github.com/prompt-foundry/python-sdk/commit/a2d16daea235ea55b1799c02ce5b3ab6a28ca009))
+* **api:** OpenAPI spec update via Stainless API ([#148](https://github.com/prompt-foundry/python-sdk/issues/148)) ([ac33af6](https://github.com/prompt-foundry/python-sdk/commit/ac33af69be3b3ed3d22c08720ee17d8f6fc6b06e))
+* **api:** OpenAPI spec update via Stainless API ([#149](https://github.com/prompt-foundry/python-sdk/issues/149)) ([847a614](https://github.com/prompt-foundry/python-sdk/commit/847a614189ea34396430dca2d5859ae20705dbca))
+* **api:** OpenAPI spec update via Stainless API ([#150](https://github.com/prompt-foundry/python-sdk/issues/150)) ([345c6ea](https://github.com/prompt-foundry/python-sdk/commit/345c6eac7b7643d5d96925fee774e09ba79cfb72))
+* **api:** OpenAPI spec update via Stainless API ([#151](https://github.com/prompt-foundry/python-sdk/issues/151)) ([7e67bd4](https://github.com/prompt-foundry/python-sdk/commit/7e67bd45c88a743efa52596a870dec86e7dff39c))
+* **api:** update via SDK Studio ([#152](https://github.com/prompt-foundry/python-sdk/issues/152)) ([e3989bf](https://github.com/prompt-foundry/python-sdk/commit/e3989bfb42705c26f27c5cc49b7d38a617c17e82))
+
+
+### Chores
+
+* **internal:** version bump ([#143](https://github.com/prompt-foundry/python-sdk/issues/143)) ([32ef7a2](https://github.com/prompt-foundry/python-sdk/commit/32ef7a2fec79e410487cae757d1bee6eb2a03ed2))
+
 ## 0.1.0-alpha.9 (2024-07-16)
 
 Full Changelog: [v0.1.0-alpha.8...v0.1.0-alpha.9](https://github.com/prompt-foundry/python-sdk/compare/v0.1.0-alpha.8...v0.1.0-alpha.9)
