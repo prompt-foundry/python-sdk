@@ -33,6 +33,18 @@ class TestEvaluationAssertions:
         assert_matches_type(EvaluationAssertion, evaluation_assertion, path=["response"])
 
     @parametrize
+    def test_method_create_with_all_params(self, client: PromptFoundry) -> None:
+        evaluation_assertion = client.evaluation_assertions.create(
+            evaluation_id="evaluationId",
+            json_path="jsonPath",
+            target_value="targetValue",
+            tool_name="toolName",
+            type="CONTAINS",
+            weight=0,
+        )
+        assert_matches_type(EvaluationAssertion, evaluation_assertion, path=["response"])
+
+    @parametrize
     def test_raw_response_create(self, client: PromptFoundry) -> None:
         response = client.evaluation_assertions.with_raw_response.create(
             evaluation_id="evaluationId",
@@ -73,6 +85,19 @@ class TestEvaluationAssertions:
             target_value="targetValue",
             tool_name="toolName",
             type="CONTAINS",
+        )
+        assert_matches_type(EvaluationAssertion, evaluation_assertion, path=["response"])
+
+    @parametrize
+    def test_method_update_with_all_params(self, client: PromptFoundry) -> None:
+        evaluation_assertion = client.evaluation_assertions.update(
+            id="1212121",
+            evaluation_id="evaluationId",
+            json_path="jsonPath",
+            target_value="targetValue",
+            tool_name="toolName",
+            type="CONTAINS",
+            weight=0,
         )
         assert_matches_type(EvaluationAssertion, evaluation_assertion, path=["response"])
 
@@ -246,6 +271,18 @@ class TestAsyncEvaluationAssertions:
         assert_matches_type(EvaluationAssertion, evaluation_assertion, path=["response"])
 
     @parametrize
+    async def test_method_create_with_all_params(self, async_client: AsyncPromptFoundry) -> None:
+        evaluation_assertion = await async_client.evaluation_assertions.create(
+            evaluation_id="evaluationId",
+            json_path="jsonPath",
+            target_value="targetValue",
+            tool_name="toolName",
+            type="CONTAINS",
+            weight=0,
+        )
+        assert_matches_type(EvaluationAssertion, evaluation_assertion, path=["response"])
+
+    @parametrize
     async def test_raw_response_create(self, async_client: AsyncPromptFoundry) -> None:
         response = await async_client.evaluation_assertions.with_raw_response.create(
             evaluation_id="evaluationId",
@@ -286,6 +323,19 @@ class TestAsyncEvaluationAssertions:
             target_value="targetValue",
             tool_name="toolName",
             type="CONTAINS",
+        )
+        assert_matches_type(EvaluationAssertion, evaluation_assertion, path=["response"])
+
+    @parametrize
+    async def test_method_update_with_all_params(self, async_client: AsyncPromptFoundry) -> None:
+        evaluation_assertion = await async_client.evaluation_assertions.update(
+            id="1212121",
+            evaluation_id="evaluationId",
+            json_path="jsonPath",
+            target_value="targetValue",
+            tool_name="toolName",
+            type="CONTAINS",
+            weight=0,
         )
         assert_matches_type(EvaluationAssertion, evaluation_assertion, path=["response"])
 

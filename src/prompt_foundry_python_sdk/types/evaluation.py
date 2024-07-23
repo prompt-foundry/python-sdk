@@ -99,3 +99,9 @@ class Evaluation(BaseModel):
 
     variables: Dict[str, Optional[str]]
     """The template variables added to the prompt when executing the prompt."""
+
+    threshold: Optional[float] = None
+    """What percentage of assertions must pass for the evaluation to pass."""
+
+    weight: Optional[float] = None
+    """How heavily to weigh the evaluation within the prompt."""
