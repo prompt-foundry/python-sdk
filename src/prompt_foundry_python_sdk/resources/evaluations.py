@@ -43,6 +43,8 @@ class EvaluationsResource(SyncAPIResource):
         appended_messages: Iterable[evaluation_create_params.AppendedMessage],
         prompt_id: str,
         variables: Dict[str, Optional[str]],
+        threshold: float | NotGiven = NOT_GIVEN,
+        weight: float | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -57,6 +59,10 @@ class EvaluationsResource(SyncAPIResource):
           appended_messages: The messages to append to the completion messages when running the evaluation.
 
           variables: The template variables added to the prompt when executing the prompt.
+
+          threshold: What percentage of assertions must pass for the evaluation to pass.
+
+          weight: How heavily to weigh the evaluation within the prompt.
 
           extra_headers: Send extra headers
 
@@ -73,6 +79,8 @@ class EvaluationsResource(SyncAPIResource):
                     "appended_messages": appended_messages,
                     "prompt_id": prompt_id,
                     "variables": variables,
+                    "threshold": threshold,
+                    "weight": weight,
                 },
                 evaluation_create_params.EvaluationCreateParams,
             ),
@@ -89,6 +97,8 @@ class EvaluationsResource(SyncAPIResource):
         appended_messages: Iterable[evaluation_update_params.AppendedMessage],
         prompt_id: str,
         variables: Dict[str, Optional[str]],
+        threshold: float | NotGiven = NOT_GIVEN,
+        weight: float | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -103,6 +113,10 @@ class EvaluationsResource(SyncAPIResource):
           appended_messages: The messages to append to the completion messages when running the evaluation.
 
           variables: The template variables added to the prompt when executing the prompt.
+
+          threshold: What percentage of assertions must pass for the evaluation to pass.
+
+          weight: How heavily to weigh the evaluation within the prompt.
 
           extra_headers: Send extra headers
 
@@ -121,6 +135,8 @@ class EvaluationsResource(SyncAPIResource):
                     "appended_messages": appended_messages,
                     "prompt_id": prompt_id,
                     "variables": variables,
+                    "threshold": threshold,
+                    "weight": weight,
                 },
                 evaluation_update_params.EvaluationUpdateParams,
             ),
@@ -231,6 +247,8 @@ class AsyncEvaluationsResource(AsyncAPIResource):
         appended_messages: Iterable[evaluation_create_params.AppendedMessage],
         prompt_id: str,
         variables: Dict[str, Optional[str]],
+        threshold: float | NotGiven = NOT_GIVEN,
+        weight: float | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -245,6 +263,10 @@ class AsyncEvaluationsResource(AsyncAPIResource):
           appended_messages: The messages to append to the completion messages when running the evaluation.
 
           variables: The template variables added to the prompt when executing the prompt.
+
+          threshold: What percentage of assertions must pass for the evaluation to pass.
+
+          weight: How heavily to weigh the evaluation within the prompt.
 
           extra_headers: Send extra headers
 
@@ -261,6 +283,8 @@ class AsyncEvaluationsResource(AsyncAPIResource):
                     "appended_messages": appended_messages,
                     "prompt_id": prompt_id,
                     "variables": variables,
+                    "threshold": threshold,
+                    "weight": weight,
                 },
                 evaluation_create_params.EvaluationCreateParams,
             ),
@@ -277,6 +301,8 @@ class AsyncEvaluationsResource(AsyncAPIResource):
         appended_messages: Iterable[evaluation_update_params.AppendedMessage],
         prompt_id: str,
         variables: Dict[str, Optional[str]],
+        threshold: float | NotGiven = NOT_GIVEN,
+        weight: float | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -291,6 +317,10 @@ class AsyncEvaluationsResource(AsyncAPIResource):
           appended_messages: The messages to append to the completion messages when running the evaluation.
 
           variables: The template variables added to the prompt when executing the prompt.
+
+          threshold: What percentage of assertions must pass for the evaluation to pass.
+
+          weight: How heavily to weigh the evaluation within the prompt.
 
           extra_headers: Send extra headers
 
@@ -309,6 +339,8 @@ class AsyncEvaluationsResource(AsyncAPIResource):
                     "appended_messages": appended_messages,
                     "prompt_id": prompt_id,
                     "variables": variables,
+                    "threshold": threshold,
+                    "weight": weight,
                 },
                 evaluation_update_params.EvaluationUpdateParams,
             ),

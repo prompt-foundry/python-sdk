@@ -31,3 +31,6 @@ class EvaluationAssertion(BaseModel):
 
     type: Literal["CONTAINS", "EXACT_MATCH", "JSON_CONTAINS", "JSON_EXACT_MATCH", "TOOL_CALLED", "TOOL_CALLED_WITH"]
     """The type of evaluation matcher to use."""
+
+    weight: Optional[float] = None
+    """How heavily to weigh the assertion within the evaluation."""
