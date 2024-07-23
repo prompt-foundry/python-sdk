@@ -52,6 +52,7 @@ class EvaluationAssertionsResource(SyncAPIResource):
         type: Literal[
             "CONTAINS", "EXACT_MATCH", "JSON_CONTAINS", "JSON_EXACT_MATCH", "TOOL_CALLED", "TOOL_CALLED_WITH"
         ],
+        weight: float | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -71,6 +72,8 @@ class EvaluationAssertionsResource(SyncAPIResource):
 
           type: The type of evaluation matcher to use.
 
+          weight: How heavily to weigh the assertion within the evaluation.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -88,6 +91,7 @@ class EvaluationAssertionsResource(SyncAPIResource):
                     "target_value": target_value,
                     "tool_name": tool_name,
                     "type": type,
+                    "weight": weight,
                 },
                 evaluation_assertion_create_params.EvaluationAssertionCreateParams,
             ),
@@ -108,6 +112,7 @@ class EvaluationAssertionsResource(SyncAPIResource):
         type: Literal[
             "CONTAINS", "EXACT_MATCH", "JSON_CONTAINS", "JSON_EXACT_MATCH", "TOOL_CALLED", "TOOL_CALLED_WITH"
         ],
+        weight: float | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -126,6 +131,8 @@ class EvaluationAssertionsResource(SyncAPIResource):
               `TOOL_CALLED_WITH`.
 
           type: The type of evaluation matcher to use.
+
+          weight: How heavily to weigh the assertion within the evaluation.
 
           extra_headers: Send extra headers
 
@@ -146,6 +153,7 @@ class EvaluationAssertionsResource(SyncAPIResource):
                     "target_value": target_value,
                     "tool_name": tool_name,
                     "type": type,
+                    "weight": weight,
                 },
                 evaluation_assertion_update_params.EvaluationAssertionUpdateParams,
             ),
@@ -280,6 +288,7 @@ class AsyncEvaluationAssertionsResource(AsyncAPIResource):
         type: Literal[
             "CONTAINS", "EXACT_MATCH", "JSON_CONTAINS", "JSON_EXACT_MATCH", "TOOL_CALLED", "TOOL_CALLED_WITH"
         ],
+        weight: float | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -299,6 +308,8 @@ class AsyncEvaluationAssertionsResource(AsyncAPIResource):
 
           type: The type of evaluation matcher to use.
 
+          weight: How heavily to weigh the assertion within the evaluation.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -316,6 +327,7 @@ class AsyncEvaluationAssertionsResource(AsyncAPIResource):
                     "target_value": target_value,
                     "tool_name": tool_name,
                     "type": type,
+                    "weight": weight,
                 },
                 evaluation_assertion_create_params.EvaluationAssertionCreateParams,
             ),
@@ -336,6 +348,7 @@ class AsyncEvaluationAssertionsResource(AsyncAPIResource):
         type: Literal[
             "CONTAINS", "EXACT_MATCH", "JSON_CONTAINS", "JSON_EXACT_MATCH", "TOOL_CALLED", "TOOL_CALLED_WITH"
         ],
+        weight: float | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -354,6 +367,8 @@ class AsyncEvaluationAssertionsResource(AsyncAPIResource):
               `TOOL_CALLED_WITH`.
 
           type: The type of evaluation matcher to use.
+
+          weight: How heavily to weigh the assertion within the evaluation.
 
           extra_headers: Send extra headers
 
@@ -374,6 +389,7 @@ class AsyncEvaluationAssertionsResource(AsyncAPIResource):
                     "target_value": target_value,
                     "tool_name": tool_name,
                     "type": type,
+                    "weight": weight,
                 },
                 evaluation_assertion_update_params.EvaluationAssertionUpdateParams,
             ),

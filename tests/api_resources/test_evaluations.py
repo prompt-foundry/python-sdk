@@ -83,6 +83,69 @@ class TestEvaluations:
         assert_matches_type(Evaluation, evaluation, path=["response"])
 
     @parametrize
+    def test_method_create_with_all_params(self, client: PromptFoundry) -> None:
+        evaluation = client.evaluations.create(
+            appended_messages=[
+                {
+                    "content": [
+                        {
+                            "type": "TEXT",
+                            "text": "text",
+                        },
+                        {
+                            "type": "TEXT",
+                            "text": "text",
+                        },
+                        {
+                            "type": "TEXT",
+                            "text": "text",
+                        },
+                    ],
+                    "role": "assistant",
+                },
+                {
+                    "content": [
+                        {
+                            "type": "TEXT",
+                            "text": "text",
+                        },
+                        {
+                            "type": "TEXT",
+                            "text": "text",
+                        },
+                        {
+                            "type": "TEXT",
+                            "text": "text",
+                        },
+                    ],
+                    "role": "assistant",
+                },
+                {
+                    "content": [
+                        {
+                            "type": "TEXT",
+                            "text": "text",
+                        },
+                        {
+                            "type": "TEXT",
+                            "text": "text",
+                        },
+                        {
+                            "type": "TEXT",
+                            "text": "text",
+                        },
+                    ],
+                    "role": "assistant",
+                },
+            ],
+            prompt_id="promptId",
+            variables={"foo": "string"},
+            threshold=0,
+            weight=0,
+        )
+        assert_matches_type(Evaluation, evaluation, path=["response"])
+
+    @parametrize
     def test_raw_response_create(self, client: PromptFoundry) -> None:
         response = client.evaluations.with_raw_response.create(
             appended_messages=[
@@ -273,6 +336,70 @@ class TestEvaluations:
             ],
             prompt_id="promptId",
             variables={"foo": "string"},
+        )
+        assert_matches_type(Evaluation, evaluation, path=["response"])
+
+    @parametrize
+    def test_method_update_with_all_params(self, client: PromptFoundry) -> None:
+        evaluation = client.evaluations.update(
+            id="1212121",
+            appended_messages=[
+                {
+                    "content": [
+                        {
+                            "type": "TEXT",
+                            "text": "text",
+                        },
+                        {
+                            "type": "TEXT",
+                            "text": "text",
+                        },
+                        {
+                            "type": "TEXT",
+                            "text": "text",
+                        },
+                    ],
+                    "role": "assistant",
+                },
+                {
+                    "content": [
+                        {
+                            "type": "TEXT",
+                            "text": "text",
+                        },
+                        {
+                            "type": "TEXT",
+                            "text": "text",
+                        },
+                        {
+                            "type": "TEXT",
+                            "text": "text",
+                        },
+                    ],
+                    "role": "assistant",
+                },
+                {
+                    "content": [
+                        {
+                            "type": "TEXT",
+                            "text": "text",
+                        },
+                        {
+                            "type": "TEXT",
+                            "text": "text",
+                        },
+                        {
+                            "type": "TEXT",
+                            "text": "text",
+                        },
+                    ],
+                    "role": "assistant",
+                },
+            ],
+            prompt_id="promptId",
+            variables={"foo": "string"},
+            threshold=0,
+            weight=0,
         )
         assert_matches_type(Evaluation, evaluation, path=["response"])
 
@@ -639,6 +766,69 @@ class TestAsyncEvaluations:
         assert_matches_type(Evaluation, evaluation, path=["response"])
 
     @parametrize
+    async def test_method_create_with_all_params(self, async_client: AsyncPromptFoundry) -> None:
+        evaluation = await async_client.evaluations.create(
+            appended_messages=[
+                {
+                    "content": [
+                        {
+                            "type": "TEXT",
+                            "text": "text",
+                        },
+                        {
+                            "type": "TEXT",
+                            "text": "text",
+                        },
+                        {
+                            "type": "TEXT",
+                            "text": "text",
+                        },
+                    ],
+                    "role": "assistant",
+                },
+                {
+                    "content": [
+                        {
+                            "type": "TEXT",
+                            "text": "text",
+                        },
+                        {
+                            "type": "TEXT",
+                            "text": "text",
+                        },
+                        {
+                            "type": "TEXT",
+                            "text": "text",
+                        },
+                    ],
+                    "role": "assistant",
+                },
+                {
+                    "content": [
+                        {
+                            "type": "TEXT",
+                            "text": "text",
+                        },
+                        {
+                            "type": "TEXT",
+                            "text": "text",
+                        },
+                        {
+                            "type": "TEXT",
+                            "text": "text",
+                        },
+                    ],
+                    "role": "assistant",
+                },
+            ],
+            prompt_id="promptId",
+            variables={"foo": "string"},
+            threshold=0,
+            weight=0,
+        )
+        assert_matches_type(Evaluation, evaluation, path=["response"])
+
+    @parametrize
     async def test_raw_response_create(self, async_client: AsyncPromptFoundry) -> None:
         response = await async_client.evaluations.with_raw_response.create(
             appended_messages=[
@@ -829,6 +1019,70 @@ class TestAsyncEvaluations:
             ],
             prompt_id="promptId",
             variables={"foo": "string"},
+        )
+        assert_matches_type(Evaluation, evaluation, path=["response"])
+
+    @parametrize
+    async def test_method_update_with_all_params(self, async_client: AsyncPromptFoundry) -> None:
+        evaluation = await async_client.evaluations.update(
+            id="1212121",
+            appended_messages=[
+                {
+                    "content": [
+                        {
+                            "type": "TEXT",
+                            "text": "text",
+                        },
+                        {
+                            "type": "TEXT",
+                            "text": "text",
+                        },
+                        {
+                            "type": "TEXT",
+                            "text": "text",
+                        },
+                    ],
+                    "role": "assistant",
+                },
+                {
+                    "content": [
+                        {
+                            "type": "TEXT",
+                            "text": "text",
+                        },
+                        {
+                            "type": "TEXT",
+                            "text": "text",
+                        },
+                        {
+                            "type": "TEXT",
+                            "text": "text",
+                        },
+                    ],
+                    "role": "assistant",
+                },
+                {
+                    "content": [
+                        {
+                            "type": "TEXT",
+                            "text": "text",
+                        },
+                        {
+                            "type": "TEXT",
+                            "text": "text",
+                        },
+                        {
+                            "type": "TEXT",
+                            "text": "text",
+                        },
+                    ],
+                    "role": "assistant",
+                },
+            ],
+            prompt_id="promptId",
+            variables={"foo": "string"},
+            threshold=0,
+            weight=0,
         )
         assert_matches_type(Evaluation, evaluation, path=["response"])
 

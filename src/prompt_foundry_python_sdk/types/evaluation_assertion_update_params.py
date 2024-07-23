@@ -31,3 +31,6 @@ class EvaluationAssertionUpdateParams(TypedDict, total=False):
         Literal["CONTAINS", "EXACT_MATCH", "JSON_CONTAINS", "JSON_EXACT_MATCH", "TOOL_CALLED", "TOOL_CALLED_WITH"]
     ]
     """The type of evaluation matcher to use."""
+
+    weight: float
+    """How heavily to weigh the assertion within the evaluation."""

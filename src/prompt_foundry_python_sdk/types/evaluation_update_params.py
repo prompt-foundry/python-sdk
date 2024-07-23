@@ -29,6 +29,12 @@ class EvaluationUpdateParams(TypedDict, total=False):
     variables: Required[Dict[str, Optional[str]]]
     """The template variables added to the prompt when executing the prompt."""
 
+    threshold: float
+    """What percentage of assertions must pass for the evaluation to pass."""
+
+    weight: float
+    """How heavily to weigh the evaluation within the prompt."""
+
 
 class AppendedMessageContentTextContentBlockSchema(TypedDict, total=False):
     text: Required[str]
