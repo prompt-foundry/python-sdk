@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Optional
+from typing import List, Optional
 from typing_extensions import Literal, Required, Annotated, TypedDict
 
 from .._utils import PropertyInfo
@@ -19,7 +19,9 @@ class EvaluationAssertionUpdateParams(TypedDict, total=False):
     Only required when type is `JSON_EXACT_MATCH` or `JSON_CONTAINS`.
     """
 
-    target_value: Required[Annotated[Optional[str], PropertyInfo(alias="targetValue")]]
+    target_threshold: Required[Annotated[Optional[float], PropertyInfo(alias="targetThreshold")]]
+
+    target_values: Required[Annotated[Optional[List[str]], PropertyInfo(alias="targetValues")]]
 
     tool_name: Required[Annotated[Optional[str], PropertyInfo(alias="toolName")]]
     """The name of the tool to match.
@@ -28,9 +30,22 @@ class EvaluationAssertionUpdateParams(TypedDict, total=False):
     """
 
     type: Required[
-        Literal["CONTAINS", "EXACT_MATCH", "JSON_CONTAINS", "JSON_EXACT_MATCH", "TOOL_CALLED", "TOOL_CALLED_WITH"]
+        Literal[
+            "CONTAINS_ALL",
+            "CONTAINS_ANY",
+            "COST",
+            "EXACT_MATCH",
+            "LATENCY",
+            "STARTS_WITH",
+            "TOOL_CALLED",
+            "TOOL_CALLED_WITH",
+        ]
     ]
     """The type of evaluation matcher to use."""
+
+    ignore_case: Annotated[bool, PropertyInfo(alias="ignoreCase")]
+
+    negate: bool
 
     weight: float
     """How heavily to weigh the assertion within the evaluation."""
