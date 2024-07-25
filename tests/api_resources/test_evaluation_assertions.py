@@ -26,9 +26,10 @@ class TestEvaluationAssertions:
         evaluation_assertion = client.evaluation_assertions.create(
             evaluation_id="evaluationId",
             json_path="jsonPath",
-            target_value="targetValue",
+            target_threshold=0,
+            target_values=["string", "string", "string"],
             tool_name="toolName",
-            type="CONTAINS",
+            type="CONTAINS_ALL",
         )
         assert_matches_type(EvaluationAssertion, evaluation_assertion, path=["response"])
 
@@ -37,9 +38,12 @@ class TestEvaluationAssertions:
         evaluation_assertion = client.evaluation_assertions.create(
             evaluation_id="evaluationId",
             json_path="jsonPath",
-            target_value="targetValue",
+            target_threshold=0,
+            target_values=["string", "string", "string"],
             tool_name="toolName",
-            type="CONTAINS",
+            type="CONTAINS_ALL",
+            ignore_case=True,
+            negate=True,
             weight=0,
         )
         assert_matches_type(EvaluationAssertion, evaluation_assertion, path=["response"])
@@ -49,9 +53,10 @@ class TestEvaluationAssertions:
         response = client.evaluation_assertions.with_raw_response.create(
             evaluation_id="evaluationId",
             json_path="jsonPath",
-            target_value="targetValue",
+            target_threshold=0,
+            target_values=["string", "string", "string"],
             tool_name="toolName",
-            type="CONTAINS",
+            type="CONTAINS_ALL",
         )
 
         assert response.is_closed is True
@@ -64,9 +69,10 @@ class TestEvaluationAssertions:
         with client.evaluation_assertions.with_streaming_response.create(
             evaluation_id="evaluationId",
             json_path="jsonPath",
-            target_value="targetValue",
+            target_threshold=0,
+            target_values=["string", "string", "string"],
             tool_name="toolName",
-            type="CONTAINS",
+            type="CONTAINS_ALL",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -82,9 +88,10 @@ class TestEvaluationAssertions:
             id="1212121",
             evaluation_id="evaluationId",
             json_path="jsonPath",
-            target_value="targetValue",
+            target_threshold=0,
+            target_values=["string", "string", "string"],
             tool_name="toolName",
-            type="CONTAINS",
+            type="CONTAINS_ALL",
         )
         assert_matches_type(EvaluationAssertion, evaluation_assertion, path=["response"])
 
@@ -94,9 +101,12 @@ class TestEvaluationAssertions:
             id="1212121",
             evaluation_id="evaluationId",
             json_path="jsonPath",
-            target_value="targetValue",
+            target_threshold=0,
+            target_values=["string", "string", "string"],
             tool_name="toolName",
-            type="CONTAINS",
+            type="CONTAINS_ALL",
+            ignore_case=True,
+            negate=True,
             weight=0,
         )
         assert_matches_type(EvaluationAssertion, evaluation_assertion, path=["response"])
@@ -107,9 +117,10 @@ class TestEvaluationAssertions:
             id="1212121",
             evaluation_id="evaluationId",
             json_path="jsonPath",
-            target_value="targetValue",
+            target_threshold=0,
+            target_values=["string", "string", "string"],
             tool_name="toolName",
-            type="CONTAINS",
+            type="CONTAINS_ALL",
         )
 
         assert response.is_closed is True
@@ -123,9 +134,10 @@ class TestEvaluationAssertions:
             id="1212121",
             evaluation_id="evaluationId",
             json_path="jsonPath",
-            target_value="targetValue",
+            target_threshold=0,
+            target_values=["string", "string", "string"],
             tool_name="toolName",
-            type="CONTAINS",
+            type="CONTAINS_ALL",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -142,9 +154,10 @@ class TestEvaluationAssertions:
                 id="",
                 evaluation_id="evaluationId",
                 json_path="jsonPath",
-                target_value="targetValue",
+                target_threshold=0,
+                target_values=["string", "string", "string"],
                 tool_name="toolName",
-                type="CONTAINS",
+                type="CONTAINS_ALL",
             )
 
     @parametrize
@@ -264,9 +277,10 @@ class TestAsyncEvaluationAssertions:
         evaluation_assertion = await async_client.evaluation_assertions.create(
             evaluation_id="evaluationId",
             json_path="jsonPath",
-            target_value="targetValue",
+            target_threshold=0,
+            target_values=["string", "string", "string"],
             tool_name="toolName",
-            type="CONTAINS",
+            type="CONTAINS_ALL",
         )
         assert_matches_type(EvaluationAssertion, evaluation_assertion, path=["response"])
 
@@ -275,9 +289,12 @@ class TestAsyncEvaluationAssertions:
         evaluation_assertion = await async_client.evaluation_assertions.create(
             evaluation_id="evaluationId",
             json_path="jsonPath",
-            target_value="targetValue",
+            target_threshold=0,
+            target_values=["string", "string", "string"],
             tool_name="toolName",
-            type="CONTAINS",
+            type="CONTAINS_ALL",
+            ignore_case=True,
+            negate=True,
             weight=0,
         )
         assert_matches_type(EvaluationAssertion, evaluation_assertion, path=["response"])
@@ -287,9 +304,10 @@ class TestAsyncEvaluationAssertions:
         response = await async_client.evaluation_assertions.with_raw_response.create(
             evaluation_id="evaluationId",
             json_path="jsonPath",
-            target_value="targetValue",
+            target_threshold=0,
+            target_values=["string", "string", "string"],
             tool_name="toolName",
-            type="CONTAINS",
+            type="CONTAINS_ALL",
         )
 
         assert response.is_closed is True
@@ -302,9 +320,10 @@ class TestAsyncEvaluationAssertions:
         async with async_client.evaluation_assertions.with_streaming_response.create(
             evaluation_id="evaluationId",
             json_path="jsonPath",
-            target_value="targetValue",
+            target_threshold=0,
+            target_values=["string", "string", "string"],
             tool_name="toolName",
-            type="CONTAINS",
+            type="CONTAINS_ALL",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -320,9 +339,10 @@ class TestAsyncEvaluationAssertions:
             id="1212121",
             evaluation_id="evaluationId",
             json_path="jsonPath",
-            target_value="targetValue",
+            target_threshold=0,
+            target_values=["string", "string", "string"],
             tool_name="toolName",
-            type="CONTAINS",
+            type="CONTAINS_ALL",
         )
         assert_matches_type(EvaluationAssertion, evaluation_assertion, path=["response"])
 
@@ -332,9 +352,12 @@ class TestAsyncEvaluationAssertions:
             id="1212121",
             evaluation_id="evaluationId",
             json_path="jsonPath",
-            target_value="targetValue",
+            target_threshold=0,
+            target_values=["string", "string", "string"],
             tool_name="toolName",
-            type="CONTAINS",
+            type="CONTAINS_ALL",
+            ignore_case=True,
+            negate=True,
             weight=0,
         )
         assert_matches_type(EvaluationAssertion, evaluation_assertion, path=["response"])
@@ -345,9 +368,10 @@ class TestAsyncEvaluationAssertions:
             id="1212121",
             evaluation_id="evaluationId",
             json_path="jsonPath",
-            target_value="targetValue",
+            target_threshold=0,
+            target_values=["string", "string", "string"],
             tool_name="toolName",
-            type="CONTAINS",
+            type="CONTAINS_ALL",
         )
 
         assert response.is_closed is True
@@ -361,9 +385,10 @@ class TestAsyncEvaluationAssertions:
             id="1212121",
             evaluation_id="evaluationId",
             json_path="jsonPath",
-            target_value="targetValue",
+            target_threshold=0,
+            target_values=["string", "string", "string"],
             tool_name="toolName",
-            type="CONTAINS",
+            type="CONTAINS_ALL",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -380,9 +405,10 @@ class TestAsyncEvaluationAssertions:
                 id="",
                 evaluation_id="evaluationId",
                 json_path="jsonPath",
-                target_value="targetValue",
+                target_threshold=0,
+                target_values=["string", "string", "string"],
                 tool_name="toolName",
-                type="CONTAINS",
+                type="CONTAINS_ALL",
             )
 
     @parametrize
