@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import List, Optional
+from typing import Optional
 from typing_extensions import Literal
 
 import httpx
@@ -47,21 +47,11 @@ class EvaluationAssertionsResource(SyncAPIResource):
         *,
         evaluation_id: str,
         json_path: Optional[str],
-        target_threshold: Optional[float],
-        target_values: Optional[List[str]],
+        target_value: Optional[str],
         tool_name: Optional[str],
         type: Literal[
-            "CONTAINS_ALL",
-            "CONTAINS_ANY",
-            "COST",
-            "EXACT_MATCH",
-            "LATENCY",
-            "STARTS_WITH",
-            "TOOL_CALLED",
-            "TOOL_CALLED_WITH",
+            "CONTAINS", "EXACT_MATCH", "JSON_CONTAINS", "JSON_EXACT_MATCH", "TOOL_CALLED", "TOOL_CALLED_WITH"
         ],
-        ignore_case: bool | NotGiven = NOT_GIVEN,
-        negate: bool | NotGiven = NOT_GIVEN,
         weight: float | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -98,12 +88,9 @@ class EvaluationAssertionsResource(SyncAPIResource):
                 {
                     "evaluation_id": evaluation_id,
                     "json_path": json_path,
-                    "target_threshold": target_threshold,
-                    "target_values": target_values,
+                    "target_value": target_value,
                     "tool_name": tool_name,
                     "type": type,
-                    "ignore_case": ignore_case,
-                    "negate": negate,
                     "weight": weight,
                 },
                 evaluation_assertion_create_params.EvaluationAssertionCreateParams,
@@ -120,21 +107,11 @@ class EvaluationAssertionsResource(SyncAPIResource):
         *,
         evaluation_id: str,
         json_path: Optional[str],
-        target_threshold: Optional[float],
-        target_values: Optional[List[str]],
+        target_value: Optional[str],
         tool_name: Optional[str],
         type: Literal[
-            "CONTAINS_ALL",
-            "CONTAINS_ANY",
-            "COST",
-            "EXACT_MATCH",
-            "LATENCY",
-            "STARTS_WITH",
-            "TOOL_CALLED",
-            "TOOL_CALLED_WITH",
+            "CONTAINS", "EXACT_MATCH", "JSON_CONTAINS", "JSON_EXACT_MATCH", "TOOL_CALLED", "TOOL_CALLED_WITH"
         ],
-        ignore_case: bool | NotGiven = NOT_GIVEN,
-        negate: bool | NotGiven = NOT_GIVEN,
         weight: float | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -173,12 +150,9 @@ class EvaluationAssertionsResource(SyncAPIResource):
                 {
                     "evaluation_id": evaluation_id,
                     "json_path": json_path,
-                    "target_threshold": target_threshold,
-                    "target_values": target_values,
+                    "target_value": target_value,
                     "tool_name": tool_name,
                     "type": type,
-                    "ignore_case": ignore_case,
-                    "negate": negate,
                     "weight": weight,
                 },
                 evaluation_assertion_update_params.EvaluationAssertionUpdateParams,
@@ -309,21 +283,11 @@ class AsyncEvaluationAssertionsResource(AsyncAPIResource):
         *,
         evaluation_id: str,
         json_path: Optional[str],
-        target_threshold: Optional[float],
-        target_values: Optional[List[str]],
+        target_value: Optional[str],
         tool_name: Optional[str],
         type: Literal[
-            "CONTAINS_ALL",
-            "CONTAINS_ANY",
-            "COST",
-            "EXACT_MATCH",
-            "LATENCY",
-            "STARTS_WITH",
-            "TOOL_CALLED",
-            "TOOL_CALLED_WITH",
+            "CONTAINS", "EXACT_MATCH", "JSON_CONTAINS", "JSON_EXACT_MATCH", "TOOL_CALLED", "TOOL_CALLED_WITH"
         ],
-        ignore_case: bool | NotGiven = NOT_GIVEN,
-        negate: bool | NotGiven = NOT_GIVEN,
         weight: float | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -360,12 +324,9 @@ class AsyncEvaluationAssertionsResource(AsyncAPIResource):
                 {
                     "evaluation_id": evaluation_id,
                     "json_path": json_path,
-                    "target_threshold": target_threshold,
-                    "target_values": target_values,
+                    "target_value": target_value,
                     "tool_name": tool_name,
                     "type": type,
-                    "ignore_case": ignore_case,
-                    "negate": negate,
                     "weight": weight,
                 },
                 evaluation_assertion_create_params.EvaluationAssertionCreateParams,
@@ -382,21 +343,11 @@ class AsyncEvaluationAssertionsResource(AsyncAPIResource):
         *,
         evaluation_id: str,
         json_path: Optional[str],
-        target_threshold: Optional[float],
-        target_values: Optional[List[str]],
+        target_value: Optional[str],
         tool_name: Optional[str],
         type: Literal[
-            "CONTAINS_ALL",
-            "CONTAINS_ANY",
-            "COST",
-            "EXACT_MATCH",
-            "LATENCY",
-            "STARTS_WITH",
-            "TOOL_CALLED",
-            "TOOL_CALLED_WITH",
+            "CONTAINS", "EXACT_MATCH", "JSON_CONTAINS", "JSON_EXACT_MATCH", "TOOL_CALLED", "TOOL_CALLED_WITH"
         ],
-        ignore_case: bool | NotGiven = NOT_GIVEN,
-        negate: bool | NotGiven = NOT_GIVEN,
         weight: float | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -435,12 +386,9 @@ class AsyncEvaluationAssertionsResource(AsyncAPIResource):
                 {
                     "evaluation_id": evaluation_id,
                     "json_path": json_path,
-                    "target_threshold": target_threshold,
-                    "target_values": target_values,
+                    "target_value": target_value,
                     "tool_name": tool_name,
                     "type": type,
-                    "ignore_case": ignore_case,
-                    "negate": negate,
                     "weight": weight,
                 },
                 evaluation_assertion_update_params.EvaluationAssertionUpdateParams,
