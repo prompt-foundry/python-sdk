@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Optional
+from typing import Any, List, Optional, cast, overload
 from typing_extensions import Literal
 
 import httpx
@@ -14,6 +14,7 @@ from ..types import (
 )
 from .._types import NOT_GIVEN, Body, Query, Headers, NotGiven
 from .._utils import (
+    required_args,
     maybe_transform,
     async_maybe_transform,
 )
@@ -42,16 +43,16 @@ class EvaluationAssertionsResource(SyncAPIResource):
     def with_streaming_response(self) -> EvaluationAssertionsResourceWithStreamingResponse:
         return EvaluationAssertionsResourceWithStreamingResponse(self)
 
+    @overload
     def create(
         self,
         *,
         evaluation_id: str,
-        json_path: Optional[str],
-        target_value: Optional[str],
-        tool_name: Optional[str],
-        type: Literal[
-            "CONTAINS", "EXACT_MATCH", "JSON_CONTAINS", "JSON_EXACT_MATCH", "TOOL_CALLED", "TOOL_CALLED_WITH"
-        ],
+        target_value: str,
+        type: Literal["EXACT_MATCH"],
+        ignore_case: bool | NotGiven = NOT_GIVEN,
+        json_path: Optional[str] | NotGiven = NOT_GIVEN,
+        negate: bool | NotGiven = NOT_GIVEN,
         weight: float | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -64,13 +65,13 @@ class EvaluationAssertionsResource(SyncAPIResource):
         Creates a new evaluation assertion
 
         Args:
-          json_path: A JSON path to use when matching the response. Only required when type is
-              `JSON_EXACT_MATCH` or `JSON_CONTAINS`.
+          target_value: The value to match.
 
-          tool_name: The name of the tool to match. Only required when type is `TOOL_CALLED` or
-              `TOOL_CALLED_WITH`.
+          ignore_case: Whether to ignore case when comparing strings.
 
-          type: The type of evaluation matcher to use.
+          json_path: A JSON path to use when matching a JSON response.
+
+          negate: Whether to negate the assertion. "true" means the assertion must NOT be true.
 
           weight: How heavily to weigh the assertion within the evaluation.
 
@@ -82,36 +83,350 @@ class EvaluationAssertionsResource(SyncAPIResource):
 
           timeout: Override the client-level default timeout for this request, in seconds
         """
-        return self._post(
-            "/sdk/v1/evaluation-assertions",
-            body=maybe_transform(
-                {
-                    "evaluation_id": evaluation_id,
-                    "json_path": json_path,
-                    "target_value": target_value,
-                    "tool_name": tool_name,
-                    "type": type,
-                    "weight": weight,
-                },
-                evaluation_assertion_create_params.EvaluationAssertionCreateParams,
+        ...
+
+    @overload
+    def create(
+        self,
+        *,
+        evaluation_id: str,
+        target_values: List[str],
+        type: Literal["CONTAINS_ALL"],
+        ignore_case: bool | NotGiven = NOT_GIVEN,
+        json_path: Optional[str] | NotGiven = NOT_GIVEN,
+        negate: bool | NotGiven = NOT_GIVEN,
+        weight: float | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> EvaluationAssertion:
+        """
+        Creates a new evaluation assertion
+
+        Args:
+          target_values: List of values any of which may be present.
+
+          ignore_case: Whether to ignore case when comparing strings.
+
+          json_path: A JSON path to use when matching a JSON response.
+
+          negate: Whether to negate the assertion. "true" means the assertion must NOT be true.
+
+          weight: How heavily to weigh the assertion within the evaluation.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        ...
+
+    @overload
+    def create(
+        self,
+        *,
+        evaluation_id: str,
+        target_values: List[str],
+        type: Literal["CONTAINS_ANY"],
+        ignore_case: bool | NotGiven = NOT_GIVEN,
+        json_path: Optional[str] | NotGiven = NOT_GIVEN,
+        negate: bool | NotGiven = NOT_GIVEN,
+        weight: float | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> EvaluationAssertion:
+        """
+        Creates a new evaluation assertion
+
+        Args:
+          target_values: List of values any of which may be present.
+
+          ignore_case: Whether to ignore case when comparing strings.
+
+          json_path: A JSON path to use when matching a JSON response.
+
+          negate: Whether to negate the assertion. "true" means the assertion must NOT be true.
+
+          weight: How heavily to weigh the assertion within the evaluation.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        ...
+
+    @overload
+    def create(
+        self,
+        *,
+        evaluation_id: str,
+        target_value: str,
+        type: Literal["STARTS_WITH"],
+        ignore_case: bool | NotGiven = NOT_GIVEN,
+        json_path: Optional[str] | NotGiven = NOT_GIVEN,
+        negate: bool | NotGiven = NOT_GIVEN,
+        weight: float | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> EvaluationAssertion:
+        """
+        Creates a new evaluation assertion
+
+        Args:
+          target_value: The value that the response should start with.
+
+          ignore_case: Whether to ignore case when comparing strings.
+
+          json_path: A JSON path to use when matching a JSON response.
+
+          negate: Whether to negate the assertion. "true" means the assertion must NOT be true.
+
+          weight: How heavily to weigh the assertion within the evaluation.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        ...
+
+    @overload
+    def create(
+        self,
+        *,
+        evaluation_id: str,
+        target_threshold: float,
+        type: Literal["COST"],
+        weight: float | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> EvaluationAssertion:
+        """
+        Creates a new evaluation assertion
+
+        Args:
+          target_threshold: The cost threshold to be evaluated against.
+
+          weight: How heavily to weigh the assertion within the evaluation.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        ...
+
+    @overload
+    def create(
+        self,
+        *,
+        evaluation_id: str,
+        target_threshold: float,
+        type: Literal["LATENCY"],
+        weight: float | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> EvaluationAssertion:
+        """
+        Creates a new evaluation assertion
+
+        Args:
+          target_threshold: The latency threshold to be evaluated against.
+
+          weight: How heavily to weigh the assertion within the evaluation.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        ...
+
+    @overload
+    def create(
+        self,
+        *,
+        evaluation_id: str,
+        tool_name: str,
+        type: Literal["TOOL_CALLED"],
+        weight: float | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> EvaluationAssertion:
+        """
+        Creates a new evaluation assertion
+
+        Args:
+          tool_name: The name of the tool that should have been called.
+
+          weight: How heavily to weigh the assertion within the evaluation.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        ...
+
+    @overload
+    def create(
+        self,
+        *,
+        arg_key_name: str,
+        evaluation_id: str,
+        tool_name: str,
+        type: Literal["TOOL_CALLED_WITH"],
+        ignore_case: bool | NotGiven = NOT_GIVEN,
+        negate: bool | NotGiven = NOT_GIVEN,
+        weight: float | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> EvaluationAssertion:
+        """
+        Creates a new evaluation assertion
+
+        Args:
+          arg_key_name: The argument name to be matched.
+
+          tool_name: The name of the tool that should have been called.
+
+          ignore_case: Whether to ignore case when comparing argument names.
+
+          negate: Whether to negate the assertion. "true" means the assertion must NOT be true.
+
+          weight: How heavily to weigh the assertion within the evaluation.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        ...
+
+    @required_args(
+        ["evaluation_id", "target_value", "type"],
+        ["evaluation_id", "target_values", "type"],
+        ["evaluation_id", "target_threshold", "type"],
+        ["evaluation_id", "tool_name", "type"],
+        ["arg_key_name", "evaluation_id", "tool_name", "type"],
+    )
+    def create(
+        self,
+        *,
+        evaluation_id: str,
+        target_value: str | NotGiven = NOT_GIVEN,
+        type: Literal["EXACT_MATCH"]
+        | Literal["CONTAINS_ALL"]
+        | Literal["CONTAINS_ANY"]
+        | Literal["STARTS_WITH"]
+        | Literal["COST"]
+        | Literal["LATENCY"]
+        | Literal["TOOL_CALLED"]
+        | Literal["TOOL_CALLED_WITH"],
+        ignore_case: bool | NotGiven = NOT_GIVEN,
+        json_path: Optional[str] | NotGiven = NOT_GIVEN,
+        negate: bool | NotGiven = NOT_GIVEN,
+        weight: float | NotGiven = NOT_GIVEN,
+        target_values: List[str] | NotGiven = NOT_GIVEN,
+        target_threshold: float | NotGiven = NOT_GIVEN,
+        tool_name: str | NotGiven = NOT_GIVEN,
+        arg_key_name: str | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> EvaluationAssertion:
+        return cast(
+            EvaluationAssertion,
+            self._post(
+                "/sdk/v1/evaluation-assertions",
+                body=maybe_transform(
+                    {
+                        "evaluation_id": evaluation_id,
+                        "target_value": target_value,
+                        "type": type,
+                        "ignore_case": ignore_case,
+                        "json_path": json_path,
+                        "negate": negate,
+                        "weight": weight,
+                        "target_values": target_values,
+                        "target_threshold": target_threshold,
+                        "tool_name": tool_name,
+                        "arg_key_name": arg_key_name,
+                    },
+                    evaluation_assertion_create_params.EvaluationAssertionCreateParams,
+                ),
+                options=make_request_options(
+                    extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                ),
+                cast_to=cast(
+                    Any, EvaluationAssertion
+                ),  # Union types cannot be passed in as arguments in the type system
             ),
-            options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
-            ),
-            cast_to=EvaluationAssertion,
         )
 
+    @overload
     def update(
         self,
         id: str,
         *,
         evaluation_id: str,
-        json_path: Optional[str],
-        target_value: Optional[str],
-        tool_name: Optional[str],
-        type: Literal[
-            "CONTAINS", "EXACT_MATCH", "JSON_CONTAINS", "JSON_EXACT_MATCH", "TOOL_CALLED", "TOOL_CALLED_WITH"
-        ],
+        target_value: str,
+        type: Literal["EXACT_MATCH"],
+        ignore_case: bool | NotGiven = NOT_GIVEN,
+        json_path: Optional[str] | NotGiven = NOT_GIVEN,
+        negate: bool | NotGiven = NOT_GIVEN,
         weight: float | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -124,13 +439,13 @@ class EvaluationAssertionsResource(SyncAPIResource):
         Update an existing evaluation assertion by providing its ID and new data.
 
         Args:
-          json_path: A JSON path to use when matching the response. Only required when type is
-              `JSON_EXACT_MATCH` or `JSON_CONTAINS`.
+          target_value: The value to match.
 
-          tool_name: The name of the tool to match. Only required when type is `TOOL_CALLED` or
-              `TOOL_CALLED_WITH`.
+          ignore_case: Whether to ignore case when comparing strings.
 
-          type: The type of evaluation matcher to use.
+          json_path: A JSON path to use when matching a JSON response.
+
+          negate: Whether to negate the assertion. "true" means the assertion must NOT be true.
 
           weight: How heavily to weigh the assertion within the evaluation.
 
@@ -142,25 +457,347 @@ class EvaluationAssertionsResource(SyncAPIResource):
 
           timeout: Override the client-level default timeout for this request, in seconds
         """
+        ...
+
+    @overload
+    def update(
+        self,
+        id: str,
+        *,
+        evaluation_id: str,
+        target_values: List[str],
+        type: Literal["CONTAINS_ALL"],
+        ignore_case: bool | NotGiven = NOT_GIVEN,
+        json_path: Optional[str] | NotGiven = NOT_GIVEN,
+        negate: bool | NotGiven = NOT_GIVEN,
+        weight: float | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> EvaluationAssertion:
+        """
+        Update an existing evaluation assertion by providing its ID and new data.
+
+        Args:
+          target_values: List of values any of which may be present.
+
+          ignore_case: Whether to ignore case when comparing strings.
+
+          json_path: A JSON path to use when matching a JSON response.
+
+          negate: Whether to negate the assertion. "true" means the assertion must NOT be true.
+
+          weight: How heavily to weigh the assertion within the evaluation.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        ...
+
+    @overload
+    def update(
+        self,
+        id: str,
+        *,
+        evaluation_id: str,
+        target_values: List[str],
+        type: Literal["CONTAINS_ANY"],
+        ignore_case: bool | NotGiven = NOT_GIVEN,
+        json_path: Optional[str] | NotGiven = NOT_GIVEN,
+        negate: bool | NotGiven = NOT_GIVEN,
+        weight: float | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> EvaluationAssertion:
+        """
+        Update an existing evaluation assertion by providing its ID and new data.
+
+        Args:
+          target_values: List of values any of which may be present.
+
+          ignore_case: Whether to ignore case when comparing strings.
+
+          json_path: A JSON path to use when matching a JSON response.
+
+          negate: Whether to negate the assertion. "true" means the assertion must NOT be true.
+
+          weight: How heavily to weigh the assertion within the evaluation.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        ...
+
+    @overload
+    def update(
+        self,
+        id: str,
+        *,
+        evaluation_id: str,
+        target_value: str,
+        type: Literal["STARTS_WITH"],
+        ignore_case: bool | NotGiven = NOT_GIVEN,
+        json_path: Optional[str] | NotGiven = NOT_GIVEN,
+        negate: bool | NotGiven = NOT_GIVEN,
+        weight: float | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> EvaluationAssertion:
+        """
+        Update an existing evaluation assertion by providing its ID and new data.
+
+        Args:
+          target_value: The value that the response should start with.
+
+          ignore_case: Whether to ignore case when comparing strings.
+
+          json_path: A JSON path to use when matching a JSON response.
+
+          negate: Whether to negate the assertion. "true" means the assertion must NOT be true.
+
+          weight: How heavily to weigh the assertion within the evaluation.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        ...
+
+    @overload
+    def update(
+        self,
+        id: str,
+        *,
+        evaluation_id: str,
+        target_threshold: float,
+        type: Literal["COST"],
+        weight: float | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> EvaluationAssertion:
+        """
+        Update an existing evaluation assertion by providing its ID and new data.
+
+        Args:
+          target_threshold: The cost threshold to be evaluated against.
+
+          weight: How heavily to weigh the assertion within the evaluation.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        ...
+
+    @overload
+    def update(
+        self,
+        id: str,
+        *,
+        evaluation_id: str,
+        target_threshold: float,
+        type: Literal["LATENCY"],
+        weight: float | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> EvaluationAssertion:
+        """
+        Update an existing evaluation assertion by providing its ID and new data.
+
+        Args:
+          target_threshold: The latency threshold to be evaluated against.
+
+          weight: How heavily to weigh the assertion within the evaluation.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        ...
+
+    @overload
+    def update(
+        self,
+        id: str,
+        *,
+        evaluation_id: str,
+        tool_name: str,
+        type: Literal["TOOL_CALLED"],
+        weight: float | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> EvaluationAssertion:
+        """
+        Update an existing evaluation assertion by providing its ID and new data.
+
+        Args:
+          tool_name: The name of the tool that should have been called.
+
+          weight: How heavily to weigh the assertion within the evaluation.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        ...
+
+    @overload
+    def update(
+        self,
+        id: str,
+        *,
+        arg_key_name: str,
+        evaluation_id: str,
+        tool_name: str,
+        type: Literal["TOOL_CALLED_WITH"],
+        ignore_case: bool | NotGiven = NOT_GIVEN,
+        negate: bool | NotGiven = NOT_GIVEN,
+        weight: float | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> EvaluationAssertion:
+        """
+        Update an existing evaluation assertion by providing its ID and new data.
+
+        Args:
+          arg_key_name: The argument name to be matched.
+
+          tool_name: The name of the tool that should have been called.
+
+          ignore_case: Whether to ignore case when comparing argument names.
+
+          negate: Whether to negate the assertion. "true" means the assertion must NOT be true.
+
+          weight: How heavily to weigh the assertion within the evaluation.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        ...
+
+    @required_args(
+        ["evaluation_id", "target_value", "type"],
+        ["evaluation_id", "target_values", "type"],
+        ["evaluation_id", "target_threshold", "type"],
+        ["evaluation_id", "tool_name", "type"],
+        ["arg_key_name", "evaluation_id", "tool_name", "type"],
+    )
+    def update(
+        self,
+        id: str,
+        *,
+        evaluation_id: str,
+        target_value: str | NotGiven = NOT_GIVEN,
+        type: Literal["EXACT_MATCH"]
+        | Literal["CONTAINS_ALL"]
+        | Literal["CONTAINS_ANY"]
+        | Literal["STARTS_WITH"]
+        | Literal["COST"]
+        | Literal["LATENCY"]
+        | Literal["TOOL_CALLED"]
+        | Literal["TOOL_CALLED_WITH"],
+        ignore_case: bool | NotGiven = NOT_GIVEN,
+        json_path: Optional[str] | NotGiven = NOT_GIVEN,
+        negate: bool | NotGiven = NOT_GIVEN,
+        weight: float | NotGiven = NOT_GIVEN,
+        target_values: List[str] | NotGiven = NOT_GIVEN,
+        target_threshold: float | NotGiven = NOT_GIVEN,
+        tool_name: str | NotGiven = NOT_GIVEN,
+        arg_key_name: str | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> EvaluationAssertion:
         if not id:
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
-        return self._put(
-            f"/sdk/v1/evaluation-assertions/{id}",
-            body=maybe_transform(
-                {
-                    "evaluation_id": evaluation_id,
-                    "json_path": json_path,
-                    "target_value": target_value,
-                    "tool_name": tool_name,
-                    "type": type,
-                    "weight": weight,
-                },
-                evaluation_assertion_update_params.EvaluationAssertionUpdateParams,
+        return cast(
+            EvaluationAssertion,
+            self._put(
+                f"/sdk/v1/evaluation-assertions/{id}",
+                body=maybe_transform(
+                    {
+                        "evaluation_id": evaluation_id,
+                        "target_value": target_value,
+                        "type": type,
+                        "ignore_case": ignore_case,
+                        "json_path": json_path,
+                        "negate": negate,
+                        "weight": weight,
+                        "target_values": target_values,
+                        "target_threshold": target_threshold,
+                        "tool_name": tool_name,
+                        "arg_key_name": arg_key_name,
+                    },
+                    evaluation_assertion_update_params.EvaluationAssertionUpdateParams,
+                ),
+                options=make_request_options(
+                    extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                ),
+                cast_to=cast(
+                    Any, EvaluationAssertion
+                ),  # Union types cannot be passed in as arguments in the type system
             ),
-            options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
-            ),
-            cast_to=EvaluationAssertion,
         )
 
     def list(
@@ -260,12 +897,17 @@ class EvaluationAssertionsResource(SyncAPIResource):
         """
         if not id:
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
-        return self._get(
-            f"/sdk/v1/evaluation-assertions/{id}",
-            options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+        return cast(
+            EvaluationAssertion,
+            self._get(
+                f"/sdk/v1/evaluation-assertions/{id}",
+                options=make_request_options(
+                    extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                ),
+                cast_to=cast(
+                    Any, EvaluationAssertion
+                ),  # Union types cannot be passed in as arguments in the type system
             ),
-            cast_to=EvaluationAssertion,
         )
 
 
@@ -278,16 +920,16 @@ class AsyncEvaluationAssertionsResource(AsyncAPIResource):
     def with_streaming_response(self) -> AsyncEvaluationAssertionsResourceWithStreamingResponse:
         return AsyncEvaluationAssertionsResourceWithStreamingResponse(self)
 
+    @overload
     async def create(
         self,
         *,
         evaluation_id: str,
-        json_path: Optional[str],
-        target_value: Optional[str],
-        tool_name: Optional[str],
-        type: Literal[
-            "CONTAINS", "EXACT_MATCH", "JSON_CONTAINS", "JSON_EXACT_MATCH", "TOOL_CALLED", "TOOL_CALLED_WITH"
-        ],
+        target_value: str,
+        type: Literal["EXACT_MATCH"],
+        ignore_case: bool | NotGiven = NOT_GIVEN,
+        json_path: Optional[str] | NotGiven = NOT_GIVEN,
+        negate: bool | NotGiven = NOT_GIVEN,
         weight: float | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -300,13 +942,13 @@ class AsyncEvaluationAssertionsResource(AsyncAPIResource):
         Creates a new evaluation assertion
 
         Args:
-          json_path: A JSON path to use when matching the response. Only required when type is
-              `JSON_EXACT_MATCH` or `JSON_CONTAINS`.
+          target_value: The value to match.
 
-          tool_name: The name of the tool to match. Only required when type is `TOOL_CALLED` or
-              `TOOL_CALLED_WITH`.
+          ignore_case: Whether to ignore case when comparing strings.
 
-          type: The type of evaluation matcher to use.
+          json_path: A JSON path to use when matching a JSON response.
+
+          negate: Whether to negate the assertion. "true" means the assertion must NOT be true.
 
           weight: How heavily to weigh the assertion within the evaluation.
 
@@ -318,36 +960,350 @@ class AsyncEvaluationAssertionsResource(AsyncAPIResource):
 
           timeout: Override the client-level default timeout for this request, in seconds
         """
-        return await self._post(
-            "/sdk/v1/evaluation-assertions",
-            body=await async_maybe_transform(
-                {
-                    "evaluation_id": evaluation_id,
-                    "json_path": json_path,
-                    "target_value": target_value,
-                    "tool_name": tool_name,
-                    "type": type,
-                    "weight": weight,
-                },
-                evaluation_assertion_create_params.EvaluationAssertionCreateParams,
+        ...
+
+    @overload
+    async def create(
+        self,
+        *,
+        evaluation_id: str,
+        target_values: List[str],
+        type: Literal["CONTAINS_ALL"],
+        ignore_case: bool | NotGiven = NOT_GIVEN,
+        json_path: Optional[str] | NotGiven = NOT_GIVEN,
+        negate: bool | NotGiven = NOT_GIVEN,
+        weight: float | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> EvaluationAssertion:
+        """
+        Creates a new evaluation assertion
+
+        Args:
+          target_values: List of values any of which may be present.
+
+          ignore_case: Whether to ignore case when comparing strings.
+
+          json_path: A JSON path to use when matching a JSON response.
+
+          negate: Whether to negate the assertion. "true" means the assertion must NOT be true.
+
+          weight: How heavily to weigh the assertion within the evaluation.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        ...
+
+    @overload
+    async def create(
+        self,
+        *,
+        evaluation_id: str,
+        target_values: List[str],
+        type: Literal["CONTAINS_ANY"],
+        ignore_case: bool | NotGiven = NOT_GIVEN,
+        json_path: Optional[str] | NotGiven = NOT_GIVEN,
+        negate: bool | NotGiven = NOT_GIVEN,
+        weight: float | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> EvaluationAssertion:
+        """
+        Creates a new evaluation assertion
+
+        Args:
+          target_values: List of values any of which may be present.
+
+          ignore_case: Whether to ignore case when comparing strings.
+
+          json_path: A JSON path to use when matching a JSON response.
+
+          negate: Whether to negate the assertion. "true" means the assertion must NOT be true.
+
+          weight: How heavily to weigh the assertion within the evaluation.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        ...
+
+    @overload
+    async def create(
+        self,
+        *,
+        evaluation_id: str,
+        target_value: str,
+        type: Literal["STARTS_WITH"],
+        ignore_case: bool | NotGiven = NOT_GIVEN,
+        json_path: Optional[str] | NotGiven = NOT_GIVEN,
+        negate: bool | NotGiven = NOT_GIVEN,
+        weight: float | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> EvaluationAssertion:
+        """
+        Creates a new evaluation assertion
+
+        Args:
+          target_value: The value that the response should start with.
+
+          ignore_case: Whether to ignore case when comparing strings.
+
+          json_path: A JSON path to use when matching a JSON response.
+
+          negate: Whether to negate the assertion. "true" means the assertion must NOT be true.
+
+          weight: How heavily to weigh the assertion within the evaluation.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        ...
+
+    @overload
+    async def create(
+        self,
+        *,
+        evaluation_id: str,
+        target_threshold: float,
+        type: Literal["COST"],
+        weight: float | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> EvaluationAssertion:
+        """
+        Creates a new evaluation assertion
+
+        Args:
+          target_threshold: The cost threshold to be evaluated against.
+
+          weight: How heavily to weigh the assertion within the evaluation.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        ...
+
+    @overload
+    async def create(
+        self,
+        *,
+        evaluation_id: str,
+        target_threshold: float,
+        type: Literal["LATENCY"],
+        weight: float | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> EvaluationAssertion:
+        """
+        Creates a new evaluation assertion
+
+        Args:
+          target_threshold: The latency threshold to be evaluated against.
+
+          weight: How heavily to weigh the assertion within the evaluation.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        ...
+
+    @overload
+    async def create(
+        self,
+        *,
+        evaluation_id: str,
+        tool_name: str,
+        type: Literal["TOOL_CALLED"],
+        weight: float | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> EvaluationAssertion:
+        """
+        Creates a new evaluation assertion
+
+        Args:
+          tool_name: The name of the tool that should have been called.
+
+          weight: How heavily to weigh the assertion within the evaluation.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        ...
+
+    @overload
+    async def create(
+        self,
+        *,
+        arg_key_name: str,
+        evaluation_id: str,
+        tool_name: str,
+        type: Literal["TOOL_CALLED_WITH"],
+        ignore_case: bool | NotGiven = NOT_GIVEN,
+        negate: bool | NotGiven = NOT_GIVEN,
+        weight: float | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> EvaluationAssertion:
+        """
+        Creates a new evaluation assertion
+
+        Args:
+          arg_key_name: The argument name to be matched.
+
+          tool_name: The name of the tool that should have been called.
+
+          ignore_case: Whether to ignore case when comparing argument names.
+
+          negate: Whether to negate the assertion. "true" means the assertion must NOT be true.
+
+          weight: How heavily to weigh the assertion within the evaluation.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        ...
+
+    @required_args(
+        ["evaluation_id", "target_value", "type"],
+        ["evaluation_id", "target_values", "type"],
+        ["evaluation_id", "target_threshold", "type"],
+        ["evaluation_id", "tool_name", "type"],
+        ["arg_key_name", "evaluation_id", "tool_name", "type"],
+    )
+    async def create(
+        self,
+        *,
+        evaluation_id: str,
+        target_value: str | NotGiven = NOT_GIVEN,
+        type: Literal["EXACT_MATCH"]
+        | Literal["CONTAINS_ALL"]
+        | Literal["CONTAINS_ANY"]
+        | Literal["STARTS_WITH"]
+        | Literal["COST"]
+        | Literal["LATENCY"]
+        | Literal["TOOL_CALLED"]
+        | Literal["TOOL_CALLED_WITH"],
+        ignore_case: bool | NotGiven = NOT_GIVEN,
+        json_path: Optional[str] | NotGiven = NOT_GIVEN,
+        negate: bool | NotGiven = NOT_GIVEN,
+        weight: float | NotGiven = NOT_GIVEN,
+        target_values: List[str] | NotGiven = NOT_GIVEN,
+        target_threshold: float | NotGiven = NOT_GIVEN,
+        tool_name: str | NotGiven = NOT_GIVEN,
+        arg_key_name: str | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> EvaluationAssertion:
+        return cast(
+            EvaluationAssertion,
+            await self._post(
+                "/sdk/v1/evaluation-assertions",
+                body=await async_maybe_transform(
+                    {
+                        "evaluation_id": evaluation_id,
+                        "target_value": target_value,
+                        "type": type,
+                        "ignore_case": ignore_case,
+                        "json_path": json_path,
+                        "negate": negate,
+                        "weight": weight,
+                        "target_values": target_values,
+                        "target_threshold": target_threshold,
+                        "tool_name": tool_name,
+                        "arg_key_name": arg_key_name,
+                    },
+                    evaluation_assertion_create_params.EvaluationAssertionCreateParams,
+                ),
+                options=make_request_options(
+                    extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                ),
+                cast_to=cast(
+                    Any, EvaluationAssertion
+                ),  # Union types cannot be passed in as arguments in the type system
             ),
-            options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
-            ),
-            cast_to=EvaluationAssertion,
         )
 
+    @overload
     async def update(
         self,
         id: str,
         *,
         evaluation_id: str,
-        json_path: Optional[str],
-        target_value: Optional[str],
-        tool_name: Optional[str],
-        type: Literal[
-            "CONTAINS", "EXACT_MATCH", "JSON_CONTAINS", "JSON_EXACT_MATCH", "TOOL_CALLED", "TOOL_CALLED_WITH"
-        ],
+        target_value: str,
+        type: Literal["EXACT_MATCH"],
+        ignore_case: bool | NotGiven = NOT_GIVEN,
+        json_path: Optional[str] | NotGiven = NOT_GIVEN,
+        negate: bool | NotGiven = NOT_GIVEN,
         weight: float | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -360,13 +1316,13 @@ class AsyncEvaluationAssertionsResource(AsyncAPIResource):
         Update an existing evaluation assertion by providing its ID and new data.
 
         Args:
-          json_path: A JSON path to use when matching the response. Only required when type is
-              `JSON_EXACT_MATCH` or `JSON_CONTAINS`.
+          target_value: The value to match.
 
-          tool_name: The name of the tool to match. Only required when type is `TOOL_CALLED` or
-              `TOOL_CALLED_WITH`.
+          ignore_case: Whether to ignore case when comparing strings.
 
-          type: The type of evaluation matcher to use.
+          json_path: A JSON path to use when matching a JSON response.
+
+          negate: Whether to negate the assertion. "true" means the assertion must NOT be true.
 
           weight: How heavily to weigh the assertion within the evaluation.
 
@@ -378,25 +1334,347 @@ class AsyncEvaluationAssertionsResource(AsyncAPIResource):
 
           timeout: Override the client-level default timeout for this request, in seconds
         """
+        ...
+
+    @overload
+    async def update(
+        self,
+        id: str,
+        *,
+        evaluation_id: str,
+        target_values: List[str],
+        type: Literal["CONTAINS_ALL"],
+        ignore_case: bool | NotGiven = NOT_GIVEN,
+        json_path: Optional[str] | NotGiven = NOT_GIVEN,
+        negate: bool | NotGiven = NOT_GIVEN,
+        weight: float | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> EvaluationAssertion:
+        """
+        Update an existing evaluation assertion by providing its ID and new data.
+
+        Args:
+          target_values: List of values any of which may be present.
+
+          ignore_case: Whether to ignore case when comparing strings.
+
+          json_path: A JSON path to use when matching a JSON response.
+
+          negate: Whether to negate the assertion. "true" means the assertion must NOT be true.
+
+          weight: How heavily to weigh the assertion within the evaluation.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        ...
+
+    @overload
+    async def update(
+        self,
+        id: str,
+        *,
+        evaluation_id: str,
+        target_values: List[str],
+        type: Literal["CONTAINS_ANY"],
+        ignore_case: bool | NotGiven = NOT_GIVEN,
+        json_path: Optional[str] | NotGiven = NOT_GIVEN,
+        negate: bool | NotGiven = NOT_GIVEN,
+        weight: float | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> EvaluationAssertion:
+        """
+        Update an existing evaluation assertion by providing its ID and new data.
+
+        Args:
+          target_values: List of values any of which may be present.
+
+          ignore_case: Whether to ignore case when comparing strings.
+
+          json_path: A JSON path to use when matching a JSON response.
+
+          negate: Whether to negate the assertion. "true" means the assertion must NOT be true.
+
+          weight: How heavily to weigh the assertion within the evaluation.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        ...
+
+    @overload
+    async def update(
+        self,
+        id: str,
+        *,
+        evaluation_id: str,
+        target_value: str,
+        type: Literal["STARTS_WITH"],
+        ignore_case: bool | NotGiven = NOT_GIVEN,
+        json_path: Optional[str] | NotGiven = NOT_GIVEN,
+        negate: bool | NotGiven = NOT_GIVEN,
+        weight: float | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> EvaluationAssertion:
+        """
+        Update an existing evaluation assertion by providing its ID and new data.
+
+        Args:
+          target_value: The value that the response should start with.
+
+          ignore_case: Whether to ignore case when comparing strings.
+
+          json_path: A JSON path to use when matching a JSON response.
+
+          negate: Whether to negate the assertion. "true" means the assertion must NOT be true.
+
+          weight: How heavily to weigh the assertion within the evaluation.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        ...
+
+    @overload
+    async def update(
+        self,
+        id: str,
+        *,
+        evaluation_id: str,
+        target_threshold: float,
+        type: Literal["COST"],
+        weight: float | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> EvaluationAssertion:
+        """
+        Update an existing evaluation assertion by providing its ID and new data.
+
+        Args:
+          target_threshold: The cost threshold to be evaluated against.
+
+          weight: How heavily to weigh the assertion within the evaluation.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        ...
+
+    @overload
+    async def update(
+        self,
+        id: str,
+        *,
+        evaluation_id: str,
+        target_threshold: float,
+        type: Literal["LATENCY"],
+        weight: float | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> EvaluationAssertion:
+        """
+        Update an existing evaluation assertion by providing its ID and new data.
+
+        Args:
+          target_threshold: The latency threshold to be evaluated against.
+
+          weight: How heavily to weigh the assertion within the evaluation.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        ...
+
+    @overload
+    async def update(
+        self,
+        id: str,
+        *,
+        evaluation_id: str,
+        tool_name: str,
+        type: Literal["TOOL_CALLED"],
+        weight: float | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> EvaluationAssertion:
+        """
+        Update an existing evaluation assertion by providing its ID and new data.
+
+        Args:
+          tool_name: The name of the tool that should have been called.
+
+          weight: How heavily to weigh the assertion within the evaluation.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        ...
+
+    @overload
+    async def update(
+        self,
+        id: str,
+        *,
+        arg_key_name: str,
+        evaluation_id: str,
+        tool_name: str,
+        type: Literal["TOOL_CALLED_WITH"],
+        ignore_case: bool | NotGiven = NOT_GIVEN,
+        negate: bool | NotGiven = NOT_GIVEN,
+        weight: float | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> EvaluationAssertion:
+        """
+        Update an existing evaluation assertion by providing its ID and new data.
+
+        Args:
+          arg_key_name: The argument name to be matched.
+
+          tool_name: The name of the tool that should have been called.
+
+          ignore_case: Whether to ignore case when comparing argument names.
+
+          negate: Whether to negate the assertion. "true" means the assertion must NOT be true.
+
+          weight: How heavily to weigh the assertion within the evaluation.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        ...
+
+    @required_args(
+        ["evaluation_id", "target_value", "type"],
+        ["evaluation_id", "target_values", "type"],
+        ["evaluation_id", "target_threshold", "type"],
+        ["evaluation_id", "tool_name", "type"],
+        ["arg_key_name", "evaluation_id", "tool_name", "type"],
+    )
+    async def update(
+        self,
+        id: str,
+        *,
+        evaluation_id: str,
+        target_value: str | NotGiven = NOT_GIVEN,
+        type: Literal["EXACT_MATCH"]
+        | Literal["CONTAINS_ALL"]
+        | Literal["CONTAINS_ANY"]
+        | Literal["STARTS_WITH"]
+        | Literal["COST"]
+        | Literal["LATENCY"]
+        | Literal["TOOL_CALLED"]
+        | Literal["TOOL_CALLED_WITH"],
+        ignore_case: bool | NotGiven = NOT_GIVEN,
+        json_path: Optional[str] | NotGiven = NOT_GIVEN,
+        negate: bool | NotGiven = NOT_GIVEN,
+        weight: float | NotGiven = NOT_GIVEN,
+        target_values: List[str] | NotGiven = NOT_GIVEN,
+        target_threshold: float | NotGiven = NOT_GIVEN,
+        tool_name: str | NotGiven = NOT_GIVEN,
+        arg_key_name: str | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> EvaluationAssertion:
         if not id:
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
-        return await self._put(
-            f"/sdk/v1/evaluation-assertions/{id}",
-            body=await async_maybe_transform(
-                {
-                    "evaluation_id": evaluation_id,
-                    "json_path": json_path,
-                    "target_value": target_value,
-                    "tool_name": tool_name,
-                    "type": type,
-                    "weight": weight,
-                },
-                evaluation_assertion_update_params.EvaluationAssertionUpdateParams,
+        return cast(
+            EvaluationAssertion,
+            await self._put(
+                f"/sdk/v1/evaluation-assertions/{id}",
+                body=await async_maybe_transform(
+                    {
+                        "evaluation_id": evaluation_id,
+                        "target_value": target_value,
+                        "type": type,
+                        "ignore_case": ignore_case,
+                        "json_path": json_path,
+                        "negate": negate,
+                        "weight": weight,
+                        "target_values": target_values,
+                        "target_threshold": target_threshold,
+                        "tool_name": tool_name,
+                        "arg_key_name": arg_key_name,
+                    },
+                    evaluation_assertion_update_params.EvaluationAssertionUpdateParams,
+                ),
+                options=make_request_options(
+                    extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                ),
+                cast_to=cast(
+                    Any, EvaluationAssertion
+                ),  # Union types cannot be passed in as arguments in the type system
             ),
-            options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
-            ),
-            cast_to=EvaluationAssertion,
         )
 
     async def list(
@@ -496,12 +1774,17 @@ class AsyncEvaluationAssertionsResource(AsyncAPIResource):
         """
         if not id:
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
-        return await self._get(
-            f"/sdk/v1/evaluation-assertions/{id}",
-            options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+        return cast(
+            EvaluationAssertion,
+            await self._get(
+                f"/sdk/v1/evaluation-assertions/{id}",
+                options=make_request_options(
+                    extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                ),
+                cast_to=cast(
+                    Any, EvaluationAssertion
+                ),  # Union types cannot be passed in as arguments in the type system
             ),
-            cast_to=EvaluationAssertion,
         )
 
 
