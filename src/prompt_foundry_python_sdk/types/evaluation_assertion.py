@@ -1,7 +1,7 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 from typing import List, Union, Optional
-from typing_extensions import Literal, Annotated
+from typing_extensions import Literal, Annotated, TypeAlias
 
 from pydantic import Field as FieldInfo
 
@@ -178,7 +178,7 @@ class EvaluationAssertionToolCalledWith(BaseModel):
     """How heavily to weigh the assertion within the evaluation."""
 
 
-EvaluationAssertion = Annotated[
+EvaluationAssertion: TypeAlias = Annotated[
     Union[
         EvaluationAssertionExactMatch,
         EvaluationAssertionContainsAll,

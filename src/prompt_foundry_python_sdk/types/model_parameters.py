@@ -1,7 +1,7 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 from typing import TYPE_CHECKING, Dict, List, Union, Optional
-from typing_extensions import Literal
+from typing_extensions import Literal, TypeAlias
 
 from .._models import BaseModel
 
@@ -108,7 +108,7 @@ class AnthropicModelParametersParametersMessageContentUnionMember1ToolResultBloc
     type: Literal["image"]
 
 
-AnthropicModelParametersParametersMessageContentUnionMember1ToolResultBlockParamContentUnionMember1 = Union[
+AnthropicModelParametersParametersMessageContentUnionMember1ToolResultBlockParamContentUnionMember1: TypeAlias = Union[
     AnthropicModelParametersParametersMessageContentUnionMember1ToolResultBlockParamContentUnionMember1TextBlockParam,
     AnthropicModelParametersParametersMessageContentUnionMember1ToolResultBlockParamContentUnionMember1ImageBlockParam,
 ]
@@ -128,7 +128,7 @@ class AnthropicModelParametersParametersMessageContentUnionMember1ToolResultBloc
     is_error: Optional[bool] = None
 
 
-AnthropicModelParametersParametersMessageContentUnionMember1 = Union[
+AnthropicModelParametersParametersMessageContentUnionMember1: TypeAlias = Union[
     AnthropicModelParametersParametersMessageContentUnionMember1TextBlockParam,
     AnthropicModelParametersParametersMessageContentUnionMember1ImageBlockParam,
     AnthropicModelParametersParametersMessageContentUnionMember1ToolUseBlockParam,
@@ -160,7 +160,7 @@ class AnthropicModelParametersParametersToolChoiceMessageCreateParamsToolChoiceT
     type: Literal["tool"]
 
 
-AnthropicModelParametersParametersToolChoice = Union[
+AnthropicModelParametersParametersToolChoice: TypeAlias = Union[
     AnthropicModelParametersParametersToolChoiceMessageCreateParamsToolChoiceAuto,
     AnthropicModelParametersParametersToolChoiceMessageCreateParamsToolChoiceAny,
     AnthropicModelParametersParametersToolChoiceMessageCreateParamsToolChoiceTool,
@@ -262,7 +262,7 @@ class OpenAIModelParametersParametersMessageOpenAIChatCompletionRequestUserMessa
     type: Literal["image_url"]
 
 
-OpenAIModelParametersParametersMessageOpenAIChatCompletionRequestUserMessageContentUnionMember1 = Union[
+OpenAIModelParametersParametersMessageOpenAIChatCompletionRequestUserMessageContentUnionMember1: TypeAlias = Union[
     OpenAIModelParametersParametersMessageOpenAIChatCompletionRequestUserMessageContentUnionMember1OpenAIChatCompletionRequestMessageContentPartText,
     OpenAIModelParametersParametersMessageOpenAIChatCompletionRequestUserMessageContentUnionMember1OpenAIChatCompletionRequestMessageContentPartImage,
 ]
@@ -330,7 +330,7 @@ class OpenAIModelParametersParametersMessageOpenAIChatCompletionRequestFunctionM
     role: Literal["function"]
 
 
-OpenAIModelParametersParametersMessage = Union[
+OpenAIModelParametersParametersMessage: TypeAlias = Union[
     OpenAIModelParametersParametersMessageOpenAIChatCompletionRequestSystemMessage,
     OpenAIModelParametersParametersMessageOpenAIChatCompletionRequestUserMessage,
     OpenAIModelParametersParametersMessageOpenAIChatCompletionRequestAssistantMessage,
@@ -357,7 +357,7 @@ class OpenAIModelParametersParametersToolChoiceOpenAIChatCompletionNamedToolChoi
     type: Literal["function"]
 
 
-OpenAIModelParametersParametersToolChoice = Union[
+OpenAIModelParametersParametersToolChoice: TypeAlias = Union[
     Literal["none", "auto", "required"], OpenAIModelParametersParametersToolChoiceOpenAIChatCompletionNamedToolChoice
 ]
 
@@ -426,4 +426,4 @@ class OpenAIModelParameters(BaseModel):
     provider: Literal["openai"]
 
 
-ModelParameters = Union[AnthropicModelParameters, OpenAIModelParameters]
+ModelParameters: TypeAlias = Union[AnthropicModelParameters, OpenAIModelParameters]

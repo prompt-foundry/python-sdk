@@ -1,7 +1,7 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 from typing import Dict, List, Union, Optional
-from typing_extensions import Literal, Annotated
+from typing_extensions import Literal, Annotated, TypeAlias
 
 from pydantic import Field as FieldInfo
 
@@ -74,7 +74,7 @@ class MessageContentToolResultContentBlock(BaseModel):
     type: Literal["TOOL_RESULT"]
 
 
-MessageContent = Annotated[
+MessageContent: TypeAlias = Annotated[
     Union[
         MessageContentTextContentBlockSchema,
         MessageContentImageBase64ContentBlock,

@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from typing import Union, Iterable, Optional
-from typing_extensions import Literal, Required, Annotated, TypedDict
+from typing_extensions import Literal, Required, Annotated, TypeAlias, TypedDict
 
 from .._utils import PropertyInfo
 
@@ -83,7 +83,7 @@ class MessageContentToolResultContentBlock(TypedDict, total=False):
     type: Required[Literal["TOOL_RESULT"]]
 
 
-MessageContent = Union[
+MessageContent: TypeAlias = Union[
     MessageContentTextContentBlockSchema,
     MessageContentImageBase64ContentBlock,
     MessageContentToolCallContentBlock,
