@@ -17,6 +17,7 @@ from respx import MockRouter
 from pydantic import ValidationError
 
 from prompt_foundry_python_sdk import PromptFoundry, AsyncPromptFoundry, APIResponseValidationError
+from prompt_foundry_python_sdk._types import Omit
 from prompt_foundry_python_sdk._models import BaseModel, FinalRequestOptions
 from prompt_foundry_python_sdk._constants import RAW_RESPONSE_HEADER
 from prompt_foundry_python_sdk._exceptions import (
@@ -339,7 +340,8 @@ class TestPromptFoundry:
         assert request.headers.get("X-API-KEY") == api_key
 
         with pytest.raises(PromptFoundryError):
-            client2 = PromptFoundry(base_url=base_url, api_key=None, _strict_response_validation=True)
+            with update_env(**{"PROMPT_FOUNDRY_API_KEY": Omit()}):
+                client2 = PromptFoundry(base_url=base_url, api_key=None, _strict_response_validation=True)
             _ = client2
 
     def test_default_query_option(self) -> None:
@@ -1053,7 +1055,8 @@ class TestAsyncPromptFoundry:
         assert request.headers.get("X-API-KEY") == api_key
 
         with pytest.raises(PromptFoundryError):
-            client2 = AsyncPromptFoundry(base_url=base_url, api_key=None, _strict_response_validation=True)
+            with update_env(**{"PROMPT_FOUNDRY_API_KEY": Omit()}):
+                client2 = AsyncPromptFoundry(base_url=base_url, api_key=None, _strict_response_validation=True)
             _ = client2
 
     def test_default_query_option(self) -> None:
