@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from typing import List, Union, Optional
-from typing_extensions import Literal, Required, Annotated, TypedDict
+from typing_extensions import Literal, Required, Annotated, TypeAlias, TypedDict
 
 from .._utils import PropertyInfo
 
@@ -161,7 +161,7 @@ class EvaluationAssertionToolCalledWithBody(TypedDict, total=False):
     """How heavily to weigh the assertion within the evaluation."""
 
 
-EvaluationAssertionUpdateParams = Union[
+EvaluationAssertionUpdateParams: TypeAlias = Union[
     EvaluationAssertionExactMatchBody,
     EvaluationAssertionContainsAllBody,
     EvaluationAssertionContainsAnyBody,
