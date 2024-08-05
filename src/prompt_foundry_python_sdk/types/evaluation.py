@@ -1,7 +1,7 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 from typing import Dict, List, Union, Optional
-from typing_extensions import Literal, Annotated
+from typing_extensions import Literal, Annotated, TypeAlias
 
 from pydantic import Field as FieldInfo
 
@@ -72,7 +72,7 @@ class AppendedMessageContentToolResultContentBlock(BaseModel):
     type: Literal["TOOL_RESULT"]
 
 
-AppendedMessageContent = Annotated[
+AppendedMessageContent: TypeAlias = Annotated[
     Union[
         AppendedMessageContentTextContentBlockSchema,
         AppendedMessageContentImageBase64ContentBlock,

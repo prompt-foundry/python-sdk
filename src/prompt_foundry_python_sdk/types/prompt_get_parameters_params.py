@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from typing import Dict, Union, Iterable, Optional
-from typing_extensions import Literal, Required, Annotated, TypedDict
+from typing_extensions import Literal, Required, Annotated, TypeAlias, TypedDict
 
 from .._utils import PropertyInfo
 
@@ -99,7 +99,7 @@ class AppendMessageContentToolResultContentBlock(TypedDict, total=False):
     type: Required[Literal["TOOL_RESULT"]]
 
 
-AppendMessageContent = Union[
+AppendMessageContent: TypeAlias = Union[
     AppendMessageContentTextContentBlockSchema,
     AppendMessageContentImageBase64ContentBlock,
     AppendMessageContentToolCallContentBlock,
@@ -164,7 +164,7 @@ class OverrideMessageContentToolResultContentBlock(TypedDict, total=False):
     type: Required[Literal["TOOL_RESULT"]]
 
 
-OverrideMessageContent = Union[
+OverrideMessageContent: TypeAlias = Union[
     OverrideMessageContentTextContentBlockSchema,
     OverrideMessageContentImageBase64ContentBlock,
     OverrideMessageContentToolCallContentBlock,
