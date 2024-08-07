@@ -1,3 +1,15 @@
+# Completion
+
+Types:
+
+```python
+from prompt_foundry_python_sdk.types import CompletionCreateResponse
+```
+
+Methods:
+
+- <code title="post /sdk/v1/prompts/{id}/completion">client.completion.<a href="./src/prompt_foundry_python_sdk/resources/completion.py">create</a>(id, \*\*<a href="src/prompt_foundry_python_sdk/types/completion_create_params.py">params</a>) -> <a href="./src/prompt_foundry_python_sdk/types/completion_create_response.py">CompletionCreateResponse</a></code>
+
 # Prompts
 
 Types:

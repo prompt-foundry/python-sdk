@@ -16,6 +16,14 @@ from .prompts import (
     PromptsResourceWithStreamingResponse,
     AsyncPromptsResourceWithStreamingResponse,
 )
+from .completion import (
+    CompletionResource,
+    AsyncCompletionResource,
+    CompletionResourceWithRawResponse,
+    AsyncCompletionResourceWithRawResponse,
+    CompletionResourceWithStreamingResponse,
+    AsyncCompletionResourceWithStreamingResponse,
+)
 from .evaluations import (
     EvaluationsResource,
     AsyncEvaluationsResource,
@@ -34,6 +42,12 @@ from .evaluation_assertions import (
 )
 
 __all__ = [
+    "CompletionResource",
+    "AsyncCompletionResource",
+    "CompletionResourceWithRawResponse",
+    "AsyncCompletionResourceWithRawResponse",
+    "CompletionResourceWithStreamingResponse",
+    "AsyncCompletionResourceWithStreamingResponse",
     "PromptsResource",
     "AsyncPromptsResource",
     "PromptsResourceWithRawResponse",
