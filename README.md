@@ -1,16 +1,12 @@
 # Prompt Foundry Python API library
 
-The prompt engineering, prompt management, and llm evaluation tool for Python.
+The prompt engineering, prompt management, and prompt evaluation tool for developers working on Python AI applications using large language models (LLMs).
 
 [![PyPI version](https://img.shields.io/pypi/v/prompt_foundry_python_sdk.svg)](https://pypi.org/project/prompt_foundry_python_sdk/)
 
 The Prompt Foundry Python library provides convenient access to the Prompt Foundry REST API from any Python 3.7+
 application. The library includes type definitions for all request params and response fields,
 and offers both synchronous and asynchronous clients powered by [httpx](https://github.com/encode/httpx).
-
-## Documentation
-
-The REST API documentation can be found on [docs.promptfoundry.ai](https://docs.promptfoundry.ai). The full API of this library can be found in [api.md](api.md).
 
 ## Installation
 
@@ -21,9 +17,40 @@ pip install --pre prompt_foundry_python_sdk
 
 ## Usage
 
-The full API of this library can be found in [api.md](api.md).
+The full Prompt Foundry documentation can be found at [docs.promptfoundry.ai](https://docs.promptfoundry.ai/libraries/python).
 
-### OpenAI Integration
+### Option 1 - Completion Proxy
+
+Initiates a completion request to the configured LLM provider using specified parameters and provided variables. This endpoint abstracts the integration with different model providers, enabling seamless switching between models while maintaining a consistent data model for your application.
+
+```python
+import os
+from prompt_foundry_python_sdk import PromptFoundry
+
+client = PromptFoundry(
+    # This is the default and can be omitted
+    api_key=os.environ.get("PROMPT_FOUNDRY_API_KEY"),
+)
+
+completion_create_response = client.completion.create(
+    id="1212121",
+    append_messages=[{
+        "role": "user",
+        "content": [{
+            "type": "TEXT",
+            "text": "What is the weather in Seattle, WA?",
+        }],
+    }],
+)
+
+print(completion_create_response.message)
+```
+
+### Option 2 - Direct Provider Integration
+
+Fetches the configured model parameters and messages rendered with the provided variables mapped to the set LLM provider. This endpoint abstracts the need to handle mapping between different providers, while still allowing direct calls to the providers.
+
+#### OpenAI Integration
 
 Install the OpenAI SDK
 
@@ -73,7 +100,7 @@ if __name__ == "__main__":
     main()
 ```
 
-### Anthropic Integration
+#### Anthropic Integration
 
 Install the Anthropic SDK
 
