@@ -12,7 +12,7 @@ __all__ = [
     "PromptConfiguration",
     "Message",
     "MessageContent",
-    "MessageContentTextContentBlockSchema",
+    "MessageContentTextContentBlock",
     "MessageContentImageBase64ContentBlock",
     "MessageContentToolCallContentBlock",
     "MessageContentToolCallContentBlockToolCall",
@@ -23,7 +23,7 @@ __all__ = [
 ]
 
 
-class MessageContentTextContentBlockSchema(BaseModel):
+class MessageContentTextContentBlock(BaseModel):
     text: str
 
     type: Literal["TEXT"]
@@ -76,7 +76,7 @@ class MessageContentToolResultContentBlock(BaseModel):
 
 MessageContent: TypeAlias = Annotated[
     Union[
-        MessageContentTextContentBlockSchema,
+        MessageContentTextContentBlock,
         MessageContentImageBase64ContentBlock,
         MessageContentToolCallContentBlock,
         MessageContentToolResultContentBlock,
