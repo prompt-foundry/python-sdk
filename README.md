@@ -32,11 +32,21 @@ client = PromptFoundry(
     api_key=os.environ.get("PROMPT_FOUNDRY_API_KEY"),
 )
 
-model_parameters = client.prompts.get_parameters(
+completion_create_response = client.completion.create(
     id="1212121",
-    variables={"hello": "world"},
+    append_messages=[
+        {
+            "role": "user",
+            "content": [
+                {
+                    "type": "TEXT",
+                    "text": "What is the weather in Seattle, WA?",
+                }
+            ],
+        }
+    ],
 )
-print(model_parameters.parameters)
+print(completion_create_response.message)
 ```
 
 While you can provide a `api_key` keyword argument,
@@ -60,11 +70,21 @@ client = AsyncPromptFoundry(
 
 
 async def main() -> None:
-    model_parameters = await client.prompts.get_parameters(
+    completion_create_response = await client.completion.create(
         id="1212121",
-        variables={"hello": "world"},
+        append_messages=[
+            {
+                "role": "user",
+                "content": [
+                    {
+                        "type": "TEXT",
+                        "text": "What is the weather in Seattle, WA?",
+                    }
+                ],
+            }
+        ],
     )
-    print(model_parameters.parameters)
+    print(completion_create_response.message)
 
 
 asyncio.run(main())
@@ -97,7 +117,7 @@ from prompt_foundry_python_sdk import PromptFoundry
 client = PromptFoundry()
 
 try:
-    client.prompts.get_parameters(
+    client.completion.create(
         id="1212121",
     )
 except prompt_foundry_python_sdk.APIConnectionError as e:
@@ -142,7 +162,7 @@ client = PromptFoundry(
 )
 
 # Or, configure per-request:
-client.with_options(max_retries=5).prompts.get_parameters(
+client.with_options(max_retries=5).completion.create(
     id="1212121",
 )
 ```
@@ -167,7 +187,7 @@ client = PromptFoundry(
 )
 
 # Override per-request:
-client.with_options(timeout=5.0).prompts.get_parameters(
+client.with_options(timeout=5.0).completion.create(
     id="1212121",
 )
 ```
@@ -208,13 +228,13 @@ The "raw" Response object can be accessed by prefixing `.with_raw_response.` to 
 from prompt_foundry_python_sdk import PromptFoundry
 
 client = PromptFoundry()
-response = client.prompts.with_raw_response.get_parameters(
+response = client.completion.with_raw_response.create(
     id="1212121",
 )
 print(response.headers.get('X-My-Header'))
 
-prompt = response.parse()  # get the object that `prompts.get_parameters()` would have returned
-print(prompt)
+completion = response.parse()  # get the object that `completion.create()` would have returned
+print(completion.message)
 ```
 
 These methods return an [`APIResponse`](https://github.com/prompt-foundry/python-sdk/tree/main/src/prompt_foundry_python_sdk/_response.py) object.
@@ -228,7 +248,7 @@ The above interface eagerly reads the full response body when you make the reque
 To stream the response body, use `.with_streaming_response` instead, which requires a context manager and only reads the response body once you call `.read()`, `.text()`, `.json()`, `.iter_bytes()`, `.iter_text()`, `.iter_lines()` or `.parse()`. In the async client, these are async methods.
 
 ```python
-with client.prompts.with_streaming_response.get_parameters(
+with client.completion.with_streaming_response.create(
     id="1212121",
 ) as response:
     print(response.headers.get("X-My-Header"))
