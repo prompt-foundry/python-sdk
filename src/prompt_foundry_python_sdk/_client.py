@@ -46,6 +46,7 @@ __all__ = [
 
 
 class PromptFoundry(SyncAPIClient):
+    completion: resources.CompletionResource
     prompts: resources.PromptsResource
     tools: resources.ToolsResource
     evaluation_assertions: resources.EvaluationAssertionsResource
@@ -107,6 +108,7 @@ class PromptFoundry(SyncAPIClient):
             _strict_response_validation=_strict_response_validation,
         )
 
+        self.completion = resources.CompletionResource(self)
         self.prompts = resources.PromptsResource(self)
         self.tools = resources.ToolsResource(self)
         self.evaluation_assertions = resources.EvaluationAssertionsResource(self)
@@ -220,6 +222,7 @@ class PromptFoundry(SyncAPIClient):
 
 
 class AsyncPromptFoundry(AsyncAPIClient):
+    completion: resources.AsyncCompletionResource
     prompts: resources.AsyncPromptsResource
     tools: resources.AsyncToolsResource
     evaluation_assertions: resources.AsyncEvaluationAssertionsResource
@@ -281,6 +284,7 @@ class AsyncPromptFoundry(AsyncAPIClient):
             _strict_response_validation=_strict_response_validation,
         )
 
+        self.completion = resources.AsyncCompletionResource(self)
         self.prompts = resources.AsyncPromptsResource(self)
         self.tools = resources.AsyncToolsResource(self)
         self.evaluation_assertions = resources.AsyncEvaluationAssertionsResource(self)
@@ -395,6 +399,7 @@ class AsyncPromptFoundry(AsyncAPIClient):
 
 class PromptFoundryWithRawResponse:
     def __init__(self, client: PromptFoundry) -> None:
+        self.completion = resources.CompletionResourceWithRawResponse(client.completion)
         self.prompts = resources.PromptsResourceWithRawResponse(client.prompts)
         self.tools = resources.ToolsResourceWithRawResponse(client.tools)
         self.evaluation_assertions = resources.EvaluationAssertionsResourceWithRawResponse(client.evaluation_assertions)
@@ -403,6 +408,7 @@ class PromptFoundryWithRawResponse:
 
 class AsyncPromptFoundryWithRawResponse:
     def __init__(self, client: AsyncPromptFoundry) -> None:
+        self.completion = resources.AsyncCompletionResourceWithRawResponse(client.completion)
         self.prompts = resources.AsyncPromptsResourceWithRawResponse(client.prompts)
         self.tools = resources.AsyncToolsResourceWithRawResponse(client.tools)
         self.evaluation_assertions = resources.AsyncEvaluationAssertionsResourceWithRawResponse(
@@ -413,6 +419,7 @@ class AsyncPromptFoundryWithRawResponse:
 
 class PromptFoundryWithStreamedResponse:
     def __init__(self, client: PromptFoundry) -> None:
+        self.completion = resources.CompletionResourceWithStreamingResponse(client.completion)
         self.prompts = resources.PromptsResourceWithStreamingResponse(client.prompts)
         self.tools = resources.ToolsResourceWithStreamingResponse(client.tools)
         self.evaluation_assertions = resources.EvaluationAssertionsResourceWithStreamingResponse(
@@ -423,6 +430,7 @@ class PromptFoundryWithStreamedResponse:
 
 class AsyncPromptFoundryWithStreamedResponse:
     def __init__(self, client: AsyncPromptFoundry) -> None:
+        self.completion = resources.AsyncCompletionResourceWithStreamingResponse(client.completion)
         self.prompts = resources.AsyncPromptsResourceWithStreamingResponse(client.prompts)
         self.tools = resources.AsyncToolsResourceWithStreamingResponse(client.tools)
         self.evaluation_assertions = resources.AsyncEvaluationAssertionsResourceWithStreamingResponse(
