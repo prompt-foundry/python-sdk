@@ -11,7 +11,7 @@ __all__ = [
     "PromptCreateParams",
     "Message",
     "MessageContent",
-    "MessageContentTextContentBlockSchema",
+    "MessageContentTextContentBlock",
     "MessageContentImageBase64ContentBlock",
     "MessageContentToolCallContentBlock",
     "MessageContentToolCallContentBlockToolCall",
@@ -32,7 +32,7 @@ class PromptCreateParams(TypedDict, total=False):
     tools: Required[Iterable[Tool]]
 
 
-class MessageContentTextContentBlockSchema(TypedDict, total=False):
+class MessageContentTextContentBlock(TypedDict, total=False):
     text: Required[str]
 
     type: Required[Literal["TEXT"]]
@@ -84,7 +84,7 @@ class MessageContentToolResultContentBlock(TypedDict, total=False):
 
 
 MessageContent: TypeAlias = Union[
-    MessageContentTextContentBlockSchema,
+    MessageContentTextContentBlock,
     MessageContentImageBase64ContentBlock,
     MessageContentToolCallContentBlock,
     MessageContentToolResultContentBlock,
