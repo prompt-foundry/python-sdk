@@ -106,16 +106,16 @@ class Parameters(TypedDict, total=False):
     max_tokens: Required[Annotated[Optional[float], PropertyInfo(alias="maxTokens")]]
     """Example: 100"""
 
-    model_name: Required[Annotated[str, PropertyInfo(alias="modelName")]]
-    """Example: "gpt-3.5-turbo" """
-
-    model_provider: Required[Annotated[Literal["ANTHROPIC", "OPENAI"], PropertyInfo(alias="modelProvider")]]
-    """The provider of the provided model."""
+    name: Required[str]
+    """The name of the model for the provider."""
 
     parallel_tool_calls: Required[Annotated[bool, PropertyInfo(alias="parallelToolCalls")]]
 
     presence_penalty: Required[Annotated[float, PropertyInfo(alias="presencePenalty")]]
     """Example: 0"""
+
+    provider: Required[Literal["ANTHROPIC", "OPENAI"]]
+    """The LLM model provider."""
 
     response_format: Required[Annotated[Literal["JSON", "TEXT"], PropertyInfo(alias="responseFormat")]]
     """Example: PromptResponseFormat.TEXT"""
