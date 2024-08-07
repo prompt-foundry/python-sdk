@@ -11,7 +11,7 @@ __all__ = [
     "EvaluationUpdateParams",
     "AppendedMessage",
     "AppendedMessageContent",
-    "AppendedMessageContentTextContentBlockSchema",
+    "AppendedMessageContentTextContentBlock",
     "AppendedMessageContentImageBase64ContentBlock",
     "AppendedMessageContentToolCallContentBlock",
     "AppendedMessageContentToolCallContentBlockToolCall",
@@ -36,7 +36,7 @@ class EvaluationUpdateParams(TypedDict, total=False):
     """How heavily to weigh the evaluation within the prompt."""
 
 
-class AppendedMessageContentTextContentBlockSchema(TypedDict, total=False):
+class AppendedMessageContentTextContentBlock(TypedDict, total=False):
     text: Required[str]
 
     type: Required[Literal["TEXT"]]
@@ -88,7 +88,7 @@ class AppendedMessageContentToolResultContentBlock(TypedDict, total=False):
 
 
 AppendedMessageContent: TypeAlias = Union[
-    AppendedMessageContentTextContentBlockSchema,
+    AppendedMessageContentTextContentBlock,
     AppendedMessageContentImageBase64ContentBlock,
     AppendedMessageContentToolCallContentBlock,
     AppendedMessageContentToolResultContentBlock,
