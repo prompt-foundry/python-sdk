@@ -6,7 +6,7 @@ from typing_extensions import Literal, TypeAlias
 from .._models import BaseModel
 
 __all__ = [
-    "ModelParameters",
+    "Parameters",
     "AnthropicModelParameters",
     "AnthropicModelParametersParameters",
     "AnthropicModelParametersParametersMessage",
@@ -425,4 +425,4 @@ class OpenAIModelParameters(BaseModel):
     provider: Literal["openai"]
 
 
-ModelParameters: TypeAlias = Union[AnthropicModelParameters, OpenAIModelParameters]
+Parameters: TypeAlias = Union[AnthropicModelParameters, OpenAIModelParameters]
