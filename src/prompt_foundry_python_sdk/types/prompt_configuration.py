@@ -12,7 +12,7 @@ __all__ = [
     "PromptConfiguration",
     "Message",
     "MessageContent",
-    "MessageContentTextContentBlockSchema",
+    "MessageContentTextContentBlock",
     "MessageContentImageBase64ContentBlock",
     "MessageContentToolCallContentBlock",
     "MessageContentToolCallContentBlockToolCall",
@@ -23,7 +23,7 @@ __all__ = [
 ]
 
 
-class MessageContentTextContentBlockSchema(BaseModel):
+class MessageContentTextContentBlock(BaseModel):
     text: str
 
     type: Literal["TEXT"]
@@ -76,7 +76,7 @@ class MessageContentToolResultContentBlock(BaseModel):
 
 MessageContent: TypeAlias = Annotated[
     Union[
-        MessageContentTextContentBlockSchema,
+        MessageContentTextContentBlock,
         MessageContentImageBase64ContentBlock,
         MessageContentToolCallContentBlock,
         MessageContentToolResultContentBlock,
@@ -98,16 +98,16 @@ class Parameters(BaseModel):
     max_tokens: Optional[float] = FieldInfo(alias="maxTokens", default=None)
     """Example: 100"""
 
-    api_model_name: str = FieldInfo(alias="modelName")
-    """Example: "gpt-3.5-turbo" """
-
-    api_model_provider: Literal["ANTHROPIC", "OPENAI"] = FieldInfo(alias="modelProvider")
-    """The provider of the provided model."""
+    name: str
+    """The name of the model for the provider."""
 
     parallel_tool_calls: bool = FieldInfo(alias="parallelToolCalls")
 
     presence_penalty: float = FieldInfo(alias="presencePenalty")
     """Example: 0"""
+
+    provider: Literal["ANTHROPIC", "OPENAI"]
+    """The LLM model provider."""
 
     response_format: Literal["JSON", "TEXT"] = FieldInfo(alias="responseFormat")
     """Example: PromptResponseFormat.TEXT"""
