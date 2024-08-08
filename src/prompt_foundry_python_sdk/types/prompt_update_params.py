@@ -11,7 +11,7 @@ __all__ = [
     "PromptUpdateParams",
     "Message",
     "MessageContent",
-    "MessageContentTextContentBlock",
+    "MessageContentTextContentBlockSchema",
     "MessageContentImageBase64ContentBlock",
     "MessageContentToolCallContentBlock",
     "MessageContentToolCallContentBlockToolCall",
@@ -32,7 +32,7 @@ class PromptUpdateParams(TypedDict, total=False):
     tools: Required[Iterable[Tool]]
 
 
-class MessageContentTextContentBlock(TypedDict, total=False):
+class MessageContentTextContentBlockSchema(TypedDict, total=False):
     text: Required[str]
 
     type: Required[Literal["TEXT"]]
@@ -84,7 +84,7 @@ class MessageContentToolResultContentBlock(TypedDict, total=False):
 
 
 MessageContent: TypeAlias = Union[
-    MessageContentTextContentBlock,
+    MessageContentTextContentBlockSchema,
     MessageContentImageBase64ContentBlock,
     MessageContentToolCallContentBlock,
     MessageContentToolResultContentBlock,
@@ -106,16 +106,16 @@ class Parameters(TypedDict, total=False):
     max_tokens: Required[Annotated[Optional[float], PropertyInfo(alias="maxTokens")]]
     """Example: 100"""
 
-    name: Required[str]
-    """The name of the model for the provider."""
+    model_name: Required[Annotated[str, PropertyInfo(alias="modelName")]]
+    """Example: "gpt-3.5-turbo" """
+
+    model_provider: Required[Annotated[Literal["ANTHROPIC", "OPENAI"], PropertyInfo(alias="modelProvider")]]
+    """The provider of the provided model."""
 
     parallel_tool_calls: Required[Annotated[bool, PropertyInfo(alias="parallelToolCalls")]]
 
     presence_penalty: Required[Annotated[float, PropertyInfo(alias="presencePenalty")]]
     """Example: 0"""
-
-    provider: Required[Literal["ANTHROPIC", "OPENAI"]]
-    """The LLM model provider."""
 
     response_format: Required[Annotated[Literal["JSON", "TEXT"], PropertyInfo(alias="responseFormat")]]
     """Example: PromptResponseFormat.TEXT"""

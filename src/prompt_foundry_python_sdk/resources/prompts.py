@@ -21,7 +21,7 @@ from .._response import (
     async_to_streamed_response_wrapper,
 )
 from .._base_client import make_request_options
-from ..types.model_parameters import ModelParameters
+from ..types.parameters import Parameters
 from ..types.prompt_configuration import PromptConfiguration
 from ..types.prompt_list_response import PromptListResponse
 from ..types.prompt_delete_response import PromptDeleteResponse
@@ -228,12 +228,11 @@ class PromptsResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> ModelParameters:
+    ) -> Parameters:
         """
-        Fetches the configured model parameters and messages rendered with the provided
-        variables mapped to the set LLM provider. This endpoint abstracts the need to
-        handle mapping between different providers, while still allowing direct calls to
-        the providers.
+        Fetches the model configuration parameters for a specified prompt, including
+        penalty settings, response format, and the model messages rendered with the
+        given variables mapped to the set LLM provider.
 
         Args:
           append_messages: Appended the the end of the configured prompt messages before running the
@@ -257,7 +256,7 @@ class PromptsResource(SyncAPIResource):
         if not id:
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         return cast(
-            ModelParameters,
+            Parameters,
             self._post(
                 f"/sdk/v1/prompts/{id}",
                 body=maybe_transform(
@@ -272,7 +271,7 @@ class PromptsResource(SyncAPIResource):
                 options=make_request_options(
                     extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
                 ),
-                cast_to=cast(Any, ModelParameters),  # Union types cannot be passed in as arguments in the type system
+                cast_to=cast(Any, Parameters),  # Union types cannot be passed in as arguments in the type system
             ),
         )
 
@@ -476,12 +475,11 @@ class AsyncPromptsResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> ModelParameters:
+    ) -> Parameters:
         """
-        Fetches the configured model parameters and messages rendered with the provided
-        variables mapped to the set LLM provider. This endpoint abstracts the need to
-        handle mapping between different providers, while still allowing direct calls to
-        the providers.
+        Fetches the model configuration parameters for a specified prompt, including
+        penalty settings, response format, and the model messages rendered with the
+        given variables mapped to the set LLM provider.
 
         Args:
           append_messages: Appended the the end of the configured prompt messages before running the
@@ -505,7 +503,7 @@ class AsyncPromptsResource(AsyncAPIResource):
         if not id:
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         return cast(
-            ModelParameters,
+            Parameters,
             await self._post(
                 f"/sdk/v1/prompts/{id}",
                 body=await async_maybe_transform(
@@ -520,7 +518,7 @@ class AsyncPromptsResource(AsyncAPIResource):
                 options=make_request_options(
                     extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
                 ),
-                cast_to=cast(Any, ModelParameters),  # Union types cannot be passed in as arguments in the type system
+                cast_to=cast(Any, Parameters),  # Union types cannot be passed in as arguments in the type system
             ),
         )
 
