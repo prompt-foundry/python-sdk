@@ -6,8 +6,6 @@ The Prompt Foundry Python library provides convenient access to the Prompt Found
 application. The library includes type definitions for all request params and response fields,
 and offers both synchronous and asynchronous clients powered by [httpx](https://github.com/encode/httpx).
 
-It is generated with [Stainless](https://www.stainlessapi.com/).
-
 ## Documentation
 
 The REST API documentation can be found on [docs.promptfoundry.ai](https://docs.promptfoundry.ai). The full API of this library can be found in [api.md](api.md).

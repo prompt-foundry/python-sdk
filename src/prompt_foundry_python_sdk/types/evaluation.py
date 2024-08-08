@@ -12,7 +12,7 @@ __all__ = [
     "Evaluation",
     "AppendedMessage",
     "AppendedMessageContent",
-    "AppendedMessageContentTextContentBlock",
+    "AppendedMessageContentTextContentBlockSchema",
     "AppendedMessageContentImageBase64ContentBlock",
     "AppendedMessageContentToolCallContentBlock",
     "AppendedMessageContentToolCallContentBlockToolCall",
@@ -21,7 +21,7 @@ __all__ = [
 ]
 
 
-class AppendedMessageContentTextContentBlock(BaseModel):
+class AppendedMessageContentTextContentBlockSchema(BaseModel):
     text: str
 
     type: Literal["TEXT"]
@@ -74,7 +74,7 @@ class AppendedMessageContentToolResultContentBlock(BaseModel):
 
 AppendedMessageContent: TypeAlias = Annotated[
     Union[
-        AppendedMessageContentTextContentBlock,
+        AppendedMessageContentTextContentBlockSchema,
         AppendedMessageContentImageBase64ContentBlock,
         AppendedMessageContentToolCallContentBlock,
         AppendedMessageContentToolResultContentBlock,
