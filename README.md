@@ -232,7 +232,7 @@ response = client.completion.with_raw_response.create(
 print(response.headers.get('X-My-Header'))
 
 completion = response.parse()  # get the object that `completion.create()` would have returned
-print(completion.message)
+print(completion.provider)
 ```
 
 These methods return an [`APIResponse`](https://github.com/prompt-foundry/python-sdk/tree/main/src/prompt_foundry_python_sdk/_response.py) object.
