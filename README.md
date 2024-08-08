@@ -1,21 +1,27 @@
 # Prompt Foundry Python API library
 
-The prompt engineering, prompt management, and prompt evaluation tool for developers working on Python AI applications using large language models (LLMs).
-
-[![PyPI version](https://img.shields.io/pypi/v/prompt_foundry_python_sdk.svg)](https://pypi.org/project/prompt_foundry_python_sdk/)
+Prompt Foundry is a comprehensive tool for prompt engineering, management, and evaluation. It is designed to simplify the development and integration process for developers working with Python AI applications utilizing large language models (LLMs).
 
 The Prompt Foundry Python library provides convenient access to the Prompt Foundry REST API from any Python 3.7+
 application. The library includes type definitions for all request params and response fields,
 and offers both synchronous and asynchronous clients powered by [httpx](https://github.com/encode/httpx).
 
+## Deploy Prompt
+
+To use this SDK, you need a Prompt Foundry account. Sign up at [promptfoundry.ai](https://promptfoundry.ai). Follow the getting started guide in our [documentation](https://docs.promptfoundry.ai/quickstart/getting-started) to get set up.
+
+![Playground](/playground.gif)
+
 ## Installation
+
+[![PyPI version](https://img.shields.io/pypi/v/prompt_foundry_python_sdk.svg)](https://pypi.org/project/prompt_foundry_python_sdk/)
 
 ```sh
 # install from PyPI
 pip install --pre prompt_foundry_python_sdk
 ```
 
-## Usage
+## Integration
 
 The full Prompt Foundry documentation can be found at [docs.promptfoundry.ai](https://docs.promptfoundry.ai/libraries/python).
 
