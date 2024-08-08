@@ -1,6 +1,6 @@
 # Prompt Foundry Python API library
 
-Prompt Foundry is a comprehensive tool for prompt engineering, management, and evaluation. It is designed to simplify the development and integration process for developers working with Python AI applications utilizing large language models (LLMs).
+Prompt Foundry is a comprehensive tool for prompt engineering, management, and evaluation. It is designed to simplify the development and integration process for developers working on Python AI applications utilizing large language models (LLMs).
 
 The Prompt Foundry Python library provides convenient access to the Prompt Foundry REST API from any Python 3.7+
 application. The library includes type definitions for all request params and response fields,
