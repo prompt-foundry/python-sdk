@@ -11,7 +11,7 @@ __all__ = [
     "PromptGetParametersParams",
     "AppendMessage",
     "AppendMessageContent",
-    "AppendMessageContentTextContentBlock",
+    "AppendMessageContentTextContentBlockSchema",
     "AppendMessageContentImageBase64ContentBlock",
     "AppendMessageContentToolCallContentBlock",
     "AppendMessageContentToolCallContentBlockToolCall",
@@ -19,7 +19,7 @@ __all__ = [
     "AppendMessageContentToolResultContentBlock",
     "OverrideMessage",
     "OverrideMessageContent",
-    "OverrideMessageContentTextContentBlock",
+    "OverrideMessageContentTextContentBlockSchema",
     "OverrideMessageContentImageBase64ContentBlock",
     "OverrideMessageContentToolCallContentBlock",
     "OverrideMessageContentToolCallContentBlockToolCall",
@@ -48,7 +48,7 @@ class PromptGetParametersParams(TypedDict, total=False):
     """The template variables added to the prompt when executing the prompt."""
 
 
-class AppendMessageContentTextContentBlock(TypedDict, total=False):
+class AppendMessageContentTextContentBlockSchema(TypedDict, total=False):
     text: Required[str]
 
     type: Required[Literal["TEXT"]]
@@ -100,7 +100,7 @@ class AppendMessageContentToolResultContentBlock(TypedDict, total=False):
 
 
 AppendMessageContent: TypeAlias = Union[
-    AppendMessageContentTextContentBlock,
+    AppendMessageContentTextContentBlockSchema,
     AppendMessageContentImageBase64ContentBlock,
     AppendMessageContentToolCallContentBlock,
     AppendMessageContentToolResultContentBlock,
@@ -113,7 +113,7 @@ class AppendMessage(TypedDict, total=False):
     role: Required[Literal["assistant", "system", "tool", "user"]]
 
 
-class OverrideMessageContentTextContentBlock(TypedDict, total=False):
+class OverrideMessageContentTextContentBlockSchema(TypedDict, total=False):
     text: Required[str]
 
     type: Required[Literal["TEXT"]]
@@ -165,7 +165,7 @@ class OverrideMessageContentToolResultContentBlock(TypedDict, total=False):
 
 
 OverrideMessageContent: TypeAlias = Union[
-    OverrideMessageContentTextContentBlock,
+    OverrideMessageContentTextContentBlockSchema,
     OverrideMessageContentImageBase64ContentBlock,
     OverrideMessageContentToolCallContentBlock,
     OverrideMessageContentToolResultContentBlock,
