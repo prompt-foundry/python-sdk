@@ -230,10 +230,9 @@ class PromptsResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> ModelParameters:
         """
-        Fetches the configured model parameters and messages rendered with the provided
-        variables mapped to the set LLM provider. This endpoint abstracts the need to
-        handle mapping between different providers, while still allowing direct calls to
-        the providers.
+        Fetches the model configuration parameters for a specified prompt, including
+        penalty settings, response format, and the model messages rendered with the
+        given variables mapped to the set LLM provider.
 
         Args:
           append_messages: Appended the the end of the configured prompt messages before running the
@@ -478,10 +477,9 @@ class AsyncPromptsResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> ModelParameters:
         """
-        Fetches the configured model parameters and messages rendered with the provided
-        variables mapped to the set LLM provider. This endpoint abstracts the need to
-        handle mapping between different providers, while still allowing direct calls to
-        the providers.
+        Fetches the model configuration parameters for a specified prompt, including
+        penalty settings, response format, and the model messages rendered with the
+        given variables mapped to the set LLM provider.
 
         Args:
           append_messages: Appended the the end of the configured prompt messages before running the
