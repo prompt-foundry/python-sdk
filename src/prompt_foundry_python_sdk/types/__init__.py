@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from .tool import Tool as Tool
 from .evaluation import Evaluation as Evaluation
-from .model_parameters import ModelParameters as ModelParameters
+from .parameters import Parameters as Parameters
 from .tool_create_params import ToolCreateParams as ToolCreateParams
 from .tool_list_response import ToolListResponse as ToolListResponse
 from .tool_update_params import ToolUpdateParams as ToolUpdateParams

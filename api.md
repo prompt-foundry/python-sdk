@@ -16,7 +16,7 @@ Types:
 
 ```python
 from prompt_foundry_python_sdk.types import (
-    ModelParameters,
+    Parameters,
     PromptConfiguration,
     PromptListResponse,
     PromptDeleteResponse,
@@ -30,7 +30,7 @@ Methods:
 - <code title="get /sdk/v1/prompts">client.prompts.<a href="./src/prompt_foundry_python_sdk/resources/prompts.py">list</a>() -> <a href="./src/prompt_foundry_python_sdk/types/prompt_list_response.py">PromptListResponse</a></code>
 - <code title="delete /sdk/v1/prompts/{id}">client.prompts.<a href="./src/prompt_foundry_python_sdk/resources/prompts.py">delete</a>(id) -> <a href="./src/prompt_foundry_python_sdk/types/prompt_delete_response.py">PromptDeleteResponse</a></code>
 - <code title="get /sdk/v1/prompts/{id}">client.prompts.<a href="./src/prompt_foundry_python_sdk/resources/prompts.py">get</a>(id) -> <a href="./src/prompt_foundry_python_sdk/types/prompt_configuration.py">PromptConfiguration</a></code>
-- <code title="post /sdk/v1/prompts/{id}">client.prompts.<a href="./src/prompt_foundry_python_sdk/resources/prompts.py">get_parameters</a>(id, \*\*<a href="src/prompt_foundry_python_sdk/types/prompt_get_parameters_params.py">params</a>) -> <a href="./src/prompt_foundry_python_sdk/types/model_parameters.py">ModelParameters</a></code>
+- <code title="post /sdk/v1/prompts/{id}">client.prompts.<a href="./src/prompt_foundry_python_sdk/resources/prompts.py">get_parameters</a>(id, \*\*<a href="src/prompt_foundry_python_sdk/types/prompt_get_parameters_params.py">params</a>) -> <a href="./src/prompt_foundry_python_sdk/types/parameters.py">Parameters</a></code>
 
 # Tools
 
