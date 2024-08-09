@@ -87,6 +87,13 @@ def main():
         model_parameters = pf.prompts.get_parameters(
             "1212121",
             variables={"hello": "world"},
+            append_messages=[{
+                "role": "user",
+                "content": [{
+                    "type": "TEXT",
+                    "text": "What is the weather in Seattle, WA?",
+                }],
+            }],
         )
 
         # Check if provider is OpenAI
@@ -137,6 +144,13 @@ def main():
         model_parameters = pf.prompts.get_parameters(
             "1212121",
             variables={"hello": "world"},
+            append_messages=[{
+                "role": "user",
+                "content": [{
+                    "type": "TEXT",
+                    "text": "What is the weather in Seattle, WA?",
+                }],
+            }],
         )
 
         # Check if provider is Anthropic
