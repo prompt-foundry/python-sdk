@@ -32,33 +32,16 @@ class TestCompletion:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
-                        },
-                    ],
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
                             "type": "TEXT",
-                            "text": "text",
-                        },
-                        {
-                            "type": "TEXT",
-                            "text": "text",
-                        },
-                        {
-                            "type": "TEXT",
-                            "text": "text",
                         },
                     ],
                     "role": "assistant",
@@ -66,16 +49,33 @@ class TestCompletion:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
+                        },
+                    ],
+                    "role": "assistant",
+                },
+                {
+                    "content": [
+                        {
+                            "text": "text",
+                            "type": "TEXT",
+                        },
+                        {
+                            "text": "text",
+                            "type": "TEXT",
+                        },
+                        {
+                            "text": "text",
+                            "type": "TEXT",
                         },
                     ],
                     "role": "assistant",
@@ -85,33 +85,16 @@ class TestCompletion:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
-                        },
-                    ],
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
                             "type": "TEXT",
-                            "text": "text",
-                        },
-                        {
-                            "type": "TEXT",
-                            "text": "text",
-                        },
-                        {
-                            "type": "TEXT",
-                            "text": "text",
                         },
                     ],
                     "role": "assistant",
@@ -119,16 +102,33 @@ class TestCompletion:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
+                        },
+                    ],
+                    "role": "assistant",
+                },
+                {
+                    "content": [
+                        {
+                            "text": "text",
+                            "type": "TEXT",
+                        },
+                        {
+                            "text": "text",
+                            "type": "TEXT",
+                        },
+                        {
+                            "text": "text",
+                            "type": "TEXT",
                         },
                     ],
                     "role": "assistant",
@@ -189,33 +189,16 @@ class TestAsyncCompletion:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
-                        },
-                    ],
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
                             "type": "TEXT",
-                            "text": "text",
-                        },
-                        {
-                            "type": "TEXT",
-                            "text": "text",
-                        },
-                        {
-                            "type": "TEXT",
-                            "text": "text",
                         },
                     ],
                     "role": "assistant",
@@ -223,16 +206,33 @@ class TestAsyncCompletion:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
+                        },
+                    ],
+                    "role": "assistant",
+                },
+                {
+                    "content": [
+                        {
+                            "text": "text",
+                            "type": "TEXT",
+                        },
+                        {
+                            "text": "text",
+                            "type": "TEXT",
+                        },
+                        {
+                            "text": "text",
+                            "type": "TEXT",
                         },
                     ],
                     "role": "assistant",
@@ -242,33 +242,16 @@ class TestAsyncCompletion:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
-                        },
-                    ],
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
                             "type": "TEXT",
-                            "text": "text",
-                        },
-                        {
-                            "type": "TEXT",
-                            "text": "text",
-                        },
-                        {
-                            "type": "TEXT",
-                            "text": "text",
                         },
                     ],
                     "role": "assistant",
@@ -276,16 +259,33 @@ class TestAsyncCompletion:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
+                        },
+                    ],
+                    "role": "assistant",
+                },
+                {
+                    "content": [
+                        {
+                            "text": "text",
+                            "type": "TEXT",
+                        },
+                        {
+                            "text": "text",
+                            "type": "TEXT",
+                        },
+                        {
+                            "text": "text",
+                            "type": "TEXT",
                         },
                     ],
                     "role": "assistant",

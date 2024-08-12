@@ -29,73 +29,73 @@ class TestPrompts:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                     ],
-                    "role": "assistant",
                     "prompt_message_id": "promptMessageId",
+                    "role": "assistant",
                 },
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                     ],
-                    "role": "assistant",
                     "prompt_message_id": "promptMessageId",
+                    "role": "assistant",
                 },
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                     ],
-                    "role": "assistant",
                     "prompt_message_id": "promptMessageId",
+                    "role": "assistant",
                 },
             ],
             name="name",
             parameters={
-                "provider": "ANTHROPIC",
-                "name": "name",
-                "response_format": "JSON",
-                "temperature": 0,
-                "top_p": 0,
-                "top_k": 1,
                 "frequency_penalty": 0,
-                "presence_penalty": 0,
                 "max_tokens": 0,
-                "seed": 0,
-                "tool_choice": "toolChoice",
-                "stream": True,
+                "name": "name",
                 "parallel_tool_calls": True,
+                "presence_penalty": 0,
+                "provider": "ANTHROPIC",
+                "response_format": "JSON",
+                "seed": 0,
+                "stream": True,
+                "temperature": 0,
+                "tool_choice": "toolChoice",
+                "top_k": 1,
+                "top_p": 0,
             },
             tools=[{"tool_id": "toolId"}, {"tool_id": "toolId"}, {"tool_id": "toolId"}],
         )
@@ -108,73 +108,73 @@ class TestPrompts:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                     ],
-                    "role": "assistant",
                     "prompt_message_id": "promptMessageId",
+                    "role": "assistant",
                 },
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                     ],
-                    "role": "assistant",
                     "prompt_message_id": "promptMessageId",
+                    "role": "assistant",
                 },
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                     ],
-                    "role": "assistant",
                     "prompt_message_id": "promptMessageId",
+                    "role": "assistant",
                 },
             ],
             name="name",
             parameters={
-                "provider": "ANTHROPIC",
-                "name": "name",
-                "response_format": "JSON",
-                "temperature": 0,
-                "top_p": 0,
-                "top_k": 1,
                 "frequency_penalty": 0,
-                "presence_penalty": 0,
                 "max_tokens": 0,
-                "seed": 0,
-                "tool_choice": "toolChoice",
-                "stream": True,
+                "name": "name",
                 "parallel_tool_calls": True,
+                "presence_penalty": 0,
+                "provider": "ANTHROPIC",
+                "response_format": "JSON",
+                "seed": 0,
+                "stream": True,
+                "temperature": 0,
+                "tool_choice": "toolChoice",
+                "top_k": 1,
+                "top_p": 0,
             },
             tools=[{"tool_id": "toolId"}, {"tool_id": "toolId"}, {"tool_id": "toolId"}],
         )
@@ -191,73 +191,73 @@ class TestPrompts:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                     ],
-                    "role": "assistant",
                     "prompt_message_id": "promptMessageId",
+                    "role": "assistant",
                 },
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                     ],
-                    "role": "assistant",
                     "prompt_message_id": "promptMessageId",
+                    "role": "assistant",
                 },
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                     ],
-                    "role": "assistant",
                     "prompt_message_id": "promptMessageId",
+                    "role": "assistant",
                 },
             ],
             name="name",
             parameters={
-                "provider": "ANTHROPIC",
-                "name": "name",
-                "response_format": "JSON",
-                "temperature": 0,
-                "top_p": 0,
-                "top_k": 1,
                 "frequency_penalty": 0,
-                "presence_penalty": 0,
                 "max_tokens": 0,
-                "seed": 0,
-                "tool_choice": "toolChoice",
-                "stream": True,
+                "name": "name",
                 "parallel_tool_calls": True,
+                "presence_penalty": 0,
+                "provider": "ANTHROPIC",
+                "response_format": "JSON",
+                "seed": 0,
+                "stream": True,
+                "temperature": 0,
+                "tool_choice": "toolChoice",
+                "top_k": 1,
+                "top_p": 0,
             },
             tools=[{"tool_id": "toolId"}, {"tool_id": "toolId"}, {"tool_id": "toolId"}],
         ) as response:
@@ -277,73 +277,73 @@ class TestPrompts:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                     ],
-                    "role": "assistant",
                     "prompt_message_id": "promptMessageId",
+                    "role": "assistant",
                 },
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                     ],
-                    "role": "assistant",
                     "prompt_message_id": "promptMessageId",
+                    "role": "assistant",
                 },
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                     ],
-                    "role": "assistant",
                     "prompt_message_id": "promptMessageId",
+                    "role": "assistant",
                 },
             ],
             name="name",
             parameters={
-                "provider": "ANTHROPIC",
-                "name": "name",
-                "response_format": "JSON",
-                "temperature": 0,
-                "top_p": 0,
-                "top_k": 1,
                 "frequency_penalty": 0,
-                "presence_penalty": 0,
                 "max_tokens": 0,
-                "seed": 0,
-                "tool_choice": "toolChoice",
-                "stream": True,
+                "name": "name",
                 "parallel_tool_calls": True,
+                "presence_penalty": 0,
+                "provider": "ANTHROPIC",
+                "response_format": "JSON",
+                "seed": 0,
+                "stream": True,
+                "temperature": 0,
+                "tool_choice": "toolChoice",
+                "top_k": 1,
+                "top_p": 0,
             },
             tools=[{"tool_id": "toolId"}, {"tool_id": "toolId"}, {"tool_id": "toolId"}],
         )
@@ -357,73 +357,73 @@ class TestPrompts:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                     ],
-                    "role": "assistant",
                     "prompt_message_id": "promptMessageId",
+                    "role": "assistant",
                 },
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                     ],
-                    "role": "assistant",
                     "prompt_message_id": "promptMessageId",
+                    "role": "assistant",
                 },
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                     ],
-                    "role": "assistant",
                     "prompt_message_id": "promptMessageId",
+                    "role": "assistant",
                 },
             ],
             name="name",
             parameters={
-                "provider": "ANTHROPIC",
-                "name": "name",
-                "response_format": "JSON",
-                "temperature": 0,
-                "top_p": 0,
-                "top_k": 1,
                 "frequency_penalty": 0,
-                "presence_penalty": 0,
                 "max_tokens": 0,
-                "seed": 0,
-                "tool_choice": "toolChoice",
-                "stream": True,
+                "name": "name",
                 "parallel_tool_calls": True,
+                "presence_penalty": 0,
+                "provider": "ANTHROPIC",
+                "response_format": "JSON",
+                "seed": 0,
+                "stream": True,
+                "temperature": 0,
+                "tool_choice": "toolChoice",
+                "top_k": 1,
+                "top_p": 0,
             },
             tools=[{"tool_id": "toolId"}, {"tool_id": "toolId"}, {"tool_id": "toolId"}],
         )
@@ -441,73 +441,73 @@ class TestPrompts:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                     ],
-                    "role": "assistant",
                     "prompt_message_id": "promptMessageId",
+                    "role": "assistant",
                 },
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                     ],
-                    "role": "assistant",
                     "prompt_message_id": "promptMessageId",
+                    "role": "assistant",
                 },
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                     ],
-                    "role": "assistant",
                     "prompt_message_id": "promptMessageId",
+                    "role": "assistant",
                 },
             ],
             name="name",
             parameters={
-                "provider": "ANTHROPIC",
-                "name": "name",
-                "response_format": "JSON",
-                "temperature": 0,
-                "top_p": 0,
-                "top_k": 1,
                 "frequency_penalty": 0,
-                "presence_penalty": 0,
                 "max_tokens": 0,
-                "seed": 0,
-                "tool_choice": "toolChoice",
-                "stream": True,
+                "name": "name",
                 "parallel_tool_calls": True,
+                "presence_penalty": 0,
+                "provider": "ANTHROPIC",
+                "response_format": "JSON",
+                "seed": 0,
+                "stream": True,
+                "temperature": 0,
+                "tool_choice": "toolChoice",
+                "top_k": 1,
+                "top_p": 0,
             },
             tools=[{"tool_id": "toolId"}, {"tool_id": "toolId"}, {"tool_id": "toolId"}],
         ) as response:
@@ -528,73 +528,73 @@ class TestPrompts:
                     {
                         "content": [
                             {
-                                "type": "TEXT",
                                 "text": "text",
+                                "type": "TEXT",
                             },
                             {
-                                "type": "TEXT",
                                 "text": "text",
+                                "type": "TEXT",
                             },
                             {
-                                "type": "TEXT",
                                 "text": "text",
+                                "type": "TEXT",
                             },
                         ],
-                        "role": "assistant",
                         "prompt_message_id": "promptMessageId",
+                        "role": "assistant",
                     },
                     {
                         "content": [
                             {
-                                "type": "TEXT",
                                 "text": "text",
+                                "type": "TEXT",
                             },
                             {
-                                "type": "TEXT",
                                 "text": "text",
+                                "type": "TEXT",
                             },
                             {
-                                "type": "TEXT",
                                 "text": "text",
+                                "type": "TEXT",
                             },
                         ],
-                        "role": "assistant",
                         "prompt_message_id": "promptMessageId",
+                        "role": "assistant",
                     },
                     {
                         "content": [
                             {
-                                "type": "TEXT",
                                 "text": "text",
+                                "type": "TEXT",
                             },
                             {
-                                "type": "TEXT",
                                 "text": "text",
+                                "type": "TEXT",
                             },
                             {
-                                "type": "TEXT",
                                 "text": "text",
+                                "type": "TEXT",
                             },
                         ],
-                        "role": "assistant",
                         "prompt_message_id": "promptMessageId",
+                        "role": "assistant",
                     },
                 ],
                 name="name",
                 parameters={
-                    "provider": "ANTHROPIC",
-                    "name": "name",
-                    "response_format": "JSON",
-                    "temperature": 0,
-                    "top_p": 0,
-                    "top_k": 1,
                     "frequency_penalty": 0,
-                    "presence_penalty": 0,
                     "max_tokens": 0,
-                    "seed": 0,
-                    "tool_choice": "toolChoice",
-                    "stream": True,
+                    "name": "name",
                     "parallel_tool_calls": True,
+                    "presence_penalty": 0,
+                    "provider": "ANTHROPIC",
+                    "response_format": "JSON",
+                    "seed": 0,
+                    "stream": True,
+                    "temperature": 0,
+                    "tool_choice": "toolChoice",
+                    "top_k": 1,
+                    "top_p": 0,
                 },
                 tools=[{"tool_id": "toolId"}, {"tool_id": "toolId"}, {"tool_id": "toolId"}],
             )
@@ -715,33 +715,16 @@ class TestPrompts:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
-                        },
-                    ],
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
                             "type": "TEXT",
-                            "text": "text",
-                        },
-                        {
-                            "type": "TEXT",
-                            "text": "text",
-                        },
-                        {
-                            "type": "TEXT",
-                            "text": "text",
                         },
                     ],
                     "role": "assistant",
@@ -749,16 +732,33 @@ class TestPrompts:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
+                        },
+                    ],
+                    "role": "assistant",
+                },
+                {
+                    "content": [
+                        {
+                            "text": "text",
+                            "type": "TEXT",
+                        },
+                        {
+                            "text": "text",
+                            "type": "TEXT",
+                        },
+                        {
+                            "text": "text",
+                            "type": "TEXT",
                         },
                     ],
                     "role": "assistant",
@@ -768,33 +768,16 @@ class TestPrompts:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
-                        },
-                    ],
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
                             "type": "TEXT",
-                            "text": "text",
-                        },
-                        {
-                            "type": "TEXT",
-                            "text": "text",
-                        },
-                        {
-                            "type": "TEXT",
-                            "text": "text",
                         },
                     ],
                     "role": "assistant",
@@ -802,16 +785,33 @@ class TestPrompts:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
+                        },
+                    ],
+                    "role": "assistant",
+                },
+                {
+                    "content": [
+                        {
+                            "text": "text",
+                            "type": "TEXT",
+                        },
+                        {
+                            "text": "text",
+                            "type": "TEXT",
+                        },
+                        {
+                            "text": "text",
+                            "type": "TEXT",
                         },
                     ],
                     "role": "assistant",
@@ -864,73 +864,73 @@ class TestAsyncPrompts:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                     ],
-                    "role": "assistant",
                     "prompt_message_id": "promptMessageId",
+                    "role": "assistant",
                 },
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                     ],
-                    "role": "assistant",
                     "prompt_message_id": "promptMessageId",
+                    "role": "assistant",
                 },
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                     ],
-                    "role": "assistant",
                     "prompt_message_id": "promptMessageId",
+                    "role": "assistant",
                 },
             ],
             name="name",
             parameters={
-                "provider": "ANTHROPIC",
-                "name": "name",
-                "response_format": "JSON",
-                "temperature": 0,
-                "top_p": 0,
-                "top_k": 1,
                 "frequency_penalty": 0,
-                "presence_penalty": 0,
                 "max_tokens": 0,
-                "seed": 0,
-                "tool_choice": "toolChoice",
-                "stream": True,
+                "name": "name",
                 "parallel_tool_calls": True,
+                "presence_penalty": 0,
+                "provider": "ANTHROPIC",
+                "response_format": "JSON",
+                "seed": 0,
+                "stream": True,
+                "temperature": 0,
+                "tool_choice": "toolChoice",
+                "top_k": 1,
+                "top_p": 0,
             },
             tools=[{"tool_id": "toolId"}, {"tool_id": "toolId"}, {"tool_id": "toolId"}],
         )
@@ -943,73 +943,73 @@ class TestAsyncPrompts:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                     ],
-                    "role": "assistant",
                     "prompt_message_id": "promptMessageId",
+                    "role": "assistant",
                 },
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                     ],
-                    "role": "assistant",
                     "prompt_message_id": "promptMessageId",
+                    "role": "assistant",
                 },
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                     ],
-                    "role": "assistant",
                     "prompt_message_id": "promptMessageId",
+                    "role": "assistant",
                 },
             ],
             name="name",
             parameters={
-                "provider": "ANTHROPIC",
-                "name": "name",
-                "response_format": "JSON",
-                "temperature": 0,
-                "top_p": 0,
-                "top_k": 1,
                 "frequency_penalty": 0,
-                "presence_penalty": 0,
                 "max_tokens": 0,
-                "seed": 0,
-                "tool_choice": "toolChoice",
-                "stream": True,
+                "name": "name",
                 "parallel_tool_calls": True,
+                "presence_penalty": 0,
+                "provider": "ANTHROPIC",
+                "response_format": "JSON",
+                "seed": 0,
+                "stream": True,
+                "temperature": 0,
+                "tool_choice": "toolChoice",
+                "top_k": 1,
+                "top_p": 0,
             },
             tools=[{"tool_id": "toolId"}, {"tool_id": "toolId"}, {"tool_id": "toolId"}],
         )
@@ -1026,73 +1026,73 @@ class TestAsyncPrompts:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                     ],
-                    "role": "assistant",
                     "prompt_message_id": "promptMessageId",
+                    "role": "assistant",
                 },
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                     ],
-                    "role": "assistant",
                     "prompt_message_id": "promptMessageId",
+                    "role": "assistant",
                 },
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                     ],
-                    "role": "assistant",
                     "prompt_message_id": "promptMessageId",
+                    "role": "assistant",
                 },
             ],
             name="name",
             parameters={
-                "provider": "ANTHROPIC",
-                "name": "name",
-                "response_format": "JSON",
-                "temperature": 0,
-                "top_p": 0,
-                "top_k": 1,
                 "frequency_penalty": 0,
-                "presence_penalty": 0,
                 "max_tokens": 0,
-                "seed": 0,
-                "tool_choice": "toolChoice",
-                "stream": True,
+                "name": "name",
                 "parallel_tool_calls": True,
+                "presence_penalty": 0,
+                "provider": "ANTHROPIC",
+                "response_format": "JSON",
+                "seed": 0,
+                "stream": True,
+                "temperature": 0,
+                "tool_choice": "toolChoice",
+                "top_k": 1,
+                "top_p": 0,
             },
             tools=[{"tool_id": "toolId"}, {"tool_id": "toolId"}, {"tool_id": "toolId"}],
         ) as response:
@@ -1112,73 +1112,73 @@ class TestAsyncPrompts:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                     ],
-                    "role": "assistant",
                     "prompt_message_id": "promptMessageId",
+                    "role": "assistant",
                 },
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                     ],
-                    "role": "assistant",
                     "prompt_message_id": "promptMessageId",
+                    "role": "assistant",
                 },
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                     ],
-                    "role": "assistant",
                     "prompt_message_id": "promptMessageId",
+                    "role": "assistant",
                 },
             ],
             name="name",
             parameters={
-                "provider": "ANTHROPIC",
-                "name": "name",
-                "response_format": "JSON",
-                "temperature": 0,
-                "top_p": 0,
-                "top_k": 1,
                 "frequency_penalty": 0,
-                "presence_penalty": 0,
                 "max_tokens": 0,
-                "seed": 0,
-                "tool_choice": "toolChoice",
-                "stream": True,
+                "name": "name",
                 "parallel_tool_calls": True,
+                "presence_penalty": 0,
+                "provider": "ANTHROPIC",
+                "response_format": "JSON",
+                "seed": 0,
+                "stream": True,
+                "temperature": 0,
+                "tool_choice": "toolChoice",
+                "top_k": 1,
+                "top_p": 0,
             },
             tools=[{"tool_id": "toolId"}, {"tool_id": "toolId"}, {"tool_id": "toolId"}],
         )
@@ -1192,73 +1192,73 @@ class TestAsyncPrompts:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                     ],
-                    "role": "assistant",
                     "prompt_message_id": "promptMessageId",
+                    "role": "assistant",
                 },
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                     ],
-                    "role": "assistant",
                     "prompt_message_id": "promptMessageId",
+                    "role": "assistant",
                 },
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                     ],
-                    "role": "assistant",
                     "prompt_message_id": "promptMessageId",
+                    "role": "assistant",
                 },
             ],
             name="name",
             parameters={
-                "provider": "ANTHROPIC",
-                "name": "name",
-                "response_format": "JSON",
-                "temperature": 0,
-                "top_p": 0,
-                "top_k": 1,
                 "frequency_penalty": 0,
-                "presence_penalty": 0,
                 "max_tokens": 0,
-                "seed": 0,
-                "tool_choice": "toolChoice",
-                "stream": True,
+                "name": "name",
                 "parallel_tool_calls": True,
+                "presence_penalty": 0,
+                "provider": "ANTHROPIC",
+                "response_format": "JSON",
+                "seed": 0,
+                "stream": True,
+                "temperature": 0,
+                "tool_choice": "toolChoice",
+                "top_k": 1,
+                "top_p": 0,
             },
             tools=[{"tool_id": "toolId"}, {"tool_id": "toolId"}, {"tool_id": "toolId"}],
         )
@@ -1276,73 +1276,73 @@ class TestAsyncPrompts:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                     ],
-                    "role": "assistant",
                     "prompt_message_id": "promptMessageId",
+                    "role": "assistant",
                 },
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                     ],
-                    "role": "assistant",
                     "prompt_message_id": "promptMessageId",
+                    "role": "assistant",
                 },
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                     ],
-                    "role": "assistant",
                     "prompt_message_id": "promptMessageId",
+                    "role": "assistant",
                 },
             ],
             name="name",
             parameters={
-                "provider": "ANTHROPIC",
-                "name": "name",
-                "response_format": "JSON",
-                "temperature": 0,
-                "top_p": 0,
-                "top_k": 1,
                 "frequency_penalty": 0,
-                "presence_penalty": 0,
                 "max_tokens": 0,
-                "seed": 0,
-                "tool_choice": "toolChoice",
-                "stream": True,
+                "name": "name",
                 "parallel_tool_calls": True,
+                "presence_penalty": 0,
+                "provider": "ANTHROPIC",
+                "response_format": "JSON",
+                "seed": 0,
+                "stream": True,
+                "temperature": 0,
+                "tool_choice": "toolChoice",
+                "top_k": 1,
+                "top_p": 0,
             },
             tools=[{"tool_id": "toolId"}, {"tool_id": "toolId"}, {"tool_id": "toolId"}],
         ) as response:
@@ -1363,73 +1363,73 @@ class TestAsyncPrompts:
                     {
                         "content": [
                             {
-                                "type": "TEXT",
                                 "text": "text",
+                                "type": "TEXT",
                             },
                             {
-                                "type": "TEXT",
                                 "text": "text",
+                                "type": "TEXT",
                             },
                             {
-                                "type": "TEXT",
                                 "text": "text",
+                                "type": "TEXT",
                             },
                         ],
-                        "role": "assistant",
                         "prompt_message_id": "promptMessageId",
+                        "role": "assistant",
                     },
                     {
                         "content": [
                             {
-                                "type": "TEXT",
                                 "text": "text",
+                                "type": "TEXT",
                             },
                             {
-                                "type": "TEXT",
                                 "text": "text",
+                                "type": "TEXT",
                             },
                             {
-                                "type": "TEXT",
                                 "text": "text",
+                                "type": "TEXT",
                             },
                         ],
-                        "role": "assistant",
                         "prompt_message_id": "promptMessageId",
+                        "role": "assistant",
                     },
                     {
                         "content": [
                             {
-                                "type": "TEXT",
                                 "text": "text",
+                                "type": "TEXT",
                             },
                             {
-                                "type": "TEXT",
                                 "text": "text",
+                                "type": "TEXT",
                             },
                             {
-                                "type": "TEXT",
                                 "text": "text",
+                                "type": "TEXT",
                             },
                         ],
-                        "role": "assistant",
                         "prompt_message_id": "promptMessageId",
+                        "role": "assistant",
                     },
                 ],
                 name="name",
                 parameters={
-                    "provider": "ANTHROPIC",
-                    "name": "name",
-                    "response_format": "JSON",
-                    "temperature": 0,
-                    "top_p": 0,
-                    "top_k": 1,
                     "frequency_penalty": 0,
-                    "presence_penalty": 0,
                     "max_tokens": 0,
-                    "seed": 0,
-                    "tool_choice": "toolChoice",
-                    "stream": True,
+                    "name": "name",
                     "parallel_tool_calls": True,
+                    "presence_penalty": 0,
+                    "provider": "ANTHROPIC",
+                    "response_format": "JSON",
+                    "seed": 0,
+                    "stream": True,
+                    "temperature": 0,
+                    "tool_choice": "toolChoice",
+                    "top_k": 1,
+                    "top_p": 0,
                 },
                 tools=[{"tool_id": "toolId"}, {"tool_id": "toolId"}, {"tool_id": "toolId"}],
             )
@@ -1550,33 +1550,16 @@ class TestAsyncPrompts:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
-                        },
-                    ],
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
                             "type": "TEXT",
-                            "text": "text",
-                        },
-                        {
-                            "type": "TEXT",
-                            "text": "text",
-                        },
-                        {
-                            "type": "TEXT",
-                            "text": "text",
                         },
                     ],
                     "role": "assistant",
@@ -1584,16 +1567,33 @@ class TestAsyncPrompts:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
+                        },
+                    ],
+                    "role": "assistant",
+                },
+                {
+                    "content": [
+                        {
+                            "text": "text",
+                            "type": "TEXT",
+                        },
+                        {
+                            "text": "text",
+                            "type": "TEXT",
+                        },
+                        {
+                            "text": "text",
+                            "type": "TEXT",
                         },
                     ],
                     "role": "assistant",
@@ -1603,33 +1603,16 @@ class TestAsyncPrompts:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
-                        },
-                    ],
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
                             "type": "TEXT",
-                            "text": "text",
-                        },
-                        {
-                            "type": "TEXT",
-                            "text": "text",
-                        },
-                        {
-                            "type": "TEXT",
-                            "text": "text",
                         },
                     ],
                     "role": "assistant",
@@ -1637,16 +1620,33 @@ class TestAsyncPrompts:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
+                        },
+                    ],
+                    "role": "assistant",
+                },
+                {
+                    "content": [
+                        {
+                            "text": "text",
+                            "type": "TEXT",
+                        },
+                        {
+                            "text": "text",
+                            "type": "TEXT",
+                        },
+                        {
+                            "text": "text",
+                            "type": "TEXT",
                         },
                     ],
                     "role": "assistant",
