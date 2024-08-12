@@ -26,7 +26,7 @@ class TestTools:
         tool = client.tools.create(
             description="description",
             name="name",
-            parameters={"foo": {}},
+            parameters={"foo": "bar"},
         )
         assert_matches_type(Tool, tool, path=["response"])
 
@@ -35,7 +35,7 @@ class TestTools:
         response = client.tools.with_raw_response.create(
             description="description",
             name="name",
-            parameters={"foo": {}},
+            parameters={"foo": "bar"},
         )
 
         assert response.is_closed is True
@@ -48,7 +48,7 @@ class TestTools:
         with client.tools.with_streaming_response.create(
             description="description",
             name="name",
-            parameters={"foo": {}},
+            parameters={"foo": "bar"},
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -64,7 +64,7 @@ class TestTools:
             id="1212121",
             description="description",
             name="name",
-            parameters={"foo": {}},
+            parameters={"foo": "bar"},
         )
         assert_matches_type(Tool, tool, path=["response"])
 
@@ -74,7 +74,7 @@ class TestTools:
             id="1212121",
             description="description",
             name="name",
-            parameters={"foo": {}},
+            parameters={"foo": "bar"},
         )
 
         assert response.is_closed is True
@@ -88,7 +88,7 @@ class TestTools:
             id="1212121",
             description="description",
             name="name",
-            parameters={"foo": {}},
+            parameters={"foo": "bar"},
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -105,7 +105,7 @@ class TestTools:
                 id="",
                 description="description",
                 name="name",
-                parameters={"foo": {}},
+                parameters={"foo": "bar"},
             )
 
     @parametrize
@@ -218,7 +218,7 @@ class TestAsyncTools:
         tool = await async_client.tools.create(
             description="description",
             name="name",
-            parameters={"foo": {}},
+            parameters={"foo": "bar"},
         )
         assert_matches_type(Tool, tool, path=["response"])
 
@@ -227,7 +227,7 @@ class TestAsyncTools:
         response = await async_client.tools.with_raw_response.create(
             description="description",
             name="name",
-            parameters={"foo": {}},
+            parameters={"foo": "bar"},
         )
 
         assert response.is_closed is True
@@ -240,7 +240,7 @@ class TestAsyncTools:
         async with async_client.tools.with_streaming_response.create(
             description="description",
             name="name",
-            parameters={"foo": {}},
+            parameters={"foo": "bar"},
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -256,7 +256,7 @@ class TestAsyncTools:
             id="1212121",
             description="description",
             name="name",
-            parameters={"foo": {}},
+            parameters={"foo": "bar"},
         )
         assert_matches_type(Tool, tool, path=["response"])
 
@@ -266,7 +266,7 @@ class TestAsyncTools:
             id="1212121",
             description="description",
             name="name",
-            parameters={"foo": {}},
+            parameters={"foo": "bar"},
         )
 
         assert response.is_closed is True
@@ -280,7 +280,7 @@ class TestAsyncTools:
             id="1212121",
             description="description",
             name="name",
-            parameters={"foo": {}},
+            parameters={"foo": "bar"},
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -297,7 +297,7 @@ class TestAsyncTools:
                 id="",
                 description="description",
                 name="name",
-                parameters={"foo": {}},
+                parameters={"foo": "bar"},
             )
 
     @parametrize
