@@ -28,33 +28,16 @@ class TestEvaluations:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
-                        },
-                    ],
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
                             "type": "TEXT",
-                            "text": "text",
-                        },
-                        {
-                            "type": "TEXT",
-                            "text": "text",
-                        },
-                        {
-                            "type": "TEXT",
-                            "text": "text",
                         },
                     ],
                     "role": "assistant",
@@ -62,16 +45,33 @@ class TestEvaluations:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
+                        },
+                    ],
+                    "role": "assistant",
+                },
+                {
+                    "content": [
+                        {
+                            "text": "text",
+                            "type": "TEXT",
+                        },
+                        {
+                            "text": "text",
+                            "type": "TEXT",
+                        },
+                        {
+                            "text": "text",
+                            "type": "TEXT",
                         },
                     ],
                     "role": "assistant",
@@ -89,33 +89,16 @@ class TestEvaluations:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
-                        },
-                    ],
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
                             "type": "TEXT",
-                            "text": "text",
-                        },
-                        {
-                            "type": "TEXT",
-                            "text": "text",
-                        },
-                        {
-                            "type": "TEXT",
-                            "text": "text",
                         },
                     ],
                     "role": "assistant",
@@ -123,16 +106,33 @@ class TestEvaluations:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
+                        },
+                    ],
+                    "role": "assistant",
+                },
+                {
+                    "content": [
+                        {
+                            "text": "text",
+                            "type": "TEXT",
+                        },
+                        {
+                            "text": "text",
+                            "type": "TEXT",
+                        },
+                        {
+                            "text": "text",
+                            "type": "TEXT",
                         },
                     ],
                     "role": "assistant",
@@ -152,33 +152,16 @@ class TestEvaluations:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
-                        },
-                    ],
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
                             "type": "TEXT",
-                            "text": "text",
-                        },
-                        {
-                            "type": "TEXT",
-                            "text": "text",
-                        },
-                        {
-                            "type": "TEXT",
-                            "text": "text",
                         },
                     ],
                     "role": "assistant",
@@ -186,16 +169,33 @@ class TestEvaluations:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
+                        },
+                    ],
+                    "role": "assistant",
+                },
+                {
+                    "content": [
+                        {
+                            "text": "text",
+                            "type": "TEXT",
+                        },
+                        {
+                            "text": "text",
+                            "type": "TEXT",
+                        },
+                        {
+                            "text": "text",
+                            "type": "TEXT",
                         },
                     ],
                     "role": "assistant",
@@ -217,33 +217,16 @@ class TestEvaluations:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
-                        },
-                    ],
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
                             "type": "TEXT",
-                            "text": "text",
-                        },
-                        {
-                            "type": "TEXT",
-                            "text": "text",
-                        },
-                        {
-                            "type": "TEXT",
-                            "text": "text",
                         },
                     ],
                     "role": "assistant",
@@ -251,16 +234,33 @@ class TestEvaluations:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
+                        },
+                    ],
+                    "role": "assistant",
+                },
+                {
+                    "content": [
+                        {
+                            "text": "text",
+                            "type": "TEXT",
+                        },
+                        {
+                            "text": "text",
+                            "type": "TEXT",
+                        },
+                        {
+                            "text": "text",
+                            "type": "TEXT",
                         },
                     ],
                     "role": "assistant",
@@ -285,33 +285,16 @@ class TestEvaluations:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
-                        },
-                    ],
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
                             "type": "TEXT",
-                            "text": "text",
-                        },
-                        {
-                            "type": "TEXT",
-                            "text": "text",
-                        },
-                        {
-                            "type": "TEXT",
-                            "text": "text",
                         },
                     ],
                     "role": "assistant",
@@ -319,16 +302,33 @@ class TestEvaluations:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
+                        },
+                    ],
+                    "role": "assistant",
+                },
+                {
+                    "content": [
+                        {
+                            "text": "text",
+                            "type": "TEXT",
+                        },
+                        {
+                            "text": "text",
+                            "type": "TEXT",
+                        },
+                        {
+                            "text": "text",
+                            "type": "TEXT",
                         },
                     ],
                     "role": "assistant",
@@ -347,33 +347,16 @@ class TestEvaluations:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
-                        },
-                    ],
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
                             "type": "TEXT",
-                            "text": "text",
-                        },
-                        {
-                            "type": "TEXT",
-                            "text": "text",
-                        },
-                        {
-                            "type": "TEXT",
-                            "text": "text",
                         },
                     ],
                     "role": "assistant",
@@ -381,16 +364,33 @@ class TestEvaluations:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
+                        },
+                    ],
+                    "role": "assistant",
+                },
+                {
+                    "content": [
+                        {
+                            "text": "text",
+                            "type": "TEXT",
+                        },
+                        {
+                            "text": "text",
+                            "type": "TEXT",
+                        },
+                        {
+                            "text": "text",
+                            "type": "TEXT",
                         },
                     ],
                     "role": "assistant",
@@ -411,33 +411,16 @@ class TestEvaluations:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
-                        },
-                    ],
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
                             "type": "TEXT",
-                            "text": "text",
-                        },
-                        {
-                            "type": "TEXT",
-                            "text": "text",
-                        },
-                        {
-                            "type": "TEXT",
-                            "text": "text",
                         },
                     ],
                     "role": "assistant",
@@ -445,16 +428,33 @@ class TestEvaluations:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
+                        },
+                    ],
+                    "role": "assistant",
+                },
+                {
+                    "content": [
+                        {
+                            "text": "text",
+                            "type": "TEXT",
+                        },
+                        {
+                            "text": "text",
+                            "type": "TEXT",
+                        },
+                        {
+                            "text": "text",
+                            "type": "TEXT",
                         },
                     ],
                     "role": "assistant",
@@ -477,33 +477,16 @@ class TestEvaluations:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
-                        },
-                    ],
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
                             "type": "TEXT",
-                            "text": "text",
-                        },
-                        {
-                            "type": "TEXT",
-                            "text": "text",
-                        },
-                        {
-                            "type": "TEXT",
-                            "text": "text",
                         },
                     ],
                     "role": "assistant",
@@ -511,16 +494,33 @@ class TestEvaluations:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
+                        },
+                    ],
+                    "role": "assistant",
+                },
+                {
+                    "content": [
+                        {
+                            "text": "text",
+                            "type": "TEXT",
+                        },
+                        {
+                            "text": "text",
+                            "type": "TEXT",
+                        },
+                        {
+                            "text": "text",
+                            "type": "TEXT",
                         },
                     ],
                     "role": "assistant",
@@ -546,33 +546,16 @@ class TestEvaluations:
                     {
                         "content": [
                             {
-                                "type": "TEXT",
                                 "text": "text",
+                                "type": "TEXT",
                             },
                             {
-                                "type": "TEXT",
                                 "text": "text",
+                                "type": "TEXT",
                             },
                             {
-                                "type": "TEXT",
                                 "text": "text",
-                            },
-                        ],
-                        "role": "assistant",
-                    },
-                    {
-                        "content": [
-                            {
                                 "type": "TEXT",
-                                "text": "text",
-                            },
-                            {
-                                "type": "TEXT",
-                                "text": "text",
-                            },
-                            {
-                                "type": "TEXT",
-                                "text": "text",
                             },
                         ],
                         "role": "assistant",
@@ -580,16 +563,33 @@ class TestEvaluations:
                     {
                         "content": [
                             {
-                                "type": "TEXT",
                                 "text": "text",
+                                "type": "TEXT",
                             },
                             {
-                                "type": "TEXT",
                                 "text": "text",
+                                "type": "TEXT",
                             },
                             {
-                                "type": "TEXT",
                                 "text": "text",
+                                "type": "TEXT",
+                            },
+                        ],
+                        "role": "assistant",
+                    },
+                    {
+                        "content": [
+                            {
+                                "text": "text",
+                                "type": "TEXT",
+                            },
+                            {
+                                "text": "text",
+                                "type": "TEXT",
+                            },
+                            {
+                                "text": "text",
+                                "type": "TEXT",
                             },
                         ],
                         "role": "assistant",
@@ -711,33 +711,16 @@ class TestAsyncEvaluations:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
-                        },
-                    ],
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
                             "type": "TEXT",
-                            "text": "text",
-                        },
-                        {
-                            "type": "TEXT",
-                            "text": "text",
-                        },
-                        {
-                            "type": "TEXT",
-                            "text": "text",
                         },
                     ],
                     "role": "assistant",
@@ -745,16 +728,33 @@ class TestAsyncEvaluations:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
+                        },
+                    ],
+                    "role": "assistant",
+                },
+                {
+                    "content": [
+                        {
+                            "text": "text",
+                            "type": "TEXT",
+                        },
+                        {
+                            "text": "text",
+                            "type": "TEXT",
+                        },
+                        {
+                            "text": "text",
+                            "type": "TEXT",
                         },
                     ],
                     "role": "assistant",
@@ -772,33 +772,16 @@ class TestAsyncEvaluations:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
-                        },
-                    ],
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
                             "type": "TEXT",
-                            "text": "text",
-                        },
-                        {
-                            "type": "TEXT",
-                            "text": "text",
-                        },
-                        {
-                            "type": "TEXT",
-                            "text": "text",
                         },
                     ],
                     "role": "assistant",
@@ -806,16 +789,33 @@ class TestAsyncEvaluations:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
+                        },
+                    ],
+                    "role": "assistant",
+                },
+                {
+                    "content": [
+                        {
+                            "text": "text",
+                            "type": "TEXT",
+                        },
+                        {
+                            "text": "text",
+                            "type": "TEXT",
+                        },
+                        {
+                            "text": "text",
+                            "type": "TEXT",
                         },
                     ],
                     "role": "assistant",
@@ -835,33 +835,16 @@ class TestAsyncEvaluations:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
-                        },
-                    ],
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
                             "type": "TEXT",
-                            "text": "text",
-                        },
-                        {
-                            "type": "TEXT",
-                            "text": "text",
-                        },
-                        {
-                            "type": "TEXT",
-                            "text": "text",
                         },
                     ],
                     "role": "assistant",
@@ -869,16 +852,33 @@ class TestAsyncEvaluations:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
+                        },
+                    ],
+                    "role": "assistant",
+                },
+                {
+                    "content": [
+                        {
+                            "text": "text",
+                            "type": "TEXT",
+                        },
+                        {
+                            "text": "text",
+                            "type": "TEXT",
+                        },
+                        {
+                            "text": "text",
+                            "type": "TEXT",
                         },
                     ],
                     "role": "assistant",
@@ -900,33 +900,16 @@ class TestAsyncEvaluations:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
-                        },
-                    ],
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
                             "type": "TEXT",
-                            "text": "text",
-                        },
-                        {
-                            "type": "TEXT",
-                            "text": "text",
-                        },
-                        {
-                            "type": "TEXT",
-                            "text": "text",
                         },
                     ],
                     "role": "assistant",
@@ -934,16 +917,33 @@ class TestAsyncEvaluations:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
+                        },
+                    ],
+                    "role": "assistant",
+                },
+                {
+                    "content": [
+                        {
+                            "text": "text",
+                            "type": "TEXT",
+                        },
+                        {
+                            "text": "text",
+                            "type": "TEXT",
+                        },
+                        {
+                            "text": "text",
+                            "type": "TEXT",
                         },
                     ],
                     "role": "assistant",
@@ -968,33 +968,16 @@ class TestAsyncEvaluations:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
-                        },
-                    ],
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
                             "type": "TEXT",
-                            "text": "text",
-                        },
-                        {
-                            "type": "TEXT",
-                            "text": "text",
-                        },
-                        {
-                            "type": "TEXT",
-                            "text": "text",
                         },
                     ],
                     "role": "assistant",
@@ -1002,16 +985,33 @@ class TestAsyncEvaluations:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
+                        },
+                    ],
+                    "role": "assistant",
+                },
+                {
+                    "content": [
+                        {
+                            "text": "text",
+                            "type": "TEXT",
+                        },
+                        {
+                            "text": "text",
+                            "type": "TEXT",
+                        },
+                        {
+                            "text": "text",
+                            "type": "TEXT",
                         },
                     ],
                     "role": "assistant",
@@ -1030,33 +1030,16 @@ class TestAsyncEvaluations:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
-                        },
-                    ],
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
                             "type": "TEXT",
-                            "text": "text",
-                        },
-                        {
-                            "type": "TEXT",
-                            "text": "text",
-                        },
-                        {
-                            "type": "TEXT",
-                            "text": "text",
                         },
                     ],
                     "role": "assistant",
@@ -1064,16 +1047,33 @@ class TestAsyncEvaluations:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
+                        },
+                    ],
+                    "role": "assistant",
+                },
+                {
+                    "content": [
+                        {
+                            "text": "text",
+                            "type": "TEXT",
+                        },
+                        {
+                            "text": "text",
+                            "type": "TEXT",
+                        },
+                        {
+                            "text": "text",
+                            "type": "TEXT",
                         },
                     ],
                     "role": "assistant",
@@ -1094,33 +1094,16 @@ class TestAsyncEvaluations:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
-                        },
-                    ],
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
                             "type": "TEXT",
-                            "text": "text",
-                        },
-                        {
-                            "type": "TEXT",
-                            "text": "text",
-                        },
-                        {
-                            "type": "TEXT",
-                            "text": "text",
                         },
                     ],
                     "role": "assistant",
@@ -1128,16 +1111,33 @@ class TestAsyncEvaluations:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
+                        },
+                    ],
+                    "role": "assistant",
+                },
+                {
+                    "content": [
+                        {
+                            "text": "text",
+                            "type": "TEXT",
+                        },
+                        {
+                            "text": "text",
+                            "type": "TEXT",
+                        },
+                        {
+                            "text": "text",
+                            "type": "TEXT",
                         },
                     ],
                     "role": "assistant",
@@ -1160,33 +1160,16 @@ class TestAsyncEvaluations:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
-                        },
-                    ],
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
                             "type": "TEXT",
-                            "text": "text",
-                        },
-                        {
-                            "type": "TEXT",
-                            "text": "text",
-                        },
-                        {
-                            "type": "TEXT",
-                            "text": "text",
                         },
                     ],
                     "role": "assistant",
@@ -1194,16 +1177,33 @@ class TestAsyncEvaluations:
                 {
                     "content": [
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
                         },
                         {
-                            "type": "TEXT",
                             "text": "text",
+                            "type": "TEXT",
+                        },
+                    ],
+                    "role": "assistant",
+                },
+                {
+                    "content": [
+                        {
+                            "text": "text",
+                            "type": "TEXT",
+                        },
+                        {
+                            "text": "text",
+                            "type": "TEXT",
+                        },
+                        {
+                            "text": "text",
+                            "type": "TEXT",
                         },
                     ],
                     "role": "assistant",
@@ -1229,33 +1229,16 @@ class TestAsyncEvaluations:
                     {
                         "content": [
                             {
-                                "type": "TEXT",
                                 "text": "text",
+                                "type": "TEXT",
                             },
                             {
-                                "type": "TEXT",
                                 "text": "text",
+                                "type": "TEXT",
                             },
                             {
-                                "type": "TEXT",
                                 "text": "text",
-                            },
-                        ],
-                        "role": "assistant",
-                    },
-                    {
-                        "content": [
-                            {
                                 "type": "TEXT",
-                                "text": "text",
-                            },
-                            {
-                                "type": "TEXT",
-                                "text": "text",
-                            },
-                            {
-                                "type": "TEXT",
-                                "text": "text",
                             },
                         ],
                         "role": "assistant",
@@ -1263,16 +1246,33 @@ class TestAsyncEvaluations:
                     {
                         "content": [
                             {
-                                "type": "TEXT",
                                 "text": "text",
+                                "type": "TEXT",
                             },
                             {
-                                "type": "TEXT",
                                 "text": "text",
+                                "type": "TEXT",
                             },
                             {
-                                "type": "TEXT",
                                 "text": "text",
+                                "type": "TEXT",
+                            },
+                        ],
+                        "role": "assistant",
+                    },
+                    {
+                        "content": [
+                            {
+                                "text": "text",
+                                "type": "TEXT",
+                            },
+                            {
+                                "text": "text",
+                                "type": "TEXT",
+                            },
+                            {
+                                "text": "text",
+                                "type": "TEXT",
                             },
                         ],
                         "role": "assistant",

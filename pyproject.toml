@@ -1,6 +1,6 @@
 [project]
 name = "prompt_foundry_python_sdk"
-version = "0.1.0-alpha.12"
+version = "0.1.0-alpha.13"
 description = "The prompt engineering, prompt management, and prompt evaluation tool for Python "
 keywords = ["llm evaluation", "prompt management", "prompt testing", "prompt engineering"]
 dynamic = ["readme"]
@@ -78,9 +78,12 @@ format = { chain = [
 "lint" = { chain = [
   "check:ruff",
   "typecheck",
+  "check:importable",
 ]}
 "check:ruff" = "ruff check ."
 "fix:ruff" = "ruff check --fix ."
+
+"check:importable" = "python -c 'import prompt_foundry_python_sdk'"
 
 typecheck = { chain = [
   "typecheck:pyright",
