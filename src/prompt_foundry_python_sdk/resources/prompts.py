@@ -32,10 +32,21 @@ __all__ = ["PromptsResource", "AsyncPromptsResource"]
 class PromptsResource(SyncAPIResource):
     @cached_property
     def with_raw_response(self) -> PromptsResourceWithRawResponse:
+        """
+        This property can be used as a prefix for any HTTP method call to return the
+        the raw response object instead of the parsed content.
+
+        For more information, see https://www.github.com/prompt-foundry/python-sdk#accessing-raw-response-data-eg-headers
+        """
         return PromptsResourceWithRawResponse(self)
 
     @cached_property
     def with_streaming_response(self) -> PromptsResourceWithStreamingResponse:
+        """
+        An alternative to `.with_raw_response` that doesn't eagerly read the response body.
+
+        For more information, see https://www.github.com/prompt-foundry/python-sdk#with_streaming_response
+        """
         return PromptsResourceWithStreamingResponse(self)
 
     def create(
@@ -282,10 +293,21 @@ class PromptsResource(SyncAPIResource):
 class AsyncPromptsResource(AsyncAPIResource):
     @cached_property
     def with_raw_response(self) -> AsyncPromptsResourceWithRawResponse:
+        """
+        This property can be used as a prefix for any HTTP method call to return the
+        the raw response object instead of the parsed content.
+
+        For more information, see https://www.github.com/prompt-foundry/python-sdk#accessing-raw-response-data-eg-headers
+        """
         return AsyncPromptsResourceWithRawResponse(self)
 
     @cached_property
     def with_streaming_response(self) -> AsyncPromptsResourceWithStreamingResponse:
+        """
+        An alternative to `.with_raw_response` that doesn't eagerly read the response body.
+
+        For more information, see https://www.github.com/prompt-foundry/python-sdk#with_streaming_response
+        """
         return AsyncPromptsResourceWithStreamingResponse(self)
 
     async def create(
