@@ -10,10 +10,10 @@ import pytest
 from tests.utils import assert_matches_type
 from prompt_foundry_python_sdk import PromptFoundry, AsyncPromptFoundry
 from prompt_foundry_python_sdk.types import (
-    Parameters,
     PromptListResponse,
     PromptConfiguration,
     PromptDeleteResponse,
+    PromptGetParametersResponse,
 )
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
@@ -705,7 +705,7 @@ class TestPrompts:
         prompt = client.prompts.get_parameters(
             id="1212121",
         )
-        assert_matches_type(Parameters, prompt, path=["response"])
+        assert_matches_type(PromptGetParametersResponse, prompt, path=["response"])
 
     @parametrize
     def test_method_get_parameters_with_all_params(self, client: PromptFoundry) -> None:
@@ -820,7 +820,7 @@ class TestPrompts:
             user="user",
             variables={"foo": "string"},
         )
-        assert_matches_type(Parameters, prompt, path=["response"])
+        assert_matches_type(PromptGetParametersResponse, prompt, path=["response"])
 
     @parametrize
     def test_raw_response_get_parameters(self, client: PromptFoundry) -> None:
@@ -831,7 +831,7 @@ class TestPrompts:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         prompt = response.parse()
-        assert_matches_type(Parameters, prompt, path=["response"])
+        assert_matches_type(PromptGetParametersResponse, prompt, path=["response"])
 
     @parametrize
     def test_streaming_response_get_parameters(self, client: PromptFoundry) -> None:
@@ -842,7 +842,7 @@ class TestPrompts:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             prompt = response.parse()
-            assert_matches_type(Parameters, prompt, path=["response"])
+            assert_matches_type(PromptGetParametersResponse, prompt, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -1540,7 +1540,7 @@ class TestAsyncPrompts:
         prompt = await async_client.prompts.get_parameters(
             id="1212121",
         )
-        assert_matches_type(Parameters, prompt, path=["response"])
+        assert_matches_type(PromptGetParametersResponse, prompt, path=["response"])
 
     @parametrize
     async def test_method_get_parameters_with_all_params(self, async_client: AsyncPromptFoundry) -> None:
@@ -1655,7 +1655,7 @@ class TestAsyncPrompts:
             user="user",
             variables={"foo": "string"},
         )
-        assert_matches_type(Parameters, prompt, path=["response"])
+        assert_matches_type(PromptGetParametersResponse, prompt, path=["response"])
 
     @parametrize
     async def test_raw_response_get_parameters(self, async_client: AsyncPromptFoundry) -> None:
@@ -1666,7 +1666,7 @@ class TestAsyncPrompts:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         prompt = await response.parse()
-        assert_matches_type(Parameters, prompt, path=["response"])
+        assert_matches_type(PromptGetParametersResponse, prompt, path=["response"])
 
     @parametrize
     async def test_streaming_response_get_parameters(self, async_client: AsyncPromptFoundry) -> None:
@@ -1677,7 +1677,7 @@ class TestAsyncPrompts:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             prompt = await response.parse()
-            assert_matches_type(Parameters, prompt, path=["response"])
+            assert_matches_type(PromptGetParametersResponse, prompt, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
