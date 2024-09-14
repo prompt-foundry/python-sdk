@@ -1,6 +1,6 @@
 [project]
 name = "prompt_foundry_python_sdk"
-version = "0.1.0-alpha.13"
+version = "0.1.0-alpha.14"
 description = "The prompt engineering, prompt management, and prompt evaluation tool for Python "
 keywords = ["llm evaluation", "prompt management", "prompt testing", "prompt engineering"]
 dynamic = ["readme"]
@@ -16,7 +16,6 @@ dependencies = [
     "distro>=1.7.0, <2",
     "sniffio",
     "cached-property; python_version < '3.8'",
-
 ]
 requires-python = ">= 3.7"
 classifiers = [
@@ -36,8 +35,6 @@ classifiers = [
   "Topic :: Software Development :: Libraries :: Python Modules",
   "License :: OSI Approved :: Apache Software License"
 ]
-
-
 
 [project.urls]
 Homepage = "https://https://www.promptfoundry.ai"
@@ -61,7 +58,6 @@ dev-dependencies = [
     "dirty-equals>=0.6.0",
     "importlib-metadata>=6.7.0",
     "rich>=13.7.1",
-
 ]
 
 [tool.rye.scripts]

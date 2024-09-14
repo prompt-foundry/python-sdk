@@ -21,10 +21,10 @@ from .._response import (
     async_to_streamed_response_wrapper,
 )
 from .._base_client import make_request_options
-from ..types.parameters import Parameters
 from ..types.prompt_configuration import PromptConfiguration
 from ..types.prompt_list_response import PromptListResponse
 from ..types.prompt_delete_response import PromptDeleteResponse
+from ..types.prompt_get_parameters_response import PromptGetParametersResponse
 
 __all__ = ["PromptsResource", "AsyncPromptsResource"]
 
@@ -32,10 +32,21 @@ __all__ = ["PromptsResource", "AsyncPromptsResource"]
 class PromptsResource(SyncAPIResource):
     @cached_property
     def with_raw_response(self) -> PromptsResourceWithRawResponse:
+        """
+        This property can be used as a prefix for any HTTP method call to return the
+        the raw response object instead of the parsed content.
+
+        For more information, see https://www.github.com/prompt-foundry/python-sdk#accessing-raw-response-data-eg-headers
+        """
         return PromptsResourceWithRawResponse(self)
 
     @cached_property
     def with_streaming_response(self) -> PromptsResourceWithStreamingResponse:
+        """
+        An alternative to `.with_raw_response` that doesn't eagerly read the response body.
+
+        For more information, see https://www.github.com/prompt-foundry/python-sdk#with_streaming_response
+        """
         return PromptsResourceWithStreamingResponse(self)
 
     def create(
@@ -228,7 +239,7 @@ class PromptsResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> Parameters:
+    ) -> PromptGetParametersResponse:
         """
         Fetches the configured model parameters and messages rendered with the provided
         variables mapped to the set LLM provider. This endpoint abstracts the need to
@@ -257,7 +268,7 @@ class PromptsResource(SyncAPIResource):
         if not id:
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         return cast(
-            Parameters,
+            PromptGetParametersResponse,
             self._post(
                 f"/sdk/v1/prompts/{id}",
                 body=maybe_transform(
@@ -272,7 +283,9 @@ class PromptsResource(SyncAPIResource):
                 options=make_request_options(
                     extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
                 ),
-                cast_to=cast(Any, Parameters),  # Union types cannot be passed in as arguments in the type system
+                cast_to=cast(
+                    Any, PromptGetParametersResponse
+                ),  # Union types cannot be passed in as arguments in the type system
             ),
         )
 
@@ -280,10 +293,21 @@ class PromptsResource(SyncAPIResource):
 class AsyncPromptsResource(AsyncAPIResource):
     @cached_property
     def with_raw_response(self) -> AsyncPromptsResourceWithRawResponse:
+        """
+        This property can be used as a prefix for any HTTP method call to return the
+        the raw response object instead of the parsed content.
+
+        For more information, see https://www.github.com/prompt-foundry/python-sdk#accessing-raw-response-data-eg-headers
+        """
         return AsyncPromptsResourceWithRawResponse(self)
 
     @cached_property
     def with_streaming_response(self) -> AsyncPromptsResourceWithStreamingResponse:
+        """
+        An alternative to `.with_raw_response` that doesn't eagerly read the response body.
+
+        For more information, see https://www.github.com/prompt-foundry/python-sdk#with_streaming_response
+        """
         return AsyncPromptsResourceWithStreamingResponse(self)
 
     async def create(
@@ -476,7 +500,7 @@ class AsyncPromptsResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> Parameters:
+    ) -> PromptGetParametersResponse:
         """
         Fetches the configured model parameters and messages rendered with the provided
         variables mapped to the set LLM provider. This endpoint abstracts the need to
@@ -505,7 +529,7 @@ class AsyncPromptsResource(AsyncAPIResource):
         if not id:
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         return cast(
-            Parameters,
+            PromptGetParametersResponse,
             await self._post(
                 f"/sdk/v1/prompts/{id}",
                 body=await async_maybe_transform(
@@ -520,7 +544,9 @@ class AsyncPromptsResource(AsyncAPIResource):
                 options=make_request_options(
                     extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
                 ),
-                cast_to=cast(Any, Parameters),  # Union types cannot be passed in as arguments in the type system
+                cast_to=cast(
+                    Any, PromptGetParametersResponse
+                ),  # Union types cannot be passed in as arguments in the type system
             ),
         )
 
