@@ -1,6 +1,6 @@
 [project]
 name = "prompt_foundry_python_sdk"
-version = "0.1.0-alpha.13"
+version = "0.1.0-alpha.14"
 description = "The prompt engineering, prompt management, and prompt evaluation tool for Python "
 keywords = ["llm evaluation", "prompt management", "prompt testing", "prompt engineering"]
 dynamic = ["readme"]
