@@ -4,7 +4,6 @@ from __future__ import annotations
 
 from .tool import Tool as Tool
 from .evaluation import Evaluation as Evaluation
-from .parameters import Parameters as Parameters
 from .tool_create_params import ToolCreateParams as ToolCreateParams
 from .tool_list_response import ToolListResponse as ToolListResponse
 from .tool_update_params import ToolUpdateParams as ToolUpdateParams
@@ -22,6 +21,7 @@ from .evaluation_update_params import EvaluationUpdateParams as EvaluationUpdate
 from .completion_create_response import CompletionCreateResponse as CompletionCreateResponse
 from .evaluation_delete_response import EvaluationDeleteResponse as EvaluationDeleteResponse
 from .prompt_get_parameters_params import PromptGetParametersParams as PromptGetParametersParams
+from .prompt_get_parameters_response import PromptGetParametersResponse as PromptGetParametersResponse
 from .evaluation_assertion_list_params import EvaluationAssertionListParams as EvaluationAssertionListParams
 from .evaluation_assertion_create_params import EvaluationAssertionCreateParams as EvaluationAssertionCreateParams
 from .evaluation_assertion_list_response import EvaluationAssertionListResponse as EvaluationAssertionListResponse
