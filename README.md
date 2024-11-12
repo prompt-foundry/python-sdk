@@ -26,8 +26,7 @@ import os
 from prompt_foundry_python_sdk import PromptFoundry
 
 client = PromptFoundry(
-    # This is the default and can be omitted
-    api_key=os.environ.get("PROMPT_FOUNDRY_API_KEY"),
+    api_key=os.environ.get("PROMPT_FOUNDRY_API_KEY"),  # This is the default and can be omitted
 )
 
 completion_create_response = client.completion.create(
@@ -62,8 +61,7 @@ import asyncio
 from prompt_foundry_python_sdk import AsyncPromptFoundry
 
 client = AsyncPromptFoundry(
-    # This is the default and can be omitted
-    api_key=os.environ.get("PROMPT_FOUNDRY_API_KEY"),
+    api_key=os.environ.get("PROMPT_FOUNDRY_API_KEY"),  # This is the default and can be omitted
 )
 
 
