@@ -30,52 +30,10 @@ class TestEvaluations:
                         {
                             "text": "text",
                             "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
+                        }
                     ],
                     "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "role": "assistant",
-                },
+                }
             ],
             prompt_id="promptId",
             variables={"foo": "string"},
@@ -91,52 +49,10 @@ class TestEvaluations:
                         {
                             "text": "text",
                             "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
+                        }
                     ],
                     "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "role": "assistant",
-                },
+                }
             ],
             prompt_id="promptId",
             variables={"foo": "string"},
@@ -154,52 +70,10 @@ class TestEvaluations:
                         {
                             "text": "text",
                             "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
+                        }
                     ],
                     "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "role": "assistant",
-                },
+                }
             ],
             prompt_id="promptId",
             variables={"foo": "string"},
@@ -219,52 +93,10 @@ class TestEvaluations:
                         {
                             "text": "text",
                             "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
+                        }
                     ],
                     "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "role": "assistant",
-                },
+                }
             ],
             prompt_id="promptId",
             variables={"foo": "string"},
@@ -287,52 +119,10 @@ class TestEvaluations:
                         {
                             "text": "text",
                             "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
+                        }
                     ],
                     "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "role": "assistant",
-                },
+                }
             ],
             prompt_id="promptId",
             variables={"foo": "string"},
@@ -349,52 +139,10 @@ class TestEvaluations:
                         {
                             "text": "text",
                             "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
+                        }
                     ],
                     "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "role": "assistant",
-                },
+                }
             ],
             prompt_id="promptId",
             variables={"foo": "string"},
@@ -413,52 +161,10 @@ class TestEvaluations:
                         {
                             "text": "text",
                             "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
+                        }
                     ],
                     "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "role": "assistant",
-                },
+                }
             ],
             prompt_id="promptId",
             variables={"foo": "string"},
@@ -479,52 +185,10 @@ class TestEvaluations:
                         {
                             "text": "text",
                             "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
+                        }
                     ],
                     "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "role": "assistant",
-                },
+                }
             ],
             prompt_id="promptId",
             variables={"foo": "string"},
@@ -548,52 +212,10 @@ class TestEvaluations:
                             {
                                 "text": "text",
                                 "type": "TEXT",
-                            },
-                            {
-                                "text": "text",
-                                "type": "TEXT",
-                            },
-                            {
-                                "text": "text",
-                                "type": "TEXT",
-                            },
+                            }
                         ],
                         "role": "assistant",
-                    },
-                    {
-                        "content": [
-                            {
-                                "text": "text",
-                                "type": "TEXT",
-                            },
-                            {
-                                "text": "text",
-                                "type": "TEXT",
-                            },
-                            {
-                                "text": "text",
-                                "type": "TEXT",
-                            },
-                        ],
-                        "role": "assistant",
-                    },
-                    {
-                        "content": [
-                            {
-                                "text": "text",
-                                "type": "TEXT",
-                            },
-                            {
-                                "text": "text",
-                                "type": "TEXT",
-                            },
-                            {
-                                "text": "text",
-                                "type": "TEXT",
-                            },
-                        ],
-                        "role": "assistant",
-                    },
+                    }
                 ],
                 prompt_id="promptId",
                 variables={"foo": "string"},
@@ -713,52 +335,10 @@ class TestAsyncEvaluations:
                         {
                             "text": "text",
                             "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
+                        }
                     ],
                     "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "role": "assistant",
-                },
+                }
             ],
             prompt_id="promptId",
             variables={"foo": "string"},
@@ -774,52 +354,10 @@ class TestAsyncEvaluations:
                         {
                             "text": "text",
                             "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
+                        }
                     ],
                     "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "role": "assistant",
-                },
+                }
             ],
             prompt_id="promptId",
             variables={"foo": "string"},
@@ -837,52 +375,10 @@ class TestAsyncEvaluations:
                         {
                             "text": "text",
                             "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
+                        }
                     ],
                     "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "role": "assistant",
-                },
+                }
             ],
             prompt_id="promptId",
             variables={"foo": "string"},
@@ -902,52 +398,10 @@ class TestAsyncEvaluations:
                         {
                             "text": "text",
                             "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
+                        }
                     ],
                     "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "role": "assistant",
-                },
+                }
             ],
             prompt_id="promptId",
             variables={"foo": "string"},
@@ -970,52 +424,10 @@ class TestAsyncEvaluations:
                         {
                             "text": "text",
                             "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
+                        }
                     ],
                     "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "role": "assistant",
-                },
+                }
             ],
             prompt_id="promptId",
             variables={"foo": "string"},
@@ -1032,52 +444,10 @@ class TestAsyncEvaluations:
                         {
                             "text": "text",
                             "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
+                        }
                     ],
                     "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "role": "assistant",
-                },
+                }
             ],
             prompt_id="promptId",
             variables={"foo": "string"},
@@ -1096,52 +466,10 @@ class TestAsyncEvaluations:
                         {
                             "text": "text",
                             "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
+                        }
                     ],
                     "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "role": "assistant",
-                },
+                }
             ],
             prompt_id="promptId",
             variables={"foo": "string"},
@@ -1162,52 +490,10 @@ class TestAsyncEvaluations:
                         {
                             "text": "text",
                             "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
+                        }
                     ],
                     "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "role": "assistant",
-                },
+                }
             ],
             prompt_id="promptId",
             variables={"foo": "string"},
@@ -1231,52 +517,10 @@ class TestAsyncEvaluations:
                             {
                                 "text": "text",
                                 "type": "TEXT",
-                            },
-                            {
-                                "text": "text",
-                                "type": "TEXT",
-                            },
-                            {
-                                "text": "text",
-                                "type": "TEXT",
-                            },
+                            }
                         ],
                         "role": "assistant",
-                    },
-                    {
-                        "content": [
-                            {
-                                "text": "text",
-                                "type": "TEXT",
-                            },
-                            {
-                                "text": "text",
-                                "type": "TEXT",
-                            },
-                            {
-                                "text": "text",
-                                "type": "TEXT",
-                            },
-                        ],
-                        "role": "assistant",
-                    },
-                    {
-                        "content": [
-                            {
-                                "text": "text",
-                                "type": "TEXT",
-                            },
-                            {
-                                "text": "text",
-                                "type": "TEXT",
-                            },
-                            {
-                                "text": "text",
-                                "type": "TEXT",
-                            },
-                        ],
-                        "role": "assistant",
-                    },
+                    }
                 ],
                 prompt_id="promptId",
                 variables={"foo": "string"},

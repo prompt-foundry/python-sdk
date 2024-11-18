@@ -34,52 +34,10 @@ class TestCompletion:
                         {
                             "text": "text",
                             "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
+                        }
                     ],
                     "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "role": "assistant",
-                },
+                }
             ],
             override_messages=[
                 {
@@ -87,52 +45,10 @@ class TestCompletion:
                         {
                             "text": "text",
                             "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
+                        }
                     ],
                     "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "role": "assistant",
-                },
+                }
             ],
             user="user",
             variables={"foo": "string"},
@@ -191,52 +107,10 @@ class TestAsyncCompletion:
                         {
                             "text": "text",
                             "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
+                        }
                     ],
                     "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "role": "assistant",
-                },
+                }
             ],
             override_messages=[
                 {
@@ -244,52 +118,10 @@ class TestAsyncCompletion:
                         {
                             "text": "text",
                             "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
+                        }
                     ],
                     "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "role": "assistant",
-                },
+                }
             ],
             user="user",
             variables={"foo": "string"},

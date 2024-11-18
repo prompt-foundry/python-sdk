@@ -31,55 +31,11 @@ class TestPrompts:
                         {
                             "text": "text",
                             "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
+                        }
                     ],
                     "prompt_message_id": "promptMessageId",
                     "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "prompt_message_id": "promptMessageId",
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "prompt_message_id": "promptMessageId",
-                    "role": "assistant",
-                },
+                }
             ],
             name="name",
             parameters={
@@ -97,7 +53,7 @@ class TestPrompts:
                 "top_k": 1,
                 "top_p": 0,
             },
-            tools=[{"tool_id": "toolId"}, {"tool_id": "toolId"}, {"tool_id": "toolId"}],
+            tools=[{"tool_id": "toolId"}],
         )
         assert_matches_type(PromptConfiguration, prompt, path=["response"])
 
@@ -110,55 +66,11 @@ class TestPrompts:
                         {
                             "text": "text",
                             "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
+                        }
                     ],
                     "prompt_message_id": "promptMessageId",
                     "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "prompt_message_id": "promptMessageId",
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "prompt_message_id": "promptMessageId",
-                    "role": "assistant",
-                },
+                }
             ],
             name="name",
             parameters={
@@ -176,7 +88,7 @@ class TestPrompts:
                 "top_k": 1,
                 "top_p": 0,
             },
-            tools=[{"tool_id": "toolId"}, {"tool_id": "toolId"}, {"tool_id": "toolId"}],
+            tools=[{"tool_id": "toolId"}],
         )
 
         assert response.is_closed is True
@@ -193,55 +105,11 @@ class TestPrompts:
                         {
                             "text": "text",
                             "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
+                        }
                     ],
                     "prompt_message_id": "promptMessageId",
                     "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "prompt_message_id": "promptMessageId",
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "prompt_message_id": "promptMessageId",
-                    "role": "assistant",
-                },
+                }
             ],
             name="name",
             parameters={
@@ -259,7 +127,7 @@ class TestPrompts:
                 "top_k": 1,
                 "top_p": 0,
             },
-            tools=[{"tool_id": "toolId"}, {"tool_id": "toolId"}, {"tool_id": "toolId"}],
+            tools=[{"tool_id": "toolId"}],
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -279,55 +147,11 @@ class TestPrompts:
                         {
                             "text": "text",
                             "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
+                        }
                     ],
                     "prompt_message_id": "promptMessageId",
                     "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "prompt_message_id": "promptMessageId",
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "prompt_message_id": "promptMessageId",
-                    "role": "assistant",
-                },
+                }
             ],
             name="name",
             parameters={
@@ -345,7 +169,7 @@ class TestPrompts:
                 "top_k": 1,
                 "top_p": 0,
             },
-            tools=[{"tool_id": "toolId"}, {"tool_id": "toolId"}, {"tool_id": "toolId"}],
+            tools=[{"tool_id": "toolId"}],
         )
         assert_matches_type(PromptConfiguration, prompt, path=["response"])
 
@@ -359,55 +183,11 @@ class TestPrompts:
                         {
                             "text": "text",
                             "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
+                        }
                     ],
                     "prompt_message_id": "promptMessageId",
                     "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "prompt_message_id": "promptMessageId",
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "prompt_message_id": "promptMessageId",
-                    "role": "assistant",
-                },
+                }
             ],
             name="name",
             parameters={
@@ -425,7 +205,7 @@ class TestPrompts:
                 "top_k": 1,
                 "top_p": 0,
             },
-            tools=[{"tool_id": "toolId"}, {"tool_id": "toolId"}, {"tool_id": "toolId"}],
+            tools=[{"tool_id": "toolId"}],
         )
 
         assert response.is_closed is True
@@ -443,55 +223,11 @@ class TestPrompts:
                         {
                             "text": "text",
                             "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
+                        }
                     ],
                     "prompt_message_id": "promptMessageId",
                     "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "prompt_message_id": "promptMessageId",
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "prompt_message_id": "promptMessageId",
-                    "role": "assistant",
-                },
+                }
             ],
             name="name",
             parameters={
@@ -509,7 +245,7 @@ class TestPrompts:
                 "top_k": 1,
                 "top_p": 0,
             },
-            tools=[{"tool_id": "toolId"}, {"tool_id": "toolId"}, {"tool_id": "toolId"}],
+            tools=[{"tool_id": "toolId"}],
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -530,55 +266,11 @@ class TestPrompts:
                             {
                                 "text": "text",
                                 "type": "TEXT",
-                            },
-                            {
-                                "text": "text",
-                                "type": "TEXT",
-                            },
-                            {
-                                "text": "text",
-                                "type": "TEXT",
-                            },
+                            }
                         ],
                         "prompt_message_id": "promptMessageId",
                         "role": "assistant",
-                    },
-                    {
-                        "content": [
-                            {
-                                "text": "text",
-                                "type": "TEXT",
-                            },
-                            {
-                                "text": "text",
-                                "type": "TEXT",
-                            },
-                            {
-                                "text": "text",
-                                "type": "TEXT",
-                            },
-                        ],
-                        "prompt_message_id": "promptMessageId",
-                        "role": "assistant",
-                    },
-                    {
-                        "content": [
-                            {
-                                "text": "text",
-                                "type": "TEXT",
-                            },
-                            {
-                                "text": "text",
-                                "type": "TEXT",
-                            },
-                            {
-                                "text": "text",
-                                "type": "TEXT",
-                            },
-                        ],
-                        "prompt_message_id": "promptMessageId",
-                        "role": "assistant",
-                    },
+                    }
                 ],
                 name="name",
                 parameters={
@@ -596,7 +288,7 @@ class TestPrompts:
                     "top_k": 1,
                     "top_p": 0,
                 },
-                tools=[{"tool_id": "toolId"}, {"tool_id": "toolId"}, {"tool_id": "toolId"}],
+                tools=[{"tool_id": "toolId"}],
             )
 
     @parametrize
@@ -717,52 +409,10 @@ class TestPrompts:
                         {
                             "text": "text",
                             "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
+                        }
                     ],
                     "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "role": "assistant",
-                },
+                }
             ],
             override_messages=[
                 {
@@ -770,52 +420,10 @@ class TestPrompts:
                         {
                             "text": "text",
                             "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
+                        }
                     ],
                     "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "role": "assistant",
-                },
+                }
             ],
             user="user",
             variables={"foo": "string"},
@@ -866,55 +474,11 @@ class TestAsyncPrompts:
                         {
                             "text": "text",
                             "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
+                        }
                     ],
                     "prompt_message_id": "promptMessageId",
                     "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "prompt_message_id": "promptMessageId",
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "prompt_message_id": "promptMessageId",
-                    "role": "assistant",
-                },
+                }
             ],
             name="name",
             parameters={
@@ -932,7 +496,7 @@ class TestAsyncPrompts:
                 "top_k": 1,
                 "top_p": 0,
             },
-            tools=[{"tool_id": "toolId"}, {"tool_id": "toolId"}, {"tool_id": "toolId"}],
+            tools=[{"tool_id": "toolId"}],
         )
         assert_matches_type(PromptConfiguration, prompt, path=["response"])
 
@@ -945,55 +509,11 @@ class TestAsyncPrompts:
                         {
                             "text": "text",
                             "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
+                        }
                     ],
                     "prompt_message_id": "promptMessageId",
                     "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "prompt_message_id": "promptMessageId",
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "prompt_message_id": "promptMessageId",
-                    "role": "assistant",
-                },
+                }
             ],
             name="name",
             parameters={
@@ -1011,7 +531,7 @@ class TestAsyncPrompts:
                 "top_k": 1,
                 "top_p": 0,
             },
-            tools=[{"tool_id": "toolId"}, {"tool_id": "toolId"}, {"tool_id": "toolId"}],
+            tools=[{"tool_id": "toolId"}],
         )
 
         assert response.is_closed is True
@@ -1028,55 +548,11 @@ class TestAsyncPrompts:
                         {
                             "text": "text",
                             "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
+                        }
                     ],
                     "prompt_message_id": "promptMessageId",
                     "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "prompt_message_id": "promptMessageId",
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "prompt_message_id": "promptMessageId",
-                    "role": "assistant",
-                },
+                }
             ],
             name="name",
             parameters={
@@ -1094,7 +570,7 @@ class TestAsyncPrompts:
                 "top_k": 1,
                 "top_p": 0,
             },
-            tools=[{"tool_id": "toolId"}, {"tool_id": "toolId"}, {"tool_id": "toolId"}],
+            tools=[{"tool_id": "toolId"}],
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -1114,55 +590,11 @@ class TestAsyncPrompts:
                         {
                             "text": "text",
                             "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
+                        }
                     ],
                     "prompt_message_id": "promptMessageId",
                     "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "prompt_message_id": "promptMessageId",
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "prompt_message_id": "promptMessageId",
-                    "role": "assistant",
-                },
+                }
             ],
             name="name",
             parameters={
@@ -1180,7 +612,7 @@ class TestAsyncPrompts:
                 "top_k": 1,
                 "top_p": 0,
             },
-            tools=[{"tool_id": "toolId"}, {"tool_id": "toolId"}, {"tool_id": "toolId"}],
+            tools=[{"tool_id": "toolId"}],
         )
         assert_matches_type(PromptConfiguration, prompt, path=["response"])
 
@@ -1194,55 +626,11 @@ class TestAsyncPrompts:
                         {
                             "text": "text",
                             "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
+                        }
                     ],
                     "prompt_message_id": "promptMessageId",
                     "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "prompt_message_id": "promptMessageId",
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "prompt_message_id": "promptMessageId",
-                    "role": "assistant",
-                },
+                }
             ],
             name="name",
             parameters={
@@ -1260,7 +648,7 @@ class TestAsyncPrompts:
                 "top_k": 1,
                 "top_p": 0,
             },
-            tools=[{"tool_id": "toolId"}, {"tool_id": "toolId"}, {"tool_id": "toolId"}],
+            tools=[{"tool_id": "toolId"}],
         )
 
         assert response.is_closed is True
@@ -1278,55 +666,11 @@ class TestAsyncPrompts:
                         {
                             "text": "text",
                             "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
+                        }
                     ],
                     "prompt_message_id": "promptMessageId",
                     "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "prompt_message_id": "promptMessageId",
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "prompt_message_id": "promptMessageId",
-                    "role": "assistant",
-                },
+                }
             ],
             name="name",
             parameters={
@@ -1344,7 +688,7 @@ class TestAsyncPrompts:
                 "top_k": 1,
                 "top_p": 0,
             },
-            tools=[{"tool_id": "toolId"}, {"tool_id": "toolId"}, {"tool_id": "toolId"}],
+            tools=[{"tool_id": "toolId"}],
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -1365,55 +709,11 @@ class TestAsyncPrompts:
                             {
                                 "text": "text",
                                 "type": "TEXT",
-                            },
-                            {
-                                "text": "text",
-                                "type": "TEXT",
-                            },
-                            {
-                                "text": "text",
-                                "type": "TEXT",
-                            },
+                            }
                         ],
                         "prompt_message_id": "promptMessageId",
                         "role": "assistant",
-                    },
-                    {
-                        "content": [
-                            {
-                                "text": "text",
-                                "type": "TEXT",
-                            },
-                            {
-                                "text": "text",
-                                "type": "TEXT",
-                            },
-                            {
-                                "text": "text",
-                                "type": "TEXT",
-                            },
-                        ],
-                        "prompt_message_id": "promptMessageId",
-                        "role": "assistant",
-                    },
-                    {
-                        "content": [
-                            {
-                                "text": "text",
-                                "type": "TEXT",
-                            },
-                            {
-                                "text": "text",
-                                "type": "TEXT",
-                            },
-                            {
-                                "text": "text",
-                                "type": "TEXT",
-                            },
-                        ],
-                        "prompt_message_id": "promptMessageId",
-                        "role": "assistant",
-                    },
+                    }
                 ],
                 name="name",
                 parameters={
@@ -1431,7 +731,7 @@ class TestAsyncPrompts:
                     "top_k": 1,
                     "top_p": 0,
                 },
-                tools=[{"tool_id": "toolId"}, {"tool_id": "toolId"}, {"tool_id": "toolId"}],
+                tools=[{"tool_id": "toolId"}],
             )
 
     @parametrize
@@ -1552,52 +852,10 @@ class TestAsyncPrompts:
                         {
                             "text": "text",
                             "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
+                        }
                     ],
                     "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "role": "assistant",
-                },
+                }
             ],
             override_messages=[
                 {
@@ -1605,52 +863,10 @@ class TestAsyncPrompts:
                         {
                             "text": "text",
                             "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
+                        }
                     ],
                     "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "role": "assistant",
-                },
-                {
-                    "content": [
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                        {
-                            "text": "text",
-                            "type": "TEXT",
-                        },
-                    ],
-                    "role": "assistant",
-                },
+                }
             ],
             user="user",
             variables={"foo": "string"},
