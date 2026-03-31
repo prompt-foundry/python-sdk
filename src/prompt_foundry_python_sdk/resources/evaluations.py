@@ -7,11 +7,8 @@ from typing import Dict, Iterable, Optional
 import httpx
 
 from ..types import evaluation_create_params, evaluation_update_params
-from .._types import NOT_GIVEN, Body, Query, Headers, NotGiven
-from .._utils import (
-    maybe_transform,
-    async_maybe_transform,
-)
+from .._types import Body, Omit, Query, Headers, NotGiven, omit, not_given
+from .._utils import path_template, maybe_transform, async_maybe_transform
 from .._compat import cached_property
 from .._resource import SyncAPIResource, AsyncAPIResource
 from .._response import (
@@ -54,14 +51,14 @@ class EvaluationsResource(SyncAPIResource):
         appended_messages: Iterable[evaluation_create_params.AppendedMessage],
         prompt_id: str,
         variables: Dict[str, Optional[str]],
-        threshold: float | NotGiven = NOT_GIVEN,
-        weight: float | NotGiven = NOT_GIVEN,
+        threshold: float | Omit = omit,
+        weight: float | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> Evaluation:
         """
         Create a new evaluation.
@@ -108,14 +105,14 @@ class EvaluationsResource(SyncAPIResource):
         appended_messages: Iterable[evaluation_update_params.AppendedMessage],
         prompt_id: str,
         variables: Dict[str, Optional[str]],
-        threshold: float | NotGiven = NOT_GIVEN,
-        weight: float | NotGiven = NOT_GIVEN,
+        threshold: float | Omit = omit,
+        weight: float | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> Evaluation:
         """
         Update an evaluation by ID.
@@ -140,7 +137,7 @@ class EvaluationsResource(SyncAPIResource):
         if not id:
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         return self._put(
-            f"/sdk/v1/evaluations/{id}",
+            path_template("/sdk/v1/evaluations/{id}", id=id),
             body=maybe_transform(
                 {
                     "appended_messages": appended_messages,
@@ -165,7 +162,7 @@ class EvaluationsResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EvaluationListResponse:
         """Retrieve all evaluations"""
         return self._get(
@@ -185,7 +182,7 @@ class EvaluationsResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EvaluationDeleteResponse:
         """
         Delete an evaluation by ID.
@@ -202,7 +199,7 @@ class EvaluationsResource(SyncAPIResource):
         if not id:
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         return self._delete(
-            f"/sdk/v1/evaluations/{id}",
+            path_template("/sdk/v1/evaluations/{id}", id=id),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -218,7 +215,7 @@ class EvaluationsResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> Evaluation:
         """
         Retrieve an evaluation by ID
@@ -235,7 +232,7 @@ class EvaluationsResource(SyncAPIResource):
         if not id:
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         return self._get(
-            f"/sdk/v1/evaluations/{id}",
+            path_template("/sdk/v1/evaluations/{id}", id=id),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -269,14 +266,14 @@ class AsyncEvaluationsResource(AsyncAPIResource):
         appended_messages: Iterable[evaluation_create_params.AppendedMessage],
         prompt_id: str,
         variables: Dict[str, Optional[str]],
-        threshold: float | NotGiven = NOT_GIVEN,
-        weight: float | NotGiven = NOT_GIVEN,
+        threshold: float | Omit = omit,
+        weight: float | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> Evaluation:
         """
         Create a new evaluation.
@@ -323,14 +320,14 @@ class AsyncEvaluationsResource(AsyncAPIResource):
         appended_messages: Iterable[evaluation_update_params.AppendedMessage],
         prompt_id: str,
         variables: Dict[str, Optional[str]],
-        threshold: float | NotGiven = NOT_GIVEN,
-        weight: float | NotGiven = NOT_GIVEN,
+        threshold: float | Omit = omit,
+        weight: float | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> Evaluation:
         """
         Update an evaluation by ID.
@@ -355,7 +352,7 @@ class AsyncEvaluationsResource(AsyncAPIResource):
         if not id:
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         return await self._put(
-            f"/sdk/v1/evaluations/{id}",
+            path_template("/sdk/v1/evaluations/{id}", id=id),
             body=await async_maybe_transform(
                 {
                     "appended_messages": appended_messages,
@@ -380,7 +377,7 @@ class AsyncEvaluationsResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EvaluationListResponse:
         """Retrieve all evaluations"""
         return await self._get(
@@ -400,7 +397,7 @@ class AsyncEvaluationsResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EvaluationDeleteResponse:
         """
         Delete an evaluation by ID.
@@ -417,7 +414,7 @@ class AsyncEvaluationsResource(AsyncAPIResource):
         if not id:
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         return await self._delete(
-            f"/sdk/v1/evaluations/{id}",
+            path_template("/sdk/v1/evaluations/{id}", id=id),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -433,7 +430,7 @@ class AsyncEvaluationsResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> Evaluation:
         """
         Retrieve an evaluation by ID
@@ -450,7 +447,7 @@ class AsyncEvaluationsResource(AsyncAPIResource):
         if not id:
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         return await self._get(
-            f"/sdk/v1/evaluations/{id}",
+            path_template("/sdk/v1/evaluations/{id}", id=id),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),

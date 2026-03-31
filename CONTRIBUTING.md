@@ -17,8 +17,7 @@ $ rye sync --all-features
 You can then run scripts using `rye run python script.py` or by activating the virtual environment:
 
 ```sh
-$ rye shell
-# or manually activate - https://docs.python.org/3/library/venv.html#how-venvs-work
+# Activate the virtual environment - https://docs.python.org/3/library/venv.html#how-venvs-work
 $ source .venv/bin/activate
 
 # now you can omit the `rye run` prefix
@@ -86,11 +85,10 @@ $ pip install ./path-to-wheel-file.whl
 
 ## Running tests
 
-Most tests require you to [set up a mock server](https://github.com/stoplightio/prism) against the OpenAPI spec to run the tests.
+Most tests require you to [set up a mock server](https://github.com/dgellow/steady) against the OpenAPI spec to run the tests.
 
 ```sh
-# you will need npm installed
-$ npx prism mock path/to/your/openapi.yml
+$ ./scripts/mock
 ```
 
 ```sh

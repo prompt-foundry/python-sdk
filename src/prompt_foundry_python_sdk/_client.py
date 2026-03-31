@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import os
-from typing import Any, Union, Mapping
+from typing import TYPE_CHECKING, Any, Mapping
 from typing_extensions import Self, override
 
 import httpx
@@ -11,20 +11,17 @@ import httpx
 from . import _exceptions
 from ._qs import Querystring
 from ._types import (
-    NOT_GIVEN,
     Omit,
     Timeout,
     NotGiven,
     Transport,
     ProxiesTypes,
     RequestOptions,
+    not_given,
 )
-from ._utils import (
-    is_given,
-    get_async_library,
-)
+from ._utils import is_given, get_async_library
+from ._compat import cached_property
 from ._version import __version__
-from .resources import tools, prompts, completion, evaluations, evaluation_assertions
 from ._streaming import Stream as Stream, AsyncStream as AsyncStream
 from ._exceptions import APIStatusError, PromptFoundryError
 from ._base_client import (
@@ -32,6 +29,14 @@ from ._base_client import (
     SyncAPIClient,
     AsyncAPIClient,
 )
+
+if TYPE_CHECKING:
+    from .resources import tools, prompts, completion, evaluations, evaluation_assertions
+    from .resources.tools import ToolsResource, AsyncToolsResource
+    from .resources.prompts import PromptsResource, AsyncPromptsResource
+    from .resources.completion import CompletionResource, AsyncCompletionResource
+    from .resources.evaluations import EvaluationsResource, AsyncEvaluationsResource
+    from .resources.evaluation_assertions import EvaluationAssertionsResource, AsyncEvaluationAssertionsResource
 
 __all__ = [
     "Timeout",
@@ -46,14 +51,6 @@ __all__ = [
 
 
 class PromptFoundry(SyncAPIClient):
-    completion: completion.CompletionResource
-    prompts: prompts.PromptsResource
-    tools: tools.ToolsResource
-    evaluation_assertions: evaluation_assertions.EvaluationAssertionsResource
-    evaluations: evaluations.EvaluationsResource
-    with_raw_response: PromptFoundryWithRawResponse
-    with_streaming_response: PromptFoundryWithStreamedResponse
-
     # client options
     api_key: str
 
@@ -62,7 +59,7 @@ class PromptFoundry(SyncAPIClient):
         *,
         api_key: str | None = None,
         base_url: str | httpx.URL | None = None,
-        timeout: Union[float, Timeout, None, NotGiven] = NOT_GIVEN,
+        timeout: float | Timeout | None | NotGiven = not_given,
         max_retries: int = DEFAULT_MAX_RETRIES,
         default_headers: Mapping[str, str] | None = None,
         default_query: Mapping[str, object] | None = None,
@@ -80,7 +77,7 @@ class PromptFoundry(SyncAPIClient):
         # part of our public interface in the future.
         _strict_response_validation: bool = False,
     ) -> None:
-        """Construct a new synchronous prompt-foundry client instance.
+        """Construct a new synchronous PromptFoundry client instance.
 
         This automatically infers the `api_key` argument from the `PROMPT_FOUNDRY_API_KEY` environment variable if it is not provided.
         """
@@ -108,13 +105,43 @@ class PromptFoundry(SyncAPIClient):
             _strict_response_validation=_strict_response_validation,
         )
 
-        self.completion = completion.CompletionResource(self)
-        self.prompts = prompts.PromptsResource(self)
-        self.tools = tools.ToolsResource(self)
-        self.evaluation_assertions = evaluation_assertions.EvaluationAssertionsResource(self)
-        self.evaluations = evaluations.EvaluationsResource(self)
-        self.with_raw_response = PromptFoundryWithRawResponse(self)
-        self.with_streaming_response = PromptFoundryWithStreamedResponse(self)
+    @cached_property
+    def completion(self) -> CompletionResource:
+        from .resources.completion import CompletionResource
+
+        return CompletionResource(self)
+
+    @cached_property
+    def prompts(self) -> PromptsResource:
+        from .resources.prompts import PromptsResource
+
+        return PromptsResource(self)
+
+    @cached_property
+    def tools(self) -> ToolsResource:
+        from .resources.tools import ToolsResource
+
+        return ToolsResource(self)
+
+    @cached_property
+    def evaluation_assertions(self) -> EvaluationAssertionsResource:
+        from .resources.evaluation_assertions import EvaluationAssertionsResource
+
+        return EvaluationAssertionsResource(self)
+
+    @cached_property
+    def evaluations(self) -> EvaluationsResource:
+        from .resources.evaluations import EvaluationsResource
+
+        return EvaluationsResource(self)
+
+    @cached_property
+    def with_raw_response(self) -> PromptFoundryWithRawResponse:
+        return PromptFoundryWithRawResponse(self)
+
+    @cached_property
+    def with_streaming_response(self) -> PromptFoundryWithStreamedResponse:
+        return PromptFoundryWithStreamedResponse(self)
 
     @property
     @override
@@ -141,9 +168,9 @@ class PromptFoundry(SyncAPIClient):
         *,
         api_key: str | None = None,
         base_url: str | httpx.URL | None = None,
-        timeout: float | Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | Timeout | None | NotGiven = not_given,
         http_client: httpx.Client | None = None,
-        max_retries: int | NotGiven = NOT_GIVEN,
+        max_retries: int | NotGiven = not_given,
         default_headers: Mapping[str, str] | None = None,
         set_default_headers: Mapping[str, str] | None = None,
         default_query: Mapping[str, object] | None = None,
@@ -222,14 +249,6 @@ class PromptFoundry(SyncAPIClient):
 
 
 class AsyncPromptFoundry(AsyncAPIClient):
-    completion: completion.AsyncCompletionResource
-    prompts: prompts.AsyncPromptsResource
-    tools: tools.AsyncToolsResource
-    evaluation_assertions: evaluation_assertions.AsyncEvaluationAssertionsResource
-    evaluations: evaluations.AsyncEvaluationsResource
-    with_raw_response: AsyncPromptFoundryWithRawResponse
-    with_streaming_response: AsyncPromptFoundryWithStreamedResponse
-
     # client options
     api_key: str
 
@@ -238,7 +257,7 @@ class AsyncPromptFoundry(AsyncAPIClient):
         *,
         api_key: str | None = None,
         base_url: str | httpx.URL | None = None,
-        timeout: Union[float, Timeout, None, NotGiven] = NOT_GIVEN,
+        timeout: float | Timeout | None | NotGiven = not_given,
         max_retries: int = DEFAULT_MAX_RETRIES,
         default_headers: Mapping[str, str] | None = None,
         default_query: Mapping[str, object] | None = None,
@@ -256,7 +275,7 @@ class AsyncPromptFoundry(AsyncAPIClient):
         # part of our public interface in the future.
         _strict_response_validation: bool = False,
     ) -> None:
-        """Construct a new async prompt-foundry client instance.
+        """Construct a new async AsyncPromptFoundry client instance.
 
         This automatically infers the `api_key` argument from the `PROMPT_FOUNDRY_API_KEY` environment variable if it is not provided.
         """
@@ -284,13 +303,43 @@ class AsyncPromptFoundry(AsyncAPIClient):
             _strict_response_validation=_strict_response_validation,
         )
 
-        self.completion = completion.AsyncCompletionResource(self)
-        self.prompts = prompts.AsyncPromptsResource(self)
-        self.tools = tools.AsyncToolsResource(self)
-        self.evaluation_assertions = evaluation_assertions.AsyncEvaluationAssertionsResource(self)
-        self.evaluations = evaluations.AsyncEvaluationsResource(self)
-        self.with_raw_response = AsyncPromptFoundryWithRawResponse(self)
-        self.with_streaming_response = AsyncPromptFoundryWithStreamedResponse(self)
+    @cached_property
+    def completion(self) -> AsyncCompletionResource:
+        from .resources.completion import AsyncCompletionResource
+
+        return AsyncCompletionResource(self)
+
+    @cached_property
+    def prompts(self) -> AsyncPromptsResource:
+        from .resources.prompts import AsyncPromptsResource
+
+        return AsyncPromptsResource(self)
+
+    @cached_property
+    def tools(self) -> AsyncToolsResource:
+        from .resources.tools import AsyncToolsResource
+
+        return AsyncToolsResource(self)
+
+    @cached_property
+    def evaluation_assertions(self) -> AsyncEvaluationAssertionsResource:
+        from .resources.evaluation_assertions import AsyncEvaluationAssertionsResource
+
+        return AsyncEvaluationAssertionsResource(self)
+
+    @cached_property
+    def evaluations(self) -> AsyncEvaluationsResource:
+        from .resources.evaluations import AsyncEvaluationsResource
+
+        return AsyncEvaluationsResource(self)
+
+    @cached_property
+    def with_raw_response(self) -> AsyncPromptFoundryWithRawResponse:
+        return AsyncPromptFoundryWithRawResponse(self)
+
+    @cached_property
+    def with_streaming_response(self) -> AsyncPromptFoundryWithStreamedResponse:
+        return AsyncPromptFoundryWithStreamedResponse(self)
 
     @property
     @override
@@ -317,9 +366,9 @@ class AsyncPromptFoundry(AsyncAPIClient):
         *,
         api_key: str | None = None,
         base_url: str | httpx.URL | None = None,
-        timeout: float | Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | Timeout | None | NotGiven = not_given,
         http_client: httpx.AsyncClient | None = None,
-        max_retries: int | NotGiven = NOT_GIVEN,
+        max_retries: int | NotGiven = not_given,
         default_headers: Mapping[str, str] | None = None,
         set_default_headers: Mapping[str, str] | None = None,
         default_query: Mapping[str, object] | None = None,
@@ -398,47 +447,151 @@ class AsyncPromptFoundry(AsyncAPIClient):
 
 
 class PromptFoundryWithRawResponse:
+    _client: PromptFoundry
+
     def __init__(self, client: PromptFoundry) -> None:
-        self.completion = completion.CompletionResourceWithRawResponse(client.completion)
-        self.prompts = prompts.PromptsResourceWithRawResponse(client.prompts)
-        self.tools = tools.ToolsResourceWithRawResponse(client.tools)
-        self.evaluation_assertions = evaluation_assertions.EvaluationAssertionsResourceWithRawResponse(
-            client.evaluation_assertions
-        )
-        self.evaluations = evaluations.EvaluationsResourceWithRawResponse(client.evaluations)
+        self._client = client
+
+    @cached_property
+    def completion(self) -> completion.CompletionResourceWithRawResponse:
+        from .resources.completion import CompletionResourceWithRawResponse
+
+        return CompletionResourceWithRawResponse(self._client.completion)
+
+    @cached_property
+    def prompts(self) -> prompts.PromptsResourceWithRawResponse:
+        from .resources.prompts import PromptsResourceWithRawResponse
+
+        return PromptsResourceWithRawResponse(self._client.prompts)
+
+    @cached_property
+    def tools(self) -> tools.ToolsResourceWithRawResponse:
+        from .resources.tools import ToolsResourceWithRawResponse
+
+        return ToolsResourceWithRawResponse(self._client.tools)
+
+    @cached_property
+    def evaluation_assertions(self) -> evaluation_assertions.EvaluationAssertionsResourceWithRawResponse:
+        from .resources.evaluation_assertions import EvaluationAssertionsResourceWithRawResponse
+
+        return EvaluationAssertionsResourceWithRawResponse(self._client.evaluation_assertions)
+
+    @cached_property
+    def evaluations(self) -> evaluations.EvaluationsResourceWithRawResponse:
+        from .resources.evaluations import EvaluationsResourceWithRawResponse
+
+        return EvaluationsResourceWithRawResponse(self._client.evaluations)
 
 
 class AsyncPromptFoundryWithRawResponse:
+    _client: AsyncPromptFoundry
+
     def __init__(self, client: AsyncPromptFoundry) -> None:
-        self.completion = completion.AsyncCompletionResourceWithRawResponse(client.completion)
-        self.prompts = prompts.AsyncPromptsResourceWithRawResponse(client.prompts)
-        self.tools = tools.AsyncToolsResourceWithRawResponse(client.tools)
-        self.evaluation_assertions = evaluation_assertions.AsyncEvaluationAssertionsResourceWithRawResponse(
-            client.evaluation_assertions
-        )
-        self.evaluations = evaluations.AsyncEvaluationsResourceWithRawResponse(client.evaluations)
+        self._client = client
+
+    @cached_property
+    def completion(self) -> completion.AsyncCompletionResourceWithRawResponse:
+        from .resources.completion import AsyncCompletionResourceWithRawResponse
+
+        return AsyncCompletionResourceWithRawResponse(self._client.completion)
+
+    @cached_property
+    def prompts(self) -> prompts.AsyncPromptsResourceWithRawResponse:
+        from .resources.prompts import AsyncPromptsResourceWithRawResponse
+
+        return AsyncPromptsResourceWithRawResponse(self._client.prompts)
+
+    @cached_property
+    def tools(self) -> tools.AsyncToolsResourceWithRawResponse:
+        from .resources.tools import AsyncToolsResourceWithRawResponse
+
+        return AsyncToolsResourceWithRawResponse(self._client.tools)
+
+    @cached_property
+    def evaluation_assertions(self) -> evaluation_assertions.AsyncEvaluationAssertionsResourceWithRawResponse:
+        from .resources.evaluation_assertions import AsyncEvaluationAssertionsResourceWithRawResponse
+
+        return AsyncEvaluationAssertionsResourceWithRawResponse(self._client.evaluation_assertions)
+
+    @cached_property
+    def evaluations(self) -> evaluations.AsyncEvaluationsResourceWithRawResponse:
+        from .resources.evaluations import AsyncEvaluationsResourceWithRawResponse
+
+        return AsyncEvaluationsResourceWithRawResponse(self._client.evaluations)
 
 
 class PromptFoundryWithStreamedResponse:
+    _client: PromptFoundry
+
     def __init__(self, client: PromptFoundry) -> None:
-        self.completion = completion.CompletionResourceWithStreamingResponse(client.completion)
-        self.prompts = prompts.PromptsResourceWithStreamingResponse(client.prompts)
-        self.tools = tools.ToolsResourceWithStreamingResponse(client.tools)
-        self.evaluation_assertions = evaluation_assertions.EvaluationAssertionsResourceWithStreamingResponse(
-            client.evaluation_assertions
-        )
-        self.evaluations = evaluations.EvaluationsResourceWithStreamingResponse(client.evaluations)
+        self._client = client
+
+    @cached_property
+    def completion(self) -> completion.CompletionResourceWithStreamingResponse:
+        from .resources.completion import CompletionResourceWithStreamingResponse
+
+        return CompletionResourceWithStreamingResponse(self._client.completion)
+
+    @cached_property
+    def prompts(self) -> prompts.PromptsResourceWithStreamingResponse:
+        from .resources.prompts import PromptsResourceWithStreamingResponse
+
+        return PromptsResourceWithStreamingResponse(self._client.prompts)
+
+    @cached_property
+    def tools(self) -> tools.ToolsResourceWithStreamingResponse:
+        from .resources.tools import ToolsResourceWithStreamingResponse
+
+        return ToolsResourceWithStreamingResponse(self._client.tools)
+
+    @cached_property
+    def evaluation_assertions(self) -> evaluation_assertions.EvaluationAssertionsResourceWithStreamingResponse:
+        from .resources.evaluation_assertions import EvaluationAssertionsResourceWithStreamingResponse
+
+        return EvaluationAssertionsResourceWithStreamingResponse(self._client.evaluation_assertions)
+
+    @cached_property
+    def evaluations(self) -> evaluations.EvaluationsResourceWithStreamingResponse:
+        from .resources.evaluations import EvaluationsResourceWithStreamingResponse
+
+        return EvaluationsResourceWithStreamingResponse(self._client.evaluations)
 
 
 class AsyncPromptFoundryWithStreamedResponse:
+    _client: AsyncPromptFoundry
+
     def __init__(self, client: AsyncPromptFoundry) -> None:
-        self.completion = completion.AsyncCompletionResourceWithStreamingResponse(client.completion)
-        self.prompts = prompts.AsyncPromptsResourceWithStreamingResponse(client.prompts)
-        self.tools = tools.AsyncToolsResourceWithStreamingResponse(client.tools)
-        self.evaluation_assertions = evaluation_assertions.AsyncEvaluationAssertionsResourceWithStreamingResponse(
-            client.evaluation_assertions
-        )
-        self.evaluations = evaluations.AsyncEvaluationsResourceWithStreamingResponse(client.evaluations)
+        self._client = client
+
+    @cached_property
+    def completion(self) -> completion.AsyncCompletionResourceWithStreamingResponse:
+        from .resources.completion import AsyncCompletionResourceWithStreamingResponse
+
+        return AsyncCompletionResourceWithStreamingResponse(self._client.completion)
+
+    @cached_property
+    def prompts(self) -> prompts.AsyncPromptsResourceWithStreamingResponse:
+        from .resources.prompts import AsyncPromptsResourceWithStreamingResponse
+
+        return AsyncPromptsResourceWithStreamingResponse(self._client.prompts)
+
+    @cached_property
+    def tools(self) -> tools.AsyncToolsResourceWithStreamingResponse:
+        from .resources.tools import AsyncToolsResourceWithStreamingResponse
+
+        return AsyncToolsResourceWithStreamingResponse(self._client.tools)
+
+    @cached_property
+    def evaluation_assertions(self) -> evaluation_assertions.AsyncEvaluationAssertionsResourceWithStreamingResponse:
+        from .resources.evaluation_assertions import AsyncEvaluationAssertionsResourceWithStreamingResponse
+
+        return AsyncEvaluationAssertionsResourceWithStreamingResponse(self._client.evaluation_assertions)
+
+    @cached_property
+    def evaluations(self) -> evaluations.AsyncEvaluationsResourceWithStreamingResponse:
+        from .resources.evaluations import AsyncEvaluationsResourceWithStreamingResponse
+
+        return AsyncEvaluationsResourceWithStreamingResponse(self._client.evaluations)
 
 
 Client = PromptFoundry

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Any, List, Optional, cast
+from typing import Any, Optional, cast
 from typing_extensions import Literal, overload
 
 import httpx
@@ -12,12 +12,8 @@ from ..types import (
     evaluation_assertion_create_params,
     evaluation_assertion_update_params,
 )
-from .._types import NOT_GIVEN, Body, Query, Headers, NotGiven
-from .._utils import (
-    required_args,
-    maybe_transform,
-    async_maybe_transform,
-)
+from .._types import Body, Omit, Query, Headers, NotGiven, SequenceNotStr, omit, not_given
+from .._utils import path_template, required_args, maybe_transform, async_maybe_transform
 from .._compat import cached_property
 from .._resource import SyncAPIResource, AsyncAPIResource
 from .._response import (
@@ -61,16 +57,16 @@ class EvaluationAssertionsResource(SyncAPIResource):
         evaluation_id: str,
         target_value: str,
         type: Literal["EXACT_MATCH"],
-        ignore_case: bool | NotGiven = NOT_GIVEN,
-        json_path: Optional[str] | NotGiven = NOT_GIVEN,
-        negate: bool | NotGiven = NOT_GIVEN,
-        weight: float | NotGiven = NOT_GIVEN,
+        ignore_case: bool | Omit = omit,
+        json_path: Optional[str] | Omit = omit,
+        negate: bool | Omit = omit,
+        weight: float | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EvaluationAssertion:
         """
         Creates a new evaluation assertion
@@ -101,18 +97,18 @@ class EvaluationAssertionsResource(SyncAPIResource):
         self,
         *,
         evaluation_id: str,
-        target_values: List[str],
+        target_values: SequenceNotStr[str],
         type: Literal["CONTAINS_ALL"],
-        ignore_case: bool | NotGiven = NOT_GIVEN,
-        json_path: Optional[str] | NotGiven = NOT_GIVEN,
-        negate: bool | NotGiven = NOT_GIVEN,
-        weight: float | NotGiven = NOT_GIVEN,
+        ignore_case: bool | Omit = omit,
+        json_path: Optional[str] | Omit = omit,
+        negate: bool | Omit = omit,
+        weight: float | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EvaluationAssertion:
         """
         Creates a new evaluation assertion
@@ -143,18 +139,18 @@ class EvaluationAssertionsResource(SyncAPIResource):
         self,
         *,
         evaluation_id: str,
-        target_values: List[str],
+        target_values: SequenceNotStr[str],
         type: Literal["CONTAINS_ANY"],
-        ignore_case: bool | NotGiven = NOT_GIVEN,
-        json_path: Optional[str] | NotGiven = NOT_GIVEN,
-        negate: bool | NotGiven = NOT_GIVEN,
-        weight: float | NotGiven = NOT_GIVEN,
+        ignore_case: bool | Omit = omit,
+        json_path: Optional[str] | Omit = omit,
+        negate: bool | Omit = omit,
+        weight: float | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EvaluationAssertion:
         """
         Creates a new evaluation assertion
@@ -187,16 +183,16 @@ class EvaluationAssertionsResource(SyncAPIResource):
         evaluation_id: str,
         target_value: str,
         type: Literal["STARTS_WITH"],
-        ignore_case: bool | NotGiven = NOT_GIVEN,
-        json_path: Optional[str] | NotGiven = NOT_GIVEN,
-        negate: bool | NotGiven = NOT_GIVEN,
-        weight: float | NotGiven = NOT_GIVEN,
+        ignore_case: bool | Omit = omit,
+        json_path: Optional[str] | Omit = omit,
+        negate: bool | Omit = omit,
+        weight: float | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EvaluationAssertion:
         """
         Creates a new evaluation assertion
@@ -229,13 +225,13 @@ class EvaluationAssertionsResource(SyncAPIResource):
         evaluation_id: str,
         target_threshold: float,
         type: Literal["COST"],
-        weight: float | NotGiven = NOT_GIVEN,
+        weight: float | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EvaluationAssertion:
         """
         Creates a new evaluation assertion
@@ -262,13 +258,13 @@ class EvaluationAssertionsResource(SyncAPIResource):
         evaluation_id: str,
         target_threshold: float,
         type: Literal["LATENCY"],
-        weight: float | NotGiven = NOT_GIVEN,
+        weight: float | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EvaluationAssertion:
         """
         Creates a new evaluation assertion
@@ -295,13 +291,13 @@ class EvaluationAssertionsResource(SyncAPIResource):
         evaluation_id: str,
         tool_name: str,
         type: Literal["TOOL_CALLED"],
-        weight: float | NotGiven = NOT_GIVEN,
+        weight: float | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EvaluationAssertion:
         """
         Creates a new evaluation assertion
@@ -329,15 +325,15 @@ class EvaluationAssertionsResource(SyncAPIResource):
         evaluation_id: str,
         tool_name: str,
         type: Literal["TOOL_CALLED_WITH"],
-        ignore_case: bool | NotGiven = NOT_GIVEN,
-        negate: bool | NotGiven = NOT_GIVEN,
-        weight: float | NotGiven = NOT_GIVEN,
+        ignore_case: bool | Omit = omit,
+        negate: bool | Omit = omit,
+        weight: float | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EvaluationAssertion:
         """
         Creates a new evaluation assertion
@@ -374,7 +370,7 @@ class EvaluationAssertionsResource(SyncAPIResource):
         self,
         *,
         evaluation_id: str,
-        target_value: str | NotGiven = NOT_GIVEN,
+        target_value: str | Omit = omit,
         type: Literal["EXACT_MATCH"]
         | Literal["CONTAINS_ALL"]
         | Literal["CONTAINS_ANY"]
@@ -383,20 +379,20 @@ class EvaluationAssertionsResource(SyncAPIResource):
         | Literal["LATENCY"]
         | Literal["TOOL_CALLED"]
         | Literal["TOOL_CALLED_WITH"],
-        ignore_case: bool | NotGiven = NOT_GIVEN,
-        json_path: Optional[str] | NotGiven = NOT_GIVEN,
-        negate: bool | NotGiven = NOT_GIVEN,
-        weight: float | NotGiven = NOT_GIVEN,
-        target_values: List[str] | NotGiven = NOT_GIVEN,
-        target_threshold: float | NotGiven = NOT_GIVEN,
-        tool_name: str | NotGiven = NOT_GIVEN,
-        arg_key_name: str | NotGiven = NOT_GIVEN,
+        ignore_case: bool | Omit = omit,
+        json_path: Optional[str] | Omit = omit,
+        negate: bool | Omit = omit,
+        weight: float | Omit = omit,
+        target_values: SequenceNotStr[str] | Omit = omit,
+        target_threshold: float | Omit = omit,
+        tool_name: str | Omit = omit,
+        arg_key_name: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EvaluationAssertion:
         return cast(
             EvaluationAssertion,
@@ -435,16 +431,16 @@ class EvaluationAssertionsResource(SyncAPIResource):
         evaluation_id: str,
         target_value: str,
         type: Literal["EXACT_MATCH"],
-        ignore_case: bool | NotGiven = NOT_GIVEN,
-        json_path: Optional[str] | NotGiven = NOT_GIVEN,
-        negate: bool | NotGiven = NOT_GIVEN,
-        weight: float | NotGiven = NOT_GIVEN,
+        ignore_case: bool | Omit = omit,
+        json_path: Optional[str] | Omit = omit,
+        negate: bool | Omit = omit,
+        weight: float | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EvaluationAssertion:
         """
         Update an existing evaluation assertion by providing its ID and new data.
@@ -476,18 +472,18 @@ class EvaluationAssertionsResource(SyncAPIResource):
         id: str,
         *,
         evaluation_id: str,
-        target_values: List[str],
+        target_values: SequenceNotStr[str],
         type: Literal["CONTAINS_ALL"],
-        ignore_case: bool | NotGiven = NOT_GIVEN,
-        json_path: Optional[str] | NotGiven = NOT_GIVEN,
-        negate: bool | NotGiven = NOT_GIVEN,
-        weight: float | NotGiven = NOT_GIVEN,
+        ignore_case: bool | Omit = omit,
+        json_path: Optional[str] | Omit = omit,
+        negate: bool | Omit = omit,
+        weight: float | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EvaluationAssertion:
         """
         Update an existing evaluation assertion by providing its ID and new data.
@@ -519,18 +515,18 @@ class EvaluationAssertionsResource(SyncAPIResource):
         id: str,
         *,
         evaluation_id: str,
-        target_values: List[str],
+        target_values: SequenceNotStr[str],
         type: Literal["CONTAINS_ANY"],
-        ignore_case: bool | NotGiven = NOT_GIVEN,
-        json_path: Optional[str] | NotGiven = NOT_GIVEN,
-        negate: bool | NotGiven = NOT_GIVEN,
-        weight: float | NotGiven = NOT_GIVEN,
+        ignore_case: bool | Omit = omit,
+        json_path: Optional[str] | Omit = omit,
+        negate: bool | Omit = omit,
+        weight: float | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EvaluationAssertion:
         """
         Update an existing evaluation assertion by providing its ID and new data.
@@ -564,16 +560,16 @@ class EvaluationAssertionsResource(SyncAPIResource):
         evaluation_id: str,
         target_value: str,
         type: Literal["STARTS_WITH"],
-        ignore_case: bool | NotGiven = NOT_GIVEN,
-        json_path: Optional[str] | NotGiven = NOT_GIVEN,
-        negate: bool | NotGiven = NOT_GIVEN,
-        weight: float | NotGiven = NOT_GIVEN,
+        ignore_case: bool | Omit = omit,
+        json_path: Optional[str] | Omit = omit,
+        negate: bool | Omit = omit,
+        weight: float | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EvaluationAssertion:
         """
         Update an existing evaluation assertion by providing its ID and new data.
@@ -607,13 +603,13 @@ class EvaluationAssertionsResource(SyncAPIResource):
         evaluation_id: str,
         target_threshold: float,
         type: Literal["COST"],
-        weight: float | NotGiven = NOT_GIVEN,
+        weight: float | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EvaluationAssertion:
         """
         Update an existing evaluation assertion by providing its ID and new data.
@@ -641,13 +637,13 @@ class EvaluationAssertionsResource(SyncAPIResource):
         evaluation_id: str,
         target_threshold: float,
         type: Literal["LATENCY"],
-        weight: float | NotGiven = NOT_GIVEN,
+        weight: float | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EvaluationAssertion:
         """
         Update an existing evaluation assertion by providing its ID and new data.
@@ -675,13 +671,13 @@ class EvaluationAssertionsResource(SyncAPIResource):
         evaluation_id: str,
         tool_name: str,
         type: Literal["TOOL_CALLED"],
-        weight: float | NotGiven = NOT_GIVEN,
+        weight: float | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EvaluationAssertion:
         """
         Update an existing evaluation assertion by providing its ID and new data.
@@ -710,15 +706,15 @@ class EvaluationAssertionsResource(SyncAPIResource):
         evaluation_id: str,
         tool_name: str,
         type: Literal["TOOL_CALLED_WITH"],
-        ignore_case: bool | NotGiven = NOT_GIVEN,
-        negate: bool | NotGiven = NOT_GIVEN,
-        weight: float | NotGiven = NOT_GIVEN,
+        ignore_case: bool | Omit = omit,
+        negate: bool | Omit = omit,
+        weight: float | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EvaluationAssertion:
         """
         Update an existing evaluation assertion by providing its ID and new data.
@@ -756,7 +752,7 @@ class EvaluationAssertionsResource(SyncAPIResource):
         id: str,
         *,
         evaluation_id: str,
-        target_value: str | NotGiven = NOT_GIVEN,
+        target_value: str | Omit = omit,
         type: Literal["EXACT_MATCH"]
         | Literal["CONTAINS_ALL"]
         | Literal["CONTAINS_ANY"]
@@ -765,27 +761,27 @@ class EvaluationAssertionsResource(SyncAPIResource):
         | Literal["LATENCY"]
         | Literal["TOOL_CALLED"]
         | Literal["TOOL_CALLED_WITH"],
-        ignore_case: bool | NotGiven = NOT_GIVEN,
-        json_path: Optional[str] | NotGiven = NOT_GIVEN,
-        negate: bool | NotGiven = NOT_GIVEN,
-        weight: float | NotGiven = NOT_GIVEN,
-        target_values: List[str] | NotGiven = NOT_GIVEN,
-        target_threshold: float | NotGiven = NOT_GIVEN,
-        tool_name: str | NotGiven = NOT_GIVEN,
-        arg_key_name: str | NotGiven = NOT_GIVEN,
+        ignore_case: bool | Omit = omit,
+        json_path: Optional[str] | Omit = omit,
+        negate: bool | Omit = omit,
+        weight: float | Omit = omit,
+        target_values: SequenceNotStr[str] | Omit = omit,
+        target_threshold: float | Omit = omit,
+        tool_name: str | Omit = omit,
+        arg_key_name: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EvaluationAssertion:
         if not id:
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         return cast(
             EvaluationAssertion,
             self._put(
-                f"/sdk/v1/evaluation-assertions/{id}",
+                path_template("/sdk/v1/evaluation-assertions/{id}", id=id),
                 body=maybe_transform(
                     {
                         "evaluation_id": evaluation_id,
@@ -814,13 +810,13 @@ class EvaluationAssertionsResource(SyncAPIResource):
     def list(
         self,
         *,
-        evaluation_id: str | NotGiven = NOT_GIVEN,
+        evaluation_id: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EvaluationAssertionListResponse:
         """
         Retrieve all evaluation assertions optionally filtered by evaluation ID
@@ -859,7 +855,7 @@ class EvaluationAssertionsResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EvaluationAssertionDeleteResponse:
         """
         Delete an evaluation assertion by providing its ID.
@@ -876,7 +872,7 @@ class EvaluationAssertionsResource(SyncAPIResource):
         if not id:
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         return self._delete(
-            f"/sdk/v1/evaluation-assertions/{id}",
+            path_template("/sdk/v1/evaluation-assertions/{id}", id=id),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -892,7 +888,7 @@ class EvaluationAssertionsResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EvaluationAssertion:
         """
         Retrieve the details of an evaluation assertion using its ID.
@@ -911,7 +907,7 @@ class EvaluationAssertionsResource(SyncAPIResource):
         return cast(
             EvaluationAssertion,
             self._get(
-                f"/sdk/v1/evaluation-assertions/{id}",
+                path_template("/sdk/v1/evaluation-assertions/{id}", id=id),
                 options=make_request_options(
                     extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
                 ),
@@ -949,16 +945,16 @@ class AsyncEvaluationAssertionsResource(AsyncAPIResource):
         evaluation_id: str,
         target_value: str,
         type: Literal["EXACT_MATCH"],
-        ignore_case: bool | NotGiven = NOT_GIVEN,
-        json_path: Optional[str] | NotGiven = NOT_GIVEN,
-        negate: bool | NotGiven = NOT_GIVEN,
-        weight: float | NotGiven = NOT_GIVEN,
+        ignore_case: bool | Omit = omit,
+        json_path: Optional[str] | Omit = omit,
+        negate: bool | Omit = omit,
+        weight: float | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EvaluationAssertion:
         """
         Creates a new evaluation assertion
@@ -989,18 +985,18 @@ class AsyncEvaluationAssertionsResource(AsyncAPIResource):
         self,
         *,
         evaluation_id: str,
-        target_values: List[str],
+        target_values: SequenceNotStr[str],
         type: Literal["CONTAINS_ALL"],
-        ignore_case: bool | NotGiven = NOT_GIVEN,
-        json_path: Optional[str] | NotGiven = NOT_GIVEN,
-        negate: bool | NotGiven = NOT_GIVEN,
-        weight: float | NotGiven = NOT_GIVEN,
+        ignore_case: bool | Omit = omit,
+        json_path: Optional[str] | Omit = omit,
+        negate: bool | Omit = omit,
+        weight: float | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EvaluationAssertion:
         """
         Creates a new evaluation assertion
@@ -1031,18 +1027,18 @@ class AsyncEvaluationAssertionsResource(AsyncAPIResource):
         self,
         *,
         evaluation_id: str,
-        target_values: List[str],
+        target_values: SequenceNotStr[str],
         type: Literal["CONTAINS_ANY"],
-        ignore_case: bool | NotGiven = NOT_GIVEN,
-        json_path: Optional[str] | NotGiven = NOT_GIVEN,
-        negate: bool | NotGiven = NOT_GIVEN,
-        weight: float | NotGiven = NOT_GIVEN,
+        ignore_case: bool | Omit = omit,
+        json_path: Optional[str] | Omit = omit,
+        negate: bool | Omit = omit,
+        weight: float | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EvaluationAssertion:
         """
         Creates a new evaluation assertion
@@ -1075,16 +1071,16 @@ class AsyncEvaluationAssertionsResource(AsyncAPIResource):
         evaluation_id: str,
         target_value: str,
         type: Literal["STARTS_WITH"],
-        ignore_case: bool | NotGiven = NOT_GIVEN,
-        json_path: Optional[str] | NotGiven = NOT_GIVEN,
-        negate: bool | NotGiven = NOT_GIVEN,
-        weight: float | NotGiven = NOT_GIVEN,
+        ignore_case: bool | Omit = omit,
+        json_path: Optional[str] | Omit = omit,
+        negate: bool | Omit = omit,
+        weight: float | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EvaluationAssertion:
         """
         Creates a new evaluation assertion
@@ -1117,13 +1113,13 @@ class AsyncEvaluationAssertionsResource(AsyncAPIResource):
         evaluation_id: str,
         target_threshold: float,
         type: Literal["COST"],
-        weight: float | NotGiven = NOT_GIVEN,
+        weight: float | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EvaluationAssertion:
         """
         Creates a new evaluation assertion
@@ -1150,13 +1146,13 @@ class AsyncEvaluationAssertionsResource(AsyncAPIResource):
         evaluation_id: str,
         target_threshold: float,
         type: Literal["LATENCY"],
-        weight: float | NotGiven = NOT_GIVEN,
+        weight: float | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EvaluationAssertion:
         """
         Creates a new evaluation assertion
@@ -1183,13 +1179,13 @@ class AsyncEvaluationAssertionsResource(AsyncAPIResource):
         evaluation_id: str,
         tool_name: str,
         type: Literal["TOOL_CALLED"],
-        weight: float | NotGiven = NOT_GIVEN,
+        weight: float | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EvaluationAssertion:
         """
         Creates a new evaluation assertion
@@ -1217,15 +1213,15 @@ class AsyncEvaluationAssertionsResource(AsyncAPIResource):
         evaluation_id: str,
         tool_name: str,
         type: Literal["TOOL_CALLED_WITH"],
-        ignore_case: bool | NotGiven = NOT_GIVEN,
-        negate: bool | NotGiven = NOT_GIVEN,
-        weight: float | NotGiven = NOT_GIVEN,
+        ignore_case: bool | Omit = omit,
+        negate: bool | Omit = omit,
+        weight: float | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EvaluationAssertion:
         """
         Creates a new evaluation assertion
@@ -1262,7 +1258,7 @@ class AsyncEvaluationAssertionsResource(AsyncAPIResource):
         self,
         *,
         evaluation_id: str,
-        target_value: str | NotGiven = NOT_GIVEN,
+        target_value: str | Omit = omit,
         type: Literal["EXACT_MATCH"]
         | Literal["CONTAINS_ALL"]
         | Literal["CONTAINS_ANY"]
@@ -1271,20 +1267,20 @@ class AsyncEvaluationAssertionsResource(AsyncAPIResource):
         | Literal["LATENCY"]
         | Literal["TOOL_CALLED"]
         | Literal["TOOL_CALLED_WITH"],
-        ignore_case: bool | NotGiven = NOT_GIVEN,
-        json_path: Optional[str] | NotGiven = NOT_GIVEN,
-        negate: bool | NotGiven = NOT_GIVEN,
-        weight: float | NotGiven = NOT_GIVEN,
-        target_values: List[str] | NotGiven = NOT_GIVEN,
-        target_threshold: float | NotGiven = NOT_GIVEN,
-        tool_name: str | NotGiven = NOT_GIVEN,
-        arg_key_name: str | NotGiven = NOT_GIVEN,
+        ignore_case: bool | Omit = omit,
+        json_path: Optional[str] | Omit = omit,
+        negate: bool | Omit = omit,
+        weight: float | Omit = omit,
+        target_values: SequenceNotStr[str] | Omit = omit,
+        target_threshold: float | Omit = omit,
+        tool_name: str | Omit = omit,
+        arg_key_name: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EvaluationAssertion:
         return cast(
             EvaluationAssertion,
@@ -1323,16 +1319,16 @@ class AsyncEvaluationAssertionsResource(AsyncAPIResource):
         evaluation_id: str,
         target_value: str,
         type: Literal["EXACT_MATCH"],
-        ignore_case: bool | NotGiven = NOT_GIVEN,
-        json_path: Optional[str] | NotGiven = NOT_GIVEN,
-        negate: bool | NotGiven = NOT_GIVEN,
-        weight: float | NotGiven = NOT_GIVEN,
+        ignore_case: bool | Omit = omit,
+        json_path: Optional[str] | Omit = omit,
+        negate: bool | Omit = omit,
+        weight: float | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EvaluationAssertion:
         """
         Update an existing evaluation assertion by providing its ID and new data.
@@ -1364,18 +1360,18 @@ class AsyncEvaluationAssertionsResource(AsyncAPIResource):
         id: str,
         *,
         evaluation_id: str,
-        target_values: List[str],
+        target_values: SequenceNotStr[str],
         type: Literal["CONTAINS_ALL"],
-        ignore_case: bool | NotGiven = NOT_GIVEN,
-        json_path: Optional[str] | NotGiven = NOT_GIVEN,
-        negate: bool | NotGiven = NOT_GIVEN,
-        weight: float | NotGiven = NOT_GIVEN,
+        ignore_case: bool | Omit = omit,
+        json_path: Optional[str] | Omit = omit,
+        negate: bool | Omit = omit,
+        weight: float | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EvaluationAssertion:
         """
         Update an existing evaluation assertion by providing its ID and new data.
@@ -1407,18 +1403,18 @@ class AsyncEvaluationAssertionsResource(AsyncAPIResource):
         id: str,
         *,
         evaluation_id: str,
-        target_values: List[str],
+        target_values: SequenceNotStr[str],
         type: Literal["CONTAINS_ANY"],
-        ignore_case: bool | NotGiven = NOT_GIVEN,
-        json_path: Optional[str] | NotGiven = NOT_GIVEN,
-        negate: bool | NotGiven = NOT_GIVEN,
-        weight: float | NotGiven = NOT_GIVEN,
+        ignore_case: bool | Omit = omit,
+        json_path: Optional[str] | Omit = omit,
+        negate: bool | Omit = omit,
+        weight: float | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EvaluationAssertion:
         """
         Update an existing evaluation assertion by providing its ID and new data.
@@ -1452,16 +1448,16 @@ class AsyncEvaluationAssertionsResource(AsyncAPIResource):
         evaluation_id: str,
         target_value: str,
         type: Literal["STARTS_WITH"],
-        ignore_case: bool | NotGiven = NOT_GIVEN,
-        json_path: Optional[str] | NotGiven = NOT_GIVEN,
-        negate: bool | NotGiven = NOT_GIVEN,
-        weight: float | NotGiven = NOT_GIVEN,
+        ignore_case: bool | Omit = omit,
+        json_path: Optional[str] | Omit = omit,
+        negate: bool | Omit = omit,
+        weight: float | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EvaluationAssertion:
         """
         Update an existing evaluation assertion by providing its ID and new data.
@@ -1495,13 +1491,13 @@ class AsyncEvaluationAssertionsResource(AsyncAPIResource):
         evaluation_id: str,
         target_threshold: float,
         type: Literal["COST"],
-        weight: float | NotGiven = NOT_GIVEN,
+        weight: float | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EvaluationAssertion:
         """
         Update an existing evaluation assertion by providing its ID and new data.
@@ -1529,13 +1525,13 @@ class AsyncEvaluationAssertionsResource(AsyncAPIResource):
         evaluation_id: str,
         target_threshold: float,
         type: Literal["LATENCY"],
-        weight: float | NotGiven = NOT_GIVEN,
+        weight: float | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EvaluationAssertion:
         """
         Update an existing evaluation assertion by providing its ID and new data.
@@ -1563,13 +1559,13 @@ class AsyncEvaluationAssertionsResource(AsyncAPIResource):
         evaluation_id: str,
         tool_name: str,
         type: Literal["TOOL_CALLED"],
-        weight: float | NotGiven = NOT_GIVEN,
+        weight: float | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EvaluationAssertion:
         """
         Update an existing evaluation assertion by providing its ID and new data.
@@ -1598,15 +1594,15 @@ class AsyncEvaluationAssertionsResource(AsyncAPIResource):
         evaluation_id: str,
         tool_name: str,
         type: Literal["TOOL_CALLED_WITH"],
-        ignore_case: bool | NotGiven = NOT_GIVEN,
-        negate: bool | NotGiven = NOT_GIVEN,
-        weight: float | NotGiven = NOT_GIVEN,
+        ignore_case: bool | Omit = omit,
+        negate: bool | Omit = omit,
+        weight: float | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EvaluationAssertion:
         """
         Update an existing evaluation assertion by providing its ID and new data.
@@ -1644,7 +1640,7 @@ class AsyncEvaluationAssertionsResource(AsyncAPIResource):
         id: str,
         *,
         evaluation_id: str,
-        target_value: str | NotGiven = NOT_GIVEN,
+        target_value: str | Omit = omit,
         type: Literal["EXACT_MATCH"]
         | Literal["CONTAINS_ALL"]
         | Literal["CONTAINS_ANY"]
@@ -1653,27 +1649,27 @@ class AsyncEvaluationAssertionsResource(AsyncAPIResource):
         | Literal["LATENCY"]
         | Literal["TOOL_CALLED"]
         | Literal["TOOL_CALLED_WITH"],
-        ignore_case: bool | NotGiven = NOT_GIVEN,
-        json_path: Optional[str] | NotGiven = NOT_GIVEN,
-        negate: bool | NotGiven = NOT_GIVEN,
-        weight: float | NotGiven = NOT_GIVEN,
-        target_values: List[str] | NotGiven = NOT_GIVEN,
-        target_threshold: float | NotGiven = NOT_GIVEN,
-        tool_name: str | NotGiven = NOT_GIVEN,
-        arg_key_name: str | NotGiven = NOT_GIVEN,
+        ignore_case: bool | Omit = omit,
+        json_path: Optional[str] | Omit = omit,
+        negate: bool | Omit = omit,
+        weight: float | Omit = omit,
+        target_values: SequenceNotStr[str] | Omit = omit,
+        target_threshold: float | Omit = omit,
+        tool_name: str | Omit = omit,
+        arg_key_name: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EvaluationAssertion:
         if not id:
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         return cast(
             EvaluationAssertion,
             await self._put(
-                f"/sdk/v1/evaluation-assertions/{id}",
+                path_template("/sdk/v1/evaluation-assertions/{id}", id=id),
                 body=await async_maybe_transform(
                     {
                         "evaluation_id": evaluation_id,
@@ -1702,13 +1698,13 @@ class AsyncEvaluationAssertionsResource(AsyncAPIResource):
     async def list(
         self,
         *,
-        evaluation_id: str | NotGiven = NOT_GIVEN,
+        evaluation_id: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EvaluationAssertionListResponse:
         """
         Retrieve all evaluation assertions optionally filtered by evaluation ID
@@ -1747,7 +1743,7 @@ class AsyncEvaluationAssertionsResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EvaluationAssertionDeleteResponse:
         """
         Delete an evaluation assertion by providing its ID.
@@ -1764,7 +1760,7 @@ class AsyncEvaluationAssertionsResource(AsyncAPIResource):
         if not id:
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         return await self._delete(
-            f"/sdk/v1/evaluation-assertions/{id}",
+            path_template("/sdk/v1/evaluation-assertions/{id}", id=id),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -1780,7 +1776,7 @@ class AsyncEvaluationAssertionsResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EvaluationAssertion:
         """
         Retrieve the details of an evaluation assertion using its ID.
@@ -1799,7 +1795,7 @@ class AsyncEvaluationAssertionsResource(AsyncAPIResource):
         return cast(
             EvaluationAssertion,
             await self._get(
-                f"/sdk/v1/evaluation-assertions/{id}",
+                path_template("/sdk/v1/evaluation-assertions/{id}", id=id),
                 options=make_request_options(
                     extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
                 ),

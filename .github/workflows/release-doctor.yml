@@ -12,11 +12,10 @@ jobs:
     if: github.repository == 'prompt-foundry/python-sdk' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch' || startsWith(github.head_ref, 'release-please') || github.head_ref == 'next')
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Check release environment
         run: |
           bash ./bin/check-release-environment
         env:
-          STAINLESS_API_KEY: ${{ secrets.STAINLESS_API_KEY }}
           PYPI_TOKEN: ${{ secrets.PROMPT_FOUNDRY_PYPI_TOKEN || secrets.PYPI_TOKEN }}

@@ -1,8 +1,9 @@
 # Prompt Foundry Python API library
 
-[![PyPI version](https://img.shields.io/pypi/v/prompt_foundry_python_sdk.svg)](https://pypi.org/project/prompt_foundry_python_sdk/)
+<!-- prettier-ignore -->
+[![PyPI version](https://img.shields.io/pypi/v/prompt_foundry_python_sdk.svg?label=pypi%20(stable))](https://pypi.org/project/prompt_foundry_python_sdk/)
 
-The Prompt Foundry Python library provides convenient access to the Prompt Foundry REST API from any Python 3.8+
+The Prompt Foundry Python library provides convenient access to the Prompt Foundry REST API from any Python 3.9+
 application. The library includes type definitions for all request params and response fields,
 and offers both synchronous and asynchronous clients powered by [httpx](https://github.com/encode/httpx).
 
@@ -14,7 +15,7 @@ The REST API documentation can be found on [docs.promptfoundry.ai](https://docs.
 
 ```sh
 # install from PyPI
-pip install --pre prompt_foundry_python_sdk
+pip install '--pre prompt_foundry_python_sdk'
 ```
 
 ## Usage
@@ -88,6 +89,51 @@ asyncio.run(main())
 
 Functionality between the synchronous and asynchronous clients is otherwise identical.
 
+### With aiohttp
+
+By default, the async client uses `httpx` for HTTP requests. However, for improved concurrency performance you may also use `aiohttp` as the HTTP backend.
+
+You can enable this by installing `aiohttp`:
+
+```sh
+# install from PyPI
+pip install '--pre prompt_foundry_python_sdk[aiohttp]'
+```
+
+Then you can enable it by instantiating the client with `http_client=DefaultAioHttpClient()`:
+
+```python
+import os
+import asyncio
+from prompt_foundry_python_sdk import DefaultAioHttpClient
+from prompt_foundry_python_sdk import AsyncPromptFoundry
+
+
+async def main() -> None:
+    async with AsyncPromptFoundry(
+        api_key=os.environ.get("PROMPT_FOUNDRY_API_KEY"),  # This is the default and can be omitted
+        http_client=DefaultAioHttpClient(),
+    ) as client:
+        completion_create_response = await client.completion.create(
+            id="1212121",
+            append_messages=[
+                {
+                    "role": "user",
+                    "content": [
+                        {
+                            "type": "TEXT",
+                            "text": "What is the weather in Seattle, WA?",
+                        }
+                    ],
+                }
+            ],
+        )
+        print(completion_create_response.message)
+
+
+asyncio.run(main())
+```
+
 ## Using types
 
 Nested request parameters are [TypedDicts](https://docs.python.org/3/library/typing.html#typing.TypedDict). Responses are [Pydantic models](https://docs.pydantic.dev) which also provide helper methods for things like:
@@ -96,6 +142,49 @@ Nested request parameters are [TypedDicts](https://docs.python.org/3/library/typ
 - Converting to a dictionary, `model.to_dict()`
 
 Typed requests and responses provide autocomplete and documentation within your editor. If you would like to see type errors in VS Code to help catch bugs earlier, set `python.analysis.typeCheckingMode` to `basic`.
+
+## Nested params
+
+Nested parameters are dictionaries, typed using `TypedDict`, for example:
+
+```python
+from prompt_foundry_python_sdk import PromptFoundry
+
+client = PromptFoundry()
+
+prompt_configuration = client.prompts.create(
+    messages=[
+        {
+            "content": [
+                {
+                    "text": "text",
+                    "type": "TEXT",
+                }
+            ],
+            "prompt_message_id": "promptMessageId",
+            "role": "assistant",
+        }
+    ],
+    name="name",
+    parameters={
+        "frequency_penalty": 0,
+        "max_tokens": 0,
+        "name": "name",
+        "parallel_tool_calls": True,
+        "presence_penalty": 0,
+        "provider": "ANTHROPIC",
+        "response_format": "JSON",
+        "seed": 0,
+        "stream": True,
+        "temperature": 0,
+        "tool_choice": "toolChoice",
+        "top_k": 1,
+        "top_p": 0,
+    },
+    tools=[{"tool_id": "toolId"}],
+)
+print(prompt_configuration.parameters)
+```
 
 ## Handling errors
 
@@ -166,7 +255,7 @@ client.with_options(max_retries=5).completion.create(
 ### Timeouts
 
 By default requests time out after 1 minute. You can configure this with a `timeout` option,
-which accepts a float or an [`httpx.Timeout`](https://www.python-httpx.org/advanced/#fine-tuning-the-configuration) object:
+which accepts a float or an [`httpx.Timeout`](https://www.python-httpx.org/advanced/timeouts/#fine-tuning-the-configuration) object:
 
 ```python
 from prompt_foundry_python_sdk import PromptFoundry
@@ -358,7 +447,7 @@ print(prompt_foundry_python_sdk.__version__)
 
 ## Requirements
 
-Python 3.8 or higher.
+Python 3.9 or higher.
 
 ## Contributing
 

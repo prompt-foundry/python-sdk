@@ -7,11 +7,8 @@ from typing import Dict, Iterable, Optional
 import httpx
 
 from ..types import completion_create_params
-from .._types import NOT_GIVEN, Body, Query, Headers, NotGiven
-from .._utils import (
-    maybe_transform,
-    async_maybe_transform,
-)
+from .._types import Body, Omit, Query, Headers, NotGiven, omit, not_given
+from .._utils import path_template, maybe_transform, async_maybe_transform
 from .._compat import cached_property
 from .._resource import SyncAPIResource, AsyncAPIResource
 from .._response import (
@@ -50,16 +47,16 @@ class CompletionResource(SyncAPIResource):
         self,
         id: str,
         *,
-        append_messages: Iterable[completion_create_params.AppendMessage] | NotGiven = NOT_GIVEN,
-        override_messages: Iterable[completion_create_params.OverrideMessage] | NotGiven = NOT_GIVEN,
-        user: str | NotGiven = NOT_GIVEN,
-        variables: Dict[str, Optional[str]] | NotGiven = NOT_GIVEN,
+        append_messages: Iterable[completion_create_params.AppendMessage] | Omit = omit,
+        override_messages: Iterable[completion_create_params.OverrideMessage] | Omit = omit,
+        user: str | Omit = omit,
+        variables: Dict[str, Optional[str]] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> CompletionCreateResponse:
         """
         Initiates a completion request to the configured LLM provider using specified
@@ -89,7 +86,7 @@ class CompletionResource(SyncAPIResource):
         if not id:
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         return self._post(
-            f"/sdk/v1/prompts/{id}/completion",
+            path_template("/sdk/v1/prompts/{id}/completion", id=id),
             body=maybe_transform(
                 {
                     "append_messages": append_messages,
@@ -130,16 +127,16 @@ class AsyncCompletionResource(AsyncAPIResource):
         self,
         id: str,
         *,
-        append_messages: Iterable[completion_create_params.AppendMessage] | NotGiven = NOT_GIVEN,
-        override_messages: Iterable[completion_create_params.OverrideMessage] | NotGiven = NOT_GIVEN,
-        user: str | NotGiven = NOT_GIVEN,
-        variables: Dict[str, Optional[str]] | NotGiven = NOT_GIVEN,
+        append_messages: Iterable[completion_create_params.AppendMessage] | Omit = omit,
+        override_messages: Iterable[completion_create_params.OverrideMessage] | Omit = omit,
+        user: str | Omit = omit,
+        variables: Dict[str, Optional[str]] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> CompletionCreateResponse:
         """
         Initiates a completion request to the configured LLM provider using specified
@@ -169,7 +166,7 @@ class AsyncCompletionResource(AsyncAPIResource):
         if not id:
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         return await self._post(
-            f"/sdk/v1/prompts/{id}/completion",
+            path_template("/sdk/v1/prompts/{id}/completion", id=id),
             body=await async_maybe_transform(
                 {
                     "append_messages": append_messages,

@@ -2,9 +2,10 @@
 
 from __future__ import annotations
 
-from typing import List, Union, Optional
+from typing import Union, Optional
 from typing_extensions import Literal, Required, Annotated, TypeAlias, TypedDict
 
+from .._types import SequenceNotStr
 from .._utils import PropertyInfo
 
 __all__ = [
@@ -44,7 +45,7 @@ class EvaluationAssertionExactMatchBody(TypedDict, total=False):
 class EvaluationAssertionContainsAllBody(TypedDict, total=False):
     evaluation_id: Required[Annotated[str, PropertyInfo(alias="evaluationId")]]
 
-    target_values: Required[Annotated[List[str], PropertyInfo(alias="targetValues")]]
+    target_values: Required[Annotated[SequenceNotStr[str], PropertyInfo(alias="targetValues")]]
     """List of values any of which may be present."""
 
     type: Required[Literal["CONTAINS_ALL"]]
@@ -65,7 +66,7 @@ class EvaluationAssertionContainsAllBody(TypedDict, total=False):
 class EvaluationAssertionContainsAnyBody(TypedDict, total=False):
     evaluation_id: Required[Annotated[str, PropertyInfo(alias="evaluationId")]]
 
-    target_values: Required[Annotated[List[str], PropertyInfo(alias="targetValues")]]
+    target_values: Required[Annotated[SequenceNotStr[str], PropertyInfo(alias="targetValues")]]
     """List of values any of which may be present."""
 
     type: Required[Literal["CONTAINS_ANY"]]
