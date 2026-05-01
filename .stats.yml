@@ -1,4 +1,4 @@
 configured_endpoints: 22
-openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/prompt-foundry/prompt-foundry-sdk-907036d0f7cfafb6f3bdc9e4b2409b106dd51a4e8eb512ccd30adc1166d0db60.yml
+openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/prompt-foundry/prompt-foundry-sdk-0c256966b147569dc38da8e1ab59f521c6e11837d46bcf26b2631362742f396e.yml
 openapi_spec_hash: 71448cfe06437549b05aa9c3565db73a
 config_hash: 305d70375f37dde28364b57ce0686738
